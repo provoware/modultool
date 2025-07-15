@@ -1,0 +1,6 @@
+{
+  "naming_convention": "suffix",
+  "allowed_suffixes": ["_unvollständig", "_fertig", "_fehlerhaft", "_v1.0"],
+  "max_branches": 2,
+  "default_export_format": "json"
+}
