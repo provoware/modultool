@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GridTool Pro – Fokus & Themes</title>
+  <style>
+    :root {
+      --sidebar-width-left: 240px;
+      --sidebar-width-right: 260px;
+      --sidebar-min: 120px;
+      --sidebar-max: 480px;
+      --sidebar-bg: #23293af9;
+      --sidebar-txt: #f4f8fd;
+      --sidebar-accent: #15b57b;
+      --sidebar-divider: #1b3559;
+      --dragbar-width: 12px;
+      --bg: #181d20;
+      --area: #22252a;
+      --header: #22262c;
+      --footer: #191c1e;
+      --shadow: #0007;
+      --text: #f4f8fd;
+      --text-light: #bac1d1;
+      --text-alt: #7fa993;
+      --button: #19d27c;
+      --button-hover: #11995d;
+      --edit: #2a82f7;
+      --edit-hover: #1b66b3;
+      --remove: #db3665;
+      --remove-hover: #a51636;
+      --genre-bg: #23282e;
+      --input: #24272f;
+      --help: #192017;
+      --active: #28a89e;
+      --dashboard: #1d262c;
+      --dashboard-light: #ececec;
+      --accent: #2ccfa0;
+      --accent-hover: #15986b;
+      --tmpl-btn-bg: #28322e;
+      --tmpl-btn-bg-hover: #338a5d;
+      --focus-ring: #29d3a6;
+      --highlight: #46c1f6;
+      --field-border: #2ccfa0;
+      --field-error: #c53c3c;
+    }
+    [data-theme="light"] {
+      --bg: #f9fafc;
+      --area: #ebf0f7;
+      --header: #dbe8f1;
+      --footer: #d4dde3;
+      --text: #273446;
+      --text-light: #52607b;
+      --text-alt: #3c735c;
+      --sidebar-bg: #eaf5fd;
+      --sidebar-txt: #173140;
+      --sidebar-accent: #219676;
+      --sidebar-divider: #bbe4fd;
+      --genre-bg: #dae7ef;
+      --input: #edf3fb;
+      --button: #27c57d;
+      --button-hover: #0b9564;
+      --edit: #187ae3;
+      --edit-hover: #1755a7;
+      --remove: #e74668;
+      --remove-hover: #bb1c38;
+      --help: #e3f2e8;
+      --dashboard: #e9f0f9;
+      --dashboard-light: #f3f9fb;
+      --tmpl-btn-bg: #cfe2c4;
+      --tmpl-btn-bg-hover: #b0dab9;
+      --focus-ring: #26c38e;
+      --highlight: #0096db;
+      --field-border: #1fb897;
+      --field-error: #c53c3c;
+    }
+    [data-theme="blue"] {
+      --bg: #0e1c2b;
+      --area: #182642;
+      --header: #1c3353;
+      --footer: #14284a;
+      --text: #d7eaff;
+      --text-light: #9cc3e1;
+      --text-alt: #3bd2b7;
+      --sidebar-bg: #152642f0;
+      --sidebar-txt: #b9e6fe;
+      --sidebar-accent: #25daf7;
+      --sidebar-divider: #1a2b49;
+      --genre-bg: #15305c;
+      --input: #142852;
+      --button: #24d1f5;
+      --button-hover: #12a4bb;
+      --edit: #2df3be;
+      --edit-hover: #1b9276;
+      --remove: #d94189;
+      --remove-hover: #a21d67;
+      --help: #13315c;
+      --dashboard: #223462;
+      --dashboard-light: #2d4a7a;
+      --tmpl-btn-bg: #235677;
+      --tmpl-btn-bg-hover: #1ca0da;
+      --focus-ring: #36ecf1;
+      --highlight: #17e9e0;
+      --field-border: #25daf7;
+      --field-error: #d45e91;
+    }
+
+    html, body {
+      min-height: 100vh; width: 100vw; background: var(--bg); color: var(--text); margin:0; padding:0;
+      font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; line-height: 1.5;
+      overflow-x: hidden;
+    }
+    header, footer {
+      background: var(--header); color: var(--text-alt); width:100vw; min-width:320px; text-align:center;
+      font-weight:bold; letter-spacing:.06em; z-index:3;
+    }
+    header { font-size:1.17rem; padding:1.05rem 0 .8rem 0; box-shadow:0 2px 12px var(--shadow);}
+    .fokus-bar {
+      display:flex;align-items:center;justify-content:flex-end;
+      gap:1em; margin-bottom:.5em;
+    }
+    .fokus-btn {
+      background: var(--highlight);
+      color: #fff;
+      font-weight: 600;
+      border-radius: 1em;
+      padding: .52em 1.3em;
+      font-size: 1.06em;
+      border: none;
+      cursor: pointer;
+      margin: 0 1.4em;
+      box-shadow: 0 1px 7px var(--shadow);
+      transition: background .2s, color .2s;
+      outline: none;
+    }
+    .fokus-btn:focus { box-shadow: 0 0 0 3px var(--focus-ring); }
+    .fokus-btn[aria-pressed="true"] { background: var(--button); color: #fff; }
+    footer { font-size:1.03rem; padding:.95rem 0; background: var(--footer); color: var(--text-alt); box-shadow:0 -2px 10px var(--shadow);}
+    .app-frame {
+      display: grid;
+      grid-template-columns: minmax(0,auto) var(--dragbar-width) 1fr var(--dragbar-width) minmax(0,auto);
+      grid-template-rows: 1fr;
+      width: 100vw; min-height: 77vh; max-width: 99vw; box-sizing:border-box;
+    }
+    .sidebar {
+      background: var(--sidebar-bg); color: var(--sidebar-txt);
+      display: flex; flex-direction: column;
+      padding: 1.2em 1.1em .7em 1.1em;
+      min-width: var(--sidebar-min); max-width: var(--sidebar-max);
+      width: 100%; height: 100%; box-sizing: border-box;
+      overflow-x: hidden; overflow-y: auto; z-index:2;
+    }
+    .sidebar.left { grid-column:1; width: var(--sidebar-width-left);}
+    .sidebar.right { grid-column:5; width: var(--sidebar-width-right);}
+    .sidebar-header {font-size:1.12em; font-weight:600; margin-bottom:1em; color:var(--sidebar-accent);}
+    .sidebar-divider {border-bottom:1px solid var(--sidebar-divider); margin:.9em 0;}
+    .sidebar-list {margin:0; padding:0 0 0 .3em; list-style:none;}
+    .sidebar-list li {margin-bottom:.65em;display:flex;align-items:center;gap:.5em;}
+    .sidebar-checkbox {width:1.13em; height:1.13em; accent-color:var(--sidebar-accent);}
+    .sidebar-footer {margin-top:auto; color:var(--sidebar-accent); font-size:.93em;}
+    .sidebar-h2 {font-size:1.13em; font-weight:500; margin:.35em 0 .63em 0;}
+    .sidebar-btns button {margin:.17em .22em .22em 0; padding:.64em 1.25em; background:var(--sidebar-accent); color:#fff; border:none; border-radius:1.2em; cursor:pointer;}
+    .sidebar-btns button.active {background:var(--area); color:var(--sidebar-txt);}
+    .dragbar { grid-row: 1; width: var(--dragbar-width); background: transparent; cursor: ew-resize; z-index:10; position: relative;}
+    .dragbar.left { grid-column:2;}
+    .dragbar.right { grid-column:4;}
+    .dragbar-inner { position:absolute; top:0; left:0; right:0; bottom:0;
+      background: linear-gradient(to right, transparent 45%, var(--sidebar-accent) 52%, transparent 55%);
+      border-radius: 6px; width: 100%; height: 100%;
+      opacity:.4; transition:opacity .17s;
+    }
+    .dragbar:hover .dragbar-inner, .dragbar:active .dragbar-inner { opacity:.85;}
+    .main-content { grid-column:3; width:100%; height:100%; display:flex; justify-content:center; align-items:stretch; transition: width .17s;}
+    .grid-main {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, minmax(200px, 1fr));
+      gap: 1.15rem;
+      max-width: 1380px; min-height:70vh; margin: 22px auto 24px auto;
+      width: 97vw;
+      transition: grid-template-columns .25s, grid-template-rows .25s;
+    }
+    .mod-panel {
+      background: var(--area); border-radius: 1.55rem; box-shadow: 0 4px 18px var(--shadow);
+      padding: 1.22rem 1.12rem; display: flex; flex-direction: column;
+      min-width:0; margin:0; overflow: hidden; max-height:470px; transition: box-shadow .18s,border .18s;
+      border:2.2px solid transparent;
+    }
+    .mod-panel.fokus {box-shadow:0 0 0 6px var(--highlight),0 4px 22px var(--shadow);border:2.2px solid var(--focus-ring);}
+    .mod-panel h2 { font-size:1.16rem; margin-top:0; margin-bottom:.64rem; color:var(--text);}
+    .input-group { display: flex; gap: .5rem; margin-bottom: 1rem; }
+    input, button, select, textarea {
+      border-radius: 1rem; border: 1.7px solid var(--field-border); outline: none; padding: 0.7rem 1.1rem; font-size: 1rem; background: var(--input); color: var(--text); transition: border .16s,box-shadow .17s;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--focus-ring);
+      box-shadow:0 0 0 2.5px var(--focus-ring);
+    }
+    input:disabled, textarea:disabled {background:var(--area);opacity:.78;}
+    button {
+      background: var(--button); color: var(--text); font-weight: bold; cursor: pointer; border: none;
+      transition: background .2s, color .16s, box-shadow .18s;
+      box-shadow:0 1.5px 7px var(--shadow);
+    }
+    button:hover, button:focus { background: var(--button-hover); color:#fff; }
+    .archive-actions, .rand-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: .6rem;}
+    .rand-btn { background:var(--accent);color:#fff;border-radius:1em;font-size:1.03em;padding:.52em 1.3em;font-weight:600;cursor:pointer;}
+    .rand-btn:hover, .rand-btn:focus { background:var(--accent-hover);}
+    .rand-result { font-size:1.05em; background:var(--genre-bg); padding:.67em 1em; border-radius:.7em; margin:.4em 0; word-break:break-all;}
+    .search-group { margin-bottom: .6rem; display: flex; align-items: center; gap:.5rem;}
+    .search-clear { background: var(--edit); color: #fff; font-size:1em; padding: .17em .7em; border-radius:.7em;}
+    .search-clear:hover { background: var(--edit-hover);}
+    .archive-list { flex: 1 1 auto; overflow-y: auto; min-height: 0; margin-bottom: .6rem; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    li { background: var(--genre-bg); padding: 0.45rem 1rem; border-radius: 1rem; margin-bottom: 0.18rem; display: flex; align-items: center; justify-content: space-between; font-size: 1em; }
+    .genre-text { flex: 1; word-break: break-all; cursor: pointer;}
+    .genre-edit { background: var(--input); color: var(--text); border: 1px solid var(--field-border); font-size: 1em; border-radius: 1em; padding: 0.3rem 0.8rem; width: 70%; margin-right: .6em; }
+    .edit-btn { background: var(--edit); margin-left: .7rem; }
+    .edit-btn:hover, .edit-btn:focus { background: var(--edit-hover);}
+    .remove-btn { background: var(--remove); margin-left: .7rem; }
+    .remove-btn:hover, .remove-btn:focus { background: var(--remove-hover);}
+    .dashboard-list { margin:0.2em 0 0.2em 0; padding:0; list-style:none;}
+    .dashboard-list li { background: var(--dashboard-light); color: var(--text-alt); border-radius: .6em; margin-bottom: .25em; padding: .45em .8em; font-size:.97em; display: flex; align-items: center; justify-content: space-between; gap:.5em; word-break:break-all;}
+    .dashboard-copy {background:var(--edit);color:#fff;font-size:1em;border-radius:.6em;padding:.18em .6em; border:none;}
+    .dashboard-copy:hover {background:var(--edit-hover);}
+    .dashboard-timestamp { font-size:.87em; color:var(--text-light); margin-right:.2em;}
+    .tmpl-inputs {display:flex; gap:.7em; margin-bottom:.7em;flex-wrap:wrap;}
+    .tmpl-inputs input {min-width:110px;flex:1;}
+    .tmpl-inputs textarea {min-width:140px;flex:2;resize:vertical;}
+    .tmpl-btnlist {display:flex; flex-wrap:wrap; gap:.5em;}
+    .tmpl-btn {
+      background: var(--tmpl-btn-bg); color: var(--text); border:none;
+      border-radius:1.2em; padding:.6em 1.3em; margin-bottom:.4em;
+      cursor:pointer; font-weight:600; font-size:1em; max-width:100%; transition:background .18s;
+      display:inline-flex; align-items:center; justify-content:center; word-break:break-word;
+    }
+    .tmpl-btn:hover, .tmpl-btn:focus {background:var(--tmpl-btn-bg-hover);}
+    .tmpl-remove {background:var(--remove); color:#fff; border-radius:.9em; border:none; padding:.21em .7em; margin-left:.7em; font-size:1.05em; cursor:pointer;}
+    .tmpl-remove:hover {background:var(--remove-hover);}
+    .debug-log {font-size:1em;background:#181f1f;color:#ececec;border-radius:.7em;padding:.5em 1em;margin:.15em 0;}
+    .debug-err {color:#e95858;}
+    .debug-info{color:#5ecea6;}
+    .input-help {color:var(--text-light);font-size:.97em;margin:.2em 0 .5em .1em;}
+    .file-label {padding:.3em .8em;border-radius:.8em;background:var(--area);margin-left:.3em;cursor:pointer;}
+    .import-status{font-size:.98em;margin:.45em 0;}
+    .small { font-size: .93rem; color: var(--text-light);}
+    .status-msg {padding:.19em 1em; margin:.2em 0 .4em 0; border-radius:.7em; font-weight:600;}
+    .status-ok {background:#198d54b8; color:#f7fff9;}
+    .status-error {background:#d42e4cbe; color:#fff;}
+    @media (max-width: 1100px) {
+      .grid-main { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, minmax(150px, 1fr)); }
+      .mod-panel {max-height:none;}
+    }
+    @media (max-width: 780px) {
+      .app-frame {grid-template-columns: 1fr var(--dragbar-width) 100vw var(--dragbar-width) 1fr;}
+      .grid-main { grid-template-columns: 1fr; grid-template-rows: repeat(9, minmax(100px, 1fr)); }
+      .sidebar {width:96vw;min-width:90vw;max-width:99vw;}
+    }
+  </style>
+</head>
+<body>
+<header>
+  GridTool Pro – Fokusumschaltung &bull; &copy; Pppoppi
+</header>
+<div class="app-frame">
+  <aside class="sidebar left" id="sidebarLeft">
+    <div class="sidebar-header">Module & Infos</div>
+    <div class="sidebar-h2">Module verwalten</div>
+    <ul class="sidebar-list">
+      <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Genres + Zufall</li>
+      <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Archiv</li>
+      <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Dashboard</li>
+      <li><input class="sidebar-checkbox" type="checkbox" id="mod4box" checked onchange="toggleModPanel(4)"> Text-Templates</li>
+      <li><input class="sidebar-checkbox" type="checkbox" id="mod5box" checked onchange="toggleModPanel(5)"> Debug & Log</li>
+      <li><input class="sidebar-checkbox" type="checkbox" id="mod6box" checked onchange="toggleModPanel(6)"> Modul-Import</li>
+      <li><input class="sidebar-checkbox" type="checkbox" id="mod7box" checked onchange="toggleModPanel(7)"> Modul 7</li>
+      <li><input class="sidebar-checkbox" type="checkbox" id="mod8box" checked onchange="toggleModPanel(8)"> Modul 8</li>
+      <li><input class="sidebar-checkbox" type="checkbox" id="mod9box" checked onchange="toggleModPanel(9)"> Modul 9</li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-h2">Infos</div>
+    <div style="font-size:.98em;">
+      <b>GridTool Pro</b> <br> Fokusumschaltung & Themes<br>
+      <a href="#" style="color:var(--sidebar-accent);" onclick="alert('Changelog: Fokusumschaltung, Themes optimiert, Best-Practice-Styling für Felder, Buttons, Schrift und Kontrast.');">Changelog</a>
+    </div>
+    <div class="sidebar-footer">
+      &copy; 2025 Pppoppi &bull; Provoware
+    </div>
+  </aside>
+  <div class="dragbar left" id="dragbarLeft"><div class="dragbar-inner"></div></div>
+  <main class="main-content">
+    <div class="fokus-bar">
+      <label for="fokusSelect" style="font-weight:600;color:var(--highlight);margin-right:.3em;">Fokus-Modus:</label>
+      <select id="fokusSelect" aria-label="Panel auswählen" style="font-size:1.02em;border-radius:.8em;border:1.5px solid var(--highlight);padding:.25em .9em;background:var(--area);color:var(--text);">
+        <option value="0">3x3-Grid (Standard)</option>
+        <option value="1">Panel 1: Genres + Zufall</option>
+        <option value="2">Panel 2: Archiv</option>
+        <option value="3">Panel 3: Dashboard</option>
+        <option value="4">Panel 4: Text-Templates</option>
+        <option value="5">Panel 5: Debug & Log</option>
+        <option value="6">Panel 6: Modul-Import</option>
+        <option value="7">Panel 7</option>
+        <option value="8">Panel 8</option>
+        <option value="9">Panel 9</option>
+      </select>
+      <button class="fokus-btn" id="fokusResetBtn" style="display:none;" aria-pressed="true" onclick="switchFokus(0)">Zurück zum Grid</button>
+    </div>
+    <div class="grid-main" id="gridMain">
+      <section class="mod-panel" id="panel1" tabindex="0"><h2>Genres + Zufall</h2>
+        <form id="genreForm" autocomplete="off">
+          <div class="input-group">
+            <input id="genreInput" type="text" placeholder="Genre(s) durch Komma getrennt…" autofocus required />
+            <button type="submit">➕</button>
+          </div>
+          <div class="input-help">Beispiel: <code>Techno, Funk, Minimal</code> (Komma-getrennt, max. 24 Genres)</div>
+        </form>
+        <div class="archive-actions">
+          <button onclick="saveArchive()">💾 Speichern</button>
+          <button onclick="loadArchive()">📂 Laden</button>
+        </div>
+        <div class="rand-actions">
+          <button class="rand-btn" onclick="pickRandomN(3)">🎲 3</button>
+          <button class="rand-btn" onclick="pickRandomN(6)">🎲 6</button>
+          <button class="rand-btn" onclick="pickRandomN(9)">🎲 9</button>
+          <button class="rand-btn" onclick="pickRandomN(12)">🎲 12</button>
+          <button class="rand-btn" onclick="pickRandomN(15)">🎲 15</button>
+        </div>
+        <div id="randResult" class="rand-result" style="display:none;"></div>
+        <div id="genreStatus" class="status-msg" style="display:none;"></div>
+        <div class="input-help">Tipp: Jede Auswahl wird ins Dashboard übernommen. Du kannst Genres jederzeit editieren!</div>
+      </section>
+      <section class="mod-panel" id="panel2" tabindex="0"><h2>Archiv</h2>
+        <div class="search-group">
+          <input id="searchInput" type="text" placeholder="Suche im Archiv…" autocomplete="off"/>
+          <button id="clearSearch" class="search-clear" title="Suche löschen" style="display:none;">✖</button>
+        </div>
+        <div class="archive-list">
+          <ul id="genreList"></ul>
+        </div>
+        <div class="small">Klick: kopieren | ✏: bearbeiten | ✖: entfernen</div>
+        <div class="input-help">Tipp: Mit Enter bestätigst du beim Editieren, Escape bricht ab.</div>
+      </section>
+      <section class="mod-panel" id="panel3" tabindex="0"><h2>Dashboard (letzte 10 Ausgaben)</h2>
+        <ul id="dashboardList" class="dashboard-list"></ul>
+        <button id="clearDashboardBtn" class="dashboard-copy" style="background:var(--remove);margin-top:.5em;">Alle löschen</button>
+        <div class="input-help">Tipp: Für alle Zufallsausgaben – kopieren per Klick!</div>
+      </section>
+      <section class="mod-panel" id="panel4" tabindex="0"><h2>Text-Templates</h2>
+        <form id="tmplForm" autocomplete="off">
+          <div class="tmpl-inputs">
+            <input id="tmplTitle" type="text" placeholder="Button-Titel" required maxlength="40"/>
+            <textarea id="tmplText" placeholder="Textvorlage…" required rows="2" maxlength="500"></textarea>
+            <button type="submit">Hinzufügen</button>
+          </div>
+          <div class="input-help">Gib einen sprechenden Titel und Text ein. Beispiel: Titel: <code>Grußmail</code> – Text: <code>Hallo zusammen, ...</code></div>
+        </form>
+        <div class="tmpl-btnlist" id="tmplBtnList"></div>
+        <div class="small">Klick: Text kopieren. ✖: Entfernen.</div>
+        <div id="tmplStatus" class="status-msg" style="display:none;"></div>
+      </section>
+      <section class="mod-panel" id="panel5" tabindex="0"><h2>Debug & Log</h2>
+        <div id="debugLog" style="max-height:220px;overflow:auto;margin-bottom:.4em;"></div>
+        <button onclick="clearLog()" class="dashboard-copy" style="background:var(--remove);">Logs löschen</button>
+        <div class="input-help">Hier findest du Fehler, Warnungen und Systemereignisse. Tipp: Bei Problemen einfach Logs prüfen!</div>
+        <div class="small">Selfcheck: <span id="selfcheckStatus"></span></div>
+      </section>
+      <section class="mod-panel" id="panel6" tabindex="0"><h2>Modul-Import</h2>
+        <label class="file-label">
+          <input id="importModuleFile" type="file" accept=".js,.html,.txt" style="display:none;">
+          Modul-Datei auswählen
+        </label>
+        <button onclick="triggerModuleImport()">Import starten</button>
+        <div class="import-status" id="importStatus"></div>
+        <pre id="importPreview" style="max-height:110px;overflow:auto;background:#252c2e;color:#bbb;padding:.4em .7em;border-radius:.6em;display:none;margin:.5em 0 0 0;"></pre>
+        <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
+      </section>
+      <section class="mod-panel" id="panel7"><h2>Modul 7</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel8"><h2>Modul 8</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel9"><h2>Modul 9</h2><div class="small">Frei für weitere Features</div></section>
+    </div>
+  </main>
+  <div class="dragbar right" id="dragbarRight"><div class="dragbar-inner"></div></div>
+  <aside class="sidebar right" id="sidebarRight">
+    <div class="sidebar-header">Optionen & Themes</div>
+    <div class="sidebar-h2">Farbschema</div>
+    <div class="sidebar-btns" id="themeBtnGroup"></div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-h2">Globale Einstellungen</div>
+    <div>
+      <button onclick="resetAll()" style="margin-bottom:.5em;">Alles zurücksetzen</button>
+    </div>
+    <div class="sidebar-footer">
+      Für Hilfe: Siehe Hilfe-Sidebar oder frag Poppi.
+    </div>
+  </aside>
+</div>
+<footer>
+  &copy; 2025 Provoware • Kein Cloudzwang, keine Gendersprache, kein Tracking.
+</footer>
+<script>
+/* ====== Fokusmodus: Umschalten zwischen 3x3 und 1x1 ====== */
+const gridMain = document.getElementById('gridMain');
+const fokusSelect = document.getElementById('fokusSelect');
+const fokusResetBtn = document.getElementById('fokusResetBtn');
+let fokusMode = 0;
+fokusSelect.onchange = function() { switchFokus(Number(fokusSelect.value)); };
+function switchFokus(mode) {
+  fokusMode = mode;
+  for (let i = 1; i <= 9; ++i) {
+    const panel = document.getElementById('panel' + i);
+    if (mode === 0) {
+      panel.style.display = '';
+      panel.classList.remove('fokus');
+    } else {
+      panel.style.display = (i === mode ? '' : 'none');
+      if (i === mode) panel.classList.add('fokus'); else panel.classList.remove('fokus');
+    }
+  }
+  fokusResetBtn.style.display = (mode !== 0) ? '' : 'none';
+  fokusSelect.value = String(mode);
+  if (mode !== 0) {
+    const pf = document.getElementById('panel'+mode);
+    if (pf) { pf.focus(); }
+  }
+}
+/* ====== Farbschema & Initialisierung ====== */
+const themes = [
+  {name:'Dunkel', key:'default'},
+  {name:'Hell', key:'light'},
+  {name:'Blau', key:'blue'}
+];
+let curTheme = localStorage.getItem('themePppoppi')||'default';
+function renderThemeBtnGroup() {
+  document.getElementById('themeBtnGroup').innerHTML = themes.map(th =>
+    `<button class="${curTheme===th.key?'active':''}" onclick="setTheme('${th.key}')">${th.name}</button>`
+  ).join('');
+}
+function setTheme(t) {
+  document.body.setAttribute('data-theme', t==="default"?null:t);
+  curTheme = t;
+  localStorage.setItem('themePppoppi', t);
+  renderThemeBtnGroup();
+}
+window.onload = function() {
+  setTheme(curTheme);
+  renderThemeBtnGroup();
+  switchFokus(0);
+  try {
+    let data = localStorage.getItem(LOCAL_KEY);
+    genres = data ? JSON.parse(data) : [];
+    let dash = localStorage.getItem(DASHBOARD_KEY);
+    dashboardData = dash ? JSON.parse(dash) : [];
+    let tdata = localStorage.getItem(TMPL_KEY);
+    tmplArchiv = tdata ? JSON.parse(tdata) : [];
+  } catch(e) {
+    genres = []; dashboardData = []; tmplArchiv = [];
+    logErr('Fehler beim Laden aus localStorage: '+e);
+  }
+  renderList();
+  renderDashboard();
+  renderTmplList();
+  renderLog();
+  for(let i=4;i<=9;i++) toggleModPanel(i);
+};
+/* ======= App-Logik, Panels, Logging, Dashboard usw. ======= */
+const LOCAL_KEY = 'genreArchiv_vGRIDSB';
+const DASHBOARD_KEY = 'genreDashboard_vGRIDSB';
+const TMPL_KEY = 'tmplArchiv_vGRIDSB';
+let genres = [];
+let dashboardData = [];
+let tmplArchiv = [];
+let searchTerm = '';
+/* Logging und Selfcheck */
+let debugLogArr = [];
+function logDbg(msg, type='info') {
+  debugLogArr.unshift({
+    time: new Date().toLocaleTimeString(),
+    type, msg
+  });
+  if(debugLogArr.length>64) debugLogArr.pop();
+  renderLog();
+}
+function logErr(msg) { logDbg(msg, 'err'); }
+function renderLog() {
+  const out = document.getElementById('debugLog');
+  out.innerHTML = debugLogArr.map(e=>`<div class="debug-log debug-${e.type}">[${e.time}] ${e.msg}</div>`).join('');
+  document.getElementById('selfcheckStatus').innerHTML = selfcheckResult();
+}
+function clearLog() { debugLogArr=[]; renderLog(); }
+function selfcheckResult() {
+  let ok = true, res = [];
+  try {
+    if(!Array.isArray(genres)) {ok=false; res.push('Genre-Archiv beschädigt');}
+    if(!Array.isArray(dashboardData)) {ok=false; res.push('Dashboard beschädigt');}
+    if(!Array.isArray(tmplArchiv)) {ok=false; res.push('Templates beschädigt');}
+    if(document.querySelectorAll('.mod-panel').length!==9) {ok=false; res.push('Panel-Anzahl inkonsistent');}
+  } catch(e){ok=false;res.push('Selfcheck-Fehler: '+e);}
+  return ok?'<span style="color:#7bd375;">OK</span>':('<span style="color:#eb8a7a;">'+res.join('; ')+'</span>');
+}
+/* Modul-Import */
+let importModuleContent = '';
+document.getElementById('importModuleFile').addEventListener('change', function(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    importModuleContent = ev.target.result;
+    document.getElementById('importPreview').style.display='block';
+    document.getElementById('importPreview').textContent = importModuleContent.substring(0,800)+(importModuleContent.length>800?' …':'');
+    document.getElementById('importStatus').textContent = 'Datei geladen: '+file.name;
+    logDbg('Modul-Datei geladen: '+file.name);
+  };
+  reader.onerror = function() {
+    document.getElementById('importStatus').textContent = 'Fehler beim Lesen der Datei!';
+    logErr('Fehler beim Lesen der Modul-Datei!');
+  };
+  reader.readAsText(file);
+});
+function triggerModuleImport() {
+  document.getElementById('importModuleFile').click();
+}
+/* Genre/Archiv/Random */
+function renderList() {
+  const list = document.getElementById('genreList');
+  list.innerHTML = '';
+  let filter = searchTerm.trim().toLowerCase();
+  genres.forEach((g, idx) => {
+    let value = typeof g === 'object' ? g.value : g;
+    if(filter && !value.toLowerCase().includes(filter)) return;
+    const li = document.createElement('li');
+    if(typeof g === 'object' && g._edit) {
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = g.value;
+      input.className = 'genre-edit';
+      input.onkeydown = e => {
+        if(e.key==='Enter'){ finishEdit(idx, input.value); }
+        if(e.key==='Escape'){ cancelEdit(idx); }
+      };
+      input.onblur = () => { finishEdit(idx, input.value); };
+      li.appendChild(input);
+      const btn = document.createElement('button');
+      btn.innerText = '💾';
+      btn.className = 'edit-btn';
+      btn.onclick = () => finishEdit(idx, input.value);
+      li.appendChild(btn);
+    } else {
+      const span = document.createElement('span');
+      span.className = 'genre-text';
+      span.innerText = value;
+      span.title = 'Zum Kopieren klicken';
+      span.onclick = () => {
+        try { navigator.clipboard.writeText(value); }
+        catch(e){ logErr('Clipboard-Fehler: '+e); }
+        statusMsg("Genre kopiert!",1);
+        span.style.background = 'var(--active)';
+        setTimeout(()=>{ span.style.background='none'; }, 350);
+      };
+      li.appendChild(span);
+      const edit = document.createElement('button');
+      edit.innerText = '✏';
+      edit.className = 'edit-btn';
+      edit.onclick = () => startEdit(idx);
+      li.appendChild(edit);
+    }
+    const rm = document.createElement('button');
+    rm.className = 'remove-btn';
+    rm.innerText = '✖';
+    rm.onclick = () => { genres.splice(idx,1); sortAndUpdate(); logDbg('Genre gelöscht.'); };
+    li.appendChild(rm);
+    list.appendChild(li);
+  });
+}
+function startEdit(idx) {
+  genres = genres.map((g, i) => i===idx ? {value: typeof g==='object'?g.value:g, _edit:true} : (typeof g==='object'?g.value:g));
+  renderList();
+  setTimeout(() => {
+    const input = document.querySelector('input.genre-edit');
+    if(input) input.focus();
+  }, 100);
+}
+function finishEdit(idx, newVal) {
+  newVal = newVal.trim();
+  if(newVal && !genres.includes(newVal)) {
+    genres[idx] = newVal;
+  } else if (!newVal) {
+    genres.splice(idx,1);
+  } else if (genres.includes(newVal) && genres[idx] !== newVal) {
+    genres.splice(idx,1);
+  }
+  sortAndUpdate();
+}
+function cancelEdit(idx) {
+  if(typeof genres[idx] === 'object' && genres[idx]._edit) {
+    genres[idx] = genres[idx].value;
+    sortAndUpdate();
+  }
+}
+function sortAndUpdate() {
+  genres = [...new Set(genres.map(x => (typeof x==='object'?x.value:x).trim()).filter(x=>x.length>0))].sort((a,b)=>a.localeCompare(b, 'de'));
+  localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
+  renderList();
+  logDbg('Archiv aktualisiert.');
+}
+function addGenre(str) {
+  str.split(',').map(s=>s.trim()).filter(s=>s.length>0).forEach(s => {
+    if(!genres.includes(s)) genres.push(s);
+  });
+  sortAndUpdate();
+  logDbg('Genre(s) hinzugefügt.');
+}
+document.getElementById('genreForm').onsubmit = (e) => {
+  e.preventDefault();
+  const input = document.getElementById('genreInput');
+  addGenre(input.value);
+  input.value = '';
+  input.focus();
+};
+function pickRandomN(n) {
+  if(genres.length===0) {statusMsg("Kein Genre vorhanden!",0);logErr('Zufallsgenerator ohne Genres!');return;}
+  let pool = [...genres], picked=[];
+  while(pool.length && picked.length<n){
+    const idx = Math.floor(Math.random()*pool.length);
+    picked.push(pool.splice(idx,1)[0]);
+  }
+  const result = picked.join(', ');
+  document.getElementById('randResult').style.display='block';
+  document.getElementById('randResult').innerHTML = `<b>Zufall (${n}):</b> ${result}`;
+  try {navigator.clipboard.writeText(result);}
+  catch(e){logErr('Clipboard-Fehler: '+e);}
+  statusMsg("Zufallsausgabe kopiert.",1);
+  dashboardData.unshift({
+    value: result,
+    time: new Date().toLocaleString()
+  });
+  dashboardData = dashboardData.slice(0,10);
+  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
+  renderDashboard();
+  logDbg('Zufallsausgabe erzeugt und kopiert.');
+}
+function saveArchive() {
+  localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
+  statusMsg("Archiv gespeichert!",1);
+  logDbg('Archiv gespeichert.');
+}
+function loadArchive() {
+  const data = localStorage.getItem(LOCAL_KEY);
+  if(data) { genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); logDbg('Archiv geladen.');}
+}
+/* Dashboard */
+function renderDashboard() {
+  const el = document.getElementById('dashboardList');
+  el.innerHTML = '';
+  dashboardData.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = `<span class="dashboard-timestamp">${item.time}</span> <span>${item.value}</span>
+      <button class="dashboard-copy" title="Kopieren" onclick="navigator.clipboard.writeText('${item.value.replace(/'/g,"\\'")}');statusMsg('In Zwischenablage.',1);">⧉</button>`;
+    el.appendChild(li);
+  });
+}
+document.getElementById('clearDashboardBtn').onclick = function() {
+  if(confirm('Alle Dashboard-Einträge wirklich löschen?')) {
+    dashboardData = [];
+    localStorage.removeItem(DASHBOARD_KEY);
+    renderDashboard();
+    statusMsg("Dashboard geleert.",1);
+    logDbg('Dashboard gelöscht.');
+  }
+};
+/* Templates */
+function renderTmplList() {
+  const el = document.getElementById('tmplBtnList');
+  el.innerHTML = '';
+  tmplArchiv.forEach((t,i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'tmpl-btn';
+    btn.innerText = t.title;
+    btn.title = t.text.length > 40 ? t.text.substring(0,37)+'…' : t.text;
+    btn.onclick = ()=> {
+      try {navigator.clipboard.writeText(t.text);}
+      catch(e){logErr('Clipboard-Fehler: '+e);}
+      tmplStatusMsg("Template kopiert: "+t.title,1);
+      logDbg('Template kopiert: '+t.title);
+    };
+    btn.tabIndex = 0;
+    const rem = document.createElement('button');
+    rem.className = 'tmpl-remove';
+    rem.innerText = '✖';
+    rem.title = 'Template löschen';
+    rem.onclick = (e)=>{e.stopPropagation();tmplArchiv.splice(i,1);saveTmpl();renderTmplList();logDbg('Template gelöscht.');};
+    btn.appendChild(rem);
+    el.appendChild(btn);
+  });
+}
+function saveTmpl() {
+  localStorage.setItem(TMPL_KEY, JSON.stringify(tmplArchiv));
+}
+function tmplStatusMsg(txt, ok=1) {
+  let el = document.getElementById('tmplStatus');
+  el.innerText = txt;
+  el.className = 'status-msg ' + (ok ? 'status-ok':'status-error');
+  el.style.display = 'block';
+  setTimeout(()=>{el.style.display='none';},1800);
+}
+document.getElementById('tmplForm').onsubmit = function(e) {
+  e.preventDefault();
+  let title = document.getElementById('tmplTitle').value.trim();
+  let text = document.getElementById('tmplText').value.trim();
+  if(!title || !text) { tmplStatusMsg("Bitte Titel & Text angeben.",0); logErr('Template: Leere Felder'); return; }
+  tmplArchiv.unshift({title, text});
+  if(tmplArchiv.length>24) tmplArchiv=tmplArchiv.slice(0,24);
+  saveTmpl();
+  renderTmplList();
+  document.getElementById('tmplTitle').value = '';
+  document.getElementById('tmplText').value = '';
+  tmplStatusMsg("Template hinzugefügt!",1);
+  logDbg('Template hinzugefügt: '+title);
+};
+/* Suche im Archiv */
+document.getElementById('searchInput').oninput = function() {
+  searchTerm = this.value;
+  document.getElementById('clearSearch').style.display = searchTerm ? '' : 'none';
+  renderList();
+};
+document.getElementById('clearSearch').onclick = function() {
+  searchTerm = '';
+  document.getElementById('searchInput').value = '';
+  this.style.display = 'none';
+  renderList();
+};
+/* Panel-Toggle */
+function toggleModPanel(idx) {
+  const cb = document.getElementById('mod'+idx+'box');
+  document.getElementById('panel'+idx).style.display = cb.checked ? '' : 'none';
+}
+/* Meldungen & Reset */
+function statusMsg(txt, ok=1) {
+  let el = document.getElementById('genreStatus');
+  el.innerText = txt;
+  el.className = 'status-msg ' + (ok ? 'status-ok':'status-error');
+  el.style.display = 'block';
+  setTimeout(()=>{el.style.display='none';},1800);
+}
+function resetAll() {
+  if(confirm("Alle Daten (Genres, Dashboard, Templates, Einstellungen) löschen?")) {
+    localStorage.removeItem(LOCAL_KEY);
+    localStorage.removeItem(DASHBOARD_KEY);
+    localStorage.removeItem(TMPL_KEY);
+    genres = []; dashboardData = []; tmplArchiv = [];
+    renderList(); renderDashboard(); renderTmplList();
+    renderLog();
+    statusMsg("Alles gelöscht!",1); tmplStatusMsg("Alles gelöscht!",1);
+    logDbg('Alles gelöscht.');
+  }
+}
+/* Sidebar-Resize (optional) */
+function makeSidebarResizable(side) {
+  const dragbar = document.getElementById('dragbar'+side);
+  const sidebar = document.getElementById('sidebar'+side);
+  dragbar.addEventListener('mousedown', function(e) {
+    e.preventDefault();
+    document.body.style.cursor = "ew-resize";
+    document.body.style.userSelect = "none";
+    const startX = e.clientX;
+    const startW = sidebar.offsetWidth;
+    function dragHandler(ev) {
+      let dx = ev.clientX - startX;
+      let newW = side==='Left'
+        ? Math.max(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sidebar-min')), Math.min(startW + dx, parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sidebar-max'))))
+        : Math.max(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sidebar-min')), Math.min(startW - dx, parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sidebar-max'))));
+      sidebar.style.width = newW+'px';
+      document.documentElement.style.setProperty('--sidebar-width-'+side.toLowerCase(), newW+'px');
+    }
+    function stopDrag() {
+      document.body.style.cursor = "";
+      document.body.style.userSelect = "";
+      window.removeEventListener('mousemove', dragHandler);
+      window.removeEventListener('mouseup', stopDrag);
+    }
+    window.addEventListener('mousemove', dragHandler);
+    window.addEventListener('mouseup', stopDrag);
+  });
+}
+makeSidebarResizable('Left');
+makeSidebarResizable('Right');
+</script>
+</body>
+</html>
