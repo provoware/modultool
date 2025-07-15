@@ -1,0 +1,33 @@
+name: 🧪 Modultool-Validation
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    name: Validate HTML, CSS, JSON, Shell, Accessibility
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: 📄 HTML Check
+      run: npx htmlhint "**/*.html"
+
+    - name: 🎨 CSS Check
+      run: npx stylelint "**/*.css"
+
+    - name: 🧾 JSON Check
+      run: |
+        find . -name "*.json" -exec jq empty {} \;
+
+    - name: 🐚 ShellCheck
+      run: |
+        find . -name "*.sh" -exec shellcheck {} \;
+
+    - name: ♿ Accessibility (axe-core)
+      uses: actions/checkout@v3
+      run: |
+        npx @axe-core/cli "**/*.html" --exit
+
+    - name: ✅ Ergebnis anzeigen
+      run: echo "Alle Prüfungen abgeschlossen!"
