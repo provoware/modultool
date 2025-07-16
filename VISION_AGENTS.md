@@ -72,8 +72,8 @@
 ---
 
 ### Panel07‑09: Erweiterungsmodule
-- Persona-Switcher: ⬜  
-- Story-Sampler: ⬜  
+- Persona-Switcher: ✅  
+- Story-Sampler: ✅  
 - Cover/Layout: ⬜  
 
 ---

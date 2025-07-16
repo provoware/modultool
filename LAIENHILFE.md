@@ -57,6 +57,13 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
 4. Wähle ein Profil aus der Liste und passe die Beschreibung bei Bedarf an.
 5. Mit **Kopieren** überträgst du die Beschreibung in die Zwischenablage.
 
+## Story-Sampler nutzen
+
+1. Öffne `panel06.html` im Ordner `modules`.
+2. Schreibe untereinander kurze Ideen.
+3. Mit **Speichern** sicherst du die Liste.
+4. **Zufall** wählt eine Idee, **Kopieren** überträgt sie.
+
 ## Weiterf\u00fchrende Tipps
 
 - **Browser-Speicher leeren (localStorage)**
@@ -89,7 +96,6 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
 
 ## Fehlende Module
 
-- Story-Sampler (zufällige Textideen)
 - Cover/Layout-Werkzeug
 
 ## Weitere Laien-Tipps

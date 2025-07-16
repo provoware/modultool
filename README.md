@@ -27,8 +27,10 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
   → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
 - **🧑‍🎤 Panel05: Persona-Switcher**
   → Verschiedene Figurenprofile speichern und auswählen
+- **🖖 Panel06: Story-Sampler**
+  → Kurze Ideen sammeln und zufällig auswählen
 - **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
-- **Geplante Module:** Story-Sampler (Panel06), Cover/Layout (Panel07)
+- **Geplante Module:** Cover/Layout (Panel07)
 ---
 
 ## 🧠 Features
