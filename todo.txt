@@ -6,3 +6,7 @@
 - [ ] Clipboard-Funktion mit Feedback-Farben
 - [ ] CSS responsiv machen, Test mit Axe/WAVE
 - [ ] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+
+- [ ] Ordner "modules/" und "panels/" erstellen
+- [ ] "modules.json" für Panels anlegen
+- [ ] Shellcheck-Warnungen in Skripten beheben
