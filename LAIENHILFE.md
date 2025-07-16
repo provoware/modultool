@@ -166,3 +166,25 @@ Dadurch bleibt `platzhalter.txt` aktuell.
   git diff
   ```
   Dieser Befehl zeigt dir Zeile für Zeile an, was sich im Vergleich zum letzten Commit geändert hat.
+
+## Branches zusammenführen
+
+1. Stelle sicher, dass du auf dem Hauptzweig (**main**) bist:
+```bash
+git checkout main
+```
+2. Ziehe die neuesten Änderungen, damit alles aktuell ist:
+```bash
+git pull
+```
+3. Füge den Arbeitszweig (**work**) zusammen (*merge* bedeutet vereinen):
+```bash
+git merge work
+```
+4. Treten Konflikte auf, folge den Hinweisen im Terminal und korrigiere sie.
+5. Übertrage das Ergebnis wieder nach GitHub:
+```bash
+git push
+```
+Damit sind die Zweige vereint und online gesichert.
+

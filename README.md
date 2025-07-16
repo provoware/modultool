@@ -62,3 +62,6 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 📁 .github/workflows/ (validate.yml)
 📄 modules.json (Registrierung vorhandener Module)
 ```
+
+## 🔀 Branches zusammenführen
+Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches zusammenführen".

@@ -11,7 +11,7 @@
 - [x] Zufallsmodi mit Profilgewichtung umsetzen (Panel02)
 - [x] Nutzerfreundlichkeit & Fehlerbehandlung verbessert (Panel01/02)
 - [x] Modulbezeichnungen in HTML und README vereinheitlicht
-- [ ] GitHub-Remote einrichten und Fortschritt pushen
+- [x] GitHub-Remote einrichten und Fortschritt pushen
 - [x] Persona-Switcher-Modul umsetzen (Panel05)
 - [x] Story-Sampler-Modul umgesetzt (Panel06)
 - [x] Cover/Layout-Modul umsetzen (Panel07)
@@ -20,3 +20,4 @@
 - [x] Einstellungs-Panel umsetzen (Panel09)
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
+- [x] Branches zusammenführen (work -> main)
