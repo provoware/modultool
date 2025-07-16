@@ -15,6 +15,7 @@
 ./platzhalter.txt
 ./setup.sh
 ./todo.txt
+./tools/comma_json.js
 ./tools/selfcheck.sh
 ./tools/update_placeholder.sh
 ./validate.yml

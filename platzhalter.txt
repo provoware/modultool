@@ -1,9 +1,9 @@
-Letztes Update: Wed Jul 16 02:05:25 UTC 2025
+Letztes Update: Wed Jul 16 02:08:55 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [ ] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
-- [ ] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
+- [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
 - [ ] Zufallsmodi mit Profilgewichtung implementieren
 - [x] Logging ins Dashboard einbauen
 - [ ] Clipboard-Funktion mit Feedback-Farben
