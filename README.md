@@ -16,10 +16,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 
 ## 🧩 Aktuelle Start-Module
 
-- **🎲 Genre-Archiv & Eingabe**  
-  → Speicherung, Duplikatsprüfung, Komma-getrennte Eingaben  
-- **🧠 Zufallsgenerator**  
-  → mit Auswahlmodi, Logging, Favoriten und Export
+- **📝 Panel01: Genres & Zufall**
+  → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
 
 ---
 

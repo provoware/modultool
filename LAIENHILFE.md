@@ -30,3 +30,12 @@ Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erw�
 4. `git push` überträgt alles ins Online-Repository.
 
 So behältst du jederzeit die Kontrolle über deine Dateien.
+
+## Genres-&-Zufall-Modul testen
+
+1. Öffne den Ordner `modules` im Dateimanager.
+2. Doppelklicke auf `panel01.html`. Dein Browser zeigt das Modul an.
+3. Gib mehrere Genres ein, getrennt durch Kommas.
+4. Klicke auf **Speichern**. Die Liste wird in `localStorage` (Browser-Zwischenspeicher) gesichert.
+5. Mit **Zufall** wählst du einen Eintrag zufällig aus. Darunter entsteht ein kleines Protokoll (Log) mit Uhrzeit.
+6. Über **Kopieren** landet das Ergebnis in der Zwischenablage. Der Button färbt sich kurz grün als Bestätigung.

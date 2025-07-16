@@ -1,8 +1,8 @@
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
-- [ ] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
-- [ ] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
+- [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
+- [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
 - [ ] Zufallsmodi mit Profilgewichtung implementieren
-- [ ] Logging ins Dashboard einbauen
-- [ ] Clipboard-Funktion mit Feedback-Farben
+- [x] Logging ins Dashboard einbauen
+- [x] Clipboard-Funktion mit Feedback-Farben
 - [ ] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
