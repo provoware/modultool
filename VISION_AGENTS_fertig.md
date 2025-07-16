@@ -1,4 +1,4 @@
-# 🌟 VISION_AGENTS.md – Modultool (Stand: 2025-07-15)
+# 🌟 VISION_AGENTS_fertig.md – Modultool (Stand: 2025-07-15)
 
 > Vision: Modultool – ein modularer Offline-Toolkit für kreative Privatanwender  
 > Fokus: intuitive UX, Barrierefreiheit, responsive Architektur, modulare Erweiterung

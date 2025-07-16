@@ -1,0 +1,17 @@
+./.editorconfig
+./.github/workflows/branch-limit.yml
+./.github/workflows/validate.yml
+./.gitignore
+./.modultoolrc.json
+./AGENTS_fertig.md
+./README_fertig.md
+./VISION_AGENTS_fertig.md
+./baumstruktur.txt
+./branch-limit_fertig.yml
+./data/baumstruktur.txt
+./data/todo.txt
+./index_unvollständig.html
+./setup_fertig.sh
+./todo.txt
+./tools/selfcheck_fertig.sh
+./validate_fertig.yml

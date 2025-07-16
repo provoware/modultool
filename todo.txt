@@ -1,1 +1,5 @@
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
+- Index prüfen und zu index_fertig.html ausbauen
+- Random-Modul integrieren
+- ARIA-Beschriftungen ergänzen
+- Dokumentation laufend pflegen

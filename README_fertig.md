@@ -39,5 +39,5 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 modules/
 📁 data/ (baumstruktur.txt, todo.txt)
 📁 logs/
-📁 tools/ (selfcheck.sh)
-📁 .github/workflows/ (validate.yml)
+📁 tools/ (selfcheck_fertig.sh)
+📁 .github/workflows/ (validate_fertig.yml)

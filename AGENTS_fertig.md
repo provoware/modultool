@@ -32,10 +32,10 @@ Agentenframework zur modularen Steuerung, Fehlerkontrolle und fortlaufenden Opti
 
 ### 🧪 Agent_Test  
 - CI-Workflow mit HTMLHint, JSONLint, ShellCheck, axe-core  
-- `.github/workflows/validate.yml` generiert für automatische Prüfungen :contentReference[oaicite:1]{index=1}
+- `.github/workflows/validate_fertig.yml` generiert für automatische Prüfungen :contentReference[oaicite:1]{index=1}
 
 ### 🧾 Agent_Doku  
-- Pflegt `README.md`, `VISION_AGENTS.md`, `module_versions.json`  
+- Pflegt `README_fertig.md`, `VISION_AGENTS_fertig.md`, `module_versions.json`  
 - Sichert konsistente Dokumentation zu jedem Modul
 
 ### 🧱 Agent_Baukasten  
@@ -58,7 +58,7 @@ Agentenframework zur modularen Steuerung, Fehlerkontrolle und fortlaufenden Opti
 
 ## 🔧 Systemdateien
 
-.github/workflows/validate.yml → CI-Checks
+.github/workflows/validate_fertig.yml → CI-Checks
 todo.txt → Änderungslog + Fixes
 baumstruktur.txt → Rekursive Projektstruktur
 agents_status.json → Agentenzustand (optional)

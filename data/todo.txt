@@ -1,0 +1,4 @@
+- Index prüfen und zu index_fertig.html ausbauen
+- Random-Modul integrieren
+- ARIA-Beschriftungen ergänzen
+- Dokumentation laufend pflegen

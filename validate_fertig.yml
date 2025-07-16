@@ -1,4 +1,4 @@
-# .github/workflows/validate.yml
+# .github/workflows/validate_fertig.yml
 
 name: 🔍 Modultool-Codeprüfung & Barrierecheck
 
