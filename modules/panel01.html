@@ -4,18 +4,19 @@
 <meta charset="UTF-8">
 <title>Panel01 – Genres & Zufall</title>
 <style>
-  #panel01 {display:grid;gap:0.5rem;max-width:320px;margin:auto;font-family:sans-serif;}
+  #panel01 {display:grid;gap:0.5rem;max-width:320px;margin:auto;font-family:sans-serif;width:100%;}
   #genre-input{min-height:80px;}
   #random-output{font-weight:bold;margin-top:0.5rem;}
   #log{max-height:100px;overflow-y:auto;padding-left:1rem;}
   @media(min-width:600px){#panel01{max-width:480px;}}
+  button.saved{background-color:#15b57b;color:#fff;}
 </style>
 </head>
 <body>
 <div id="panel01">
   <h2>Genres & Zufall</h2>
   <label for="genre-input">Genres (durch Kommas trennen):</label>
-  <textarea id="genre-input" aria-label="Genre-Liste"></textarea>
+  <textarea id="genre-input" aria-label="Genre-Liste" title="Mehrere Genres mit Komma trennen" autofocus></textarea>
   <button id="save-btn">Speichern</button>
   <button id="random-btn">Zufall</button>
   <button id="copy-btn">Kopieren</button>
@@ -33,6 +34,7 @@ const log=document.getElementById('log');
 function saveList(){
   const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
   localStorage.setItem('genres',JSON.stringify(list));
+  input.value=list.join(', ');
   return list;
 }
 function loadList(){
@@ -51,7 +53,9 @@ function getList(){
 saveBtn.addEventListener('click',()=>{
   saveList();
   saveBtn.classList.add('saved');
-  setTimeout(()=>saveBtn.classList.remove('saved'),500);
+  const txt=saveBtn.textContent;
+  saveBtn.textContent='Gespeichert';
+  setTimeout(()=>{saveBtn.classList.remove('saved');saveBtn.textContent=txt;},800);
 });
 
 randomBtn.addEventListener('click',()=>{
