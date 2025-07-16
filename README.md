@@ -40,5 +40,5 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 data/ (baumstruktur.txt, todo.txt)
 📄 platzhalter.txt
 📁 logs/
-📁 tools/ (selfcheck.sh)
+📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
 📁 .github/workflows/ (validate.yml)

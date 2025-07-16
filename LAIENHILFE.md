@@ -13,6 +13,9 @@ Hier findest du einfache Tipps zum Umgang mit dem Projekt. Fachbegriffe stehen i
 
 Der Selbstcheck prüft das Projekt auf häufige Fehler.
 
+Dabei wird deine Aufgabenliste automatisch gesichert und
+`platzhalter.txt` aktualisiert.
+
 ```bash
 bash tools/selfcheck.sh
 ```
