@@ -79,3 +79,6 @@ Damit kannst du eigene Module testen.
 - `npm install -g htmlhint` – installiert das Programm **htmlhint** (prüft HTML).
 - `python3 -m http.server 9000` – startet einen Server auf Port 9000 (*Port = Anschlussnummer*).
 - `bash tools/update_placeholder.sh` – kopiert Aufgaben aus `todo.txt` in `platzhalter.txt`.
+- `git diff` – zeigt deine aktuellen Änderungen (**Diff** = Unterschiede zum letzten Stand).
+- `sudo apt-get install xclip` – installiert `xclip` (Hilfsprogramm für die Zwischenablage).
+- `grep -n SUCHBEGRIFF -r` – durchsucht alle Dateien nach einem Wort (praktisch bei vielen Dateien).

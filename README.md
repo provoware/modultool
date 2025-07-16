@@ -85,3 +85,6 @@ Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend 
 * `npm install -g htmlhint` – installiert das Prüfprogramm **htmlhint** (kontrolliert HTML-Dateien).
 * `python3 -m http.server 9000` – startet den Server auf Port 9000 (*Port = Anschlussnummer*).
 * `bash tools/update_placeholder.sh` – überträgt die Einträge aus `todo.txt` nach `platzhalter.txt`.
+* `git diff` – zeigt deine aktuellen Änderungen (**Diff** = Unterschiede zum letzten Stand).
+* `sudo apt-get install xclip` – installiert `xclip` (Hilfsprogramm für die Zwischenablage).
+* `grep -n SUCHBEGRIFF -r` – sucht nach einem Wort in allen Dateien (Textsuche im Projekt).

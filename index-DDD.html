@@ -339,7 +339,7 @@
       </section>
       <section class="mod-panel" id="panel2" tabindex="0"><h2>Archiv</h2>
         <div class="search-group">
-          <input id="searchInput" type="text" placeholder="Suche im Archiv…" autocomplete="off"/>
+          <input id="searchInput" type="text" placeholder="Suche im Archiv…" title="Suchwort eingeben" autocomplete="off"/>
           <button id="clearSearch" class="search-clear" title="Suche löschen" style="display:none;">✖</button>
         </div>
         <div class="archive-list">
@@ -349,7 +349,7 @@
         <div class="input-help">Tipp: Mit Enter bestätigst du beim Editieren, Escape bricht ab.</div>
       </section>
       <section class="mod-panel" id="panel3" tabindex="0"><h2>Dashboard (letzte 10 Ausgaben)</h2>
-        <ul id="dashboardList" class="dashboard-list"></ul>
+        <ul id="dashboardList" class="dashboard-list" title="Klick kopiert den Text"></ul>
         <button id="clearDashboardBtn" class="dashboard-copy" style="background:var(--remove);margin-top:.5em;" title="Dashboard leeren">Alle löschen</button>
         <div class="input-help">Tipp: Für alle Zufallsausgaben – kopieren per Klick!</div>
       </section>
@@ -379,7 +379,7 @@
         </label>
         <button onclick="triggerModuleImport()" title="Ausgewählte Datei importieren">Import starten</button>
         <div class="import-status" id="importStatus"></div>
-        <pre id="importPreview" style="max-height:110px;overflow:auto;background:#252c2e;color:#bbb;padding:.4em .7em;border-radius:.6em;display:none;margin:.5em 0 0 0;"></pre>
+        <pre id="importPreview" style="max-height:110px;overflow:auto;background:#252c2e;color:#bbb;padding:.4em .7em;border-radius:.6em;display:none;margin:.5em 0 0 0;" title="Vorschau des Imports"></pre>
         <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
       </section>
       <section class="mod-panel" id="panel7"><h2>Modul 7</h2><div class="small">Frei für weitere Features</div></section>

@@ -9,7 +9,7 @@
 
 - [x] Ordner "modules/" und "panels/" erstellen
 - [x] "modules.json" für Panels anlegen
-- [ ] Shellcheck-Warnungen in Skripten beheben
-- [ ] Hilfetexte und Tooltips ausbauen
+- [x] Shellcheck-Warnungen in Skripten beheben
+- [x] Hilfetexte und Tooltips ausbauen
 - [x] Startskript zum einfachen Aufrufen des Tools
 - [x] Willkommens-Overlay für neue Nutzer

@@ -21,7 +21,7 @@ fi
 # ========== JSON-Dateien prüfen ==========
 echo "📂 JSON-Dateien werden geprüft..."
 if command -v jq >/dev/null 2>&1; then
-  for f in $(find . -name "*.json"); do
+  find . -name "*.json" -print0 | while IFS= read -r -d '' f; do
     if jq empty "$f" >/dev/null 2>&1; then
       echo "✅ OK: $f"
     else
