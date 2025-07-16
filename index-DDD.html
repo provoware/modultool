@@ -296,6 +296,7 @@
       <li><input class="sidebar-checkbox" type="checkbox" id="mod7box" checked onchange="toggleModPanel(7)"> Modul 7</li>
       <li><input class="sidebar-checkbox" type="checkbox" id="mod8box" checked onchange="toggleModPanel(8)"> Modul 8</li>
       <li><input class="sidebar-checkbox" type="checkbox" id="mod9box" checked onchange="toggleModPanel(9)"> Modul 9</li>
+      <li><input class="sidebar-checkbox" type="checkbox" id="mod10box" checked onchange="toggleModPanel(10)"> Modul 10</li>
     </ul>
     <div class="sidebar-divider"></div>
     <div class="sidebar-h2" title="Versionshinweise und Links">Infos</div>
@@ -322,6 +323,7 @@
         <option value="7">Panel 7</option>
         <option value="8">Panel 8</option>
         <option value="9">Panel 9</option>
+        <option value="10">Panel 10</option>
       </select>
       <button class="fokus-btn" id="fokusResetBtn" style="display:none;" aria-pressed="true" title="Zur Übersicht" onclick="switchFokus(0)">Zurück zum Grid</button>
     </div>
@@ -400,6 +402,7 @@
       <section class="mod-panel" id="panel7" tabindex="0" role="region" aria-labelledby="panel7-label"><div class="small">Lade…</div></section>
       <section class="mod-panel" id="panel8" tabindex="0" role="region" aria-labelledby="panel8-label"><div class="small">Lade…</div></section>
       <section class="mod-panel" id="panel9" tabindex="0" role="region" aria-labelledby="panel9-label"><div class="small">Lade…</div></section>
+      <section class="mod-panel" id="panel10" tabindex="0" role="region" aria-labelledby="panel10-label"><div class="small">Lade…</div></section>
     </div>
   </main>
   <div class="dragbar right" id="dragbarRight"><div class="dragbar-inner"></div></div>
@@ -436,7 +439,7 @@ let fokusMode = 0;
 fokusSelect.onchange = function() { switchFokus(Number(fokusSelect.value)); };
 function switchFokus(mode) {
   fokusMode = mode;
-  for (let i = 1; i <= 9; ++i) {
+  for (let i = 1; i <= 10; ++i) {
     const panel = document.getElementById('panel' + i);
     if (mode === 0) {
       panel.style.display = '';
@@ -495,7 +498,7 @@ window.onload = function() {
   renderDashLog();
   renderTmplList();
   renderLog();
-  for(let i=4;i<=9;i++) toggleModPanel(i);
+  for(let i=4;i<=10;i++) toggleModPanel(i);
 };
 /* ======= App-Logik, Panels, Logging, Dashboard usw. ======= */
 const LOCAL_KEY = 'genreArchiv_vGRIDSB';
@@ -912,9 +915,17 @@ function loadPanel(id, cb){
     .then(html=>{document.getElementById(id).innerHTML = html; if(cb) cb();})
     .catch(e=>logErr('Panel-Load '+id+': '+e));
 }
-loadPanel('panel7');
-loadPanel('panel8', renderWeightList);
-loadPanel('panel9');
+function loadRegisteredPanels(){
+  fetch('modules.json')
+    .then(r=>r.json())
+    .then(cfg=>{
+      cfg.modules.forEach(m=>{
+        if(m.id==='panel8') loadPanel(m.id, renderWeightList); else loadPanel(m.id);
+      });
+    })
+    .catch(e=>logErr('Module-Liste: '+e));
+}
+loadRegisteredPanels();
 function hideIntro(){
   const el = document.getElementById('introOverlay');
   if(el) el.style.display='none';

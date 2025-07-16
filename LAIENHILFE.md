@@ -72,7 +72,7 @@ Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und �
 
 Damit kannst du eigene Module testen.
 Im Ordner `panels` liegt bereits `panel7.html`. Dieses Modul zeigt eine kleine Schnellhilfe mit weiteren Befehlen.
-Neu hinzugekommen ist `panel8.html` für einen Zufall mit Gewichtung und `panel9.html` als Befehlsübersicht.
+Neu hinzugekommen ist `panel8.html` für einen Zufall mit Gewichtung, `panel9.html` als Befehlsübersicht und `panel10.html` als einfacher Einstieg.
 
 ## Weitere nützliche Befehle
 
@@ -105,3 +105,6 @@ Neu hinzugekommen ist `panel8.html` für einen Zufall mit Gewichtung und `panel9
 - `git config --global user.email "mail@example.com"` – speichert deine Mail-Adresse (*global = für alle Projekte*).
 - `find . -name "*.html"` – sucht nach HTML-Dateien im Ordner (*find = Dateien finden*).
 - `sudo apt-get install shellcheck` – installiert **shellcheck** (prüft Shellskripte).
+- `git rebase -i HEAD~3` – ändert die letzten drei Commits (*rebase = Basis neu schreiben*).
+- `ln -s quelle ziel` – erstellt einen symbolischen Link (*Link = Verweis auf Datei*).
+- `du -sh ordner/` – zeigt die Größe eines Ordners (*du = Speicherplatz anzeigen*).

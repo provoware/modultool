@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 04:59:34 UTC 2025
+Letztes Update: Wed Jul 16 05:03:58 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -18,3 +18,5 @@ Offene Aufgaben:
 - [x] Startskript zum einfachen Aufrufen des Tools
 - [x] Willkommens-Overlay für neue Nutzer
 - [x] Importfunktion: geladenes Modul direkt als Panel einfügen
+- [x] Module automatisch aus modules.json laden
+- [x] Neues Modul panel10 "Erste Schritte" ergänzen

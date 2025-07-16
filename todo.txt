@@ -15,3 +15,5 @@
 - [x] Startskript zum einfachen Aufrufen des Tools
 - [x] Willkommens-Overlay für neue Nutzer
 - [x] Importfunktion: geladenes Modul direkt als Panel einfügen
+- [x] Module automatisch aus modules.json laden
+- [x] Neues Modul panel10 "Erste Schritte" ergänzen

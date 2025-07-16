@@ -78,7 +78,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 
 Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend wieder mit `bash tools/start_tool.sh`.
 Im Repository gibt es auch ein Beispielmodul `panel7` namens "Schnellhilfe" mit weiteren Kommandos.
-Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator und `panel9` als kleine Befehlsreferenz.
+Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator, `panel9` als kleine Befehlsreferenz und `panel10` mit einem kurzen Einstieg.
 
 ## 📈 Weiterführende Tipps
 
@@ -111,3 +111,6 @@ Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator und `panel9` al
 * `git config --global user.email "mail@example.com"` – speichert deine E-Mail für Git (*global = für alle Projekte*).
 * `find . -name "*.html"` – sucht nach allen HTML-Dateien im Ordner (*find = Dateien finden*).
 * `sudo apt-get install shellcheck` – installiert **shellcheck** (prüft Shellskripte).
+* `git rebase -i HEAD~3` – ändert die letzten drei Commits (*rebase = Basis neu schreiben*).
+* `ln -s quelle ziel` – erstellt eine symbolische Verknüpfung (*Link = Verweis auf Datei*).
+* `du -sh ordner/` – zeigt die Größe eines Ordners (*du = Speicherplatz anzeigen*).
