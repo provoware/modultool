@@ -352,7 +352,9 @@
       </section>
       <section class="mod-panel" id="panel3" tabindex="0"><h2>Dashboard (letzte 10 Ausgaben)</h2>
         <ul id="dashboardList" class="dashboard-list" title="Klick kopiert den Text"></ul>
-        <button id="clearDashboardBtn" class="dashboard-copy" style="background:var(--remove);margin-top:.5em;" title="Dashboard leeren">Alle löschen</button>
+        <div class="sidebar-h2" style="margin-top:.8em;">Aktions-Log</div>
+        <ul id="dashLog" class="dashboard-list"></ul>
+        <button id="clearDashboardBtn" class="dashboard-copy" style="background:var(--remove);margin-top:.5em;" title="Dashboard und Log leeren">Alle löschen</button>
         <div class="input-help">Tipp: Für alle Zufallsausgaben – kopieren per Klick!</div>
       </section>
       <section class="mod-panel" id="panel4" tabindex="0"><h2>Text-Templates</h2>
@@ -475,6 +477,7 @@ window.onload = function() {
   }
   renderList();
   renderDashboard();
+  renderDashLog();
   renderTmplList();
   renderLog();
   for(let i=4;i<=9;i++) toggleModPanel(i);
@@ -489,6 +492,7 @@ let tmplArchiv = [];
 let searchTerm = '';
 /* Logging und Selfcheck */
 let debugLogArr = [];
+let dashLogArr = [];
 function logDbg(msg, type='info') {
   debugLogArr.unshift({
     time: new Date().toLocaleTimeString(),
@@ -496,12 +500,19 @@ function logDbg(msg, type='info') {
   });
   if(debugLogArr.length>64) debugLogArr.pop();
   renderLog();
+  dashLogArr.unshift({time:new Date().toLocaleTimeString(), msg});
+  if(dashLogArr.length>10) dashLogArr.pop();
+  renderDashLog();
 }
 function logErr(msg) { logDbg(msg, 'err'); }
 function renderLog() {
   const out = document.getElementById('debugLog');
   out.innerHTML = debugLogArr.map(e=>`<div class="debug-log debug-${e.type}">[${e.time}] ${e.msg}</div>`).join('');
   document.getElementById('selfcheckStatus').innerHTML = selfcheckResult();
+}
+function renderDashLog(){
+  const out = document.getElementById('dashLog');
+  if(out) out.innerHTML = dashLogArr.map(e=>`<li><span class="dashboard-timestamp">${e.time}</span> ${e.msg}</li>`).join('');
 }
 function clearLog() { debugLogArr=[]; renderLog(); }
 function selfcheckResult() {
@@ -693,6 +704,8 @@ document.getElementById('clearDashboardBtn').onclick = function() {
     dashboardData = [];
     localStorage.removeItem(DASHBOARD_KEY);
     renderDashboard();
+    dashLogArr = [];
+    renderDashLog();
     statusMsg("Dashboard geleert.",1);
     logDbg('Dashboard gelöscht.');
   }

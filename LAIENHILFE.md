@@ -86,3 +86,8 @@ Damit kannst du eigene Module testen.
 - `cp -r ordner ordner_backup` – macht eine komplette Kopie eines Ordners (*Backup = Sicherungskopie*).
 - `less datei.txt` – zeigt Text seitenweise an (*Pager = Blättern im Terminal*).
 - `history | tail` – listet die letzten Befehle auf (*History = Verlauf*).
+- `git branch -a` – listet alle Zweige auf (*Branch = Entwicklungszweig*).
+- `git checkout -b neuer_zweig` – erstellt und wechselt in einen neuen Branch (*checkout = zu einem Zweig wechseln*).
+- `git merge anderer_zweig` – führt einen Branch in den aktuellen zusammen (*Merge = Zusammenführen*).
+- `curl -O URL` – lädt eine Datei aus dem Internet herunter (*curl = Download-Programm*).
+- `npm install` – lädt alle benötigten Pakete (*npm = Paketverwaltung*).

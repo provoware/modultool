@@ -92,3 +92,8 @@ Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend 
 * `cp -r ordner ordner_backup` – erstellt eine komplette Kopie eines Ordners (*Backup = Sicherungskopie*).
 * `less datei.txt` – zeigt den Inhalt seitenweise an (*Pager = Blättern im Terminal*).
 * `history | tail` – listet die letzten Befehle auf (*History = Verlauf*).
+* `git branch -a` – zeigt alle Zweige an (*Branch = Entwicklungszweig*).
+* `git checkout -b neuer_zweig` – legt einen neuen Branch an und wechselt hinein (*checkout = zu einem Zweig wechseln*).
+* `git merge anderer_zweig` – führt einen Branch in den aktuellen zusammen (*Merge = Zusammenführen*).
+* `curl -O URL` – lädt eine Datei aus dem Internet herunter (*curl = Download-Programm*).
+* `npm install` – lädt alle benötigten Pakete (*npm = Paketverwaltung*).
