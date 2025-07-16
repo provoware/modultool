@@ -59,6 +59,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
    ```bash
    bash tools/selfcheck.sh
    ```
+   Das Skript aktualisiert automatisch `platzhalter.txt`.
 3. Mehr Tipps findest du in `LAIENHILFE.md`.
 
 ## 🛠 Eigene Module einbinden
@@ -76,3 +77,11 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
    ```
 
 Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend wieder mit `bash tools/start_tool.sh`.
+
+## 📈 Weiterführende Tipps
+
+* `git pull` – holt die neueste Version aus dem Online-Archiv (**Repository**) auf deinen Rechner.
+* `git log` – zeigt dir eine Liste der letzten Änderungen (**Commits**).
+* `npm install -g htmlhint` – installiert das Prüfprogramm **htmlhint** (kontrolliert HTML-Dateien).
+* `python3 -m http.server 9000` – startet den Server auf Port 9000 (*Port = Anschlussnummer*).
+* `bash tools/update_placeholder.sh` – überträgt die Einträge aus `todo.txt` nach `platzhalter.txt`.

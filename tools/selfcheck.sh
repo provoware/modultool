@@ -62,5 +62,10 @@ echo "🌲 Aktualisiere baumstruktur.txt ..."
 find . -type f ! -path "./.git/*" ! -name "*.log" | sort > data/baumstruktur.txt
 echo "✅ baumstruktur.txt aktualisiert."
 
+# ========== Platzhalter aktualisieren ==========
+echo "📑 Aktualisiere platzhalter.txt ..."
+bash tools/update_placeholder.sh
+echo "✅ platzhalter.txt aktualisiert."
+
 # ========== Abschluss ==========
 echo "✅ Selfcheck abgeschlossen. Alles bereit!"

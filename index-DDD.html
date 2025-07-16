@@ -265,7 +265,7 @@
   <h2>Willkommen im Modultool!</h2>
   <p>Der lokale Server läuft. Diese Seite wurde automatisch geöffnet.</p>
   <p>Klicke auf "Los geht's", um die Oberfläche zu nutzen.</p>
-  <button onclick="hideIntro()">Los geht's</button>
+  <button title="Willkommensfenster schließen" onclick="hideIntro()">Los geht's</button>
 </div>
 <header>
   GridTool Pro – Fokusumschaltung &bull; &copy; Pppoppi
@@ -273,7 +273,7 @@
 <div class="app-frame">
   <aside class="sidebar left" id="sidebarLeft">
     <div class="sidebar-header">Module & Infos</div>
-    <div class="sidebar-h2">Module verwalten</div>
+    <div class="sidebar-h2" title="Module hier ein- oder ausschalten">Module verwalten</div>
     <ul class="sidebar-list">
       <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Genres + Zufall</li>
       <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Archiv</li>
@@ -286,7 +286,7 @@
       <li><input class="sidebar-checkbox" type="checkbox" id="mod9box" checked onchange="toggleModPanel(9)"> Modul 9</li>
     </ul>
     <div class="sidebar-divider"></div>
-    <div class="sidebar-h2">Infos</div>
+    <div class="sidebar-h2" title="Versionshinweise und Links">Infos</div>
     <div style="font-size:.98em;">
       <b>GridTool Pro</b> <br> Fokusumschaltung & Themes<br>
       <a href="#" style="color:var(--sidebar-accent);" onclick="alert('Changelog: Fokusumschaltung, Themes optimiert, Best-Practice-Styling für Felder, Buttons, Schrift und Kontrast.');">Changelog</a>
@@ -393,12 +393,12 @@
     <div class="sidebar-h2">Farbschema</div>
     <div class="sidebar-btns" id="themeBtnGroup"></div>
     <div class="sidebar-divider"></div>
-    <div class="sidebar-h2">Globale Einstellungen</div>
+    <div class="sidebar-h2" title="Grundeinstellungen des Tools">Globale Einstellungen</div>
     <div>
       <button onclick="resetAll()" style="margin-bottom:.5em;" title="Alle Daten löschen und neu starten">Alles zurücksetzen</button>
     </div>
     <div class="sidebar-divider"></div>
-    <div class="sidebar-h2">Kurze Hilfe</div>
+    <div class="sidebar-h2" title="Tipps und Befehle auf einen Blick">Kurze Hilfe</div>
     <ul class="sidebar-list">
       <li>Selfcheck: <code>bash tools/selfcheck.sh</code></li>
       <li>Projekt speichern: <code>git commit</code></li>

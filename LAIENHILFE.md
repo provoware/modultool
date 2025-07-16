@@ -16,6 +16,7 @@ Der Selbstcheck prüft das Projekt auf häufige Fehler.
 ```bash
 bash tools/selfcheck.sh
 ```
+Dabei wird automatisch `platzhalter.txt` auf Basis von `todo.txt` aktualisiert.
 
 Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erwähnt, wenn es fehlt. Dann kannst du es mit `npm install -g htmlhint` (JavaScript-Prüfwerkzeug) installieren.
 
@@ -70,3 +71,11 @@ Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und �
 5. Starte das Tool wieder mit `bash tools/start_tool.sh`.
 
 Damit kannst du eigene Module testen.
+
+## Weitere nützliche Befehle
+
+- `git pull` – holt neue Änderungen aus dem Online-Archiv (**Repository**) auf deinen Rechner.
+- `git log` – zeigt die letzten gespeicherten Versionen (**Commits**).
+- `npm install -g htmlhint` – installiert das Programm **htmlhint** (prüft HTML).
+- `python3 -m http.server 9000` – startet einen Server auf Port 9000 (*Port = Anschlussnummer*).
+- `bash tools/update_placeholder.sh` – kopiert Aufgaben aus `todo.txt` in `platzhalter.txt`.

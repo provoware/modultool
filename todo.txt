@@ -5,7 +5,7 @@
 - [ ] Logging ins Dashboard einbauen
 - [ ] Clipboard-Funktion mit Feedback-Farben
 - [ ] CSS responsiv machen, Test mit Axe/WAVE
-- [ ] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 
 - [x] Ordner "modules/" und "panels/" erstellen
 - [x] "modules.json" für Panels anlegen
