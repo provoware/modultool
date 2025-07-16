@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 02:08:55 UTC 2025
+Letztes Update: Wed Jul 16 02:16:40 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -6,6 +6,6 @@ Offene Aufgaben:
 - [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
 - [ ] Zufallsmodi mit Profilgewichtung implementieren
 - [x] Logging ins Dashboard einbauen
-- [ ] Clipboard-Funktion mit Feedback-Farben
-- [ ] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Clipboard-Funktion mit Feedback-Farben
+- [x] CSS responsiv machen, Test mit Axe/WAVE
 - [ ] Platzhalter-Datei automatisch mit todo.txt aktualisieren

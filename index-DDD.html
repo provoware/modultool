@@ -223,6 +223,8 @@
     .dashboard-list li { background: var(--dashboard-light); color: var(--text-alt); border-radius: .6em; margin-bottom: .25em; padding: .45em .8em; font-size:.97em; display: flex; align-items: center; justify-content: space-between; gap:.5em; word-break:break-all;}
     .dashboard-copy {background:var(--edit);color:#fff;font-size:1em;border-radius:.6em;padding:.18em .6em; border:none;}
     .dashboard-copy:hover {background:var(--edit-hover);}
+    .copy-btn {background:var(--button);color:#fff;border:none;padding:.2em .7em;border-radius:.7em;margin-left:.5em;cursor:pointer;}
+    .copy-btn:focus,.copy-btn:hover{background:var(--button-hover);}
     .dashboard-timestamp { font-size:.87em; color:var(--text-light); margin-right:.2em;}
     .tmpl-inputs {display:flex; gap:.7em; margin-bottom:.7em;flex-wrap:wrap;}
     .tmpl-inputs input {min-width:110px;flex:1;}
@@ -256,11 +258,16 @@
       .grid-main { grid-template-columns: 1fr; grid-template-rows: repeat(9, minmax(100px, 1fr)); }
       .sidebar {width:96vw;min-width:90vw;max-width:99vw;}
     }
+    @media (max-width: 480px) {
+      header {flex-direction:column;gap:.3em;}
+      #copySelBtn {margin-left:0;margin-top:.3em;}
+    }
   </style>
 </head>
 <body>
-<header>
+<header style="display:flex;align-items:center;gap:.5em;">
   GridTool Pro – Fokusumschaltung &bull; &copy; Pppoppi
+  <button id="copySelBtn" class="copy-btn" title="Markierten Text kopieren">⧉ Kopieren</button>
 </header>
 <div class="app-frame">
   <aside class="sidebar left" id="sidebarLeft">
@@ -787,6 +794,17 @@ function makeSidebarResizable(side) {
 }
 makeSidebarResizable('Left');
 makeSidebarResizable('Right');
+document.getElementById('copySelBtn').onclick = function(){
+  const txt = window.getSelection().toString();
+  if(!txt){ statusMsg('Nichts markiert!',0); return; }
+  try { navigator.clipboard.writeText(txt); }
+  catch(e){ logErr('Clipboard-Fehler: '+e); return; }
+  const b = this; const old = b.style.background;
+  b.style.background = 'var(--active)';
+  setTimeout(()=>{ b.style.background = old; }, 350);
+  statusMsg('Text kopiert.',1);
+  addDashboardEntry('Manuell kopiert');
+};
 </script>
 </body>
 </html>
