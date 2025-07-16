@@ -17,19 +17,20 @@
 <div id="panel02">
   <h2>Genre-Profile</h2>
   <label for="profile-name">Profilname:</label>
-  <input id="profile-name" aria-label="Profilname">
+  <input id="profile-name" placeholder="Mein Profil" aria-label="Profilname">
   <label for="profile-weight">Gewichtung:</label>
   <input id="profile-weight" type="number" min="1" max="10" value="1" aria-label="Gewichtung">
   <button id="add-profile-btn">Profil speichern</button>
   <label for="profile-select">Profil wählen:</label>
   <select id="profile-select"></select>
   <label for="genre-input">Genres (mit Komma trennen):</label>
-  <textarea id="genre-input" aria-label="Genre-Liste"></textarea>
+  <textarea id="genre-input" placeholder="z.B. Funk, Jazz" aria-label="Genre-Liste"></textarea>
   <button id="save-btn">Liste sichern</button>
   <button id="random-btn">Zufall</button>
   <button id="copy-btn">Kopieren</button>
   <div id="random-output" role="status" aria-live="polite"></div>
   <ul id="log"></ul>
+  <div id="status" role="status" aria-live="polite"></div>
 </div>
 <script type="module">
 const nameInput=document.getElementById('profile-name');
@@ -44,16 +45,19 @@ const output=document.getElementById('random-output');
 const log=document.getElementById('log');
 const DASH_KEY='dashboardLog';
 
+const status=document.getElementById("status");
 function addDashboard(val){
   const arr=JSON.parse(localStorage.getItem(DASH_KEY)||'[]');
   arr.unshift({time:new Date().toLocaleTimeString(),value:val});
   if(arr.length>10) arr.length=10;
   localStorage.setItem(DASH_KEY,JSON.stringify(arr));
 }
+function showStatus(msg){status.textContent=msg;setTimeout(()=>status.textContent="",3000);}
 
 function loadProfiles(){
-  const data=localStorage.getItem('genreProfiles');
-  const raw=data?JSON.parse(data):{};
+  const data=localStorage.getItem("genreProfiles");
+  let raw={};
+  try{raw=data?JSON.parse(data):{};}catch(e){showStatus("Speicher defekt");}
   const out={};
   Object.entries(raw).forEach(([name,val])=>{
     if(Array.isArray(val)){
@@ -65,9 +69,12 @@ function loadProfiles(){
   });
   return out;
 }
-
 function saveProfiles(profiles){
-  localStorage.setItem('genreProfiles',JSON.stringify(profiles));
+  try{
+    localStorage.setItem("genreProfiles",JSON.stringify(profiles));
+  }catch(e){
+    showStatus("Speichern fehlgeschlagen");
+  }
 }
 
 function refreshSelect(profiles){
@@ -104,7 +111,7 @@ function loadCurrentList(){
 
 addBtn.addEventListener('click',()=>{
   const name=nameInput.value.trim();
-  if(!name) return;
+  if(!name){showStatus("Name fehlt"); return;}
   const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
   const weight=Number(weightInput.value)||1;
   const profiles=loadProfiles();
@@ -112,11 +119,12 @@ addBtn.addEventListener('click',()=>{
   saveProfiles(profiles);
   refreshSelect(profiles);
   select.value=name;
+showStatus("Profil gespeichert");
 });
 
 saveBtn.addEventListener('click',()=>{
   const name=select.value;
-  if(!name) return;
+  if(!name){showStatus("Profil wählen"); return;}
   const profiles=loadProfiles();
   const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
   const weight=Number(weightInput.value)||1;
@@ -124,14 +132,14 @@ saveBtn.addEventListener('click',()=>{
   saveProfiles(profiles);
   saveBtn.classList.add('saved');
   setTimeout(()=>saveBtn.classList.remove('saved'),500);
+showStatus("Liste gespeichert");
 });
 
 select.addEventListener('change',loadCurrentList);
-
 randomBtn.addEventListener('click',()=>{
   const profiles=loadProfiles();
   const list=weightedRandom(profiles);
-  if(list.length===0) return;
+  if(list.length===0){showStatus("Keine Genres vorhanden"); return;}
   const choice=list[Math.floor(Math.random()*list.length)];
   output.textContent=choice;
   const entry=document.createElement('li');
@@ -142,7 +150,7 @@ randomBtn.addEventListener('click',()=>{
 
 copyBtn.addEventListener('click',()=>{
   const text=output.textContent;
-  if(!text) return;
+  if(!text){showStatus("Nichts zum Kopieren"); return;}
   navigator.clipboard.writeText(text).then(()=>{
     copyBtn.style.backgroundColor='#15b57b';
     setTimeout(()=>{copyBtn.style.backgroundColor='';},800);

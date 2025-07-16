@@ -16,6 +16,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 
 ## 🧩 Aktuelle Start-Module
 
+---
 - **📝 Panel01: Genres & Zufall**
   → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
 - **🎛 Panel02: Genre-Profile**
@@ -24,7 +25,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
   → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
 - **📋 Panel04: Text-Templates**
   → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
-
+- **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
 ---
 
 ## 🧠 Features

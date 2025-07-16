@@ -48,3 +48,15 @@ So behältst du jederzeit die Kontrolle über deine Dateien.
 4. Beim Klick auf **Zufall** wird zuerst ein Profil gemäß Gewichtung ausgewählt und daraus ein Genre angezeigt.
 
 Die gespeicherten Module findest du gesammelt in `modules.json`.
+
+## Weiterf\u00fchrende Tipps
+
+- **Browser-Speicher leeren (localStorage)**
+  1. Modul im Browser öffnen.
+  2. Taste F12 drücken und "Konsole" auswählen.
+  3. `localStorage.clear()` eintippen und Enter drücken. (Löscht den Browser-Zwischenspeicher.)
+
+- **Projekt erneut prüfen**
+  1. `git status` ausführen.
+  2. `bash tools/selfcheck.sh` starten.
+  3. Fehlermeldungen beachten und Befehle wie `npm install -g htmlhint` nutzen.

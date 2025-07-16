@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 21:57:44 UTC 2025
+Letztes Update: Wed Jul 16 22:13:00 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -12,3 +12,4 @@ Offene Aufgaben:
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [x] Text-Templates-Modul (Panel04) umgesetzt
 - [x] Zufallsmodi mit Profilgewichtung umgesetzt
+- [x] Nutzerfreundlichkeit & Fehlerbehandlung verbessert (Panel01/02)

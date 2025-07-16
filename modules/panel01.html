@@ -16,12 +16,13 @@
 <div id="panel01">
   <h2>Genres & Zufall</h2>
   <label for="genre-input">Genres (durch Kommas trennen):</label>
-  <textarea id="genre-input" aria-label="Genre-Liste"></textarea>
+  <textarea placeholder="z.B. Rock, Pop" id="genre-input" aria-label="Genre-Liste"></textarea>
   <button id="save-btn">Speichern</button>
   <button id="random-btn">Zufall</button>
   <button id="copy-btn">Kopieren</button>
   <div id="random-output" role="status" aria-live="polite"></div>
   <ul id="log"></ul>
+  <div id="status" role="status" aria-live="polite"></div>
 </div>
 <script type="module">
 const input=document.getElementById('genre-input');
@@ -30,6 +31,7 @@ const randomBtn=document.getElementById('random-btn');
 const copyBtn=document.getElementById('copy-btn');
 const output=document.getElementById('random-output');
 const log=document.getElementById('log');
+const status=document.getElementById("status");
 const DASH_KEY='dashboardLog';
 
 function addDashboard(val){
@@ -38,23 +40,31 @@ function addDashboard(val){
   if(arr.length>10) arr.length=10;
   localStorage.setItem(DASH_KEY,JSON.stringify(arr));
 }
-
+function showStatus(msg){status.textContent=msg;setTimeout(()=>status.textContent="",3000);}
 function saveList(){
-  const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
-  localStorage.setItem('genres',JSON.stringify(list));
+  const list=[...new Set(input.value.split(",").map(s=>s.trim()).filter(Boolean))];
+  try{
+    localStorage.setItem("genres",JSON.stringify(list));
+  }catch(e){
+    showStatus("Speichern fehlgeschlagen");
+  }
   return list;
 }
 function loadList(){
-  const data=localStorage.getItem('genres');
-  if(data){
-    const list=JSON.parse(data);
-    input.value=list.join(', ');
-    return list;
+  try{
+    const data=localStorage.getItem("genres");
+    if(data){
+      const list=JSON.parse(data);
+      input.value=list.join(", ");
+      return list;
+    }
+  }catch(e){
+    showStatus("Laden fehlgeschlagen");
   }
   return [];
 }
 function getList(){
-  return input.value?input.value.split(',').map(s=>s.trim()).filter(Boolean):[];
+  return input.value?input.value.split(",").map(s=>s.trim()).filter(Boolean):[];
 }
 
 saveBtn.addEventListener('click',()=>{
@@ -65,7 +75,7 @@ saveBtn.addEventListener('click',()=>{
 
 randomBtn.addEventListener('click',()=>{
   const list=getList();
-  if(list.length===0) return;
+  if(list.length===0){showStatus("Liste ist leer"); return;}
   const choice=list[Math.floor(Math.random()*list.length)];
   output.textContent=choice;
   const entry=document.createElement('li');
@@ -76,7 +86,7 @@ randomBtn.addEventListener('click',()=>{
 
 copyBtn.addEventListener('click',()=>{
   const text=output.textContent;
-  if(!text) return;
+  if(!text){showStatus("Nichts zum Kopieren"); return;}
   navigator.clipboard.writeText(text).then(()=>{
     copyBtn.style.backgroundColor='#15b57b';
     setTimeout(()=>{copyBtn.style.backgroundColor='';},800);

@@ -9,3 +9,4 @@
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [x] Text-Templates-Modul (Panel04) umgesetzt
 - [x] Zufallsmodi mit Profilgewichtung umgesetzt
+- [x] Nutzerfreundlichkeit & Fehlerbehandlung verbessert (Panel01/02)
