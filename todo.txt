@@ -10,3 +10,4 @@
 - [ ] Ordner "modules/" und "panels/" erstellen
 - [ ] "modules.json" für Panels anlegen
 - [ ] Shellcheck-Warnungen in Skripten beheben
+- [ ] Hilfetexte und Tooltips ausbauen

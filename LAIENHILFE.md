@@ -27,3 +27,10 @@ Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erw�
 4. `git push` überträgt alles ins Online-Repository.
 
 So behältst du jederzeit die Kontrolle über deine Dateien.
+
+## Tool starten
+
+1. Wechsel im Terminal in den Projektordner.
+2. Starte einen kleinen Webserver mit `python3 -m http.server`. (Damit werden die Dateien lokal bereitgestellt.)
+3. Öffne dann `http://localhost:8000/index-DDD.html` im Browser (Programm zum Surfen im Internet).
+4. Mit `Strg+C` beendest du den Server wieder.

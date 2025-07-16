@@ -42,3 +42,16 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 logs/
 📁 tools/ (selfcheck.sh)
 📁 .github/workflows/ (validate.yml)
+
+## ℹ️ Erste Schritte
+
+1. Lokalen Server starten:
+   ```bash
+   python3 -m http.server
+   ```
+   Damit kannst du `index-DDD.html` im Browser (Programm zum Surfen im Internet) über `http://localhost:8000/index-DDD.html` aufrufen.
+2. Selfcheck ausführen:
+   ```bash
+   bash tools/selfcheck.sh
+   ```
+3. Mehr Tipps findest du in `LAIENHILFE.md`.

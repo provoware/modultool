@@ -291,7 +291,7 @@
   <main class="main-content">
     <div class="fokus-bar">
       <label for="fokusSelect" style="font-weight:600;color:var(--highlight);margin-right:.3em;">Fokus-Modus:</label>
-      <select id="fokusSelect" aria-label="Panel auswählen" style="font-size:1.02em;border-radius:.8em;border:1.5px solid var(--highlight);padding:.25em .9em;background:var(--area);color:var(--text);">
+      <select id="fokusSelect" aria-label="Panel auswählen" title="Panel für den Fokus wählen" style="font-size:1.02em;border-radius:.8em;border:1.5px solid var(--highlight);padding:.25em .9em;background:var(--area);color:var(--text);">
         <option value="0">3x3-Grid (Standard)</option>
         <option value="1">Panel 1: Genres + Zufall</option>
         <option value="2">Panel 2: Archiv</option>
@@ -303,27 +303,27 @@
         <option value="8">Panel 8</option>
         <option value="9">Panel 9</option>
       </select>
-      <button class="fokus-btn" id="fokusResetBtn" style="display:none;" aria-pressed="true" onclick="switchFokus(0)">Zurück zum Grid</button>
+      <button class="fokus-btn" id="fokusResetBtn" style="display:none;" aria-pressed="true" title="Zur Übersicht" onclick="switchFokus(0)">Zurück zum Grid</button>
     </div>
     <div class="grid-main" id="gridMain">
       <section class="mod-panel" id="panel1" tabindex="0"><h2>Genres + Zufall</h2>
         <form id="genreForm" autocomplete="off">
           <div class="input-group">
-            <input id="genreInput" type="text" placeholder="Genre(s) durch Komma getrennt…" autofocus required />
+            <input id="genreInput" type="text" placeholder="Genre(s) durch Komma getrennt…" title="Mehrere Genres mit Komma trennen" autofocus required />
             <button type="submit">➕</button>
           </div>
           <div class="input-help">Beispiel: <code>Techno, Funk, Minimal</code> (Komma-getrennt, max. 24 Genres)</div>
         </form>
         <div class="archive-actions">
-          <button onclick="saveArchive()">💾 Speichern</button>
-          <button onclick="loadArchive()">📂 Laden</button>
+          <button onclick="saveArchive()" title="Archiv lokal speichern">💾 Speichern</button>
+          <button onclick="loadArchive()" title="Gespeichertes Archiv laden">📂 Laden</button>
         </div>
         <div class="rand-actions">
-          <button class="rand-btn" onclick="pickRandomN(3)">🎲 3</button>
-          <button class="rand-btn" onclick="pickRandomN(6)">🎲 6</button>
-          <button class="rand-btn" onclick="pickRandomN(9)">🎲 9</button>
-          <button class="rand-btn" onclick="pickRandomN(12)">🎲 12</button>
-          <button class="rand-btn" onclick="pickRandomN(15)">🎲 15</button>
+          <button class="rand-btn" onclick="pickRandomN(3)" title="3 zufällige Genres wählen">🎲 3</button>
+          <button class="rand-btn" onclick="pickRandomN(6)" title="6 zufällige Genres wählen">🎲 6</button>
+          <button class="rand-btn" onclick="pickRandomN(9)" title="9 zufällige Genres wählen">🎲 9</button>
+          <button class="rand-btn" onclick="pickRandomN(12)" title="12 zufällige Genres wählen">🎲 12</button>
+          <button class="rand-btn" onclick="pickRandomN(15)" title="15 zufällige Genres wählen">🎲 15</button>
         </div>
         <div id="randResult" class="rand-result" style="display:none;"></div>
         <div id="genreStatus" class="status-msg" style="display:none;"></div>
@@ -342,15 +342,15 @@
       </section>
       <section class="mod-panel" id="panel3" tabindex="0"><h2>Dashboard (letzte 10 Ausgaben)</h2>
         <ul id="dashboardList" class="dashboard-list"></ul>
-        <button id="clearDashboardBtn" class="dashboard-copy" style="background:var(--remove);margin-top:.5em;">Alle löschen</button>
+        <button id="clearDashboardBtn" class="dashboard-copy" style="background:var(--remove);margin-top:.5em;" title="Dashboard leeren">Alle löschen</button>
         <div class="input-help">Tipp: Für alle Zufallsausgaben – kopieren per Klick!</div>
       </section>
       <section class="mod-panel" id="panel4" tabindex="0"><h2>Text-Templates</h2>
         <form id="tmplForm" autocomplete="off">
           <div class="tmpl-inputs">
-            <input id="tmplTitle" type="text" placeholder="Button-Titel" required maxlength="40"/>
-            <textarea id="tmplText" placeholder="Textvorlage…" required rows="2" maxlength="500"></textarea>
-            <button type="submit">Hinzufügen</button>
+            <input id="tmplTitle" type="text" placeholder="Button-Titel" title="Titel für den Vorlagen-Button" required maxlength="40"/>
+            <textarea id="tmplText" placeholder="Textvorlage…" title="Inhalt der Textvorlage" required rows="2" maxlength="500"></textarea>
+            <button type="submit" title="Neue Vorlage speichern">Hinzufügen</button>
           </div>
           <div class="input-help">Gib einen sprechenden Titel und Text ein. Beispiel: Titel: <code>Grußmail</code> – Text: <code>Hallo zusammen, ...</code></div>
         </form>
@@ -360,7 +360,7 @@
       </section>
       <section class="mod-panel" id="panel5" tabindex="0"><h2>Debug & Log</h2>
         <div id="debugLog" style="max-height:220px;overflow:auto;margin-bottom:.4em;"></div>
-        <button onclick="clearLog()" class="dashboard-copy" style="background:var(--remove);">Logs löschen</button>
+        <button onclick="clearLog()" class="dashboard-copy" style="background:var(--remove);" title="Alle Logeinträge entfernen">Logs löschen</button>
         <div class="input-help">Hier findest du Fehler, Warnungen und Systemereignisse. Tipp: Bei Problemen einfach Logs prüfen!</div>
         <div class="small">Selfcheck: <span id="selfcheckStatus"></span></div>
       </section>
@@ -369,7 +369,7 @@
           <input id="importModuleFile" type="file" accept=".js,.html,.txt" style="display:none;">
           Modul-Datei auswählen
         </label>
-        <button onclick="triggerModuleImport()">Import starten</button>
+        <button onclick="triggerModuleImport()" title="Ausgewählte Datei importieren">Import starten</button>
         <div class="import-status" id="importStatus"></div>
         <pre id="importPreview" style="max-height:110px;overflow:auto;background:#252c2e;color:#bbb;padding:.4em .7em;border-radius:.6em;display:none;margin:.5em 0 0 0;"></pre>
         <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
@@ -387,8 +387,15 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-h2">Globale Einstellungen</div>
     <div>
-      <button onclick="resetAll()" style="margin-bottom:.5em;">Alles zurücksetzen</button>
+      <button onclick="resetAll()" style="margin-bottom:.5em;" title="Alle Daten löschen und neu starten">Alles zurücksetzen</button>
     </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-h2">Kurze Hilfe</div>
+    <ul class="sidebar-list">
+      <li>Selfcheck: <code>bash tools/selfcheck.sh</code></li>
+      <li>Projekt speichern: <code>git commit</code></li>
+      <li>Weitere Tipps in <code>LAIENHILFE.md</code></li>
+    </ul>
     <div class="sidebar-footer">
       Für Hilfe: Siehe Hilfe-Sidebar oder frag Poppi.
     </div>
