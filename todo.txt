@@ -11,3 +11,5 @@
 - [ ] "modules.json" für Panels anlegen
 - [ ] Shellcheck-Warnungen in Skripten beheben
 - [ ] Hilfetexte und Tooltips ausbauen
+- [ ] Startskript zum einfachen Aufrufen des Tools
+- [ ] Willkommens-Overlay für neue Nutzer

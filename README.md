@@ -45,6 +45,11 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 
 ## ℹ️ Erste Schritte
 
+0. Alles automatisch starten:
+   ```bash
+   bash tools/start_tool.sh
+   ```
+   Damit startet ein lokaler Server und der Browser öffnet sich von selbst.
 1. Lokalen Server starten:
    ```bash
    python3 -m http.server

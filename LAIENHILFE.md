@@ -30,6 +30,14 @@ So behältst du jederzeit die Kontrolle über deine Dateien.
 
 ## Tool starten
 
+Am einfachsten nutzt du das Startskript. Es erledigt alles für dich.
+
+```bash
+bash tools/start_tool.sh
+```
+
+Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und öffnet die Seite automatisch im Browser.
+
 1. Wechsel im Terminal in den Projektordner.
 2. Starte einen kleinen Webserver mit `python3 -m http.server`. (Damit werden die Dateien lokal bereitgestellt.)
 3. Öffne dann `http://localhost:8000/index-DDD.html` im Browser (Programm zum Surfen im Internet).

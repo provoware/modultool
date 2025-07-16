@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 04:00:49 UTC 2025
+Letztes Update: Wed Jul 16 04:06:03 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -14,3 +14,5 @@ Offene Aufgaben:
 - [ ] "modules.json" für Panels anlegen
 - [ ] Shellcheck-Warnungen in Skripten beheben
 - [ ] Hilfetexte und Tooltips ausbauen
+- [ ] Startskript zum einfachen Aufrufen des Tools
+- [ ] Willkommens-Overlay für neue Nutzer

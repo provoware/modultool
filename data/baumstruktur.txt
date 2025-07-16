@@ -16,5 +16,6 @@
 ./setup.sh
 ./todo.txt
 ./tools/selfcheck.sh
+./tools/start_tool.sh
 ./tools/update_placeholder.sh
 ./validate.yml

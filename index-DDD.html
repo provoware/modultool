@@ -247,6 +247,8 @@
     .status-msg {padding:.19em 1em; margin:.2em 0 .4em 0; border-radius:.7em; font-weight:600;}
     .status-ok {background:#198d54b8; color:#f7fff9;}
     .status-error {background:#d42e4cbe; color:#fff;}
+    .intro-overlay {position:fixed;inset:0;background:rgba(0,0,0,.85);color:var(--text);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;text-align:center;padding:1em;}
+    .intro-overlay button{margin-top:1em;padding:.6em 1.2em;border:none;border-radius:.4em;background:var(--button);color:var(--text);font-size:1.1em;cursor:pointer;}
     @media (max-width: 1100px) {
       .grid-main { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, minmax(150px, 1fr)); }
       .mod-panel {max-height:none;}
@@ -259,6 +261,12 @@
   </style>
 </head>
 <body>
+<div id="introOverlay" class="intro-overlay">
+  <h2>Willkommen im Modultool!</h2>
+  <p>Der lokale Server läuft. Diese Seite wurde automatisch geöffnet.</p>
+  <p>Klicke auf "Los geht's", um die Oberfläche zu nutzen.</p>
+  <button onclick="hideIntro()">Los geht's</button>
+</div>
 <header>
   GridTool Pro – Fokusumschaltung &bull; &copy; Pppoppi
 </header>
@@ -790,6 +798,10 @@ function makeSidebarResizable(side) {
 }
 makeSidebarResizable('Left');
 makeSidebarResizable('Right');
+function hideIntro(){
+  const el = document.getElementById('introOverlay');
+  if(el) el.style.display='none';
+}
 </script>
 </body>
 </html>
