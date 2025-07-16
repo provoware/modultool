@@ -79,4 +79,17 @@ Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler ge
   ```bash
   rm alte_datei.txt
   ```
-  `rm` steht fuer "remove" (loeschen). Vorsicht: Die Datei ist danach weg.
+
+## Platzhalter verstehen
+
+- **Beispieldatei oeffnen**
+  ```bash
+  nano logs/.placeholder
+  ```
+  Mit `nano` (Texteditor) siehst du den Inhalt und kannst Notizen ergaenzen.
+
+- **Leere Datei anlegen**
+  ```bash
+  touch panels/neues_panel.js
+  ```
+  Das Kommando `touch` erzeugt eine Datei ohne Inhalt. So bleibt der Ordner in Git erhalten.
