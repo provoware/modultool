@@ -1,24 +1,27 @@
 #!/bin/bash
-# tools/selfcheck.sh
+# tools/selfcheck.sh – korrigierte Fassung
 
 echo "🧪 Selfcheck gestartet..."
 
-# Windows-Zeilenumbrüche automatisch korrigieren
-sed -i 's/\r$//' "$0"
-
-# JSON-Check (nur wenn jsonlint vorhanden)
+# JSON-Check (optional)
 if command -v jsonlint >/dev/null; then
   find . -name "*.json" -exec jsonlint -q {} \;
+else
+  echo "⚠️ jsonlint nicht installiert"
 fi
 
-# HTML-Hint (optional)
+# HTML-Hint
 if command -v htmlhint >/dev/null; then
   find . -name "*.html" -exec htmlhint {} \;
+else
+  echo "⚠️ htmlhint nicht installiert"
 fi
 
-# Shellcheck für Skripte
+# Shellcheck
 if command -v shellcheck >/dev/null; then
   find . -name "*.sh" -exec shellcheck {} \;
+else
+  echo "⚠️ shellcheck nicht installiert"
 fi
 
 echo "✅ Selfcheck abgeschlossen."
