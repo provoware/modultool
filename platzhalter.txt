@@ -1,11 +1,34 @@
-Letztes Update: Wed Jul 16 04:26:17 UTC 2025
+Letztes Update: Wed Jul 16 23:49:29 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
-- [ ] Zufallsmodi mit Profilgewichtung implementieren
+- [x] Zufallsprofile ohne Gewichtung umgesetzt (Panel02)
 - [x] Logging ins Dashboard einbauen
 - [x] Clipboard-Funktion mit Feedback-Farben
-- [ ] CSS responsiv machen, Test mit Axe/WAVE
+- [x] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Dashboard-Modul umgesetzt (Panel03)
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [x] Text-Templates-Modul (Panel04) umgesetzt
+- [x] Zufallsmodi mit Profilgewichtung umsetzen (Panel02)
+- [x] Nutzerfreundlichkeit & Fehlerbehandlung verbessert (Panel01/02)
+- [x] Modulbezeichnungen in HTML und README vereinheitlicht
+- [x] GitHub-Remote einrichten und Fortschritt pushen
+- [x] Persona-Switcher-Modul umsetzen (Panel05)
+- [x] Story-Sampler-Modul umgesetzt (Panel06)
+- [x] Cover/Layout-Modul umsetzen (Panel07)
+
+- [x] Theme-Switcher-Modul umsetzen (Panel08)
+- [x] Einstellungs-Panel umsetzen (Panel09)
+- [x] Weitere Befehle in der Laienhilfe ergänzen
+- [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
+- [x] Branches zusammenführen (work -> main)
+- [x] Wiki-Modul umsetzen (Panel10)
+- [x] Blog-Editor umsetzen (Panel11)
+- [x] Autoupdate-Skript erstellen
+- [x] Standardpfad in Einstellungen speichern
+- [ ] Undo/Redo-Funktion einbauen
+- [ ] ZIP-Backup vorbereiten
+- [ ] Filter/Favoriten integrieren
+- [ ] Scrollsync und Projektordner verwalten

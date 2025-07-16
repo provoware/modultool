@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Panel04 – Textbausteine</title>
+<style>
+  #panel04{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:var(--font-family, sans-serif);}
+  #template-list{display:flex;flex-direction:column;gap:0.4rem;}
+  .tmpl-btn{background:#338a5d;color:#fff;border:none;border-radius:var(--btn-radius,0.8rem);padding:0.4rem 0.8rem;font-size:var(--base-font,1rem);cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;line-height:1.4;}
+  .remove-btn{background:#db3665;border-radius:var(--btn-radius,0.8rem);color:#fff;padding:0.3rem 0.6rem;border:none;cursor:pointer;}
+  input,textarea,button{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);line-height:1.4;}
+  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+  @media(min-width:600px){#panel04{max-width:520px;}}
+  textarea{resize:vertical;min-height:80px;}
+</style>
+</head>
+<body>
+<div id="panel04">
+  <h2>Textbausteine</h2>
+  <label for="title-input">Titel:</label>
+  <input id="title-input" aria-label="Template-Titel">
+  <label for="text-input">Text:</label>
+  <textarea id="text-input" aria-label="Template-Text"></textarea>
+  <button id="add-btn">Hinzufügen</button>
+  <div id="template-list"></div>
+</div>
+<script type="module">
+const titleInput=document.getElementById('title-input');
+const textInput=document.getElementById('text-input');
+const addBtn=document.getElementById('add-btn');
+const listDiv=document.getElementById('template-list');
+const STORE_KEY='templates';
+
+function loadTemplates(){
+  const data=localStorage.getItem(STORE_KEY);
+  return data?JSON.parse(data):[];
+}
+function saveTemplates(arr){
+  localStorage.setItem(STORE_KEY,JSON.stringify(arr));
+}
+function render(){
+  const arr=loadTemplates();
+  listDiv.innerHTML='';
+  arr.forEach((t,i)=>{
+    const btn=document.createElement('button');
+    btn.className='tmpl-btn';
+    btn.textContent=t.title;
+    btn.onclick=()=>{navigator.clipboard.writeText(t.text);};
+    const rm=document.createElement('button');
+    rm.className='remove-btn';
+    rm.textContent='✖';
+    rm.onclick=()=>{arr.splice(i,1);saveTemplates(arr);render();};
+    const wrapper=document.createElement('div');
+    wrapper.appendChild(btn);wrapper.appendChild(rm);
+    listDiv.appendChild(wrapper);
+  });
+}
+addBtn.addEventListener('click',()=>{
+  const title=titleInput.value.trim();
+  const text=textInput.value.trim();
+  if(!title||!text) return;
+  const arr=loadTemplates();
+  arr.push({title,text});
+  saveTemplates(arr);
+  titleInput.value='';textInput.value='';
+  render();
+});
+render();
+</script>
+</body>
+</html>
