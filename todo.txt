@@ -1,1 +1,2 @@
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
+- MIT-Lizenz hinzugefuegt (LICENSE-Datei, Verweis in README)

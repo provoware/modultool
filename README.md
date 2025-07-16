@@ -41,3 +41,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 logs/
 📁 tools/ (selfcheck.sh)
 📁 .github/workflows/ (validate.yml)
+
+## Lizenz
+
+Dieses Projekt steht unter der [MIT-Lizenz](LICENSE).
+
