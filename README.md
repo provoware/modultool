@@ -16,10 +16,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 
 ## 🧩 Aktuelle Start-Module
 
-- **🎲 Genre-Archiv & Eingabe**  
-  → Speicherung, Duplikatsprüfung, Komma-getrennte Eingaben  
-- **🧠 Zufallsgenerator**  
-  → mit Auswahlmodi, Logging, Favoriten und Export
+- **📝 Panel01: Genres & Zufall**
+  → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
 
 ---
 
@@ -40,5 +38,5 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 data/ (baumstruktur.txt, todo.txt)
 📄 platzhalter.txt
 📁 logs/
-📁 tools/ (selfcheck.sh)
+📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
 📁 .github/workflows/ (validate.yml)

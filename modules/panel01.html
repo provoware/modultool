@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Panel01 – Genres & Zufall</title>
+<style>
+  #panel01 {display:grid;gap:0.5rem;max-width:320px;margin:auto;font-family:sans-serif;}
+  #genre-input{min-height:80px;}
+  #random-output{font-weight:bold;margin-top:0.5rem;}
+  #log{max-height:100px;overflow-y:auto;padding-left:1rem;}
+  @media(min-width:600px){#panel01{max-width:480px;}}
+</style>
+</head>
+<body>
+<div id="panel01">
+  <h2>Genres & Zufall</h2>
+  <label for="genre-input">Genres (durch Kommas trennen):</label>
+  <textarea id="genre-input" aria-label="Genre-Liste"></textarea>
+  <button id="save-btn">Speichern</button>
+  <button id="random-btn">Zufall</button>
+  <button id="copy-btn">Kopieren</button>
+  <div id="random-output" role="status" aria-live="polite"></div>
+  <ul id="log"></ul>
+</div>
+<script type="module">
+const input=document.getElementById('genre-input');
+const saveBtn=document.getElementById('save-btn');
+const randomBtn=document.getElementById('random-btn');
+const copyBtn=document.getElementById('copy-btn');
+const output=document.getElementById('random-output');
+const log=document.getElementById('log');
+
+function saveList(){
+  const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
+  localStorage.setItem('genres',JSON.stringify(list));
+  return list;
+}
+function loadList(){
+  const data=localStorage.getItem('genres');
+  if(data){
+    const list=JSON.parse(data);
+    input.value=list.join(', ');
+    return list;
+  }
+  return [];
+}
+function getList(){
+  return input.value?input.value.split(',').map(s=>s.trim()).filter(Boolean):[];
+}
+
+saveBtn.addEventListener('click',()=>{
+  saveList();
+  saveBtn.classList.add('saved');
+  setTimeout(()=>saveBtn.classList.remove('saved'),500);
+});
+
+randomBtn.addEventListener('click',()=>{
+  const list=getList();
+  if(list.length===0) return;
+  const choice=list[Math.floor(Math.random()*list.length)];
+  output.textContent=choice;
+  const entry=document.createElement('li');
+  entry.textContent=new Date().toLocaleTimeString()+': '+choice;
+  log.prepend(entry);
+});
+
+copyBtn.addEventListener('click',()=>{
+  const text=output.textContent;
+  if(!text) return;
+  navigator.clipboard.writeText(text).then(()=>{
+    copyBtn.style.backgroundColor='#15b57b';
+    setTimeout(()=>{copyBtn.style.backgroundColor='';},800);
+  });
+});
+
+loadList();
+</script>
+</body>
+</html>
