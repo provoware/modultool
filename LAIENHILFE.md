@@ -39,3 +39,20 @@ So behältst du jederzeit die Kontrolle über deine Dateien.
 4. Klicke auf **Speichern**. Die Liste wird in `localStorage` (Browser-Zwischenspeicher) gesichert.
 5. Mit **Zufall** wählst du einen Eintrag zufällig aus. Darunter entsteht ein kleines Protokoll (Log) mit Uhrzeit.
 6. Über **Kopieren** landet das Ergebnis in der Zwischenablage. Der Button färbt sich kurz grün als Bestätigung.
+
+## Flexibilität & Nutzerfreundlichkeit erhöhen
+
+* **Konfigurationsdatei bearbeiten:** `nano .modultoolrc.json`
+  `.json` (JavaScript Object Notation - Textformat für Einstellungen).
+  Ändere zum Beispiel `"default_export_format": "txt"` für Text-Export.
+  Danach `bash tools/selfcheck.sh` ausführen.
+
+* **Farbschema wechseln:** `nano index-DDD.html` öffnen.
+  Suche im `<body>`-Tag nach `data-theme`. Werte wie `dark`, `light` oder `blue` ändern das Aussehen.
+  Speichern und Seite neu laden.
+
+* **Eigenes Modul erstellen:**
+  `cp modules/panel01.html modules/panel02.html` kopiert ein Beispiel.
+  Bearbeite die Kopie mit `nano modules/panel02.html` und passe Titel und Funktionen an.
+  Neue Module erscheinen im Browser, sobald die Datei geladen wird.
+
