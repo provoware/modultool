@@ -40,5 +40,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 data/ (baumstruktur.txt, todo.txt)
 📄 platzhalter.txt
 📁 logs/
-📁 tools/ (selfcheck.sh)
+📁 tools/ (selfcheck.sh, update_placeholder.sh, install_hook.sh)
 📁 .github/workflows/ (validate.yml)
+
+Führe einmal `bash tools/install_hook.sh` aus. Danach wird `platzhalter.txt` nach jedem Commit automatisch aktualisiert.

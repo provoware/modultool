@@ -8,6 +8,7 @@ Hier findest du einfache Tipps zum Umgang mit dem Projekt. Fachbegriffe stehen i
 2. Tippe `nano todo.txt` und drücke **Enter**. Dadurch öffnest du die Liste mit offenen Aufgaben.
 3. Ergänze neue Punkte oder hake sie ab. Speichere mit `Strg+O`, beende mit `Strg+X`.
 4. Danach `bash tools/update_placeholder.sh` ausführen. Das aktualisiert `platzhalter.txt` automatisch.
+5. Einmalig: `bash tools/install_hook.sh` ausführen. Danach wird `platzhalter.txt` nach jedem `git commit` automatisch erneuert.
 
 ## Selbstcheck starten
 

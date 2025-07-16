@@ -16,6 +16,7 @@
 ./setup.sh
 ./todo.txt
 ./tools/comma_json.js
+./tools/install_hook.sh
 ./tools/selfcheck.sh
 ./tools/update_placeholder.sh
 ./validate.yml
