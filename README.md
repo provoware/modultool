@@ -18,6 +18,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 
 - **📝 Panel01: Genres & Zufall**
   → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
+- **🎛 Panel02: Genre-Profile**
+  → Mehrere Genre-Listen unter eigenen Profilnamen verwalten und per Zufall ausgeben
 
 ---
 

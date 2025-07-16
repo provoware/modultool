@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Panel02 – Genre-Profile</title>
+<style>
+  #panel02{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:sans-serif;}
+  #genre-input{min-height:80px;}
+  #random-output{font-weight:bold;margin-top:0.5rem;}
+  #log{max-height:100px;overflow-y:auto;padding-left:1rem;}
+  select,button,textarea,input{font-size:1rem;}
+  @media(min-width:600px){#panel02{max-width:520px;}}
+</style>
+</head>
+<body>
+<div id="panel02">
+  <h2>Genre-Profile</h2>
+  <label for="profile-name">Profilname:</label>
+  <input id="profile-name" aria-label="Profilname">
+  <button id="add-profile-btn">Profil speichern</button>
+  <label for="profile-select">Profil wählen:</label>
+  <select id="profile-select"></select>
+  <label for="genre-input">Genres (mit Komma trennen):</label>
+  <textarea id="genre-input" aria-label="Genre-Liste"></textarea>
+  <button id="save-btn">Liste sichern</button>
+  <button id="random-btn">Zufall</button>
+  <button id="copy-btn">Kopieren</button>
+  <div id="random-output" role="status" aria-live="polite"></div>
+  <ul id="log"></ul>
+</div>
+<script type="module">
+const nameInput=document.getElementById('profile-name');
+const addBtn=document.getElementById('add-profile-btn');
+const select=document.getElementById('profile-select');
+const input=document.getElementById('genre-input');
+const saveBtn=document.getElementById('save-btn');
+const randomBtn=document.getElementById('random-btn');
+const copyBtn=document.getElementById('copy-btn');
+const output=document.getElementById('random-output');
+const log=document.getElementById('log');
+
+function loadProfiles(){
+  const data=localStorage.getItem('genreProfiles');
+  return data?JSON.parse(data):{};
+}
+
+function saveProfiles(profiles){
+  localStorage.setItem('genreProfiles',JSON.stringify(profiles));
+}
+
+function refreshSelect(profiles){
+  select.innerHTML='';
+  Object.keys(profiles).forEach(name=>{
+    const opt=document.createElement('option');
+    opt.value=name; opt.textContent=name;
+    select.appendChild(opt);
+  });
+}
+
+function loadCurrentList(){
+  const profiles=loadProfiles();
+  const cur=select.value;
+  if(cur&&profiles[cur]){
+    input.value=profiles[cur].join(', ');
+  } else {
+    input.value='';
+  }
+}
+
+addBtn.addEventListener('click',()=>{
+  const name=nameInput.value.trim();
+  if(!name) return;
+  const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
+  const profiles=loadProfiles();
+  profiles[name]=list;
+  saveProfiles(profiles);
+  refreshSelect(profiles);
+  select.value=name;
+});
+
+saveBtn.addEventListener('click',()=>{
+  const name=select.value;
+  if(!name) return;
+  const profiles=loadProfiles();
+  profiles[name]=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
+  saveProfiles(profiles);
+  saveBtn.classList.add('saved');
+  setTimeout(()=>saveBtn.classList.remove('saved'),500);
+});
+
+select.addEventListener('change',loadCurrentList);
+
+randomBtn.addEventListener('click',()=>{
+  const list=input.value.split(',').map(s=>s.trim()).filter(Boolean);
+  if(list.length===0) return;
+  const choice=list[Math.floor(Math.random()*list.length)];
+  output.textContent=choice;
+  const entry=document.createElement('li');
+  entry.textContent=new Date().toLocaleTimeString()+': '+choice;
+  log.prepend(entry);
+});
+
+copyBtn.addEventListener('click',()=>{
+  const text=output.textContent;
+  if(!text) return;
+  navigator.clipboard.writeText(text).then(()=>{
+    copyBtn.style.backgroundColor='#15b57b';
+    setTimeout(()=>{copyBtn.style.backgroundColor='';},800);
+  });
+});
+
+// init
+refreshSelect(loadProfiles());
+loadCurrentList();
+</script>
+</body>
+</html>
