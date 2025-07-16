@@ -1,0 +1,17 @@
+./.editorconfig
+./.github/workflows/branch-limit.yml
+./.github/workflows/validate.yml
+./.gitignore
+./.modultoolrc.json
+./AGENTS.md
+./README.md
+./VISION_AGENTS.md
+./baumstruktur.txt
+./branch-limit.yml
+./data/baumstruktur.txt
+./data/todo.txt
+./index-DDD.html
+./setup.sh
+./todo.txt
+./tools/selfcheck.sh
+./validate.yml
