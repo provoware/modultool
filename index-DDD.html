@@ -243,6 +243,10 @@
     .input-help {color:var(--text-light);font-size:.97em;margin:.2em 0 .5em .1em;}
     .file-label {padding:.3em .8em;border-radius:.8em;background:var(--area);margin-left:.3em;cursor:pointer;}
     .import-status{font-size:.98em;margin:.45em 0;}
+    .weight-list{display:flex;flex-direction:column;gap:.4em;max-height:220px;overflow:auto;margin-bottom:.6em;}
+    .weight-row{display:flex;align-items:center;gap:.6em;}
+    .weight-row span{flex:1;word-break:break-all;}
+    .weight-row input{width:60px;}
     .small { font-size: .93rem; color: var(--text-light);}
     .status-msg {padding:.19em 1em; margin:.2em 0 .4em 0; border-radius:.7em; font-weight:600;}
     .status-ok {background:#198d54b8; color:#f7fff9;}
@@ -393,7 +397,7 @@
         <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
       </section>
       <section class="mod-panel" id="panel7" tabindex="0"><div class="small">Lade…</div></section>
-      <section class="mod-panel" id="panel8"><h2>Modul 8</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel8" tabindex="0"><div class="small">Lade…</div></section>
       <section class="mod-panel" id="panel9"><h2>Modul 9</h2><div class="small">Frei für weitere Features</div></section>
     </div>
   </main>
@@ -477,6 +481,7 @@ window.onload = function() {
     dashboardData = dash ? JSON.parse(dash) : [];
     let tdata = localStorage.getItem(TMPL_KEY);
     tmplArchiv = tdata ? JSON.parse(tdata) : [];
+    loadWeights();
   } catch(e) {
     genres = []; dashboardData = []; tmplArchiv = [];
     logErr('Fehler beim Laden aus localStorage: '+e);
@@ -492,9 +497,11 @@ window.onload = function() {
 const LOCAL_KEY = 'genreArchiv_vGRIDSB';
 const DASHBOARD_KEY = 'genreDashboard_vGRIDSB';
 const TMPL_KEY = 'tmplArchiv_vGRIDSB';
+const WEIGHT_KEY = 'genreWeights_vGRIDSB';
 let genres = [];
 let dashboardData = [];
 let tmplArchiv = [];
+let genreWeights = {};
 let searchTerm = '';
 /* Logging und Selfcheck */
 let debugLogArr = [];
@@ -633,6 +640,7 @@ function sortAndUpdate() {
   genres = [...new Set(genres.map(x => (typeof x==='object'?x.value:x).trim()).filter(x=>x.length>0))].sort((a,b)=>a.localeCompare(b, 'de'));
   localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
   renderList();
+  renderWeightList();
   logDbg('Archiv aktualisiert.');
 }
 function addGenre(str) {
@@ -671,6 +679,47 @@ function pickRandomN(n) {
   localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
   renderDashboard();
   logDbg('Zufallsausgabe erzeugt und kopiert.');
+}
+function loadWeights(){
+  try { genreWeights = JSON.parse(localStorage.getItem(WEIGHT_KEY)) || {}; }
+  catch(e){ genreWeights = {}; logErr('Gewicht-Laden: '+e); }
+}
+function saveWeights(){
+  localStorage.setItem(WEIGHT_KEY, JSON.stringify(genreWeights));
+}
+function renderWeightList(){
+  const box = document.getElementById('weightList');
+  if(!box) return;
+  box.innerHTML = '';
+  genres.forEach(g => {
+    const row = document.createElement('div');
+    row.className = 'weight-row';
+    const sp = document.createElement('span');
+    sp.textContent = g;
+    const inp = document.createElement('input');
+    inp.type='number';
+    inp.min='1';
+    inp.value = genreWeights[g] || 1;
+    inp.onchange = () => { genreWeights[g]=Math.max(1,Number(inp.value)||1); saveWeights(); };
+    row.appendChild(sp); row.appendChild(inp);
+    box.appendChild(row);
+  });
+}
+function pickWeightedRandom(){
+  const pool=[];
+  genres.forEach(g=>{ const w=Number(genreWeights[g]||1); for(let i=0;i<w;i++) pool.push(g); });
+  if(pool.length===0){ statusMsg('Kein Genre vorhanden!',0); logErr('Gewichteter Zufall ohne Genres!'); return; }
+  const pick = pool[Math.floor(Math.random()*pool.length)];
+  const out = document.getElementById('weightResult');
+  out.style.display='block';
+  out.innerHTML = `<b>Gewichteter Zufall:</b> ${pick}`;
+  try { navigator.clipboard.writeText(pick); } catch(e){ logErr('Clipboard-Fehler: '+e); }
+  statusMsg('Gewichteten Zufall kopiert.',1); flash(out);
+  dashboardData.unshift({value: pick, time: new Date().toLocaleString()});
+  dashboardData = dashboardData.slice(0,10);
+  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
+  renderDashboard();
+  logDbg('Gewichteten Zufall erzeugt und kopiert.');
 }
 function saveArchive() {
   localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
@@ -832,13 +881,14 @@ function makeSidebarResizable(side) {
 }
 makeSidebarResizable('Left');
 makeSidebarResizable('Right');
-function loadPanel(id){
+function loadPanel(id, cb){
   fetch('panels/'+id+'.html')
     .then(r=>r.text())
-    .then(html=>{document.getElementById(id).innerHTML = html;})
+    .then(html=>{document.getElementById(id).innerHTML = html; if(cb) cb();})
     .catch(e=>logErr('Panel-Load '+id+': '+e));
 }
 loadPanel('panel7');
+loadPanel('panel8', renderWeightList);
 function hideIntro(){
   const el = document.getElementById('introOverlay');
   if(el) el.style.display='none';

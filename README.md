@@ -78,6 +78,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 
 Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend wieder mit `bash tools/start_tool.sh`.
 Im Repository gibt es auch ein Beispielmodul `panel7` namens "Schnellhilfe" mit weiteren Kommandos.
+Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator.
 
 ## 📈 Weiterführende Tipps
 
@@ -101,3 +102,5 @@ Im Repository gibt es auch ein Beispielmodul `panel7` namens "Schnellhilfe" mit 
 * `git remote -v` – zeigt die gespeicherten Online-Adressen (*Remote = entfernte Quelle*).
 * `git reset --hard HEAD~1` – macht den letzten Stand rückgängig (*Reset = zurücksetzen*).
 * `tar -czf backup.tar.gz ordner/` – erstellt ein gepacktes Archiv eines Ordners (*Backup = Sicherung*).
+* `git tag -a v1.0 -m "Version 1.0"` – legt eine Versionsmarke an (*Tag = Markierung*).
+* `rsync -av quelle/ ziel/` – kopiert Dateien effizient (*rsync = Synchronisationsprogramm*).
