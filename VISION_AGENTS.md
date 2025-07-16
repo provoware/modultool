@@ -95,7 +95,7 @@ priority: hoch
 tasks:
   - UI-Layout mit Grid/Flex und ARIA/Fokus
   - JS: commaSplit -> uniqueSort -> JSON-Save/Load
-  - Zufallsmodi + Profil/Gewichtung implementieren
+  - Zufallsmodi + Profil/Gewichtung implementieren ✅ erledigt
   - Logging + Dashboard-Integration
   - Clipboard-Ziel + farbiges Feedback
   - CSS responsiv + Test via Axe/WAVE

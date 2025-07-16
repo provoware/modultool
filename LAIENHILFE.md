@@ -39,3 +39,12 @@ So behältst du jederzeit die Kontrolle über deine Dateien.
 4. Klicke auf **Speichern**. Die Liste wird in `localStorage` (Browser-Zwischenspeicher) gesichert.
 5. Mit **Zufall** wählst du einen Eintrag zufällig aus. Darunter entsteht ein kleines Protokoll (Log) mit Uhrzeit.
 6. Über **Kopieren** landet das Ergebnis in der Zwischenablage. Der Button färbt sich kurz grün als Bestätigung.
+
+## Profilgewichtung nutzen
+
+1. Öffne `panel02.html` im Ordner `modules`.
+2. Gib einen Namen und optional eine Zahl bei **Gewichtung** ein (1 = selten, 10 = oft).
+3. Trage deine Genres ein und klicke **Profil speichern**.
+4. Beim Klick auf **Zufall** wird zuerst ein Profil gemäß Gewichtung ausgewählt und daraus ein Genre angezeigt.
+
+Die gespeicherten Module findest du gesammelt in `modules.json`.

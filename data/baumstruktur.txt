@@ -11,8 +11,10 @@
 ./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
-./data/todo_backup_20250716214910.txt
+./data/todo_backup_20250716215714.txt
+./data/todo_backup_20250716215744.txt
 ./index-DDD.html
+./modules.json
 ./modules/panel01.html
 ./modules/panel02.html
 ./modules/panel03.html

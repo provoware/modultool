@@ -19,7 +19,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 - **📝 Panel01: Genres & Zufall**
   → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
 - **🎛 Panel02: Genre-Profile**
-  → Mehrere Genre-Listen unter eigenen Profilnamen verwalten und per Zufall ausgeben
+  → Mehrere Genre-Listen als Profile speichern, Zufallswahl jetzt mit Profilgewichtung
 - **📊 Panel03: Dashboard-Log**
   → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
 - **📋 Panel04: Text-Templates**
@@ -46,3 +46,5 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 logs/
 📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
 📁 .github/workflows/ (validate.yml)
+📄 modules.json (Registrierung vorhandener Module)
+```

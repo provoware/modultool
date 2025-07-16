@@ -18,6 +18,8 @@
   <h2>Genre-Profile</h2>
   <label for="profile-name">Profilname:</label>
   <input id="profile-name" aria-label="Profilname">
+  <label for="profile-weight">Gewichtung:</label>
+  <input id="profile-weight" type="number" min="1" max="10" value="1" aria-label="Gewichtung">
   <button id="add-profile-btn">Profil speichern</button>
   <label for="profile-select">Profil wählen:</label>
   <select id="profile-select"></select>
@@ -31,6 +33,7 @@
 </div>
 <script type="module">
 const nameInput=document.getElementById('profile-name');
+const weightInput=document.getElementById('profile-weight');
 const addBtn=document.getElementById('add-profile-btn');
 const select=document.getElementById('profile-select');
 const input=document.getElementById('genre-input');
@@ -50,7 +53,17 @@ function addDashboard(val){
 
 function loadProfiles(){
   const data=localStorage.getItem('genreProfiles');
-  return data?JSON.parse(data):{};
+  const raw=data?JSON.parse(data):{};
+  const out={};
+  Object.entries(raw).forEach(([name,val])=>{
+    if(Array.isArray(val)){
+      out[name]={list:val,weight:1};
+    }else{
+      out[name]=val;
+      if(!out[name].weight) out[name].weight=1;
+    }
+  });
+  return out;
 }
 
 function saveProfiles(profiles){
@@ -66,13 +79,26 @@ function refreshSelect(profiles){
   });
 }
 
+function weightedRandom(profiles){
+  const entries=Object.values(profiles);
+  const total=entries.reduce((sum,p)=>sum+(p.weight||1),0);
+  let r=Math.random()*total;
+  for(const p of entries){
+    r-=p.weight||1;
+    if(r<=0) return p.list;
+  }
+  return entries[0]?.list||[];
+}
+
 function loadCurrentList(){
   const profiles=loadProfiles();
   const cur=select.value;
   if(cur&&profiles[cur]){
-    input.value=profiles[cur].join(', ');
+    input.value=profiles[cur].list.join(', ');
+    weightInput.value=profiles[cur].weight||1;
   } else {
     input.value='';
+    weightInput.value='1';
   }
 }
 
@@ -80,8 +106,9 @@ addBtn.addEventListener('click',()=>{
   const name=nameInput.value.trim();
   if(!name) return;
   const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
+  const weight=Number(weightInput.value)||1;
   const profiles=loadProfiles();
-  profiles[name]=list;
+  profiles[name]={list,weight};
   saveProfiles(profiles);
   refreshSelect(profiles);
   select.value=name;
@@ -91,7 +118,9 @@ saveBtn.addEventListener('click',()=>{
   const name=select.value;
   if(!name) return;
   const profiles=loadProfiles();
-  profiles[name]=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
+  const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
+  const weight=Number(weightInput.value)||1;
+  profiles[name]={list,weight};
   saveProfiles(profiles);
   saveBtn.classList.add('saved');
   setTimeout(()=>saveBtn.classList.remove('saved'),500);
@@ -100,7 +129,8 @@ saveBtn.addEventListener('click',()=>{
 select.addEventListener('change',loadCurrentList);
 
 randomBtn.addEventListener('click',()=>{
-  const list=input.value.split(',').map(s=>s.trim()).filter(Boolean);
+  const profiles=loadProfiles();
+  const list=weightedRandom(profiles);
   if(list.length===0) return;
   const choice=list[Math.floor(Math.random()*list.length)];
   output.textContent=choice;

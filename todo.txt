@@ -8,4 +8,4 @@
 - [x] Dashboard-Modul umgesetzt (Panel03)
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [x] Text-Templates-Modul (Panel04) umgesetzt
-- [ ] Zufallsmodi mit Profilgewichtung implementieren
+- [x] Zufallsmodi mit Profilgewichtung umgesetzt
