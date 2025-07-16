@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 03:02:14 UTC 2025
+Letztes Update: Wed Jul 16 03:08:10 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -8,4 +8,6 @@ Offene Aufgaben:
 - [x] Logging ins Dashboard einbauen
 - [x] Clipboard-Funktion mit Feedback-Farben
 - [x] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Dummy-Module angelegt
+- [x] ARIA-Labels erweitert
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren

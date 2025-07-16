@@ -5,4 +5,6 @@
 - [x] Logging ins Dashboard einbauen
 - [x] Clipboard-Funktion mit Feedback-Farben
 - [x] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Dummy-Module angelegt
+- [x] ARIA-Labels erweitert
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren

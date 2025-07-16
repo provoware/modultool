@@ -327,11 +327,11 @@
           <button onclick="loadArchive()">📂 Laden</button>
         </div>
         <div class="rand-actions">
-          <button class="rand-btn" onclick="pickRandomN(3)">🎲 3</button>
-          <button class="rand-btn" onclick="pickRandomN(6)">🎲 6</button>
-          <button class="rand-btn" onclick="pickRandomN(9)">🎲 9</button>
-          <button class="rand-btn" onclick="pickRandomN(12)">🎲 12</button>
-          <button class="rand-btn" onclick="pickRandomN(15)">🎲 15</button>
+          <button class="rand-btn" onclick="pickRandomN(3)" aria-label="Zufall 3 Genres">🎲 3</button>
+          <button class="rand-btn" onclick="pickRandomN(6)" aria-label="Zufall 6 Genres">🎲 6</button>
+          <button class="rand-btn" onclick="pickRandomN(9)" aria-label="Zufall 9 Genres">🎲 9</button>
+          <button class="rand-btn" onclick="pickRandomN(12)" aria-label="Zufall 12 Genres">🎲 12</button>
+          <button class="rand-btn" onclick="pickRandomN(15)" aria-label="Zufall 15 Genres">🎲 15</button>
         </div>
         <div id="randResult" class="rand-result" style="display:none;" role="status" aria-live="polite"></div>
         <div id="genreStatus" class="status-msg" style="display:none;" role="status" aria-live="polite"></div>
@@ -340,7 +340,7 @@
       <section class="mod-panel" id="panel2" tabindex="0" role="region" aria-labelledby="panel2-head"><h2 id="panel2-head">Archiv</h2>
         <div class="search-group">
           <input id="searchInput" type="text" placeholder="Suche im Archiv…" autocomplete="off"/>
-          <button id="clearSearch" class="search-clear" title="Suche löschen" style="display:none;">✖</button>
+          <button id="clearSearch" class="search-clear" aria-label="Suche löschen" style="display:none;">✖</button>
         </div>
         <div class="archive-list">
           <ul id="genreList"></ul>
@@ -350,7 +350,7 @@
       </section>
       <section class="mod-panel" id="panel3" tabindex="0" role="region" aria-labelledby="panel3-head"><h2 id="panel3-head">Dashboard (letzte 10 Ausgaben)</h2>
         <ul id="dashboardList" class="dashboard-list"></ul>
-        <button id="clearDashboardBtn" class="dashboard-copy" style="background:var(--remove);margin-top:.5em;">Alle löschen</button>
+        <button id="clearDashboardBtn" class="dashboard-copy" aria-label="Dashboard leeren" style="background:var(--remove);margin-top:.5em;">Alle löschen</button>
         <div class="input-help">Tipp: Für alle Zufallsausgaben – kopieren per Klick!</div>
       </section>
       <section class="mod-panel" id="panel4" tabindex="0" role="region" aria-labelledby="panel4-head"><h2 id="panel4-head">Text-Templates</h2>
@@ -395,7 +395,7 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-h2">Globale Einstellungen</div>
     <div>
-      <button onclick="resetAll()" style="margin-bottom:.5em;">Alles zurücksetzen</button>
+      <button onclick="resetAll()" aria-label="Alle Daten löschen" style="margin-bottom:.5em;">Alles zurücksetzen</button>
     </div>
     <div class="sidebar-footer">
       Für Hilfe: Siehe Hilfe-Sidebar oder frag Poppi.
