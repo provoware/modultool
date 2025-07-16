@@ -18,6 +18,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 
 - **📝 Panel01: Genres & Zufall**
   → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
+- **📑 Panel02: Textbausteine**
+  → Kurze Texte speichern, kopieren und löschen
 
 ---
 
@@ -37,6 +39,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 modules/
 📁 data/ (baumstruktur.txt, todo.txt)
 📄 platzhalter.txt
+📄 modules.json
+📄 module_versions.json
 📁 logs/
 📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
 📁 .github/workflows/ (validate.yml)

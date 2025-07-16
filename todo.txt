@@ -6,3 +6,5 @@
 - [x] Clipboard-Funktion mit Feedback-Farben
 - [ ] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [x] Panel02 Modul erstellen (Textbausteine)
+- [x] modules.json und module_versions.json anlegen
