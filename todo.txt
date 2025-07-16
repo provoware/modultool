@@ -1,1 +1,2 @@
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
+- [x] .gitignore angelegt (node_modules/, logs/, data/*.log, *.tmp)
