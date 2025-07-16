@@ -1,0 +1,28 @@
+name: 🔍 Validate All
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node & Tools
+        run: |
+          sudo apt update
+          sudo apt install -y shellcheck jq
+          npm install -g htmlhint jsonlint
+
+      - name: Validate Shell Scripts
+        run: find . -name "*.sh" -exec shellcheck {} \;
+
+      - name: Validate JSON Files
+        run: find . -name "*.json" -exec jsonlint -q {} \;
+
+      - name: Validate HTML Files
+        run: find . -name "*.html" -exec htmlhint {} \;
