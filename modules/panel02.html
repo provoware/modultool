@@ -18,6 +18,8 @@
   <h2>Genre-Profile</h2>
   <label for="profile-name">Profilname:</label>
   <input id="profile-name" placeholder="Mein Profil" aria-label="Profilname">
+  <label for="weight-input">Gewichtung:</label>
+  <input type="number" id="weight-input" value="1" min="1" aria-label="Gewichtung">
   <button id="add-profile-btn">Profil speichern</button>
   <label for="profile-select">Profil wählen:</label>
   <select id="profile-select"></select>
@@ -25,6 +27,7 @@
   <textarea id="genre-input" placeholder="z.B. Funk, Jazz" aria-label="Genre-Liste"></textarea>
   <button id="save-btn">Liste sichern</button>
   <button id="random-btn">Zufall</button>
+  <button id="weighted-btn">Gewichteter Zufall</button>
   <button id="copy-btn">Kopieren</button>
   <div id="random-output" role="status" aria-live="polite"></div>
   <ul id="log"></ul>
@@ -35,8 +38,10 @@ const nameInput=document.getElementById('profile-name');
 const addBtn=document.getElementById('add-profile-btn');
 const select=document.getElementById('profile-select');
 const input=document.getElementById('genre-input');
+const weightInput=document.getElementById('weight-input');
 const saveBtn=document.getElementById('save-btn');
 const randomBtn=document.getElementById('random-btn');
+const weightedBtn=document.getElementById('weighted-btn');
 const copyBtn=document.getElementById('copy-btn');
 const output=document.getElementById('random-output');
 const log=document.getElementById('log');
@@ -54,7 +59,12 @@ function showStatus(msg){status.textContent=msg;setTimeout(()=>status.textConten
 
 function loadProfiles(){
   try{
-    return JSON.parse(localStorage.getItem('genreProfiles'))||{};
+    const obj=JSON.parse(localStorage.getItem('genreProfiles'))||{};
+    Object.keys(obj).forEach(k=>{
+      if(Array.isArray(obj[k])) obj[k]={list:obj[k],weight:1};
+      else obj[k].weight=parseInt(obj[k].weight)||1;
+    });
+    return obj;
   }catch(e){
     showStatus('Speicher defekt');
     return {};
@@ -80,9 +90,11 @@ function loadCurrentList(){
   const profiles=loadProfiles();
   const cur=select.value;
   if(cur && profiles[cur]){
-    input.value=profiles[cur].join(', ');
+    input.value=profiles[cur].list.join(', ');
+    weightInput.value=profiles[cur].weight;
   }else{
     input.value='';
+    weightInput.value='1';
   }
 }
 
@@ -91,7 +103,7 @@ addBtn.addEventListener('click',()=>{
   if(!name){showStatus('Name fehlt'); return;}
   const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
   const profiles=loadProfiles();
-  profiles[name]=list;
+  profiles[name]={list,weight:parseInt(weightInput.value)||1};
   saveProfiles(profiles);
   refreshSelect(profiles);
   select.value=name;
@@ -102,7 +114,7 @@ saveBtn.addEventListener('click',()=>{
   const name=select.value;
   if(!name){showStatus('Profil wählen'); return;}
   const profiles=loadProfiles();
-  profiles[name]=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
+  profiles[name]={list:[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))],weight:parseInt(weightInput.value)||1};
   saveProfiles(profiles);
   saveBtn.classList.add('saved');
   setTimeout(()=>saveBtn.classList.remove('saved'),500);
@@ -113,13 +125,34 @@ select.addEventListener('change',loadCurrentList);
 
 randomBtn.addEventListener('click',()=>{
   const profiles=loadProfiles();
-  const list=profiles[select.value]||[];
+  const list=(profiles[select.value]||{}).list||[];
   if(list.length===0){showStatus('Keine Genres vorhanden'); return;}
   const choice=list[Math.floor(Math.random()*list.length)];
   output.textContent=choice;
   const entry=document.createElement('li');
   entry.textContent=new Date().toLocaleTimeString()+': '+choice;
   log.prepend(entry);
+  addDashboard(choice);
+});
+
+weightedBtn.addEventListener('click',()=>{
+  const profiles=loadProfiles();
+  const names=Object.keys(profiles);
+  if(names.length===0){showStatus('Keine Profile');return;}
+  const total=names.reduce((s,n)=>s+(profiles[n].weight||1),0);
+  let r=Math.random()*total;
+  let picked=names[0];
+  for(const n of names){
+    r-=profiles[n].weight||1;
+    if(r<=0){picked=n;break;}
+  }
+  const list=profiles[picked].list;
+  if(list.length===0){showStatus('Profil leer');return;}
+  const choice=list[Math.floor(Math.random()*list.length)];
+  output.textContent=choice;
+  const li=document.createElement('li');
+  li.textContent=new Date().toLocaleTimeString()+': '+choice+' ('+picked+')';
+  log.prepend(li);
   addDashboard(choice);
 });
 

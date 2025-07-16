@@ -8,7 +8,7 @@
 - [x] Dashboard-Modul umgesetzt (Panel03)
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [x] Text-Templates-Modul (Panel04) umgesetzt
-- [ ] Zufallsmodi mit Profilgewichtung umsetzen
+- [x] Zufallsmodi mit Profilgewichtung umsetzen (Panel02)
 - [x] Nutzerfreundlichkeit & Fehlerbehandlung verbessert (Panel01/02)
 - [x] Modulbezeichnungen in HTML und README vereinheitlicht
 - [ ] GitHub-Remote einrichten und Fortschritt pushen

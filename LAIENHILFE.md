@@ -44,8 +44,10 @@ So behältst du jederzeit die Kontrolle über deine Dateien.
 
 1. Öffne `panel02.html` im Ordner `modules`.
 2. Gib einen Profilnamen ein und ergänze deine Genres.
-3. Mit **Profil speichern** legst du die Liste an.
-4. Über **Zufall** erhältst du eines der Genres aus dem gewählten Profil.
+3. Wähle bei Bedarf eine **Gewichtung** (Zahl bestimmt, wie oft das Profil gezogen wird).
+4. Mit **Profil speichern** legst du die Liste an.
+5. Über **Zufall** erhältst du eines der Genres aus dem gewählten Profil.
+6. Mit **Gewichteter Zufall** wird ein Profil nach Gewicht gewählt und daraus ein Genre angezeigt.
 
 Die gespeicherten Module findest du gesammelt in `modules.json`.
 
