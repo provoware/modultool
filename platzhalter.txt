@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 03:21:46 UTC 2025
+Letztes Update: Wed Jul 16 03:33:50 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -26,3 +26,9 @@ Offene Aufgaben:
 - [ ] Dateileichen-Erkennung und Entrümplungsmodus
 - [ ] Inhalte per Doppelklick in Zwischenablage kopieren
 - [ ] Globaler Suchfilter für alle Module und Inhalte
+- [ ] Todo-Listen-Modul integrieren
+- [ ] Songtext-Editor mit Titelfeld und Notiz speichern
+- [ ] Dialog-Schreiber mit Charakterverwaltung bauen
+- [ ] Info-Manager für eigene Befehle anlegen
+- [ ] Zitaten-Modul mit Notizfeld umsetzen
+- [ ] Interaktiven Modulbaukasten erstellen

@@ -19,11 +19,14 @@
 ./modules/content_lock.html
 ./modules/contrast_optimizer.html
 ./modules/cover_layout.html
+./modules/dialog_writer.html
 ./modules/direct_exporter.html
 ./modules/doubleclick_copy.html
 ./modules/favorites_start_screen.html
 ./modules/focus_mode.html
 ./modules/global_search.html
+./modules/info_manager.html
+./modules/module_builder.html
 ./modules/module_crosslinker.html
 ./modules/module_validation.html
 ./modules/panel1.html
@@ -38,7 +41,9 @@
 ./modules/persona_switcher.html
 ./modules/projektorganizer.html
 ./modules/quote_manager.html
+./modules/song_editor.html
 ./modules/story_sampler.html
+./modules/todo_list.html
 ./modules/tooltip_academy.html
 ./modules/unsaved_changes_warning.html
 ./modules/zip_importer.html

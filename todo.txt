@@ -23,3 +23,9 @@
 - [ ] Dateileichen-Erkennung und Entrümplungsmodus
 - [ ] Inhalte per Doppelklick in Zwischenablage kopieren
 - [ ] Globaler Suchfilter für alle Module und Inhalte
+- [ ] Todo-Listen-Modul integrieren
+- [ ] Songtext-Editor mit Titelfeld und Notiz speichern
+- [ ] Dialog-Schreiber mit Charakterverwaltung bauen
+- [ ] Info-Manager für eigene Befehle anlegen
+- [ ] Zitaten-Modul mit Notizfeld umsetzen
+- [ ] Interaktiven Modulbaukasten erstellen

@@ -47,3 +47,9 @@ Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sin
 - Entrümplungsmodus zum Aufräumen
 - Kopieren per Doppelklick
 - globaler Suchfilter
+- Todo-Listen-Modul
+- Songtext-Editor mit Titelfeld, Notizen und Text
+- Dialog-Schreiber für eigene Charaktere
+- Info-Manager zum Sammeln von Befehlen
+- Zitaten-Modul mit Autor- und Zitatfeld
+- Interaktiver Modulbaukasten

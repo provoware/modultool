@@ -17,9 +17,21 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 ## 🧩 Aktuelle Start-Module
 
 - **🎲 Genre-Archiv & Eingabe**  
-  → Speicherung, Duplikatsprüfung, Komma-getrennte Eingaben  
+  → Speicherung, Duplikatsprüfung, Komma-getrennte Eingaben
 - **🧠 Zufallsgenerator**  
   → mit Auswahlmodi, Logging, Favoriten und Export
+- **📋 Todo-Listen-Modul**  
+  → einfache Aufgabenlisten verwalten
+- **🎤 Songtext-Editor**  
+  → Felder für Titel, Notizen und Text
+- **📓 Dialog-Schreiber**  
+  → Charaktere anlegen und Dialoge speichern
+- **ℹ️ Info-Manager**  
+  → eigene Befehls- oder Webseiten-Infos sammeln
+- **💬 Zitaten-Modul**  
+  → Felder für Autor, Zitat und optionale Notiz
+- **🧱 Modulbaukasten**  
+  → Module per Buttons flexibel anordnen
 
 ---
 

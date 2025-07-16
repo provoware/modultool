@@ -118,3 +118,9 @@ owner: "pppoppi + Dr. Allwissend_Poppsen"
 - Entrümplungsmodus für Dateileichen
 - Doppelklick kopiert Inhalte in die Zwischenablage
 - Globaler Suchfilter über alle Panels
+- Todo-Listen-Modul
+- Songtext-Editor mit Titelfeld und Notizfeld
+- Dialog-Schreiber für neue und alte Charaktere
+- Info-Manager für eigene Befehls- und Webinfos
+- Zitaten-Modul mit Autor, Zitat und optionaler Notiz
+- Voll interaktiver Modulbaukasten
