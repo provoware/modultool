@@ -82,3 +82,7 @@ Damit kannst du eigene Module testen.
 - `git diff` – zeigt deine aktuellen Änderungen (**Diff** = Unterschiede zum letzten Stand).
 - `sudo apt-get install xclip` – installiert `xclip` (Hilfsprogramm für die Zwischenablage).
 - `grep -n SUCHBEGRIFF -r` – durchsucht alle Dateien nach einem Wort (praktisch bei vielen Dateien).
+- `git stash` – legt deine aktuellen Änderungen kurz ab (*Stash = Zwischenablage in Git*).
+- `cp -r ordner ordner_backup` – macht eine komplette Kopie eines Ordners (*Backup = Sicherungskopie*).
+- `less datei.txt` – zeigt Text seitenweise an (*Pager = Blättern im Terminal*).
+- `history | tail` – listet die letzten Befehle auf (*History = Verlauf*).

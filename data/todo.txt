@@ -3,7 +3,7 @@
 - [ ] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
 - [ ] Zufallsmodi mit Profilgewichtung implementieren
 - [ ] Logging ins Dashboard einbauen
-- [ ] Clipboard-Funktion mit Feedback-Farben
+- [x] Clipboard-Funktion mit Feedback-Farben
 - [ ] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 

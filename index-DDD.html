@@ -247,6 +247,8 @@
     .status-msg {padding:.19em 1em; margin:.2em 0 .4em 0; border-radius:.7em; font-weight:600;}
     .status-ok {background:#198d54b8; color:#f7fff9;}
     .status-error {background:#d42e4cbe; color:#fff;}
+    .flash-success {background:var(--active) !important; transition:background .3s;}
+    .flash-error {background:var(--remove) !important; transition:background .3s;}
     .intro-overlay {position:fixed;inset:0;background:rgba(0,0,0,.85);color:var(--text);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;text-align:center;padding:1em;}
     .intro-overlay button{margin-top:1em;padding:.6em 1.2em;border:none;border-radius:.4em;background:var(--button);color:var(--text);font-size:1.1em;cursor:pointer;}
     @media (max-width: 1100px) {
@@ -566,10 +568,9 @@ function renderList() {
       span.title = 'Zum Kopieren klicken';
       span.onclick = () => {
         try { navigator.clipboard.writeText(value); }
-        catch(e){ logErr('Clipboard-Fehler: '+e); }
+        catch(e){ logErr('Clipboard-Fehler: '+e); flash(span,'flash-error'); return; }
         statusMsg("Genre kopiert!",1);
-        span.style.background = 'var(--active)';
-        setTimeout(()=>{ span.style.background='none'; }, 350);
+        flash(span);
       };
       li.appendChild(span);
       const edit = document.createElement('button');
@@ -644,6 +645,7 @@ function pickRandomN(n) {
   try {navigator.clipboard.writeText(result);}
   catch(e){logErr('Clipboard-Fehler: '+e);}
   statusMsg("Zufallsausgabe kopiert.",1);
+  flash(document.getElementById('randResult'));
   dashboardData.unshift({
     value: result,
     time: new Date().toLocaleString()
@@ -662,6 +664,19 @@ function loadArchive() {
   const data = localStorage.getItem(LOCAL_KEY);
   if(data) { genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); logDbg('Archiv geladen.');}
 }
+function copyDash(txt, btn) {
+  try { navigator.clipboard.writeText(txt); }
+  catch(e){ logErr('Clipboard-Fehler: '+e); flash(btn,'flash-error'); return; }
+  statusMsg('In Zwischenablage.',1);
+  flash(btn);
+}
+function copyTmpl(txt, btn, title) {
+  try { navigator.clipboard.writeText(txt); }
+  catch(e){ logErr('Clipboard-Fehler: '+e); flash(btn,'flash-error'); return; }
+  tmplStatusMsg('Template kopiert: '+title,1);
+  flash(btn);
+  logDbg('Template kopiert: '+title);
+}
 /* Dashboard */
 function renderDashboard() {
   const el = document.getElementById('dashboardList');
@@ -669,7 +684,7 @@ function renderDashboard() {
   dashboardData.forEach(item => {
     const li = document.createElement('li');
     li.innerHTML = `<span class="dashboard-timestamp">${item.time}</span> <span>${item.value}</span>
-      <button class="dashboard-copy" title="Kopieren" onclick="navigator.clipboard.writeText('${item.value.replace(/'/g,"\\'")}');statusMsg('In Zwischenablage.',1);">⧉</button>`;
+      <button class="dashboard-copy" title="Kopieren" onclick="copyDash('${item.value.replace(/'/g,"\\'")}', this)">⧉</button>`;
     el.appendChild(li);
   });
 }
@@ -691,12 +706,7 @@ function renderTmplList() {
     btn.className = 'tmpl-btn';
     btn.innerText = t.title;
     btn.title = t.text.length > 40 ? t.text.substring(0,37)+'…' : t.text;
-    btn.onclick = ()=> {
-      try {navigator.clipboard.writeText(t.text);}
-      catch(e){logErr('Clipboard-Fehler: '+e);}
-      tmplStatusMsg("Template kopiert: "+t.title,1);
-      logDbg('Template kopiert: '+t.title);
-    };
+    btn.onclick = ()=> { copyTmpl(t.text, btn, t.title); };
     btn.tabIndex = 0;
     const rem = document.createElement('button');
     rem.className = 'tmpl-remove';
@@ -755,6 +765,11 @@ function statusMsg(txt, ok=1) {
   el.className = 'status-msg ' + (ok ? 'status-ok':'status-error');
   el.style.display = 'block';
   setTimeout(()=>{el.style.display='none';},1800);
+}
+function flash(el, cls='flash-success') {
+  if(!el) return;
+  el.classList.add(cls);
+  setTimeout(()=>{ el.classList.remove(cls); }, 350);
 }
 function resetAll() {
   if(confirm("Alle Daten (Genres, Dashboard, Templates, Einstellungen) löschen?")) {

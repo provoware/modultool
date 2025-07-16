@@ -88,3 +88,7 @@ Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend 
 * `git diff` – zeigt deine aktuellen Änderungen (**Diff** = Unterschiede zum letzten Stand).
 * `sudo apt-get install xclip` – installiert `xclip` (Hilfsprogramm für die Zwischenablage).
 * `grep -n SUCHBEGRIFF -r` – sucht nach einem Wort in allen Dateien (Textsuche im Projekt).
+* `git stash` – legt deine aktuellen Änderungen kurzzeitig beiseite (*Stash = Zwischenablage in Git*).
+* `cp -r ordner ordner_backup` – erstellt eine komplette Kopie eines Ordners (*Backup = Sicherungskopie*).
+* `less datei.txt` – zeigt den Inhalt seitenweise an (*Pager = Blättern im Terminal*).
+* `history | tail` – listet die letzten Befehle auf (*History = Verlauf*).
