@@ -7,9 +7,9 @@
 - [ ] CSS responsiv machen, Test mit Axe/WAVE
 - [ ] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 
-- [ ] Ordner "modules/" und "panels/" erstellen
-- [ ] "modules.json" für Panels anlegen
+- [x] Ordner "modules/" und "panels/" erstellen
+- [x] "modules.json" für Panels anlegen
 - [ ] Shellcheck-Warnungen in Skripten beheben
 - [ ] Hilfetexte und Tooltips ausbauen
-- [ ] Startskript zum einfachen Aufrufen des Tools
-- [ ] Willkommens-Overlay für neue Nutzer
+- [x] Startskript zum einfachen Aufrufen des Tools
+- [x] Willkommens-Overlay für neue Nutzer

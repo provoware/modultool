@@ -60,3 +60,19 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
    bash tools/selfcheck.sh
    ```
 3. Mehr Tipps findest du in `LAIENHILFE.md`.
+
+## 🛠 Eigene Module einbinden
+
+1. Lege deine Skripte im Ordner `modules/` ab. (Skript = Datei mit Befehlen, z.B. in JavaScript.)
+2. Speichere zugehörige Oberflächen in `panels/` als HTML-Dateien.
+3. Trage den Dateinamen in `modules.json` ein. Diese Datei ist im **JSON-Format** (Textstruktur für Datenlisten). Beispiel:
+
+   ```json
+   {
+     "id": "beispiel",
+     "name": "Mein Modul",
+     "file": "panels/beispiel.html"
+   }
+   ```
+
+Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend wieder mit `bash tools/start_tool.sh`.

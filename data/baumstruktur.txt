@@ -12,6 +12,9 @@
 ./data/baumstruktur.txt
 ./data/todo.txt
 ./index-DDD.html
+./modules.json
+./modules/README.md
+./panels/README.md
 ./platzhalter.txt
 ./setup.sh
 ./todo.txt

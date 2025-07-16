@@ -42,3 +42,31 @@ Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und �
 2. Starte einen kleinen Webserver mit `python3 -m http.server`. (Damit werden die Dateien lokal bereitgestellt.)
 3. Öffne dann `http://localhost:8000/index-DDD.html` im Browser (Programm zum Surfen im Internet).
 4. Mit `Strg+C` beendest du den Server wieder.
+
+## Eigene Module erstellen
+
+1. Lege die Ordner `modules` und `panels` an, falls sie fehlen. Das machst du im Terminal (Eingabeprogramm) so:
+   ```bash
+   mkdir modules panels
+   ```
+2. Erstelle in `modules/` deine Skriptdatei, zum Beispiel `beispiel.js`:
+   ```bash
+   nano modules/beispiel.js
+   ```
+   *(JavaScript-Datei mit Funktionen)*
+3. Für die Oberfläche legst du `panels/beispiel.html` an:
+   ```bash
+   nano panels/beispiel.html
+   ```
+   *(HTML-Datei für das Aussehen)*
+4. Trage beide Dateien in `modules.json` ein. JSON ist ein Textformat, in dem Daten in Listen gespeichert werden:
+   ```json
+   {
+     "id": "beispiel",
+     "name": "Mein Modul",
+     "file": "panels/beispiel.html"
+   }
+   ```
+5. Starte das Tool wieder mit `bash tools/start_tool.sh`.
+
+Damit kannst du eigene Module testen.
