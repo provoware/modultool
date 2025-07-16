@@ -80,5 +80,6 @@ modules.json → Panel-Registrierung
 ```bash
 /runs agent_name        # z. B. /runs agent_test  
 /status agent_name      # Prüfe Agentenzustand  
-/setup github           # Initialsetup CI, Branch Protection  
-/check ordnung          # Strukturvalidator  
+/setup github           # Initialsetup CI, Branch Protection
+/check ordnung          # Strukturvalidator
+```
