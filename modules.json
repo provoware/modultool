@@ -1,6 +1,6 @@
 [
-  {"id":"panel01","title":"Genres & Zufall","file":"modules/panel01.html"},
-  {"id":"panel02","title":"Genre-Profile","file":"modules/panel02.html"},
-  {"id":"panel03","title":"Dashboard-Log","file":"modules/panel03.html"},
-  {"id":"panel04","title":"Text-Templates","file":"modules/panel04.html"}
+  {"id":"panel01","title":"Genre-Liste & Zufall","file":"modules/panel01.html"},
+  {"id":"panel02","title":"Genre-Profile (Gewichtung)","file":"modules/panel02.html"},
+  {"id":"panel03","title":"Dashboard – Verlauf","file":"modules/panel03.html"},
+  {"id":"panel04","title":"Textbausteine","file":"modules/panel04.html"}
 ]

@@ -17,15 +17,16 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 ## 🧩 Aktuelle Start-Module
 
 ---
-- **📝 Panel01: Genres & Zufall**
+- **📝 Panel01: Genre-Liste & Zufall**
   → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
-- **🎛 Panel02: Genre-Profile**
-  → Mehrere Genre-Listen als Profile speichern, Zufallswahl jetzt mit Profilgewichtung
-- **📊 Panel03: Dashboard-Log**
+- **🎛 Panel02: Genre-Profile (Gewichtung)**
+  → Mehrere Genre-Listen unter Profilnamen speichern und gewichten
+- **📊 Panel03: Dashboard – Verlauf**
   → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
-- **📋 Panel04: Text-Templates**
+- **📋 Panel04: Textbausteine**
   → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
 - **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
+- **Geplante Module:** Persona-Switcher (Panel05), Story-Sampler (Panel06), Cover/Layout (Panel07)
 ---
 
 ## 🧠 Features

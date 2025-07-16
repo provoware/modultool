@@ -31,7 +31,7 @@ Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erw�
 
 So behältst du jederzeit die Kontrolle über deine Dateien.
 
-## Genres-&-Zufall-Modul testen
+## Genre-Liste & Zufall testen
 
 1. Öffne den Ordner `modules` im Dateimanager.
 2. Doppelklicke auf `panel01.html`. Dein Browser zeigt das Modul an.
@@ -40,7 +40,7 @@ So behältst du jederzeit die Kontrolle über deine Dateien.
 5. Mit **Zufall** wählst du einen Eintrag zufällig aus. Darunter entsteht ein kleines Protokoll (Log) mit Uhrzeit.
 6. Über **Kopieren** landet das Ergebnis in der Zwischenablage. Der Button färbt sich kurz grün als Bestätigung.
 
-## Profilgewichtung nutzen
+## Genre-Profile verwenden
 
 1. Öffne `panel02.html` im Ordner `modules`.
 2. Gib einen Namen und optional eine Zahl bei **Gewichtung** ein (1 = selten, 10 = oft).
@@ -78,3 +78,22 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
    ```
    Das `-u` merkt sich das Ziel für zukünftige `git push`-Befehle.
 4. Holt vorher `git pull`, falls andere schon verändert haben. Dadurch werden die Daten zusammengeführt.
+
+## Fehlende Module
+
+- Persona-Switcher (zwischen Figuren wechseln)
+- Story-Sampler (zufällige Textideen)
+- Cover/Layout-Werkzeug
+
+## Weitere Laien-Tipps
+
+1. Neues Modul kopieren:
+   ```bash
+   cp modules/panel04.html modules/neues_panel.html
+   ```
+   Damit legst du eine Kopie an. Danach `<title>` und `<h2>` anpassen.
+2. In `modules.json` einen neuen Eintrag ergänzen.
+3. Selfcheck starten:
+   ```bash
+   bash tools/selfcheck.sh
+   ```
