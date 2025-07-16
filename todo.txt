@@ -6,3 +6,7 @@
 - [x] Clipboard-Funktion mit Feedback-Farben
 - [ ] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+
+- [ ] Templates-Modul (Panel02) erstellen
+- [ ] Undo/Redo-System einbauen
+- [ ] ZIP-Backup-Funktion ergänzen
