@@ -28,5 +28,10 @@
     "id": "panel06",
     "title": "Story-Sampler",
     "file": "modules/panel06.html"
+  },
+  {
+    "id": "panel07",
+    "title": "Cover-Layout",
+    "file": "modules/panel07.html"
   }
 ]

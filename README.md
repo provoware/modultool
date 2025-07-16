@@ -29,8 +29,9 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
   → Verschiedene Figurenprofile speichern und auswählen
 - **🖖 Panel06: Story-Sampler**
   → Kurze Ideen sammeln und zufällig auswählen
+- **🖼️ Panel07: Cover-Layout**
+  → Einfacher Titel und Farbvorschau für Cover
 - **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
-- **Geplante Module:** Cover/Layout (Panel07)
 ---
 
 ## 🧠 Features

@@ -64,6 +64,12 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
 3. Mit **Speichern** sicherst du die Liste.
 4. **Zufall** wählt eine Idee, **Kopieren** überträgt sie.
 
+## Cover-Layout gestalten
+
+1. Öffne `panel07.html` im Ordner `modules`.
+2. Trage einen Titel ein.
+3. Wähle eine Farbe im Farbfeld.
+4. Klicke auf **Speichern**, die Vorschau zeigt dein Cover.
 ## Weiterf\u00fchrende Tipps
 
 - **Browser-Speicher leeren (localStorage)**
@@ -96,7 +102,7 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
 
 ## Fehlende Module
 
-- Cover/Layout-Werkzeug
+Keine
 
 ## Weitere Laien-Tipps
 

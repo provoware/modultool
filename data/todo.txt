@@ -14,4 +14,4 @@
 - [ ] GitHub-Remote einrichten und Fortschritt pushen
 - [x] Persona-Switcher-Modul umsetzen (Panel05)
 - [x] Story-Sampler-Modul umgesetzt (Panel06)
-- [ ] Cover/Layout-Modul umsetzen (Panel07)
+- [x] Cover/Layout-Modul umsetzen (Panel07)

@@ -1,3 +1,4 @@
+./.README.md.swp
 ./.editorconfig
 ./.github/workflows/branch-limit.yml
 ./.github/workflows/validate.yml
@@ -11,7 +12,7 @@
 ./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
-./data/todo_backup_20250716224904.txt
+./data/todo_backup_20250716225413.txt
 ./index-DDD.html
 ./modules.json
 ./modules/panel01.html
@@ -20,6 +21,7 @@
 ./modules/panel04.html
 ./modules/panel05.html
 ./modules/panel06.html
+./modules/panel07.html
 ./platzhalter.txt
 ./setup.sh
 ./todo.txt
