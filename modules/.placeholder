@@ -1,2 +1,9 @@
-# Dieser Platzhalter sorgt dafuer, dass Git den Ordner behaelt.
-# Speichere hier spaeter deine eigenen JavaScript-Module.
+# Beispiel für ein einfaches Modul (Programmteil)
+# Speichere deinen Code in eigenen Dateien im Ordner modules/.
+# Die Datei beispiel_modul.js zeigt, wie es geht.
+
+# --- Start des Minimalbeispiels (JavaScript) ---
+export function begruessung(name = 'Welt') {
+  console.log(`Hallo ${name}!`);
+}
+# --- Ende des Minimalbeispiels ---

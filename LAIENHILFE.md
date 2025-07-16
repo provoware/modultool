@@ -93,3 +93,26 @@ Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler ge
   touch panels/neues_panel.js
   ```
   Das Kommando `touch` erzeugt eine Datei ohne Inhalt. So bleibt der Ordner in Git erhalten.
+
+## Eigenes Modul erstellen
+
+1. Wechsele in den Ordner `modules/`:
+   ```bash
+   cd modules
+   ```
+2. Oeffne die Datei `beispiel_modul.js` mit dem Editor:
+   ```bash
+   nano beispiel_modul.js
+   ```
+   `nano` (Texteditor) erlaubt dir, den Beispielcode anzupassen.
+3. Speichere die Aenderungen mit `Strg+O` und beende mit `Strg+X`.
+4. Trage dein Modul in `modules.json` ein:
+   ```bash
+   nano ../modules.json
+   ```
+   `JSON` (Datenformat fuer Einstellungen) enthaelt eine Liste aktiver Module.
+5. Ein Selbstcheck prueft alles:
+   ```bash
+   bash ../tools/selfcheck.sh
+   ```
+

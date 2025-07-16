@@ -1,1 +1,7 @@
-{}
+{
+  "beispiel_modul": {
+    "file": "modules/beispiel_modul.js",
+    "title": "Beispiel Modul",
+    "active": true
+  }
+}

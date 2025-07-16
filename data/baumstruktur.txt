@@ -17,6 +17,7 @@
 ./module_versions.json
 ./modules.json
 ./modules/.placeholder
+./modules/beispiel_modul.js
 ./panels/.placeholder
 ./platzhalter.txt
 ./setup.sh

@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 04:10:10 UTC 2025
+Letztes Update: Wed Jul 16 04:17:59 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -12,4 +12,4 @@ Offene Aufgaben:
 - [ ] Dokumentation aktualisieren (README, AGENTS)
 - [ ] Fehlende Dateien und Ordner mit Platzhaltern anlegen
 - [x] Platzhaltertexte in allen Ordnern ergaenzen
-- [ ] Weitere Platzhaltertipps in der Laienhilfe beschreiben
+- [x] Weitere Platzhaltertipps in der Laienhilfe beschreiben
