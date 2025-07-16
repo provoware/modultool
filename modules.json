@@ -1,10 +1,7 @@
 {
   "modules": [
-    {"id": "panel1", "name": "Genres + Zufall", "file": "panels/panel1.html"},
-    {"id": "panel2", "name": "Archiv", "file": "panels/panel2.html"},
-    {"id": "panel3", "name": "Dashboard", "file": "panels/panel3.html"},
-    {"id": "panel4", "name": "Text-Templates", "file": "panels/panel4.html"},
-    {"id": "panel7", "name": "Schnellhilfe", "file": "panels/panel7.html"}
-    ,{"id": "panel8", "name": "Gewichteter Zufall", "file": "panels/panel8.html"}
+    {"id": "panel7", "name": "Schnellhilfe", "file": "panels/panel7.html"},
+    {"id": "panel8", "name": "Gewichteter Zufall", "file": "panels/panel8.html"},
+    {"id": "panel9", "name": "Befehlsreferenz", "file": "panels/panel9.html"}
   ]
 }

@@ -1,5 +1,6 @@
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
-- [ ] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
+- [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
+- [x] Befehlsreferenz-Modul (panel9) ergänzen
 - [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
 - [x] Zufallsmodi mit Profilgewichtung implementieren
 - [x] Logging ins Dashboard einbauen

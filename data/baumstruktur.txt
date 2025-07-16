@@ -17,6 +17,7 @@
 ./panels/README.md
 ./panels/panel7.html
 ./panels/panel8.html
+./panels/panel9.html
 ./platzhalter.txt
 ./setup.sh
 ./todo.txt

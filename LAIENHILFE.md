@@ -72,7 +72,7 @@ Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und �
 
 Damit kannst du eigene Module testen.
 Im Ordner `panels` liegt bereits `panel7.html`. Dieses Modul zeigt eine kleine Schnellhilfe mit weiteren Befehlen.
-Neu hinzugekommen ist `panel8.html` für einen Zufall mit Gewichtung.
+Neu hinzugekommen ist `panel8.html` für einen Zufall mit Gewichtung und `panel9.html` als Befehlsübersicht.
 
 ## Weitere nützliche Befehle
 
@@ -98,3 +98,6 @@ Neu hinzugekommen ist `panel8.html` für einen Zufall mit Gewichtung.
 - `tar -czf backup.tar.gz ordner/` – erstellt ein gepacktes Archiv eines Ordners (*Backup = Sicherung*).
 - `git tag -a v1.0 -m "Version 1.0"` – setzt eine Versionsmarke (*Tag = Markierung*).
 - `rsync -av quelle/ ziel/` – kopiert Dateien schnell (*rsync = Synchronisationsprogramm*).
+- `git cherry-pick COMMIT` – holt gezielt eine Änderung (*Cherry-Pick = einzelne Auswahl*).
+- `tail -f datei.log` – zeigt fortlaufend neue Zeilen an (*tail = Ende der Datei*).
+- `chmod +x script.sh` – macht eine Datei ausführbar (*chmod = Rechte ändern*).

@@ -78,7 +78,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 
 Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend wieder mit `bash tools/start_tool.sh`.
 Im Repository gibt es auch ein Beispielmodul `panel7` namens "Schnellhilfe" mit weiteren Kommandos.
-Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator.
+Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator und `panel9` als kleine Befehlsreferenz.
 
 ## 📈 Weiterführende Tipps
 
@@ -98,6 +98,9 @@ Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator.
 * `git checkout -b neuer_zweig` – legt einen neuen Branch an und wechselt hinein (*checkout = zu einem Zweig wechseln*).
 * `git merge anderer_zweig` – führt einen Branch in den aktuellen zusammen (*Merge = Zusammenführen*).
 * `curl -O URL` – lädt eine Datei aus dem Internet herunter (*curl = Download-Programm*).
+* `git cherry-pick COMMIT` – übernimmt gezielt eine Änderung (*Cherry-Pick = einzelne Auswahl*).
+* `tail -f datei.log` – zeigt laufend neue Logzeilen an (*tail = Dateiende lesen*).
+* `chmod +x script.sh` – macht ein Skript ausführbar (*chmod = Rechte ändern*).
 * `npm install` – lädt alle benötigten Pakete (*npm = Paketverwaltung*).
 * `git remote -v` – zeigt die gespeicherten Online-Adressen (*Remote = entfernte Quelle*).
 * `git reset --hard HEAD~1` – macht den letzten Stand rückgängig (*Reset = zurücksetzen*).
