@@ -78,6 +78,12 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
 1. Öffne `panel08.html` im Ordner `modules`.
 2. Wähle im Feld **Farbmodus** eines der Themes aus.
 3. Klicke auf **Übernehmen**. Das Aussehen passt sich an und wird gespeichert.
+## Einstellungen anpassen
+
+1. Öffne `panel09.html` im Ordner `modules`.
+2. Wähle eine **Schriftart** und gib eine **Schriftgröße** ein (Zahl in Pixel).
+3. Bestimme die **Button-Rundung** in der Auswahlliste.
+4. Drücke **Speichern**, damit die Angaben im Browser bleiben.
 ## Weiterf\u00fchrende Tipps
 
 - **Browser-Speicher leeren (localStorage)**

@@ -11,7 +11,7 @@
 ./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
-./data/todo_backup_20250716231301.txt
+./data/todo_backup_20250716231935.txt
 ./index-DDD.html
 ./modules.json
 ./modules/panel01.html
@@ -22,6 +22,7 @@
 ./modules/panel06.html
 ./modules/panel07.html
 ./modules/panel08.html
+./modules/panel09.html
 ./platzhalter.txt
 ./setup.sh
 ./todo.txt

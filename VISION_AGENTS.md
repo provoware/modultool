@@ -47,7 +47,7 @@
 - **Sofort-Feedback**, **Hilfetexte**, **Ein-Klick‑Buttons**
 - **Hover-Vorschau**, **große Touch-Flächen**, **logische Struktur**
 - **Drag & Drop**, **Undo/Redo**, **ZIP-Backup**
-- **Filter, Favoriten**, **Scrollsync**, **Einstellungs-Panel**
+- **Filter, Favoriten**, **Scrollsync**, **Einstellungs-Panel ✅**
 - **Projektordner-Startwahl**, **Autofokus + Clear-Buttons**
 
 ### 🕸 Globale Technische Standards

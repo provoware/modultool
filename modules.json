@@ -38,5 +38,10 @@
     "id": "panel08",
     "title": "Theme-Switcher",
     "file": "modules/panel08.html"
+  },
+  {
+    "id": "panel09",
+    "title": "Einstellungen",
+    "file": "modules/panel09.html"
   }
 ]

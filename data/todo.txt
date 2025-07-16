@@ -17,3 +17,4 @@
 - [x] Cover/Layout-Modul umsetzen (Panel07)
 
 - [x] Theme-Switcher-Modul umsetzen (Panel08)
+- [x] Einstellungs-Panel umsetzen (Panel09)

@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <title>Panel02 – Genre-Profile</title>
 <style>
-  #panel02{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:sans-serif;}
+  #panel02{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:var(--font-family, sans-serif);}
   #genre-input{min-height:80px;}
   #random-output{font-weight:bold;margin-top:0.5rem;}
   #log{max-height:100px;overflow-y:auto;padding-left:1rem;}
-  select,button,textarea,input{font-size:1rem;border-radius:0.5rem;}
+  select,button,textarea,input{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);}
   textarea{resize:vertical;}
   @media(min-width:600px){#panel02{max-width:520px;}}
 </style>

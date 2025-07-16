@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <title>Panel01 – Genre-Liste & Zufall</title>
 <style>
-  #panel01 {display:grid;gap:0.5rem;max-width:320px;margin:auto;font-family:sans-serif;}
+  #panel01 {display:grid;gap:0.5rem;max-width:320px;margin:auto;font-family:var(--font-family, sans-serif);}
   #genre-input{min-height:80px;resize:vertical;}
-  button,input,textarea{font-size:1rem;border-radius:0.5rem;}
+  button,input,textarea{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);}
   #random-output{font-weight:bold;margin-top:0.5rem;}
   #log{max-height:100px;overflow-y:auto;padding-left:1rem;}
   @media(min-width:600px){#panel01{max-width:480px;}}

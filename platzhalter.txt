@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 23:13:01 UTC 2025
+Letztes Update: Wed Jul 16 23:19:35 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -20,3 +20,4 @@ Offene Aufgaben:
 - [x] Cover/Layout-Modul umsetzen (Panel07)
 
 - [x] Theme-Switcher-Modul umsetzen (Panel08)
+- [x] Einstellungs-Panel umsetzen (Panel09)

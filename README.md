@@ -34,6 +34,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
   → Einfacher Titel und Farbvorschau für Cover
 - **🎨 Panel08: Theme-Switcher**
   → Farbmodus (dunkel, hell, blau) wählen und speichern
+- **⚙️ Panel09: Einstellungen**
+  → Schriftart, Größe und Button-Rundung global anpassen
 - **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
 ---
 
