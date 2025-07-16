@@ -10,3 +10,4 @@
 - [ ] Fehlende Dateien und Ordner mit Platzhaltern anlegen
 - [x] Platzhaltertexte in allen Ordnern ergaenzen
 - [x] Weitere Platzhaltertipps in der Laienhilfe beschreiben
+- [x] Platzhalter im Modulordner durch Beispielcode ersetzen

@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 04:17:59 UTC 2025
+Letztes Update: Wed Jul 16 04:21:16 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -13,3 +13,4 @@ Offene Aufgaben:
 - [ ] Fehlende Dateien und Ordner mit Platzhaltern anlegen
 - [x] Platzhaltertexte in allen Ordnern ergaenzen
 - [x] Weitere Platzhaltertipps in der Laienhilfe beschreiben
+- [x] Platzhalter im Modulordner durch Beispielcode ersetzen

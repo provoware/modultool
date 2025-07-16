@@ -116,3 +116,17 @@ Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler ge
    bash ../tools/selfcheck.sh
    ```
 
+
+## Modul im Browser ausprobieren
+
+1. Wechsle in das Hauptverzeichnis zurück:
+   ```bash
+   cd ..
+   ```
+2. Erstelle eine Testdatei, die das Beispielmodul lädt:
+   ```bash
+   echo "<script type='module' src='modules/beispiel_modul.js'></script>" > test.html
+   ```
+   Das Kommando `echo` (Text ausgeben) schreibt eine Zeile in `test.html`.
+3. Öffne `test.html` im Browser, z. B. mit einem Doppelklick im Dateimanager.
+   Nach Eingabe des Namens siehst du die Begrüßung als Text auf der Seite.

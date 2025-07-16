@@ -1,9 +1,15 @@
 # Beispiel für ein einfaches Modul (Programmteil)
 # Speichere deinen Code in eigenen Dateien im Ordner modules/.
-# Die Datei beispiel_modul.js zeigt, wie es geht.
+# Diese Vorlage zeigt einen laienfreundlichen Start.
 
-# --- Start des Minimalbeispiels (JavaScript) ---
-export function begruessung(name = 'Welt') {
-  console.log(`Hallo ${name}!`);
+# --- Start des ausführlichen Beispiels (JavaScript) ---
+# Die Funktion begruessung fragt nach einem Namen und zeigt ihn im Browser an.
+# "prompt" öffnet ein kleines Eingabefeld (Dialogfenster).
+# "document" bezeichnet das aktuelle HTML-Dokument.
+export function begruessung() {
+  const name = prompt('Wie heißt du?');
+  const text = document.createElement('p');
+  text.textContent = `Hallo ${name || 'Welt'}!`;
+  document.body.appendChild(text);
 }
-# --- Ende des Minimalbeispiels ---
+# --- Ende des Beispiels ---
