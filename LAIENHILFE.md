@@ -60,3 +60,21 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
   1. `git status` ausführen.
   2. `bash tools/selfcheck.sh` starten.
   3. Fehlermeldungen beachten und Befehle wie `npm install -g htmlhint` nutzen.
+
+## Fortschritte auf GitHub hochladen
+
+1. Prüfe, ob ein sogenanntes *Remote* (Verknüpfung zum Online-Repository) vorhanden ist:
+   ```bash
+   git remote -v
+   ```
+   Siehst du nichts, musst du die Verbindung anlegen.
+2. Verbinde dein Projekt mit GitHub. Ersetze `DEINNAME` durch deinen Benutzernamen:
+   ```bash
+   git remote add origin https://github.com/DEINNAME/modultool.git
+   ```
+3. Lade deine gespeicherten Änderungen hoch:
+   ```bash
+   git push -u origin main
+   ```
+   Das `-u` merkt sich das Ziel für zukünftige `git push`-Befehle.
+4. Holt vorher `git pull`, falls andere schon verändert haben. Dadurch werden die Daten zusammengeführt.
