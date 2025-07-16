@@ -22,6 +22,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
   → Mehrere Genre-Listen unter eigenen Profilnamen verwalten und per Zufall ausgeben
 - **📊 Panel03: Dashboard-Log**
   → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
+- **📋 Panel04: Text-Templates**
+  → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
 
 ---
 

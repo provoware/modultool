@@ -4,6 +4,8 @@
 - [x] Zufallsprofile ohne Gewichtung umgesetzt (Panel02)
 - [x] Logging ins Dashboard einbauen
 - [x] Clipboard-Funktion mit Feedback-Farben
-- [ ] CSS responsiv machen, Test mit Axe/WAVE
+- [x] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Dashboard-Modul umgesetzt (Panel03)
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [x] Text-Templates-Modul (Panel04) umgesetzt
+- [ ] Zufallsmodi mit Profilgewichtung implementieren
