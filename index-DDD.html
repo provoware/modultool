@@ -260,6 +260,12 @@
       .grid-main { grid-template-columns: 1fr; grid-template-rows: repeat(9, minmax(100px, 1fr)); }
       .sidebar {width:96vw;min-width:90vw;max-width:99vw;}
     }
+    @media (max-width: 480px) {
+      header {font-size:1.2em;}
+      .sidebar {width:98vw;min-width:98vw;max-width:98vw;}
+      .app-frame {grid-template-columns:1fr;}
+      .grid-main {grid-template-rows: repeat(9, minmax(120px,1fr));}
+    }
   </style>
 </head>
 <body>
@@ -336,7 +342,7 @@
           <button class="rand-btn" onclick="pickRandomN(15)" title="15 zufällige Genres wählen">🎲 15</button>
         </div>
         <div id="randResult" class="rand-result" style="display:none;"></div>
-        <div id="genreStatus" class="status-msg" style="display:none;"></div>
+        <div id="genreStatus" class="status-msg" style="display:none;" role="status" aria-live="polite"></div>
         <div class="input-help">Tipp: Jede Auswahl wird ins Dashboard übernommen. Du kannst Genres jederzeit editieren!</div>
       </section>
       <section class="mod-panel" id="panel2" tabindex="0"><h2>Archiv</h2>
@@ -368,7 +374,7 @@
         </form>
         <div class="tmpl-btnlist" id="tmplBtnList"></div>
         <div class="small">Klick: Text kopieren. ✖: Entfernen.</div>
-        <div id="tmplStatus" class="status-msg" style="display:none;"></div>
+        <div id="tmplStatus" class="status-msg" style="display:none;" role="status" aria-live="polite"></div>
       </section>
       <section class="mod-panel" id="panel5" tabindex="0"><h2>Debug & Log</h2>
         <div id="debugLog" style="max-height:220px;overflow:auto;margin-bottom:.4em;"></div>
@@ -386,7 +392,7 @@
         <pre id="importPreview" style="max-height:110px;overflow:auto;background:#252c2e;color:#bbb;padding:.4em .7em;border-radius:.6em;display:none;margin:.5em 0 0 0;" title="Vorschau des Imports"></pre>
         <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
       </section>
-      <section class="mod-panel" id="panel7"><h2>Modul 7</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel7" tabindex="0"><div class="small">Lade…</div></section>
       <section class="mod-panel" id="panel8"><h2>Modul 8</h2><div class="small">Frei für weitere Features</div></section>
       <section class="mod-panel" id="panel9"><h2>Modul 9</h2><div class="small">Frei für weitere Features</div></section>
     </div>
@@ -826,6 +832,13 @@ function makeSidebarResizable(side) {
 }
 makeSidebarResizable('Left');
 makeSidebarResizable('Right');
+function loadPanel(id){
+  fetch('panels/'+id+'.html')
+    .then(r=>r.text())
+    .then(html=>{document.getElementById(id).innerHTML = html;})
+    .catch(e=>logErr('Panel-Load '+id+': '+e));
+}
+loadPanel('panel7');
 function hideIntro(){
   const el = document.getElementById('introOverlay');
   if(el) el.style.display='none';

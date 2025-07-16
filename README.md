@@ -73,10 +73,11 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
      "id": "beispiel",
      "name": "Mein Modul",
      "file": "panels/beispiel.html"
-   }
-   ```
+  }
+  ```
 
 Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend wieder mit `bash tools/start_tool.sh`.
+Im Repository gibt es auch ein Beispielmodul `panel7` namens "Schnellhilfe" mit weiteren Kommandos.
 
 ## 📈 Weiterführende Tipps
 
@@ -97,3 +98,6 @@ Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend 
 * `git merge anderer_zweig` – führt einen Branch in den aktuellen zusammen (*Merge = Zusammenführen*).
 * `curl -O URL` – lädt eine Datei aus dem Internet herunter (*curl = Download-Programm*).
 * `npm install` – lädt alle benötigten Pakete (*npm = Paketverwaltung*).
+* `git remote -v` – zeigt die gespeicherten Online-Adressen (*Remote = entfernte Quelle*).
+* `git reset --hard HEAD~1` – macht den letzten Stand rückgängig (*Reset = zurücksetzen*).
+* `tar -czf backup.tar.gz ordner/` – erstellt ein gepacktes Archiv eines Ordners (*Backup = Sicherung*).

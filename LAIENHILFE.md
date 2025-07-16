@@ -71,6 +71,7 @@ Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und �
 5. Starte das Tool wieder mit `bash tools/start_tool.sh`.
 
 Damit kannst du eigene Module testen.
+Im Ordner `panels` liegt bereits `panel7.html`. Dieses Modul zeigt eine kleine Schnellhilfe mit weiteren Befehlen.
 
 ## Weitere nützliche Befehle
 
@@ -91,3 +92,6 @@ Damit kannst du eigene Module testen.
 - `git merge anderer_zweig` – führt einen Branch in den aktuellen zusammen (*Merge = Zusammenführen*).
 - `curl -O URL` – lädt eine Datei aus dem Internet herunter (*curl = Download-Programm*).
 - `npm install` – lädt alle benötigten Pakete (*npm = Paketverwaltung*).
+- `git remote -v` – zeigt gespeicherte Online-Adressen an (*Remote = entfernte Quelle*).
+- `git reset --hard HEAD~1` – macht den letzten Stand rückgängig (*Reset = zurücksetzen*).
+- `tar -czf backup.tar.gz ordner/` – erstellt ein gepacktes Archiv eines Ordners (*Backup = Sicherung*).
