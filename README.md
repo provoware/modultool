@@ -20,6 +20,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
   → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
 - **🎛 Panel02: Genre-Profile**
   → Mehrere Genre-Listen unter eigenen Profilnamen verwalten und per Zufall ausgeben
+- **📊 Panel03: Dashboard-Log**
+  → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
 
 ---
 

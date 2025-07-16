@@ -38,6 +38,14 @@ const randomBtn=document.getElementById('random-btn');
 const copyBtn=document.getElementById('copy-btn');
 const output=document.getElementById('random-output');
 const log=document.getElementById('log');
+const DASH_KEY='dashboardLog';
+
+function addDashboard(val){
+  const arr=JSON.parse(localStorage.getItem(DASH_KEY)||'[]');
+  arr.unshift({time:new Date().toLocaleTimeString(),value:val});
+  if(arr.length>10) arr.length=10;
+  localStorage.setItem(DASH_KEY,JSON.stringify(arr));
+}
 
 function loadProfiles(){
   const data=localStorage.getItem('genreProfiles');
@@ -98,6 +106,7 @@ randomBtn.addEventListener('click',()=>{
   const entry=document.createElement('li');
   entry.textContent=new Date().toLocaleTimeString()+': '+choice;
   log.prepend(entry);
+  addDashboard(choice);
 });
 
 copyBtn.addEventListener('click',()=>{
