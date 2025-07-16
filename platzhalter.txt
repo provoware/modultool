@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 22:33:39 UTC 2025
+Letztes Update: Wed Jul 16 22:43:53 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -15,6 +15,6 @@ Offene Aufgaben:
 - [x] Nutzerfreundlichkeit & Fehlerbehandlung verbessert (Panel01/02)
 - [x] Modulbezeichnungen in HTML und README vereinheitlicht
 - [ ] GitHub-Remote einrichten und Fortschritt pushen
-- [ ] Persona-Switcher-Modul umsetzen (Panel05)
+- [x] Persona-Switcher-Modul umsetzen (Panel05)
 - [ ] Story-Sampler-Modul umsetzen (Panel06)
 - [ ] Cover/Layout-Modul umsetzen (Panel07)

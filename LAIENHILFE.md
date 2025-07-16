@@ -49,6 +49,14 @@ So behältst du jederzeit die Kontrolle über deine Dateien.
 
 Die gespeicherten Module findest du gesammelt in `modules.json`.
 
+## Persona-Switcher nutzen
+
+1. Öffne `panel05.html` im Ordner `modules`.
+2. Trage einen Namen und eine kurze Beschreibung ein.
+3. Klicke auf **Profil speichern**. Der Eintrag landet in der Auswahlliste.
+4. Wähle ein Profil aus der Liste und passe die Beschreibung bei Bedarf an.
+5. Mit **Kopieren** überträgst du die Beschreibung in die Zwischenablage.
+
 ## Weiterf\u00fchrende Tipps
 
 - **Browser-Speicher leeren (localStorage)**
@@ -81,7 +89,6 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
 
 ## Fehlende Module
 
-- Persona-Switcher (zwischen Figuren wechseln)
 - Story-Sampler (zufällige Textideen)
 - Cover/Layout-Werkzeug
 
@@ -97,3 +104,12 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
    ```bash
    bash tools/selfcheck.sh
    ```
+4. Aufgabenliste aktualisieren:
+   ```bash
+   nano todo.txt
+   ```
+   Änderungen speichern (**Strg+O**) und schließen (**Strg+X**). Danach:
+   ```bash
+   bash tools/update_placeholder.sh
+   ```
+   Dadurch bleibt `platzhalter.txt` aktuell.

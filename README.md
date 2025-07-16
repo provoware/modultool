@@ -25,8 +25,10 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
   → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
 - **📋 Panel04: Textbausteine**
   → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
+- **🧑‍🎤 Panel05: Persona-Switcher**
+  → Verschiedene Figurenprofile speichern und auswählen
 - **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
-- **Geplante Module:** Persona-Switcher (Panel05), Story-Sampler (Panel06), Cover/Layout (Panel07)
+- **Geplante Module:** Story-Sampler (Panel06), Cover/Layout (Panel07)
 ---
 
 ## 🧠 Features
