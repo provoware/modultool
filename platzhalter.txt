@@ -1,3 +1,6 @@
+Letztes Update: Wed Jul 16 01:08:28 UTC 2025
+
+Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [ ] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [ ] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
