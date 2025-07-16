@@ -18,3 +18,4 @@
 
 - [x] Theme-Switcher-Modul umsetzen (Panel08)
 - [x] Einstellungs-Panel umsetzen (Panel09)
+- [x] Weitere Befehle in der Laienhilfe ergänzen

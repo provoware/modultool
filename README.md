@@ -1,7 +1,7 @@
 # 🧰 Modultool
 
-**Modulares Content-Creation-Tool mit Fokus auf Barrierefreiheit, Systemkritik & Selbstheilung.**  
-Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaffende.
+**Modulares Content-Creation-Tool (Werkzeug zur Inhaltserstellung) mit Fokus auf Barrierefreiheit, Systemkritik und Selbstheilung.**
+Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content-Schaffende.
 
 ---
 
@@ -35,14 +35,14 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 - **🎨 Panel08: Theme-Switcher**
   → Farbmodus (dunkel, hell, blau) wählen und speichern
 - **⚙️ Panel09: Einstellungen**
-  → Schriftart, Größe und Button-Rundung global anpassen
+  → Schriftart (Font), Größe und Button-Rundung global anpassen. Dadurch haben alle Module den gleichen Stil.
 - **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
 ---
 
 ## 🧠 Features
 
 - Drag & Drop für Medien, Module, Templates
-- Undo-/Redo-System, ZIP-Export, Selfcheck
+- Undo-/Redo-System, ZIP-Export, Selfcheck (Fehlerprüfung via `bash tools/selfcheck.sh`)
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel
 - Projektordner-Management + Fehlerkorrektur
 

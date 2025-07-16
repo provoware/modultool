@@ -138,4 +138,24 @@ Keine
    ```bash
    bash tools/update_placeholder.sh
    ```
-   Dadurch bleibt `platzhalter.txt` aktuell.
+Dadurch bleibt `platzhalter.txt` aktuell.
+
+## Noch mehr nützliche Befehle
+
+- **Lokalen Server starten (kleiner Test-Server)**
+  ```bash
+  python3 -m http.server
+  ```
+  Danach kannst du `http://localhost:8000` im Browser aufrufen.
+
+- **Commit-Historie anzeigen (Verlauf der Änderungen)**
+  ```bash
+  git log --oneline --graph
+  ```
+  So siehst du, wann welche Änderung gespeichert wurde.
+
+- **Unterschiede prüfen**
+  ```bash
+  git diff
+  ```
+  Dieser Befehl zeigt dir Zeile für Zeile an, was sich im Vergleich zum letzten Commit geändert hat.
