@@ -60,3 +60,23 @@ ls logs
 
 Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler geben k\u00f6nnen.
 
+
+## Hilfreiche Zusatzbefehle
+
+- **Neuen Ordner anlegen**
+  ```bash
+  mkdir neuer_ordner
+  ```
+  Damit erstellst du ein leeres Verzeichnis. `mkdir` bedeutet "make directory" (Ordner anlegen).
+
+- **Dateiinhalt anzeigen**
+  ```bash
+  cat datei.txt
+  ```
+  Das Kommando `cat` (concatenate) zeigt den Inhalt einer Textdatei an.
+
+- **Datei loeschen**
+  ```bash
+  rm alte_datei.txt
+  ```
+  `rm` steht fuer "remove" (loeschen). Vorsicht: Die Datei ist danach weg.
