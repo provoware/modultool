@@ -37,8 +37,9 @@
 ### 🌟 Erweiterte Kreativmodule
 - Persona-Switcher  
 - Story-Sampler  
-- Cover/Layout-Modul  
-- Projektorganizer  
+- Cover/Layout-Modul
+- Theme-Switcher
+- Projektorganizer
 - Asset-Finder  
 - Quote/Line-Manager  
 
@@ -72,9 +73,10 @@
 ---
 
 ### Panel07‑09: Erweiterungsmodule
-- Persona-Switcher: ✅  
-- Story-Sampler: ✅  
-- Cover/Layout: ✅  
+- Persona-Switcher: ✅
+- Story-Sampler: ✅
+- Cover/Layout: ✅
+- Theme-Switcher: ✅
 
 ---
 

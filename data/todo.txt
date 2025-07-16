@@ -15,3 +15,5 @@
 - [x] Persona-Switcher-Modul umsetzen (Panel05)
 - [x] Story-Sampler-Modul umgesetzt (Panel06)
 - [x] Cover/Layout-Modul umsetzen (Panel07)
+
+- [x] Theme-Switcher-Modul umsetzen (Panel08)

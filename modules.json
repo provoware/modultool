@@ -33,5 +33,10 @@
     "id": "panel07",
     "title": "Cover-Layout",
     "file": "modules/panel07.html"
+  },
+  {
+    "id": "panel08",
+    "title": "Theme-Switcher",
+    "file": "modules/panel08.html"
   }
 ]

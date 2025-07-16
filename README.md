@@ -32,6 +32,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
   → Kurze Ideen sammeln und zufällig auswählen
 - **🖼️ Panel07: Cover-Layout**
   → Einfacher Titel und Farbvorschau für Cover
+- **🎨 Panel08: Theme-Switcher**
+  → Farbmodus (dunkel, hell, blau) wählen und speichern
 - **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
 ---
 

@@ -72,6 +72,12 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
 2. Trage einen Titel ein.
 3. Wähle eine Farbe im Farbfeld.
 4. Klicke auf **Speichern**, die Vorschau zeigt dein Cover.
+
+## Theme-Switcher nutzen
+
+1. Öffne `panel08.html` im Ordner `modules`.
+2. Wähle im Feld **Farbmodus** eines der Themes aus.
+3. Klicke auf **Übernehmen**. Das Aussehen passt sich an und wird gespeichert.
 ## Weiterf\u00fchrende Tipps
 
 - **Browser-Speicher leeren (localStorage)**
