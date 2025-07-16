@@ -6,3 +6,18 @@
 - [x] Clipboard-Funktion mit Feedback-Farben
 - [x] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [ ] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
+- [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
+- [ ] Auto-Backup alle 5 Min und Undo-Verlauf lokal einbauen
+- [ ] Automatische Validierung jedes Moduls vor Aktivierung
+- [ ] Farbkontrast-Optimierung nach WCAG umsetzen
+- [ ] Fokusmodus: 1 Modul fullscreen, andere minimiert
+- [ ] Tooltip-Akademie beim ersten Start anzeigen
+- [ ] Modul-Querverlinkung zwischen Panels ermöglichen
+- [ ] Direkt-Export aus Modulen (TXT, PDF, JSON)
+- [ ] ZIP-Import und automatische Modul-Verteilung
+- [ ] Schreibschutz-Option pro Panel
+- [ ] Fehler-Erkennung mit Auto-Korrektur-Vorschlägen
+- [ ] Dateileichen-Erkennung und Entrümplungsmodus
+- [ ] Inhalte per Doppelklick in Zwischenablage kopieren
+- [ ] Globaler Suchfilter für alle Module und Inhalte

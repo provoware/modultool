@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 03:08:10 UTC 2025
+Letztes Update: Wed Jul 16 03:21:46 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -11,3 +11,18 @@ Offene Aufgaben:
 - [x] Dummy-Module angelegt
 - [x] ARIA-Labels erweitert
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [ ] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
+- [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
+- [ ] Auto-Backup alle 5 Min und Undo-Verlauf lokal einbauen
+- [ ] Automatische Validierung jedes Moduls vor Aktivierung
+- [ ] Farbkontrast-Optimierung nach WCAG umsetzen
+- [ ] Fokusmodus: 1 Modul fullscreen, andere minimiert
+- [ ] Tooltip-Akademie beim ersten Start anzeigen
+- [ ] Modul-Querverlinkung zwischen Panels ermöglichen
+- [ ] Direkt-Export aus Modulen (TXT, PDF, JSON)
+- [ ] ZIP-Import und automatische Modul-Verteilung
+- [ ] Schreibschutz-Option pro Panel
+- [ ] Fehler-Erkennung mit Auto-Korrektur-Vorschlägen
+- [ ] Dateileichen-Erkennung und Entrümplungsmodus
+- [ ] Inhalte per Doppelklick in Zwischenablage kopieren
+- [ ] Globaler Suchfilter für alle Module und Inhalte

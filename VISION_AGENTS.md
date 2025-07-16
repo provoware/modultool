@@ -101,3 +101,20 @@ tasks:
   - CSS responsiv + Test via Axe/WAVE
 expected: "Modul startet auf einem Bildschirm, responsive, barrierefrei, modular erweiterbar"
 owner: "pppoppi + Dr. Allwissend_Poppsen"
+
+### Weitere geplante Module und Funktionen
+- Erinnerung an ungespeicherte Änderungen beim Beenden
+- Favoriten-Startbildschirm nach Wahl der Module
+- Auto-Backup alle 5 Minuten und lokaler Undo-Verlauf
+- Automatische Validierung jedes Moduls vor Aktivierung
+- Farbkontrast-Check nach WCAG
+- Fokusmodus mit Touch-Bedienung
+- Tooltip-Akademie beim ersten Start
+- Querverlinkung der Module untereinander
+- Export als TXT, PDF oder JSON direkt aus dem Modul
+- ZIP-Import mit automatischer Verteilung der Dateien
+- Schreibschutz-Schalter in jedem Panel
+- Fehler-Erkennung mit Auto-Korrektur-Tipps
+- Entrümplungsmodus für Dateileichen
+- Doppelklick kopiert Inhalte in die Zwischenablage
+- Globaler Suchfilter über alle Panels

@@ -28,3 +28,22 @@ Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erw�
 4. `git push` überträgt alles ins Online-Repository.
 
 So behältst du jederzeit die Kontrolle über deine Dateien.
+
+## Geplante Erweiterungen
+
+Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sind:
+- Erinnerung an ungespeicherte Änderungen beim Beenden
+- persönlicher Startbildschirm mit Favoriten ("Dashboard")
+- Auto-Backup alle 5 Minuten und Undo-Verlauf (Rückgängig machen)
+- automatische Modul-Prüfung vor der Aktivierung
+- besserer Farbkontrast nach WCAG (Barrierefreiheits-Regeln)
+- Fokusmodus: ein Modul fullscreen, andere minimiert
+- Tooltip-Akademie mit kurzen Erklärungen
+- Querverlinkung zwischen Panels
+- direkter Export (TXT, PDF, JSON)
+- ZIP-Import mit Verteilen auf Module
+- Schreibschutz-Button pro Panel
+- Auto-Korrektur-Vorschläge bei Fehlern
+- Entrümplungsmodus zum Aufräumen
+- Kopieren per Doppelklick
+- globaler Suchfilter

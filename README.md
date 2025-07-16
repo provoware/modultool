@@ -30,6 +30,20 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel
 - Projektordner-Management + Fehlerkorrektur
 
+
+### Geplante Erweiterungen
+- Erinnerung an ungespeicherte Änderungen
+- Favoriten-Startbildschirm
+- Auto-Backup und Undo-Verlauf
+- Modul-Prüfung vor Aktivierung
+- Farbkontrast-Optimierung nach WCAG
+- Fokusmodus und Tooltip-Akademie
+- Querverlinkung und Direkt-Export
+- ZIP-Import mit Verteilung
+- Schreibschutz pro Panel
+- Fehler-Erkennung mit Korrektur
+- Entrümplungsmodus und Doppelklick-Kopie
+- globaler Suchfilter
 ---
 
 ## 📦 Struktur
