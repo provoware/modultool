@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Panel03 – Dashboard: Verlauf</title>
+<style>
+  #panel03{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:var(--font-family, sans-serif);}
+  #log-list{max-height:120px;overflow-y:auto;padding-left:1rem;}
+  button{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);line-height:1.4;}
+  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+  @media(min-width:600px){#panel03{max-width:520px;}}
+</style>
+</head>
+<body>
+<div id="panel03">
+  <h2>Dashboard – Verlauf</h2>
+  <ul id="log-list"></ul>
+  <button id="clear-btn">Alles löschen</button>
+</div>
+<script type="module">
+const STORAGE_KEY='dashboardLog';
+const list=document.getElementById('log-list');
+const clearBtn=document.getElementById('clear-btn');
+function loadLog(){
+  const data=localStorage.getItem(STORAGE_KEY);
+  return data?JSON.parse(data):[];
+}
+function saveLog(entries){
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(entries));
+}
+function render(){
+  const entries=loadLog();
+  list.innerHTML='';
+  entries.forEach(e=>{
+    const li=document.createElement('li');
+    li.textContent=`${e.time}: ${e.value}`;
+    list.appendChild(li);
+  });
+}
+clearBtn.addEventListener('click',()=>{
+  if(!confirm('Wirklich alles löschen?')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  render();
+});
+render();
+</script>
+</body>
+</html>
