@@ -6,9 +6,10 @@
 <style>
   #panel04{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:var(--font-family, sans-serif);}
   #template-list{display:flex;flex-direction:column;gap:0.4rem;}
-  .tmpl-btn{background:#338a5d;color:#fff;border:none;border-radius:var(--btn-radius,0.8rem);padding:0.4rem 0.8rem;font-size:var(--base-font,1rem);cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;}
+  .tmpl-btn{background:#338a5d;color:#fff;border:none;border-radius:var(--btn-radius,0.8rem);padding:0.4rem 0.8rem;font-size:var(--base-font,1rem);cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;line-height:1.4;}
   .remove-btn{background:#db3665;border-radius:var(--btn-radius,0.8rem);color:#fff;padding:0.3rem 0.6rem;border:none;cursor:pointer;}
-  input,textarea,button{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);}
+  input,textarea,button{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);line-height:1.4;}
+  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
   @media(min-width:600px){#panel04{max-width:520px;}}
   textarea{resize:vertical;min-height:80px;}
 </style>

@@ -37,6 +37,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - **⚙️ Panel09: Einstellungen**
   → Schriftart (Font), Größe und Button-Rundung global anpassen. Dadurch haben alle Module den gleichen Stil.
 - **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
+- **Sichtbarer Tastaturfokus** erleichtert die Navigation per Tastatur
 ---
 
 ## 🧠 Features
@@ -44,6 +45,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - Drag & Drop für Medien, Module, Templates
 - Undo-/Redo-System, ZIP-Export, Selfcheck (Fehlerprüfung via `bash tools/selfcheck.sh`)
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel
+- Gut sichtbarer Tastaturfokus zur einfachen Navigation
 - Projektordner-Management + Fehlerkorrektur
 
 ---

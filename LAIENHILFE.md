@@ -31,6 +31,13 @@ Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erw�
 
 So behältst du jederzeit die Kontrolle über deine Dateien.
 
+## Mit der Tastatur arbeiten
+
+1. Du kannst alle Module auch ohne Maus bedienen.
+2. Drücke die **Tabulator-Taste**. Damit springt der Fokus (Markierung) zum nächsten Bedienelement.
+3. Die Buttons zeigen nun einen gut sichtbaren Rahmen (Fokus-Ring). Mit **Enter** löst du den gewählten Button aus.
+4. So navigierst du komfortabel nur mit der Tastatur.
+
 ## Genre-Liste & Zufall testen
 
 1. Öffne den Ordner `modules` im Dateimanager.

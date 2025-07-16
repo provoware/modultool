@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 23:25:12 UTC 2025
+Letztes Update: Wed Jul 16 23:32:09 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -22,3 +22,4 @@ Offene Aufgaben:
 - [x] Theme-Switcher-Modul umsetzen (Panel08)
 - [x] Einstellungs-Panel umsetzen (Panel09)
 - [x] Weitere Befehle in der Laienhilfe ergänzen
+- [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
