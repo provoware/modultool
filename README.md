@@ -107,3 +107,7 @@ Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator und `panel9` al
 * `tar -czf backup.tar.gz ordner/` – erstellt ein gepacktes Archiv eines Ordners (*Backup = Sicherung*).
 * `git tag -a v1.0 -m "Version 1.0"` – legt eine Versionsmarke an (*Tag = Markierung*).
 * `rsync -av quelle/ ziel/` – kopiert Dateien effizient (*rsync = Synchronisationsprogramm*).
+* `git config --global user.name "Dein Name"` – setzt deinen Namen für künftige Commits (*config = Einstellung*).
+* `git config --global user.email "mail@example.com"` – speichert deine E-Mail für Git (*global = für alle Projekte*).
+* `find . -name "*.html"` – sucht nach allen HTML-Dateien im Ordner (*find = Dateien finden*).
+* `sudo apt-get install shellcheck` – installiert **shellcheck** (prüft Shellskripte).

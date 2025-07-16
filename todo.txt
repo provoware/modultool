@@ -14,3 +14,4 @@
 - [x] Hilfetexte und Tooltips ausbauen
 - [x] Startskript zum einfachen Aufrufen des Tools
 - [x] Willkommens-Overlay für neue Nutzer
+- [x] Importfunktion: geladenes Modul direkt als Panel einfügen

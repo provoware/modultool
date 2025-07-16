@@ -101,3 +101,7 @@ Neu hinzugekommen ist `panel8.html` für einen Zufall mit Gewichtung und `panel9
 - `git cherry-pick COMMIT` – holt gezielt eine Änderung (*Cherry-Pick = einzelne Auswahl*).
 - `tail -f datei.log` – zeigt fortlaufend neue Zeilen an (*tail = Ende der Datei*).
 - `chmod +x script.sh` – macht eine Datei ausführbar (*chmod = Rechte ändern*).
+- `git config --global user.name "Dein Name"` – hinterlegt deinen Namen in Git (*config = Einstellung*).
+- `git config --global user.email "mail@example.com"` – speichert deine Mail-Adresse (*global = für alle Projekte*).
+- `find . -name "*.html"` – sucht nach HTML-Dateien im Ordner (*find = Dateien finden*).
+- `sudo apt-get install shellcheck` – installiert **shellcheck** (prüft Shellskripte).

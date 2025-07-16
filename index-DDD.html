@@ -387,11 +387,12 @@
         <div class="small">Selfcheck: <span id="selfcheckStatus"></span></div>
       </section>
       <section class="mod-panel" id="panel6" tabindex="0" role="region" aria-labelledby="panel6-label"><h2 id="panel6-label">Modul-Import</h2>
-        <label class="file-label">
+        <label class="file-label" title="Datei für Modul-Import auswählen">
           <input id="importModuleFile" type="file" accept=".js,.html,.txt" style="display:none;">
           Modul-Datei auswählen
         </label>
-        <button onclick="triggerModuleImport()" title="Ausgewählte Datei importieren">Import starten</button>
+        <button onclick="triggerModuleImport()" title="Gewählte Datei laden">Import starten</button>
+        <button id="importInsertBtn" onclick="insertImportedPanel()" style="display:none;" title="Als neues Panel einfügen">Panel einfügen</button>
         <div class="import-status" id="importStatus"></div>
         <pre id="importPreview" style="max-height:110px;overflow:auto;background:#252c2e;color:#bbb;padding:.4em .7em;border-radius:.6em;display:none;margin:.5em 0 0 0;" title="Vorschau des Imports"></pre>
         <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
@@ -552,6 +553,7 @@ document.getElementById('importModuleFile').addEventListener('change', function(
     document.getElementById('importPreview').style.display='block';
     document.getElementById('importPreview').textContent = importModuleContent.substring(0,800)+(importModuleContent.length>800?' …':'');
     document.getElementById('importStatus').textContent = 'Datei geladen: '+file.name;
+    document.getElementById('importInsertBtn').style.display='inline-block';
     logDbg('Modul-Datei geladen: '+file.name);
   };
   reader.onerror = function() {
@@ -562,6 +564,26 @@ document.getElementById('importModuleFile').addEventListener('change', function(
 });
 function triggerModuleImport() {
   document.getElementById('importModuleFile').click();
+}
+function insertImportedPanel(){
+  if(!importModuleContent){
+    document.getElementById('importStatus').textContent='Keine Datei geladen!';
+    return;
+  }
+  const container=document.getElementById('gridMain');
+  const section=document.createElement('section');
+  const pid='panel'+(container.children.length+1);
+  section.className='mod-panel';
+  section.id=pid;
+  section.tabIndex=0;
+  section.setAttribute('role','region');
+  section.setAttribute('aria-labelledby',pid+'-label');
+  section.innerHTML=importModuleContent;
+  container.appendChild(section);
+  document.getElementById('importInsertBtn').style.display='none';
+  document.getElementById('importPreview').style.display='none';
+  document.getElementById('importStatus').textContent='Panel eingefügt: '+pid;
+  logDbg('Importiertes Panel angelegt: '+pid);
 }
 /* Genre/Archiv/Random */
 function renderList() {
