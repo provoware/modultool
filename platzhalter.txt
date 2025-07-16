@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 03:41:37 UTC 2025
+Letztes Update: Wed Jul 16 03:56:25 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -10,3 +10,4 @@ Offene Aufgaben:
 - [ ] CSS responsiv machen, Test mit Axe/WAVE
 - [ ] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [ ] Dokumentation aktualisieren (README, AGENTS)
+- [ ] Fehlende Dateien und Ordner mit Platzhaltern anlegen

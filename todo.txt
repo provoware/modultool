@@ -7,3 +7,4 @@
 - [ ] CSS responsiv machen, Test mit Axe/WAVE
 - [ ] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [ ] Dokumentation aktualisieren (README, AGENTS)
+- [ ] Fehlende Dateien und Ordner mit Platzhaltern anlegen
