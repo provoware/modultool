@@ -41,3 +41,5 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 logs/
 📁 tools/ (selfcheck.sh)
 📁 .github/workflows/ (validate.yml)
+📄 modules.json (Panel-Registrierung)
+```

@@ -1,1 +1,4 @@
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
+- modules.json erstellt (enthält angemeldete Panels)
+- README um Hinweis zu modules.json ergänzt
+- Nach jeder Änderung: `bash tools/selfcheck.sh` ausführen (Selbsttest)
