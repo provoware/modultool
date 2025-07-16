@@ -19,8 +19,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 ---
 - **📝 Panel01: Genre-Liste & Zufall**
   → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
-- **🎛 Panel02: Genre-Profile (Gewichtung)**
-  → Mehrere Genre-Listen unter Profilnamen speichern und gewichten
+- **🎛 Panel02: Genre-Profile**
+  → Mehrere Genre-Listen unter Profilnamen speichern
 - **📊 Panel03: Dashboard – Verlauf**
   → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
 - **📋 Panel04: Textbausteine**
