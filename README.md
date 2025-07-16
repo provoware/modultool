@@ -42,3 +42,6 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 logs/
 📁 tools/ (selfcheck.sh)
 📁 .github/workflows/ (validate.yml)
+```
+
+Weitere Dateien findest du im Ordner `data/` und im Verzeichnis `tools/`.

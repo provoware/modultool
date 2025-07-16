@@ -27,3 +27,9 @@ Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erw�
 4. `git push` 체bertr채gt alles ins Online-Repository.
 
 So beh채ltst du jederzeit die Kontrolle 체ber deine Dateien.
+
+## Projektstruktur anzeigen
+
+1. `cat baumstruktur.txt` (zeigt alle Dateien und Ordner) ausf체hren.
+2. `ls` (Inhaltsauflistung) nutzen, um aktuelle Verzeichnisse zu sehen.
+3. Bei Fragen `bash tools/selfcheck.sh` starten, das kontrolliert alles automatisch.
