@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 04:26:17 UTC 2025
+Letztes Update: Wed Jul 16 06:26:05 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -9,3 +9,6 @@ Offene Aufgaben:
 - [x] Clipboard-Funktion mit Feedback-Farben
 - [ ] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+
+- [x] Liste wird beim Speichern alphabetisch sortiert
+- [x] Speichern-Feedback per Farbe umgesetzt

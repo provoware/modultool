@@ -17,7 +17,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 ## 🧩 Aktuelle Start-Module
 
 - **📝 Panel01: Genres & Zufall**
-  → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
+  → Listeneingabe, gespeicherte Liste wird alphabetisch sortiert, Zufallswahl mit Log & Kopierfunktion sowie grünem Feedback beim Speichern
 
 ---
 
