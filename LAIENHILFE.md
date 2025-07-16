@@ -72,7 +72,8 @@ Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und �
 
 Damit kannst du eigene Module testen.
 Im Ordner `panels` liegt bereits `panel7.html`. Dieses Modul zeigt eine kleine Schnellhilfe mit weiteren Befehlen.
-Neu hinzugekommen ist `panel8.html` für einen Zufall mit Gewichtung, `panel9.html` als Befehlsübersicht und `panel10.html` als einfacher Einstieg.
+Neu hinzugekommen ist `panel8.html` für einen Zufall mit Gewichtung, `panel9.html` als Befehlsübersicht, `panel10.html` als einfacher Einstieg und `panel11.html` mit häufigen Fragen.
+Rechts findest du nun auch einen Hilfebutton, der `LAIENHILFE.md` direkt im Browser öffnet.
 
 ## Weitere nützliche Befehle
 
@@ -108,3 +109,8 @@ Neu hinzugekommen ist `panel8.html` für einen Zufall mit Gewichtung, `panel9.ht
 - `git rebase -i HEAD~3` – ändert die letzten drei Commits (*rebase = Basis neu schreiben*).
 - `ln -s quelle ziel` – erstellt einen symbolischen Link (*Link = Verweis auf Datei*).
 - `du -sh ordner/` – zeigt die Größe eines Ordners (*du = Speicherplatz anzeigen*).
+- `git clone URL` – kopiert ein komplettes Online-Archiv auf deinen Rechner (*clone = kopieren*).
+- `mkdir neuer_ordner` – erstellt einen neuen Ordner (*mkdir = Verzeichnis anlegen*).
+- `pwd` – zeigt, in welchem Ordner du dich befindest (*print working directory*).
+- `cat datei.txt` – zeigt den Inhalt einer Datei an (*cat = Datei anzeigen*).
+- `rm datei.txt` – löscht eine Datei unwiderruflich (*rm = remove*).

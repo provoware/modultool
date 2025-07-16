@@ -17,3 +17,5 @@
 - [x] Importfunktion: geladenes Modul direkt als Panel einfügen
 - [x] Module automatisch aus modules.json laden
 - [x] Neues Modul panel10 "Erste Schritte" ergänzen
+- [x] Hilfebutton im Interface, öffnet LAIENHILFE
+- [x] Neues Modul panel11 "FAQ" einbinden

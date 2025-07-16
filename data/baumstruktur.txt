@@ -16,6 +16,7 @@
 ./modules/README.md
 ./panels/README.md
 ./panels/panel10.html
+./panels/panel11.html
 ./panels/panel7.html
 ./panels/panel8.html
 ./panels/panel9.html

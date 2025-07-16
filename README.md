@@ -61,6 +61,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
    ```
    Das Skript aktualisiert automatisch `platzhalter.txt`.
 3. Mehr Tipps findest du in `LAIENHILFE.md`.
+4. Über den Hilfebutton rechts öffnest du diese Datei direkt im Browser.
 
 ## 🛠 Eigene Module einbinden
 
@@ -78,7 +79,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 
 Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend wieder mit `bash tools/start_tool.sh`.
 Im Repository gibt es auch ein Beispielmodul `panel7` namens "Schnellhilfe" mit weiteren Kommandos.
-Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator, `panel9` als kleine Befehlsreferenz und `panel10` mit einem kurzen Einstieg.
+Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator, `panel9` als kleine Befehlsreferenz, `panel10` mit einem kurzen Einstieg und `panel11` als kleine FAQ.
 
 ## 📈 Weiterführende Tipps
 
@@ -114,3 +115,8 @@ Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator, `panel9` als k
 * `git rebase -i HEAD~3` – ändert die letzten drei Commits (*rebase = Basis neu schreiben*).
 * `ln -s quelle ziel` – erstellt eine symbolische Verknüpfung (*Link = Verweis auf Datei*).
 * `du -sh ordner/` – zeigt die Größe eines Ordners (*du = Speicherplatz anzeigen*).
+* `git clone URL` – lädt ein ganzes Online-Repository herunter (*clone = kopieren*).
+* `mkdir neuer_ordner` – legt einen neuen Ordner an (*mkdir = make directory*).
+* `pwd` – zeigt deinen aktuellen Pfad an (*path = Verzeichnis*).
+* `cat datei.txt` – gibt den Inhalt einer Datei aus (*cat = Datei anzeigen*).
+* `rm datei.txt` – löscht eine Datei (*rm = remove*).

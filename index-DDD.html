@@ -242,6 +242,7 @@
     .debug-info{color:#5ecea6;}
     .input-help {color:var(--text-light);font-size:.97em;margin:.2em 0 .5em .1em;}
     .file-label {padding:.3em .8em;border-radius:.8em;background:var(--area);margin-left:.3em;cursor:pointer;}
+    .help-btn {padding:.3em .8em;border-radius:.6em;background:var(--button);color:var(--text);border:none;cursor:pointer;}
     .import-status{font-size:.98em;margin:.45em 0;}
     .weight-list{display:flex;flex-direction:column;gap:.4em;max-height:220px;overflow:auto;margin-bottom:.6em;}
     .weight-row{display:flex;align-items:center;gap:.6em;}
@@ -297,6 +298,7 @@
       <li><input class="sidebar-checkbox" type="checkbox" id="mod8box" checked onchange="toggleModPanel(8)"> Modul 8</li>
       <li><input class="sidebar-checkbox" type="checkbox" id="mod9box" checked onchange="toggleModPanel(9)"> Modul 9</li>
       <li><input class="sidebar-checkbox" type="checkbox" id="mod10box" checked onchange="toggleModPanel(10)"> Modul 10</li>
+      <li><input class="sidebar-checkbox" type="checkbox" id="mod11box" checked onchange="toggleModPanel(11)"> Modul 11</li>
     </ul>
     <div class="sidebar-divider"></div>
     <div class="sidebar-h2" title="Versionshinweise und Links">Infos</div>
@@ -324,6 +326,7 @@
         <option value="8">Panel 8</option>
         <option value="9">Panel 9</option>
         <option value="10">Panel 10</option>
+        <option value="11">Panel 11</option>
       </select>
       <button class="fokus-btn" id="fokusResetBtn" style="display:none;" aria-pressed="true" title="Zur Übersicht" onclick="switchFokus(0)">Zurück zum Grid</button>
     </div>
@@ -403,6 +406,7 @@
       <section class="mod-panel" id="panel8" tabindex="0" role="region" aria-labelledby="panel8-label"><div class="small">Lade…</div></section>
       <section class="mod-panel" id="panel9" tabindex="0" role="region" aria-labelledby="panel9-label"><div class="small">Lade…</div></section>
       <section class="mod-panel" id="panel10" tabindex="0" role="region" aria-labelledby="panel10-label"><div class="small">Lade…</div></section>
+      <section class="mod-panel" id="panel11" tabindex="0" role="region" aria-labelledby="panel11-label"><div class="small">Lade…</div></section>
     </div>
   </main>
   <div class="dragbar right" id="dragbarRight"><div class="dragbar-inner"></div></div>
@@ -421,6 +425,7 @@
       <li>Selfcheck: <code>bash tools/selfcheck.sh</code></li>
       <li>Projekt speichern: <code>git commit</code></li>
       <li>Weitere Tipps in <code>LAIENHILFE.md</code></li>
+      <li><button class="help-btn" onclick="openHelp()" title="Hilfedatei im neuen Fenster anzeigen">LAIENHILFE öffnen</button></li>
     </ul>
     <div class="sidebar-footer">
       Für Hilfe: Siehe Hilfe-Sidebar oder frag Poppi.
@@ -439,7 +444,7 @@ let fokusMode = 0;
 fokusSelect.onchange = function() { switchFokus(Number(fokusSelect.value)); };
 function switchFokus(mode) {
   fokusMode = mode;
-  for (let i = 1; i <= 10; ++i) {
+  for (let i = 1; i <= 11; ++i) {
     const panel = document.getElementById('panel' + i);
     if (mode === 0) {
       panel.style.display = '';
@@ -498,7 +503,7 @@ window.onload = function() {
   renderDashLog();
   renderTmplList();
   renderLog();
-  for(let i=4;i<=10;i++) toggleModPanel(i);
+  for(let i=4;i<=11;i++) toggleModPanel(i);
 };
 /* ======= App-Logik, Panels, Logging, Dashboard usw. ======= */
 const LOCAL_KEY = 'genreArchiv_vGRIDSB';
@@ -929,6 +934,9 @@ loadRegisteredPanels();
 function hideIntro(){
   const el = document.getElementById('introOverlay');
   if(el) el.style.display='none';
+}
+function openHelp(){
+  window.open('LAIENHILFE.md','_blank');
 }
 </script>
 </body>
