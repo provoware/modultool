@@ -4,6 +4,7 @@
 ./.gitignore
 ./.modultoolrc.json
 ./AGENTS.md
+./DOKUMENTATION.md
 ./LAIENHILFE.md
 ./README.md
 ./VISION_AGENTS.md
@@ -11,12 +12,15 @@
 ./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
-./data/todo_backup_20250716042413.txt
+./data/todo_backup_20250716045633.txt
+./data/todo_backup_20250716045636.txt
+./data/todo_backup_20250716045649.txt
 ./index-DDD.html
 ./modules/panel01.html
 ./platzhalter.txt
 ./setup.sh
 ./todo.txt
+./todo.txt.bak
 ./tools/selfcheck.sh
 ./tools/update_placeholder.sh
 ./validate.yml
