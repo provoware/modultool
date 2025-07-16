@@ -41,3 +41,14 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 logs/
 📁 tools/ (selfcheck.sh)
 📁 .github/workflows/ (validate.yml)
+```
+
+## 🧪 Selbstcheck ausführen
+
+Mit diesem Befehl startest du den Selbstcheck (kleines Prüfskript):
+
+```bash
+bash tools/selfcheck.sh
+```
+
+Das Skript aktualisiert die Datei `data/baumstruktur.txt` und zeigt dir offene Punkte aus `data/todo.txt`. Führe es regelmäßig aus und trage neue Aufgaben immer in `data/todo.txt` ein.

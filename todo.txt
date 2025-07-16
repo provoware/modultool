@@ -1,1 +1,2 @@
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
+- Anleitung zum Selbstcheck im README ergänzt
