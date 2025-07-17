@@ -1,11 +1,88 @@
+- Anleitung zum Selbstcheck im README ergänzt
+- Selfcheck regelmäßig ausführen
+- MIT-Lizenz hinzugefügt
+- AGENTS.md Codeblock geschlossen (triple backticks).
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
+- [x] Befehlsreferenz-Modul (panel9) ergänzen
 - [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
-- [ ] Zufallsmodi mit Profilgewichtung implementieren
+- [x] Zufallsmodi mit Profilgewichtung implementieren
+- [ ] Logging ins Dashboard einbauen
+- [ ] Clipboard-Funktion mit Feedback-Farben
+- [ ] CSS responsiv machen, Test mit Axe/WAVE
+- [ ] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [ ] Dokumentation aktualisieren (README, AGENTS)
+- [ ] Fehlende Dateien und Ordner mit Platzhaltern anlegen
+- [x] Platzhaltertexte in allen Ordnern ergänzen
+- [x] Weitere Platzhaltertipps in der Laienhilfe beschreiben
+- [x] Platzhalter im Modulordner durch Beispielcode ersetzen
+- [x] Ordner "modules/" und "panels/" erstellen
+- [x] "modules.json" für Panels anlegen
+- [x] Shellcheck-Warnungen in Skripten beheben
+- [x] Hilfetexte und Tooltips ausbauen
+- [x] Startskript zum einfachen Aufrufen des Tools
+- [x] Willkommens-Overlay für neue Nutzer
+- [x] Importfunktion: geladenes Modul direkt als Panel einfügen
+- [x] Module automatisch aus modules.json laden
+- [x] Neues Modul panel10 "Erste Schritte" ergänzen
+- [x] Hilfebutton im Interface, öffnet LAIENHILFE
+- [x] Neues Modul panel11 "FAQ" einbinden
+- [ ] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
+- [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
+- [ ] Auto-Backup alle 5 Min und Undo-Verlauf lokal einbauen
+- [ ] Automatische Validierung jedes Moduls vor Aktivierung
+- [ ] Farbkontrast-Optimierung nach WCAG umsetzen
+- [ ] Fokusmodus: 1 Modul fullscreen, andere minimiert
+- [ ] Tooltip-Akademie beim ersten Start anzeigen
+- [ ] Modul-Querverlinkung zwischen Panels ermöglichen
+- [ ] Direkt-Export aus Modulen (TXT, PDF, JSON)
+- [ ] ZIP-Import und automatische Modul-Verteilung
+- [ ] Schreibschutz-Option pro Panel
+- [ ] Fehler-Erkennung mit Auto-Korrektur-Vorschlägen
+- [ ] Dateileichen-Erkennung und Entrümplungsmodus
+- [ ] Inhalte per Doppelklick in Zwischenablage kopieren
+- [ ] Globaler Suchfilter für alle Module und Inhalte
+- [ ] Todo-Listen-Modul integrieren
+- [ ] Songtext-Editor mit Titelfeld und Notiz speichern
+- [ ] Dialog-Schreiber mit Charakterverwaltung bauen
+- [ ] Info-Manager für eigene Befehle anlegen
+- [ ] Zitaten-Modul mit Notizfeld umsetzen
+- [ ] Interaktiven Modulbaukasten erstellen
+- [x] Zufallsprofile ohne Gewichtung umgesetzt (Panel02)
 - [x] Logging ins Dashboard einbauen
 - [x] Clipboard-Funktion mit Feedback-Farben
-- [ ] CSS responsiv machen, Test mit Axe/WAVE
+- [x] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Dashboard-Modul umgesetzt (Panel03)
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 
 - [x] Liste wird beim Speichern alphabetisch sortiert
 - [x] Speichern-Feedback per Farbe umgesetzt
+- [x] Save-Button Feedback und automatische Listenbereinigung
+- [x] DOKUMENTATION.md hinzugefügt und erklärt
+
+- [ ] Templates-Modul (Panel02) erstellen
+- [ ] Undo/Redo-System einbauen
+- [ ] ZIP-Backup-Funktion ergänzen
+- [x] Text-Templates-Modul (Panel04) umgesetzt
+- [x] Zufallsmodi mit Profilgewichtung umsetzen (Panel02)
+- [x] Nutzerfreundlichkeit & Fehlerbehandlung verbessert (Panel01/02)
+- [x] Modulbezeichnungen in HTML und README vereinheitlicht
+- [x] GitHub-Remote einrichten und Fortschritt pushen
+- [x] Persona-Switcher-Modul umsetzen (Panel05)
+- [x] Story-Sampler-Modul umgesetzt (Panel06)
+- [x] Cover/Layout-Modul umsetzen (Panel07)
+- [x] Theme-Switcher-Modul umsetzen (Panel08)
+- [x] Einstellungs-Panel umsetzen (Panel09)
+- [ ] Weitere Befehle in der Laienhilfe ergänzen
+- [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
+- [x] Branches zusammenführen (work -> main)
+- [ ] Modul-Übersicht per Skript in module_übersicht.txt aktualisieren
+- [ ] Release vorbereiten: Selfcheck, README final prüfen, Release-Tag erstellen
+- [ ] Hinweise zur Datensicherheit in README ergänzen
+- [x] Laienhilfe mit Backup- und Fehlerhinweisen erweitern
+- [x] Datum & Uhrzeit im Dashboard anzeigen (Panel03)
+- [ ] Prüfe auf Konsistenz, Lauffähigkeit und erfolgreiche Funktionsergebnisse, Fehler und Redundanzen und fixe optimal
+- [ ] Hilfe im Tool professionell optimieren
+- [ ] Einstellungen im Tool professionell optimieren
+- [ ] Intelligentes Fehlerhandling im Tool professionell optimieren
+- [ ] Grafische Oberfläche im Tool professionell optimieren
