@@ -97,11 +97,17 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
   1. Modul im Browser öffnen.
   2. Taste F12 drücken und "Konsole" auswählen.
   3. `localStorage.clear()` eintippen und Enter drücken. (Löscht den Browser-Zwischenspeicher.)
+- **Archiv zurücksetzen**
+  1. Öffne die Genre-Liste im Tool.
+  2. Klicke auf den Button `🗑️ Löschen`.
+  3. Bestätige die Rückfrage mit **OK**. Nur das Archiv im Browser wird gelöscht (localStorage).
 
 - **Projekt erneut prüfen**
   1. `git status` ausführen.
   2. `bash tools/selfcheck.sh` starten.
-  3. Fehlermeldungen beachten und Befehle wie `npm install -g htmlhint` nutzen.
+  3. Fehlermeldungen beachten und fehlende Werkzeuge nachinstallieren, z. B.:
+     - `npm install -g htmlhint` (HTML-Prüfer)
+     - `pip install yamllint` (YAML-Prüfer)
 
 ## Fortschritte auf GitHub hochladen
 

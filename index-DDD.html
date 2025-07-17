@@ -320,6 +320,7 @@
         <div class="archive-actions">
           <button onclick="saveArchive()">💾 Speichern</button>
           <button onclick="loadArchive()">📂 Laden</button>
+          <button onclick="resetArchive()" style="background:var(--remove);">🗑️ Löschen</button>
         </div>
         <div class="rand-actions">
           <button class="rand-btn" onclick="pickRandomN(3)">🎲 3</button>
@@ -649,6 +650,15 @@ function saveArchive() {
 function loadArchive() {
   const data = localStorage.getItem(LOCAL_KEY);
   if(data) { genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); logDbg('Archiv geladen.');}
+}
+function resetArchive() {
+  if(confirm('Archiv wirklich löschen?')) {
+    localStorage.removeItem(LOCAL_KEY);
+    genres = [];
+    renderList();
+    statusMsg('Archiv geleert!',1);
+    logDbg('Archiv geleert.');
+  }
 }
 /* Dashboard */
 function renderDashboard() {

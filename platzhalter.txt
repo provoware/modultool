@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 23:38:16 UTC 2025
+Letztes Update: Thu Jul 17 00:08:19 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -24,3 +24,5 @@ Offene Aufgaben:
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [x] Archiv-Reset-Funktion umgesetzt
+- [x] YAML-Check im Selfcheck ergänzt
