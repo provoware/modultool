@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 23:38:16 UTC 2025
+Letztes Update: Thu Jul 17 01:11:51 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -24,3 +24,7 @@ Offene Aufgaben:
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+
+- [ ] HTMLHint (HTML-Prüfwerkzeug) und ShellCheck (Shell-Skript-Prüfer) installieren
+- [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)
+- [ ] README um Schritt-für-Schritt-Anleitung erweitern
