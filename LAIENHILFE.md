@@ -260,6 +260,13 @@ Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sin
 5. Mit **Zufall** wählst du einen Eintrag zufällig aus. Darunter entsteht ein kleines Protokoll (Log) mit Uhrzeit.
 6. Über **Kopieren** landet das Ergebnis in der Zwischenablage. Der Button färbt sich kurz grün als Bestätigung.
 
+## Textbaustein-Modul benutzen
+
+1. Öffne `panel02.html` im Ordner `modules`.
+2. Trage einen kurzen Titel und den Text in die Felder ein.
+3. Klicke auf **Hinzufügen**. Der Eintrag erscheint darunter in der Liste.
+4. Über **Kopieren** landet der Text in deiner Zwischenablage.
+5. Mit **Löschen** entfernst du einen Eintrag aus der Liste und dem Speicher.
 ## Flexibilität & Nutzerfreundlichkeit erhöhen
 
 * **Konfigurationsdatei bearbeiten:** `nano .modultoolrc.json`

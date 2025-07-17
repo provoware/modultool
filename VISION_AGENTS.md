@@ -29,7 +29,7 @@
 
 ### 🔹 Modul-Grundgerüst (Panels)
 - Panel01: *Genres, Archiv, Zufallsgenerator* (erste Kombi)
-- Panel02: *Templates* (Textbausteine)
+- Panel02: *Templates* (Textbausteine) – umgesetzt
 - Panel03: *Dashboard / Logging*
 - Panel04: *Modul-Import*
 - Panel05–09: Erweiterungsmodule nach Bedarf (Persona, Story usw.)

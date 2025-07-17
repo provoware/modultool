@@ -72,6 +72,8 @@
 - [x] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Dashboard-Modul umgesetzt (Panel03)
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [x] Panel02 Modul erstellen (Textbausteine)
+- [x] modules.json und module_versions.json anlegen
 - [x] Modul 7: Notizen integriert
 - [x] Anleitung für Flexibilität & Nutzerfreundlichkeit ergänzt
 

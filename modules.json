@@ -1,5 +1,9 @@
 {
   "modules": [
+    {"id": "panel01", "name": "Genres & Zufall", "file": "modules/panel01.html", "version": "1.0"},
+    {"id": "panel02", "name": "Textbausteine", "file": "modules/panel02.html", "version": "1.0"}
+  ]
+}
     {"id": "panel7", "name": "Schnellhilfe", "file": "panels/panel7.html"},
     {"id": "panel8", "name": "Gewichteter Zufall", "file": "panels/panel8.html"},
     {"id": "panel9", "name": "Befehlsreferenz", "file": "panels/panel9.html"},

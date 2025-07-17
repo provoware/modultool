@@ -17,6 +17,9 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 ## 🧩 Aktuelle Start-Module
 
 - **📝 Panel01: Genres & Zufall**
+  → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
+- **📑 Panel02: Textbausteine**
+  → Kurze Texte speichern, kopieren und löschen
   → Listeneingabe, gespeicherte Liste wird alphabetisch sortiert, Zufallswahl mit Log & Kopierfunktion sowie grünem Feedback beim Speichern
 - **🎲 Genre-Archiv & Eingabe**  
   → Speicherung, Duplikatsprüfung, Komma-getrennte Eingaben
@@ -91,6 +94,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 📁 modules/
 📁 data/ (baumstruktur.txt, todo.txt)
 📄 platzhalter.txt
+📄 modules.json
+📄 module_versions.json
 📁 logs/
 📁 tools/ (selfcheck.sh, update_placeholder.sh, install_hook.sh)
 📁 .github/workflows/ (validate.yml)
