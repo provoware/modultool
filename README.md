@@ -142,3 +142,12 @@ Führe einmal `bash tools/install_hook.sh` aus. Danach wird `platzhalter.txt` na
 
 ## 🔀 Branches zusammenführen
 Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches zusammenführen".
+
+## 🌐 Lokaler Testserver
+Um die HTML-Dateien bequem auszuprobieren, kannst du einen kleinen Webserver starten.
+
+```bash
+python3 -m http.server
+```
+
+Öffne danach `http://localhost:8000` im Browser. So lassen sich alle Module testen, ohne Dateien doppelt anzuklicken.

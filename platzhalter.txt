@@ -1,3 +1,4 @@
+Letztes Update: Thu Jul 17 00:56:31 UTC 2025
 Letztes Update: Thu Jul 17 00:08:19 UTC 2025
 Letztes Update: Wed Jul 16 23:59:30 UTC 2025
 Letztes Update: Wed Jul 16 06:47:52 UTC 2025
@@ -114,6 +115,10 @@ Offene Aufgaben:
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [ ] ZIP-Backup-Modul entwickeln (Panel07)
+- [ ] Undo-/Redo-Funktion einbauen (Panel08)
+- [ ] README: lokalen Testserver via python3 -m http.server erklären
+- [ ] CI: branch-limit.yml aktivieren und testen
 - [x] Archiv-Reset-Funktion umgesetzt
 - [x] YAML-Check im Selfcheck ergänzt
 - [x] Wiki-Modul umsetzen (Panel10)
