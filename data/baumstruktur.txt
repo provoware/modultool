@@ -13,6 +13,7 @@
 ./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
+./data/todo_backup_20250717162725.txt
 ./data/todo_backup_20250716044144.txt
 ./index-DDD.html
 ./modules.json
@@ -81,6 +82,7 @@
 ./data/todo_backup_20250717165313.txt
 ./data/todo_backup_20250717170755.txt
 ./index-DDD.html
+./module_übersicht.txt
 ./modules.json
 ./modules/panel01.html
 ./modules/panel02.html
@@ -97,6 +99,7 @@
 ./tools/comma_json.js
 ./tools/install_hook.sh
 ./tools/selfcheck.sh
+./tools/update_module_uebersicht.sh
 ./tools/start_tool.sh
 ./tools/update_placeholder.sh
 ./validate.yml
