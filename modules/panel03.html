@@ -5,6 +5,7 @@
 <title>Panel03 – Dashboard: Verlauf</title>
 <style>
   #panel03{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:var(--font-family, sans-serif);}
+  #current-time{font-size:.9em;color:var(--text-light,#555);}
   #log-list{max-height:120px;overflow-y:auto;padding-left:1rem;}
   button{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);line-height:1.4;}
   button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
@@ -21,6 +22,7 @@
   </div>
   <h3>Nächste Termine</h3>
   <ul id="next-list"></ul>
+  <div id="current-time"></div>
   <ul id="log-list"></ul>
   <button id="clear-btn">Alles löschen</button>
 </div>
@@ -32,6 +34,13 @@ const nextList=document.getElementById('next-list');
 const clearBtn=document.getElementById('clear-btn');
 const moduleSelect=document.getElementById('moduleSelect');
 const openBtn=document.getElementById('openModuleBtn');
+const timeDiv=document.getElementById('current-time');
+
+function updateTime(){
+  timeDiv.textContent=new Date().toLocaleString();
+}
+setInterval(updateTime,1000);
+updateTime();
 function loadLog(){
   const data=localStorage.getItem(STORAGE_KEY);
   return data?JSON.parse(data):[];

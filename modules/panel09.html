@@ -28,6 +28,8 @@
     <option value="0.5rem" selected>Mittel</option>
     <option value="1rem">Rund</option>
   </select>
+  <label for="path-input">Standardpfad:</label>
+  <input id="path-input" placeholder="./data" aria-label="Standardpfad">
   <button id="save-btn">Speichern</button>
   <div id="status" role="status" aria-live="polite"></div>
 </div>
@@ -35,6 +37,16 @@
 const fontSel=document.getElementById('font-select');
 const sizeInput=document.getElementById('size-input');
 const radiusSel=document.getElementById('radius-input');
+const pathInput=document.getElementById('path-input');
+const status=document.getElementById('status');
+const KEY='appSettings';
+function show(msg){status.textContent=msg;setTimeout(()=>status.textContent='',3000);}
+function apply(s){
+  document.documentElement.style.setProperty('--font-family',s.font);
+  document.documentElement.style.setProperty('--base-font',s.size+'px');
+  document.documentElement.style.setProperty('--btn-radius',s.radius);
+  if(s.path) document.documentElement.dataset.path=s.path;
+}
 const status=document.getElementById('status');
 const KEY='appSettings';
 function show(msg){status.textContent=msg;setTimeout(()=>status.textContent='',3000);}
@@ -45,6 +57,10 @@ const data=load();
 if(data.font){fontSel.value=data.font;}
 if(data.size){sizeInput.value=data.size;}
 if(data.radius){radiusSel.value=data.radius;}
+if(data.path){pathInput.value=data.path;}
+apply({font:fontSel.value,size:sizeInput.value,radius:radiusSel.value,path:pathInput.value});
+document.getElementById('save-btn').addEventListener('click',()=>{
+  const obj={font:fontSel.value,size:parseInt(sizeInput.value)||16,radius:radiusSel.value,path:pathInput.value.trim()||'./data'};
 apply({font:fontSel.value,size:sizeInput.value,radius:radiusSel.value});
 document.getElementById('save-btn').addEventListener('click',()=>{
   const obj={font:fontSel.value,size:parseInt(sizeInput.value)||16,radius:radiusSel.value};
