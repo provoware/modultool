@@ -104,7 +104,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel
 - Gut sichtbarer Tastaturfokus zur einfachen Navigation
 - Projektordner-Management + Fehlerkorrektur
-- Neues Modul per Skript erstellen (`bash tools/create_module.sh`)
+- Neues Modul per Skript erstellen (`node tools/create_module.js modulID "Titel"`)
 - Automatisches Update via `bash tools/autoupdate.sh`
 
 
@@ -133,13 +133,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 📄 modules.json
 📄 module_versions.json
 📁 logs/
-📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt,
-           autoupdate.sh – holt neue Versionen)
-📁 tools/ (selfcheck.sh, update_placeholder.sh, install_hook.sh)
-📁 .github/workflows/ (validate.yml)
-
-Führe einmal `bash tools/install_hook.sh` aus. Danach wird `platzhalter.txt` nach jedem Commit automatisch aktualisiert.
-📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
+📁 tools/ (selfcheck.sh, autoupdate.sh, create_module.js)
 📁 .github/workflows/ (validate.yml)
 📄 modules.json (Registrierung vorhandener Module)
 ```
@@ -158,9 +152,9 @@ Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches
 
 Führe das Skript aus, um eine Vorlage zu kopieren:
 ```bash
-bash tools/create_module.sh panel10 "Mein Modul"
+node tools/create_module.js panel10 "Mein Modul"
 ```
-Das Skript ergänzt **modules.json** (Modul-Liste) automatisch.
+Das Skript ergänzt **modules.json** (Modul-Liste) automatisch, sofern die Datei gültiges JSON enthält.
 ## 📦 Pakete erstellen (.deb & AppImage)
 
 Mit dem Skript `tools/build_packages.sh` kannst du ein Debian-Paket (.deb) und ein AppImage erzeugen.

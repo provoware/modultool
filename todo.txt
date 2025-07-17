@@ -141,3 +141,5 @@
 - [x] Hinweise zur Datensicherheit in README ergänzen
 - [x] Laienhilfe mit Backup- und Fehlerhinweisen erweitern
 - [x] Datum & Uhrzeit im Dashboard anzeigen (Panel03)
+- [ ] Autoupdate-Skripte entfernt, Infos manuell pflegen
+- [x] Node-Skript create_module.js eingeführt

@@ -7,8 +7,7 @@ Hier findest du einfache Tipps zum Umgang mit dem Projekt. Fachbegriffe stehen i
 1. Öffne das Terminal (Befehlseingabe).
 2. Tippe `nano todo.txt` und drücke **Enter**. Dadurch öffnest du die Liste mit offenen Aufgaben.
 3. Ergänze neue Punkte oder hake sie ab. Speichere mit `Strg+O`, beende mit `Strg+X`.
-4. Danach `bash tools/update_placeholder.sh` ausführen. Das aktualisiert `platzhalter.txt` automatisch.
-5. Einmalig: `bash tools/install_hook.sh` ausführen. Danach wird `platzhalter.txt` nach jedem `git commit` automatisch erneuert.
+4. Möchtest du `platzhalter.txt` erneuern, kopiere den Inhalt von `todo.txt` manuell hinein.
 
 ## Selbstcheck starten
 
@@ -85,7 +84,7 @@ Rechts findest du nun auch einen Hilfebutton, der `LAIENHILFE.md` direkt im Brow
 - `git log` – zeigt die letzten gespeicherten Versionen (**Commits**).
 - `npm install -g htmlhint` – installiert das Programm **htmlhint** (prüft HTML).
 - `python3 -m http.server 9000` – startet einen Server auf Port 9000 (*Port = Anschlussnummer*).
-- `bash tools/update_placeholder.sh` – kopiert Aufgaben aus `todo.txt` in `platzhalter.txt`.
+- `node tools/create_module.js modulID "Titel"` – legt ein neues Modul anhand der Vorlage an.
 - `git diff` – zeigt deine aktuellen Änderungen (**Diff** = Unterschiede zum letzten Stand).
 - `sudo apt-get install xclip` – installiert `xclip` (Hilfsprogramm für die Zwischenablage).
 - `grep -n SUCHBEGRIFF -r` – durchsucht alle Dateien nach einem Wort (praktisch bei vielen Dateien).
@@ -426,9 +425,9 @@ Keine
 
 1. Neues Modul anlegen:
    ```bash
-   bash tools/create_module.sh panel10 "Mein Modul"
+   node tools/create_module.js panel10 "Mein Modul"
    ```
-   (Das Skript kopiert die Vorlage und ergänzt `modules.json` automatisch.)
+   (Das Skript kopiert die Vorlage und ergänzt `modules.json` automatisch, falls es gültig ist.)
 2. Selfcheck starten:
    ```bash
    bash tools/selfcheck.sh
@@ -439,8 +438,9 @@ Keine
    ```
    Änderungen speichern (**Strg+O**) und schließen (**Strg+X**). Danach:
    ```bash
-   bash tools/update_placeholder.sh
-   ```
+  # Platzhalter manuell aktualisieren
+  cp todo.txt platzhalter.txt
+  ```
 Dadurch bleibt `platzhalter.txt` aktuell.
 
 ## Kalender-Module nutzen
@@ -492,11 +492,11 @@ Dadurch bleibt `platzhalter.txt` aktuell.
 
 Mit diesem Skript erhältst du eine dauerhafte Liste aller eingebundenen Module. Neue Einträge werden angehängt, vorhandene bleiben bestehen.
 
-1. Befehl ausführen:
+1. Liste erzeugen:
    ```bash
-   bash tools/update_module_uebersicht.sh
+   jq -r '.[] | "\(.id): \(.title)"' modules.json > module_übersicht.txt
    ```
-   Danach findest du die Auflistung in `module_übersicht.txt`.
+   Danach enthält `module_übersicht.txt` alle Module.
 ## Datensicherheit verbessern
 
 1. Regelmäßig eine Sicherung (*Backup*) erstellen:
@@ -567,10 +567,10 @@ Mit dem Skript `tools/build_packages.sh` kannst du ein Debian-Paket (.deb) und e
 Die Datei `all_in_uebersicht.txt` listet alle Projektdateien. Aktualisiere sie so:
 
 ```bash
-bash tools/update_overview.sh
+find . -type f ! -path "./.git/*" | sort > all_in_uebersicht.txt
 ```
 
-Das Skript fügt neue Dateien hinzu und prüft, ob alle gelisteten Dateien existieren. Fehlt etwas, steht es in `error_informationen.txt`.
+Damit aktualisierst du die Liste manuell. Nicht gefundene Dateien kannst du selbst in `error_informationen.txt` notieren.
 
 ## Datum und Uhrzeit im Dashboard
 

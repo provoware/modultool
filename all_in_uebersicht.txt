@@ -30,6 +30,4 @@
 ./todo.txt
 ./tools/build_packages.sh
 ./tools/selfcheck.sh
-./tools/update_overview.sh
-./tools/update_placeholder.sh
 ./validate.yml
