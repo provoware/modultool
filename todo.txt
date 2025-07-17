@@ -148,3 +148,8 @@
 - [ ] GitHub Actions für Linting und Testing hinzufügen
 - [ ] Schritt-für-Schritt-Assistenten für Modul-Erstellung planen
 - [ ] Barrierefreiheit automatisch prüfen (axe-core)
+
+- [x] LAIENHILFE um Aufräumtipps ergänzt
+- [x] HTML-Dateien um Doctype erweitern (automatisiert)
+- [ ] Platzhalter-Module bereinigen
+- [x] Panel01 HTML aufräumen

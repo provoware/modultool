@@ -646,6 +646,35 @@ git push -u origin refactoring
 ```
 Danach kannst du auf GitHub einen *Pull Request* (Zusammenf\u00fchrungsanfrage) stellen.
 
+## Aufräumen und Doctype ergänzen
+
+Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst du Ordnung rein:
+
+1. Fehlende `<!DOCTYPE>`-Angabe finden:
+   ```bash
+   grep -L '<!DOCTYPE html>' modules/*.html panels/*.html
+   ```
+   Diese Liste zeigt Dateien, die keinen Doctype besitzen.
+2. Doctype automatisch einfügen:
+   ```bash
+   grep -L '<!DOCTYPE html>' modules/*.html panels/*.html | xargs -I {} sed -i '1i <!DOCTYPE html>' {}
+   ```
+   `sed` (Stream-Editor) schreibt die Zeile ganz oben in jede gefundene Datei.
+3. Doppelte `id`-Attribute suchen:
+   ```bash
+   grep -n "id=\"" -r modules | sort
+   ```
+   Ändere mehrfache IDs ab, damit sie einzigartig bleiben.
+4. Unnötige Platzhalter entfernen:
+   ```bash
+   rm modules/asset_finder.html
+   ```
+   `rm` (remove) löscht Dateien endgültig.
+5. Struktur aktualisieren:
+   ```bash
+   find . -type f | sort > baumstruktur.txt
+   ```
+   So hältst du `baumstruktur.txt` auf dem neuesten Stand.
 ## Weiterführende Laienvorschläge (neu)
 
 - **Tool im Browser neu laden**
