@@ -35,6 +35,8 @@
 - [x] Platzhaltertexte in allen Ordnern ergaenzen
 - [x] Weitere Platzhaltertipps in der Laienhilfe beschreiben
 - [x] Platzhalter im Modulordner durch Beispielcode ersetzen
+- [x] Dummy-Module angelegt
+- [x] ARIA-Labels erweitert
 - [x] Logging ins Dashboard einbauen
 - [x] Clipboard-Funktion mit Feedback-Farben
 - [x] CSS responsiv machen, Test mit Axe/WAVE
