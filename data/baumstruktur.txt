@@ -14,6 +14,10 @@
 ./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
+./data/todo_backup_20250716062907.txt
+./data/todo_backup_20250716062927.txt
+./data/todo_backup_20250716062957.txt
+./data/todo_backup_20250716063014.txt
 ./data/todo_backup_20250716045633.txt
 ./data/todo_backup_20250716045636.txt
 ./data/todo_backup_20250716045649.txt
