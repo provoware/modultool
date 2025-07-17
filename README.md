@@ -40,6 +40,10 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
   → Zeigt alle Monate des Jahres mit den gespeicherten Terminen aus Panel11
 - **🗓️ Panel11: Monats- und Tagesplan**
   → Termine pro Tag anlegen und verwalten, aktualisiert automatisch das Dashboard
+- **Globale Validierungsfunktionen**
+  → Datei `validation.js` stellt Datum- und Text-Prüfung bereit
+- **Modul-Dropdown im Dashboard**
+  → Dort lassen sich alle Module aus `modules.json` bequem öffnen
 - **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
 - **Sichtbarer Tastaturfokus** erleichtert die Navigation per Tastatur
 ---

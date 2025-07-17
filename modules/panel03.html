@@ -14,6 +14,11 @@
 <body>
 <div id="panel03">
   <h2>Dashboard – Verlauf</h2>
+  <div>
+    <label for="moduleSelect">Modul öffnen:</label>
+    <select id="moduleSelect"></select>
+    <button id="openModuleBtn">Öffnen</button>
+  </div>
   <h3>Nächste Termine</h3>
   <ul id="next-list"></ul>
   <ul id="log-list"></ul>
@@ -25,12 +30,23 @@ const NEXT_KEY='calendarNext5';
 const list=document.getElementById('log-list');
 const nextList=document.getElementById('next-list');
 const clearBtn=document.getElementById('clear-btn');
+const moduleSelect=document.getElementById('moduleSelect');
+const openBtn=document.getElementById('openModuleBtn');
 function loadLog(){
   const data=localStorage.getItem(STORAGE_KEY);
   return data?JSON.parse(data):[];
 }
 function saveLog(entries){
   localStorage.setItem(STORAGE_KEY,JSON.stringify(entries));
+}
+async function fillModuleSelect(){
+  try{
+    const res=await fetch('../modules.json');
+    const mods=await res.json();
+    moduleSelect.innerHTML=mods.map(m=>`<option value="${m.file}">${m.title}</option>`).join('');
+  }catch(e){
+    moduleSelect.innerHTML='<option>Fehler beim Laden</option>';
+  }
 }
 function render(){
   const entries=loadLog();
@@ -48,6 +64,11 @@ function render(){
     nextList.appendChild(li);
   });
 }
+openBtn.addEventListener('click',()=>{
+  const file=moduleSelect.value;
+  if(file) window.open(file,'_blank');
+});
+fillModuleSelect();
 clearBtn.addEventListener('click',()=>{
   if(!confirm('Wirklich alles löschen?')) return;
   localStorage.removeItem(STORAGE_KEY);

@@ -26,3 +26,5 @@
 - [x] Kalender-Modul 2 (Panel11) mit Monats- und Tagesansicht implementiert
 - [x] Dashboard zeigt jetzt die nächsten fünf Termine
 - [x] Laienhilfe mit Kalender-Befehlen ergänzt
+- [x] Intelligente Validierungsfunktionen eingeführt
+- [x] Module im Dashboard auswählbar

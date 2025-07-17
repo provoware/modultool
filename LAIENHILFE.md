@@ -156,6 +156,22 @@ Dadurch bleibt `platzhalter.txt` aktuell.
 5. `panel10.html` zeigt eine Jahresübersicht mit allen Monaten und ihren Terminen.
 6. Im Dashboard werden automatisch die nächsten fünf Termine angezeigt.
 
+## Module über das Dashboard öffnen
+
+1. Starte `modules/panel03.html` im Browser.
+2. Oben findest du ein Auswahlfeld (Dropdown) mit allen Modulen.
+3. Modul wählen und auf **Öffnen** klicken. Das Modul erscheint in einem neuen Tab (Registerkarte).
+
+## Prüf-Funktionen nutzen
+
+*In `validation.js` stecken allgemeine Validierungsfunktionen (Prüfroutinen).*
+1. Beispiel: Datum testen
+   ```bash
+   node -e "import('./validation.js').then(m=>console.log(m.isValidDate('2025-01-01')))">
+   ```
+   Ergebnis **true** bedeutet gültig, sonst **false**.
+2. Die Kalender-Module benutzen diese Funktionen automatisch beim Speichern.
+
 ## Noch mehr nützliche Befehle
 
 - **Lokalen Server starten (kleiner Test-Server)**
