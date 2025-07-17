@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel02 – Textbausteine</title>
+  <style>
+    #panel02{display:grid;gap:0.5rem;max-width:360px;margin:auto;font-family:sans-serif;}
+    #tmpl-list{list-style:none;padding:0;margin:0;}
+    #tmpl-list li{margin-bottom:0.5rem;border:1px solid #999;padding:0.5rem;border-radius:4px;background:#f4f4f4;display:flex;justify-content:space-between;align-items:center;}
+    #tmpl-list li button{margin-left:0.5rem;}
+    @media(min-width:600px){#panel02{max-width:500px;}}
+  </style>
+</head>
+<body>
+<div id="panel02">
+  <h2>Textbausteine</h2>
+  <label for="tmpl-title">Titel:</label>
+  <input id="tmpl-title" type="text" aria-label="Titel" required />
+  <label for="tmpl-text">Text:</label>
+  <textarea id="tmpl-text" rows="2" aria-label="Textvorlage" required></textarea>
+  <button id="add-btn">Hinzufügen</button>
+  <ul id="tmpl-list"></ul>
+</div>
+<script type="module">
+const titleInput=document.getElementById('tmpl-title');
+const textInput=document.getElementById('tmpl-text');
+const addBtn=document.getElementById('add-btn');
+const listEl=document.getElementById('tmpl-list');
+
+function loadTemplates(){
+  const data=localStorage.getItem('templates');
+  return data?JSON.parse(data):[];
+}
+
+function saveTemplates(arr){
+  localStorage.setItem('templates',JSON.stringify(arr));
+}
+
+function render(){
+  listEl.innerHTML='';
+  const arr=loadTemplates();
+  arr.forEach((t,i)=>{
+    const li=document.createElement('li');
+    const span=document.createElement('span');
+    span.textContent=t.title+': '+t.text;
+    const copyBtn=document.createElement('button');
+    copyBtn.textContent='Kopieren';
+    copyBtn.addEventListener('click',()=>navigator.clipboard.writeText(t.text));
+    const delBtn=document.createElement('button');
+    delBtn.textContent='Löschen';
+    delBtn.addEventListener('click',()=>{
+      const arr=loadTemplates();
+      arr.splice(i,1);
+      saveTemplates(arr);
+      render();
+    });
+    li.append(span,copyBtn,delBtn);
+    listEl.append(li);
+  });
+}
+
+addBtn.addEventListener('click',()=>{
+  const title=titleInput.value.trim();
+  const text=textInput.value.trim();
+  if(!title||!text) return;
+  const arr=loadTemplates();
+  arr.push({title,text});
+  saveTemplates(arr);
+  titleInput.value='';
+  textInput.value='';
+  render();
+});
+
+render();
+<meta charset="UTF-8">
+<title>Panel02 – Genre-Profile</title>
+<style>
+  #panel02{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:var(--font-family, sans-serif);}
+  #genre-input{min-height:80px;}
+  #random-output{font-weight:bold;margin-top:0.5rem;}
+  #log{max-height:100px;overflow-y:auto;padding-left:1rem;}
+  select,button,textarea,input{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);line-height:1.4;}
+  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+  textarea{resize:vertical;}
+  @media(min-width:600px){#panel02{max-width:520px;}}
+</style>
+</head>
+<body>
+<div id="panel02">
+  <h2>Genre-Profile</h2>
+  <label for="profile-name">Profilname:</label>
+  <input id="profile-name" placeholder="Mein Profil" aria-label="Profilname">
+  <label for="weight-input">Gewichtung:</label>
+  <input type="number" id="weight-input" value="1" min="1" aria-label="Gewichtung">
+  <button id="add-profile-btn">Profil speichern</button>
+  <label for="profile-select">Profil wählen:</label>
+  <select id="profile-select"></select>
+  <label for="genre-input">Genres (mit Komma trennen):</label>
+  <textarea id="genre-input" placeholder="z.B. Funk, Jazz" aria-label="Genre-Liste"></textarea>
+  <button id="save-btn">Liste sichern</button>
+  <button id="random-btn">Zufall</button>
+  <button id="weighted-btn">Gewichteter Zufall</button>
+  <button id="copy-btn">Kopieren</button>
+  <div id="random-output" role="status" aria-live="polite"></div>
+  <ul id="log"></ul>
+  <div id="status" role="status" aria-live="polite"></div>
+</div>
+<script type="module">
+const nameInput=document.getElementById('profile-name');
+const addBtn=document.getElementById('add-profile-btn');
+const select=document.getElementById('profile-select');
+const input=document.getElementById('genre-input');
+const weightInput=document.getElementById('weight-input');
+const saveBtn=document.getElementById('save-btn');
+const randomBtn=document.getElementById('random-btn');
+const weightedBtn=document.getElementById('weighted-btn');
+const copyBtn=document.getElementById('copy-btn');
+const output=document.getElementById('random-output');
+const log=document.getElementById('log');
+const status=document.getElementById('status');
+const DASH_KEY='dashboardLog';
+
+function addDashboard(val){
+  const arr=JSON.parse(localStorage.getItem(DASH_KEY)||'[]');
+  arr.unshift({time:new Date().toLocaleString(),value:val});
+  if(arr.length>10) arr.length=10;
+  localStorage.setItem(DASH_KEY,JSON.stringify(arr));
+}
+
+function showStatus(msg){status.textContent=msg;setTimeout(()=>status.textContent="",3000);}
+
+function loadProfiles(){
+  try{
+    const obj=JSON.parse(localStorage.getItem('genreProfiles'))||{};
+    Object.keys(obj).forEach(k=>{
+      if(Array.isArray(obj[k])) obj[k]={list:obj[k],weight:1};
+      else obj[k].weight=parseInt(obj[k].weight)||1;
+    });
+    return obj;
+  }catch(e){
+    showStatus('Speicher defekt');
+    return {};
+  }
+}
+
+function saveProfiles(profiles){
+  try{
+    localStorage.setItem('genreProfiles',JSON.stringify(profiles));
+  }catch(e){showStatus('Speichern fehlgeschlagen');}
+}
+
+function refreshSelect(profiles){
+  select.innerHTML='';
+  Object.keys(profiles).forEach(name=>{
+    const opt=document.createElement('option');
+    opt.value=name; opt.textContent=name;
+    select.appendChild(opt);
+  });
+}
+
+function loadCurrentList(){
+  const profiles=loadProfiles();
+  const cur=select.value;
+  if(cur && profiles[cur]){
+    input.value=profiles[cur].list.join(', ');
+    weightInput.value=profiles[cur].weight;
+  }else{
+    input.value='';
+    weightInput.value='1';
+  }
+}
+
+addBtn.addEventListener('click',()=>{
+  const name=nameInput.value.trim();
+  if(!name){showStatus('Name fehlt'); return;}
+  const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
+  const profiles=loadProfiles();
+  profiles[name]={list,weight:parseInt(weightInput.value)||1};
+  saveProfiles(profiles);
+  refreshSelect(profiles);
+  select.value=name;
+  showStatus('Profil gespeichert');
+});
+
+saveBtn.addEventListener('click',()=>{
+  const name=select.value;
+  if(!name){showStatus('Profil wählen'); return;}
+  const profiles=loadProfiles();
+  profiles[name]={list:[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))],weight:parseInt(weightInput.value)||1};
+  saveProfiles(profiles);
+  saveBtn.classList.add('saved');
+  setTimeout(()=>saveBtn.classList.remove('saved'),500);
+  showStatus('Liste gespeichert');
+});
+
+select.addEventListener('change',loadCurrentList);
+
+randomBtn.addEventListener('click',()=>{
+  const profiles=loadProfiles();
+  const list=(profiles[select.value]||{}).list||[];
+  if(list.length===0){showStatus('Keine Genres vorhanden'); return;}
+  const choice=list[Math.floor(Math.random()*list.length)];
+  output.textContent=choice;
+  const entry=document.createElement('li');
+  entry.textContent=new Date().toLocaleString()+': '+choice;
+  log.prepend(entry);
+  addDashboard(choice);
+});
+
+weightedBtn.addEventListener('click',()=>{
+  const profiles=loadProfiles();
+  const names=Object.keys(profiles);
+  if(names.length===0){showStatus('Keine Profile');return;}
+  const total=names.reduce((s,n)=>s+(profiles[n].weight||1),0);
+  let r=Math.random()*total;
+  let picked=names[0];
+  for(const n of names){
+    r-=profiles[n].weight||1;
+    if(r<=0){picked=n;break;}
+  }
+  const list=profiles[picked].list;
+  if(list.length===0){showStatus('Profil leer');return;}
+  const choice=list[Math.floor(Math.random()*list.length)];
+  output.textContent=choice;
+  const li=document.createElement('li');
+  li.textContent=new Date().toLocaleString()+': '+choice+' ('+picked+')';
+  log.prepend(li);
+  addDashboard(choice);
+});
+
+copyBtn.addEventListener('click',()=>{
+  const text=output.textContent;
+  if(!text){showStatus('Nichts zum Kopieren'); return;}
+  navigator.clipboard.writeText(text).then(()=>{
+    copyBtn.style.backgroundColor='#15b57b';
+    setTimeout(()=>{copyBtn.style.backgroundColor='';},800);
+  });
+});
+
+// init
+refreshSelect(loadProfiles());
+loadCurrentList();
+</script>
+</body>
+</html>
