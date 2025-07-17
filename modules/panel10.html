@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Panel10 – Jahresplan Übersicht</title>
+<style>
+  #panel10{font-family:var(--font-family,sans-serif);display:grid;gap:.5rem;max-width:520px;margin:auto;}
+  .month-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;}
+  .month{background:var(--genre-bg,#23282e);padding:.5rem;border-radius:.7rem;min-height:80px;}
+  .month h3{margin:.3rem 0;font-size:1em;}
+</style>
+</head>
+<body>
+<div id="panel10">
+  <h2>Jahresplan Übersicht</h2>
+  <div class="month-grid" id="monthGrid"></div>
+  <div id="yearStatus" role="status" aria-live="polite"></div>
+</div>
+<script type="module">
+const KEY='calendarEntries';
+const grid=document.getElementById('monthGrid');
+const status=document.getElementById('yearStatus');
+function log(msg,type='info'){
+  status.textContent=msg;
+  setTimeout(()=>status.textContent='',4000);
+  const arr=JSON.parse(localStorage.getItem('calendarLog')||'[]');
+  arr.unshift({time:new Date().toLocaleString(),type,msg});
+  if(arr.length>20) arr.pop();
+  localStorage.setItem('calendarLog',JSON.stringify(arr));
+}
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||[];}catch(e){log('Fehler beim Laden','err');return [];}}
+function groupByMonth(entries){const months=Array.from({length:12},()=>[]);entries.forEach(e=>{const m=new Date(e.date).getMonth();months[m].push(e);});return months;}
+function render(){const entries=load();const months=groupByMonth(entries);grid.innerHTML='';months.forEach((list,i)=>{const div=document.createElement('div');div.className='month';const name=new Date(new Date().getFullYear(),i,1).toLocaleString('de',{month:'long'});div.innerHTML='<h3>'+name+'</h3>'+(list.length?'<ul>'+list.map(e=>`<li>${e.date.split('-')[2]}: ${e.text}</li>`).join('')+'</ul>':'<div>Keine Einträge</div>');grid.appendChild(div);});log('Jahresübersicht geladen');}
+render();
+</script>
+</body>
+</html>

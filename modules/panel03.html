@@ -14,12 +14,16 @@
 <body>
 <div id="panel03">
   <h2>Dashboard – Verlauf</h2>
+  <h3>Nächste Termine</h3>
+  <ul id="next-list"></ul>
   <ul id="log-list"></ul>
   <button id="clear-btn">Alles löschen</button>
 </div>
 <script type="module">
 const STORAGE_KEY='dashboardLog';
+const NEXT_KEY='calendarNext5';
 const list=document.getElementById('log-list');
+const nextList=document.getElementById('next-list');
 const clearBtn=document.getElementById('clear-btn');
 function loadLog(){
   const data=localStorage.getItem(STORAGE_KEY);
@@ -35,6 +39,13 @@ function render(){
     const li=document.createElement('li');
     li.textContent=`${e.time}: ${e.value}`;
     list.appendChild(li);
+  });
+  const upcoming=JSON.parse(localStorage.getItem(NEXT_KEY)||'[]');
+  nextList.innerHTML='';
+  upcoming.forEach(e=>{
+    const li=document.createElement('li');
+    li.textContent=`${e.date}: ${e.text}`;
+    nextList.appendChild(li);
   });
 }
 clearBtn.addEventListener('click',()=>{

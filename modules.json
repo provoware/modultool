@@ -43,5 +43,15 @@
     "id": "panel09",
     "title": "Einstellungen",
     "file": "modules/panel09.html"
+  },
+  {
+    "id": "panel10",
+    "title": "Jahresplan Übersicht",
+    "file": "modules/panel10.html"
+  },
+  {
+    "id": "panel11",
+    "title": "Monats- und Tagesplan",
+    "file": "modules/panel11.html"
   }
 ]

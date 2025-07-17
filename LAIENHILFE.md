@@ -147,6 +147,15 @@ Keine
    ```
 Dadurch bleibt `platzhalter.txt` aktuell.
 
+## Kalender-Module nutzen
+
+1. `panel11.html` im Ordner `modules` öffnen.
+2. Ein Datum wählen und eine kurze Beschreibung eintragen.
+3. Mit **Speichern** landet der Termin im sogenannten *localStorage* (Browserspeicher).
+4. Unter dem Formular siehst du alle Einträge des gewählten Monats.
+5. `panel10.html` zeigt eine Jahresübersicht mit allen Monaten und ihren Terminen.
+6. Im Dashboard werden automatisch die nächsten fünf Termine angezeigt.
+
 ## Noch mehr nützliche Befehle
 
 - **Lokalen Server starten (kleiner Test-Server)**
