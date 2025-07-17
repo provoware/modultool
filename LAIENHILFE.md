@@ -188,3 +188,14 @@ git push
 ```
 Damit sind die Zweige vereint und online gesichert.
 
+## Datum und Uhrzeit im Dashboard
+
+Im Dashboard (Panel03) steht jetzt oben die aktuelle Uhrzeit und das Datum. Die Anzeige
+aktualisiert sich jede Sekunde von selbst.
+
+- Uhrzeit im Terminal anzeigen:
+  ```bash
+  date
+  ```
+  (Zeigt Datum und Zeit an)
+
