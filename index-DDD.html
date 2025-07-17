@@ -408,6 +408,17 @@
         <pre id="importPreview" style="max-height:110px;overflow:auto;background:#252c2e;color:#bbb;padding:.4em .7em;border-radius:.6em;display:none;margin:.5em 0 0 0;"></pre>
         <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
       </section>
+      <section class="mod-panel" id="panel7" tabindex="0">
+        <h2>Notizen</h2>
+        <textarea id="notesArea" rows="6" placeholder="Schreibe deine Notizen..."></textarea>
+        <div style="margin-top:.5em;display:flex;gap:.5em;">
+          <button onclick="saveNotes()">Speichern</button>
+          <button onclick="clearNotes()">Löschen</button>
+        </div>
+        <div class="input-help">Hinweis: Deine Notizen bleiben lokal im Browser gespeichert.</div>
+      </section>
+      <section class="mod-panel" id="panel8"><h2>Modul 8</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel9"><h2>Modul 9</h2><div class="small">Frei für weitere Features</div></section>
       <section class="mod-panel" id="panel7" tabindex="0" role="region" aria-labelledby="panel7-head"><h2 id="panel7-head">Modul 7</h2><div class="small">Frei für weitere Features</div></section>
       <section class="mod-panel" id="panel8" tabindex="0" role="region" aria-labelledby="panel8-head"><h2 id="panel8-head">Modul 8</h2><div class="small">Frei für weitere Features</div></section>
       <section class="mod-panel" id="panel9" tabindex="0" role="region" aria-labelledby="panel9-head"><h2 id="panel9-head">Modul 9</h2><div class="small">Frei für weitere Features</div></section>
@@ -508,6 +519,7 @@ window.onload = function() {
   renderDashboard();
   renderDashLog();
   renderTmplList();
+  loadNotes();
   renderLog();
   for(let i=4;i<=11;i++) toggleModPanel(i);
 };
@@ -515,6 +527,11 @@ window.onload = function() {
 const LOCAL_KEY = 'genreArchiv_vGRIDSB';
 const DASHBOARD_KEY = 'genreDashboard_vGRIDSB';
 const TMPL_KEY = 'tmplArchiv_vGRIDSB';
+const NOTES_KEY = 'notes_vGRIDSB';
+let genres = [];
+let dashboardData = [];
+let tmplArchiv = [];
+let notesData = '';
 const WEIGHT_KEY = 'genreWeights_vGRIDSB';
 let genres = [];
 let dashboardData = [];
@@ -892,12 +909,37 @@ function resetAll() {
     localStorage.removeItem(LOCAL_KEY);
     localStorage.removeItem(DASHBOARD_KEY);
     localStorage.removeItem(TMPL_KEY);
+    localStorage.removeItem(NOTES_KEY);
     genres = []; dashboardData = []; tmplArchiv = [];
+    notesData = '';
     renderList(); renderDashboard(); renderTmplList();
+    if(document.getElementById('notesArea')) document.getElementById('notesArea').value='';
     renderLog();
     statusMsg("Alles gelöscht!",1); tmplStatusMsg("Alles gelöscht!",1);
     addDashboardEntry("Alles gelöscht");
     logDbg('Alles gelöscht.');
+  }
+}
+
+/* Notizen-Panel */
+function saveNotes(){
+  notesData = document.getElementById('notesArea').value;
+  localStorage.setItem(NOTES_KEY, notesData);
+  logDbg('Notizen gespeichert.');
+}
+function loadNotes(){
+  const d = localStorage.getItem(NOTES_KEY);
+  if(d){
+    notesData = d;
+    document.getElementById('notesArea').value = notesData;
+  }
+}
+function clearNotes(){
+  if(confirm('Alle Notizen löschen?')){
+    notesData='';
+    document.getElementById('notesArea').value='';
+    localStorage.removeItem(NOTES_KEY);
+    logDbg('Notizen gelöscht.');
   }
 }
 /* Sidebar-Resize (optional) */

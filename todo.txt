@@ -72,6 +72,7 @@
 - [x] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Dashboard-Modul umgesetzt (Panel03)
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [x] Modul 7: Notizen integriert
 - [x] Anleitung für Flexibilität & Nutzerfreundlichkeit ergänzt
 
 - [x] Liste wird beim Speichern alphabetisch sortiert
