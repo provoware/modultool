@@ -260,6 +260,25 @@ Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sin
 5. Mit **Zufall** wählst du einen Eintrag zufällig aus. Darunter entsteht ein kleines Protokoll (Log) mit Uhrzeit.
 6. Über **Kopieren** landet das Ergebnis in der Zwischenablage. Der Button färbt sich kurz grün als Bestätigung.
 
+## Fehlerbehebung
+
+Manchmal klappt das Speichern oder Kopieren nicht. Dann hilft Folgendes:
+
+1. Prüfe im Browser die Einstellungen für "Website-Daten" (LocalStorage) und erlaube sie, falls sie blockiert sind.
+2. Bei Problemen mit der Zwischenablage (Clipboard) im Browser auf "Zulassen" klicken.
+3. Starte im Terminal den Selbstcheck, um gängige Fehler zu finden:
+
+```bash
+bash tools/selfcheck.sh
+```
+
+Falls "shellcheck" oder "htmlhint" fehlen, kannst du sie so installieren:
+
+```bash
+sudo apt-get install -y shellcheck npm
+sudo npm install -g htmlhint
+```
+
 ## Textbaustein-Modul benutzen
 
 1. Öffne `panel02.html` im Ordner `modules`.

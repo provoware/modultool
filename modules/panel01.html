@@ -52,14 +52,32 @@ function addDashboard(val){
 }
 function showStatus(msg){status.textContent=msg;setTimeout(()=>status.textContent="",3000);}
 function saveList(){
+  const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
+  try{
+    localStorage.setItem('genres',JSON.stringify(list));
+  }catch(err){
+    console.warn('LocalStorage-Fehler',err);
+  }
   const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
   localStorage.setItem('genres',JSON.stringify(list));
   input.value=list.join(', ');
   return list;
 }
 function loadList(){
-  const data=localStorage.getItem('genres');
+  let data;
+  try{
+    data=localStorage.getItem('genres');
+  }catch(err){
+    console.warn('LocalStorage-Fehler',err);
+  }
   if(data){
+    try{
+      const list=JSON.parse(data);
+      input.value=list.join(', ');
+      return list;
+    }catch(err){
+      console.warn('JSON-Fehler',err);
+    }
     const list=JSON.parse(data).sort((a,b)=>a.localeCompare(b));
     input.value=list.join(', ');
     return list;
@@ -114,6 +132,17 @@ randomBtn.addEventListener('click',()=>{
 
 copyBtn.addEventListener('click',()=>{
   const text=output.textContent;
+  if(!text) return;
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{
+      copyBtn.style.backgroundColor='#15b57b';
+      setTimeout(()=>{copyBtn.style.backgroundColor='';},800);
+    }).catch(err=>{
+      console.warn('Clipboard-Fehler',err);
+    });
+  }else{
+    console.warn('Clipboard-API nicht verf\u00fcgbar');
+  }
   if(!text){showStatus("Nichts zum Kopieren"); return;}
   navigator.clipboard.writeText(text).then(()=>{
     copyBtn.style.backgroundColor='#15b57b';
