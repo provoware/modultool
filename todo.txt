@@ -141,3 +141,10 @@
 - [x] common.js mit showStatus und addDashboard erstellt
 - [x] panel01, panel02 und panel06 bereinigt und nutzen common.js
 - [ ] Weitere Module auf common.js umstellen
+- [ ] plugin.json pro Pluginverzeichnis anlegen (Manifest mit Name und Version)
+- [ ] zentrale Update-Bibliothek in lib/ erstellen (update_manager.js)
+- [ ] gemeinsames Konfigurationsschema definieren (config_schema.json)
+- [ ] Unit- und Integrationstests einrichten
+- [ ] GitHub Actions für Linting und Testing hinzufügen
+- [ ] Schritt-für-Schritt-Assistenten für Modul-Erstellung planen
+- [ ] Barrierefreiheit automatisch prüfen (axe-core)
