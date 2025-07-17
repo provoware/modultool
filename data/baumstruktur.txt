@@ -34,7 +34,7 @@
 ./data/todo_backup_20250716235705.txt
 ./data/todo_backup_20250716235834.txt
 ./data/todo_backup_20250716235927.txt
-./index-DDD.html
+./index-MODULTOOL.html
 ./modules.json
 ./modules/panel01.html
 ./modules/panel02.html
@@ -42,7 +42,7 @@
 ./data/todo_backup_20250716064751.txt
 ./data/todo_backup_20250716065127.txt
 ./data/todo_backup_20250716065153.txt
-./index-DDD.html
+./index-MODULTOOL.html
 ./module_versions.json
 ./modules.json
 ./modules/panel01.html
@@ -65,7 +65,7 @@
 ./data/todo_backup_20250716045649.txt
 ./data/todo_backup_20250717162725.txt
 ./data/todo_backup_20250716044144.txt
-./index-DDD.html
+./index-MODULTOOL.html
 ./modules.json
 ./modules/README.md
 ./panels/README.md
@@ -131,7 +131,7 @@
 ./data/todo_backup_20250717165237.txt
 ./data/todo_backup_20250717165313.txt
 ./data/todo_backup_20250717170755.txt
-./index-DDD.html
+./index-MODULTOOL.html
 ./module_übersicht.txt
 ./modules.json
 ./modules/panel01.html

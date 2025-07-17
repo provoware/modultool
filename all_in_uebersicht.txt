@@ -14,7 +14,7 @@
 ./data/todo.txt
 ./data/todo_backup_20250717162015.txt
 ./error_informationen.txt
-./index-DDD.html
+./index-MODULTOOL.html
 ./modules.json
 ./modules/panel01.html
 ./modules/panel02.html
