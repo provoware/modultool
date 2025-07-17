@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>Panel11 – Monats- und Tagesplan</title>
-<style>
-  #panel11{display:grid;gap:.5rem;max-width:360px;margin:auto;font-family:var(--font-family,sans-serif);}
-  #day-list{max-height:140px;overflow-y:auto;padding-left:1rem;}
-<title>Panel11 – Blog-Editor</title>
-<style>
-  #panel11{display:grid;gap:0.5rem;max-width:360px;margin:auto;font-family:var(--font-family,sans-serif);}
-  textarea,select,input,button{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);line-height:1.4;}
-  textarea{min-height:150px;resize:vertical;}
-  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
-  #status{min-height:1.2em;}
-  @media(min-width:600px){#panel11{max-width:540px;}}
-</style>
+  <meta charset="UTF-8">
+  <title>Panel11 – Monats- und Tagesplan</title>
+  <style>
+    #panel11{display:grid;gap:.5rem;max-width:360px;margin:auto;font-family:var(--font-family,sans-serif);}
+    #day-list{max-height:140px;overflow-y:auto;padding-left:1rem;}
+    @media(min-width:600px){#panel11{max-width:540px;}}
+  </style>
 </head>
 <body>
 <div id="panel11">
@@ -45,12 +38,8 @@ function log(msg,type='info'){
   if(arr.length>20) arr.pop();
   localStorage.setItem('calendarLog',JSON.stringify(arr));
 }
-function load(){
-  return loadJSON(KEY,[]);
-}
-function save(arr){
-  if(!saveJSON(KEY,arr)) log('Speichern fehlgeschlagen','err');
-}
+function load(){return loadJSON(KEY,[]);}
+function save(arr){if(!saveJSON(KEY,arr)) log('Speichern fehlgeschlagen','err');}
 function render(month){
   const entries=load().filter(e=>e.date.startsWith(month));
   list.innerHTML='';
@@ -74,56 +63,6 @@ function updateDashboard(){
 }
 updateDashboard();
 if(dateInput.value) render(dateInput.value.slice(0,7));
-  <h2>Blog-Editor</h2>
-  <label for="blog-title">Titel:</label>
-  <input id="blog-title" aria-label="Titel">
-  <label for="blog-content">Artikel:</label>
-  <textarea id="blog-content" aria-label="Artikeltext"></textarea>
-  <button id="save-blog">Speichern</button>
-  <label for="blog-select">Gespeicherte Artikel:</label>
-  <select id="blog-select"></select>
-  <button id="load-blog">Laden</button>
-  <div id="status" role="status" aria-live="polite"></div>
-</div>
-<script type="module">
-const titleInput=document.getElementById('blog-title');
-const contentInput=document.getElementById('blog-content');
-const saveBtn=document.getElementById('save-blog');
-const select=document.getElementById('blog-select');
-const loadBtn=document.getElementById('load-blog');
-const status=document.getElementById('status');
-const KEY='blogPosts';
-
-function show(msg){status.textContent=msg;setTimeout(()=>status.textContent='',3000);}
-function loadPosts(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
-function savePosts(p){try{localStorage.setItem(KEY,JSON.stringify(p));}catch(e){show('Speichern fehlgeschlagen');}}
-function refresh(){
-  const posts=loadPosts();
-  select.innerHTML='';
-  Object.keys(posts).forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;select.appendChild(o);});
-}
-
-saveBtn.addEventListener('click',()=>{
-  const t=titleInput.value.trim();
-  if(!t){show('Titel fehlt');return;}
-  const posts=loadPosts();
-  posts[t]=contentInput.value;
-  savePosts(posts);
-  refresh();
-  select.value=t;
-  show('Artikel gespeichert');
-});
-
-loadBtn.addEventListener('click',()=>{
-  const posts=loadPosts();
-  const t=select.value;
-  if(!t||!posts[t]){show('Kein Artikel gewählt');return;}
-  titleInput.value=t;
-  contentInput.value=posts[t];
-  show('Geladen');
-});
-
-refresh();
 </script>
 </body>
 </html>
