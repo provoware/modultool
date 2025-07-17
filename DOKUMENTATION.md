@@ -7,13 +7,12 @@ Diese Datei hilft dir, das Modultool ohne Vorwissen zu benutzen. Jeder Fachbegri
 - **todo.txt** – Liste offener Aufgaben.
 - **platzhalter.txt** – Kopie der Aufgabenliste mit Datum.
 - **data/** – Ablage für Sicherungen, z.B. `baumstruktur.txt` (Projektückersicht).
-- **tools/** – Hilfsskripte wie `selfcheck.sh` und `update_placeholder.sh`.
+- **tools/** – Hilfsskripte wie `selfcheck.sh` und `create_module.js`.
 
 ## 2. Aufgaben pflegen
 
 1. `nano todo.txt` – Aufgaben bearbeiten (falls Nano fehlt, kann `vi` genutzt werden).
-2. Speichern und danach `bash tools/update_placeholder.sh` ausführen.
-   Dadurch wird `platzhalter.txt` automatisch aktualisiert.
+2. Speichern und danach bei Bedarf `platzhalter.txt` manuell aus `todo.txt` erzeugen.
 
 ## 3. Selbstcheck ausführen
 
@@ -43,7 +42,7 @@ git push        # ins Online-Repository hochladen
 
 | Befehl | Kurzbeschreibung |
 |--------|-----------------|
-| `bash tools/update_placeholder.sh` | gleicht `platzhalter.txt` mit `todo.txt` ab |
+| `node tools/create_module.js` | legt ein neues Modul aus der Vorlage an |
 | `bash tools/selfcheck.sh` | führt diverse Checks (HTML, JSON, Shell) aus |
 | `/runs agent_test` | startet die automatischen Prüfungen (CI) |
 | `/status agent_name` | prüft den Zustand eines Agenten |
