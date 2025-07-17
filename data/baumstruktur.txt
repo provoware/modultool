@@ -4,6 +4,7 @@
 ./.gitignore
 ./.modultoolrc.json
 ./AGENTS.md
+./LICENSE
 ./LAIENHILFE.md
 ./README.md
 ./VISION_AGENTS.md
@@ -11,6 +12,10 @@
 ./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
+./index-DDD.html
+./setup.sh
+./todo.txt
+./tools/selfcheck.sh
 ./data/todo_backup_20250717165220.txt
 ./data/todo_backup_20250717165237.txt
 ./data/todo_backup_20250717165313.txt

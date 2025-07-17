@@ -61,6 +61,11 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 📁 logs/
 📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
 📁 .github/workflows/ (validate.yml)
+
+## Lizenz
+
+Dieses Projekt steht unter der [MIT-Lizenz](LICENSE).
+
 📄 modules.json (Registrierung vorhandener Module)
 ```
 

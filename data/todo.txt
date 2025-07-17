@@ -1,3 +1,4 @@
+MIT-Lizenz hinzugefuegt
 - AGENTS.md Codeblock geschlossen (triple backticks).
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [ ] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern

@@ -1,4 +1,5 @@
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
+- MIT-Lizenz hinzugefuegt (LICENSE-Datei, Verweis in README)
 - AGENTS.md Codeblock geschlossen (triple backticks).
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
