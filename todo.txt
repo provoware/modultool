@@ -143,6 +143,7 @@
 - [x] Datum & Uhrzeit im Dashboard anzeigen (Panel03)
 - [ ] Autoupdate-Skripte entfernt, Infos manuell pflegen
 - [x] Node-Skript create_module.js eingeführt
+- [x] Fehlerhaftes Objekt aus module_versions.json entfernt
 - [x] modules.json bereinigt (Duplikate entfernt)
 - [x] index-DDD-Links zu index-MODULTOOL angepasst
 - [x] Startskript nutzt jetzt index-MODULTOOL.html
