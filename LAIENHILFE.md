@@ -167,6 +167,16 @@ Dadurch bleibt `platzhalter.txt` aktuell.
   ```
   Dieser Befehl zeigt dir Zeile für Zeile an, was sich im Vergleich zum letzten Commit geändert hat.
 
+## Module-Übersicht aktualisieren
+
+Mit diesem Skript erhältst du eine dauerhafte Liste aller eingebundenen Module. Neue Einträge werden angehängt, vorhandene bleiben bestehen.
+
+1. Befehl ausführen:
+   ```bash
+   bash tools/update_module_uebersicht.sh
+   ```
+   Danach findest du die Auflistung in `module_übersicht.txt`.
+
 ## Branches zusammenführen
 
 1. Stelle sicher, dass du auf dem Hauptzweig (**main**) bist:

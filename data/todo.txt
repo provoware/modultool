@@ -21,3 +21,4 @@
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [ ] Modul-Übersicht per Skript in module_übersicht.txt aktualisieren
