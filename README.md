@@ -1,7 +1,7 @@
 # 🧰 Modultool
 
-**Modulares Content-Creation-Tool mit Fokus auf Barrierefreiheit, Systemkritik & Selbstheilung.**  
-Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaffende.
+**Modulares Content-Creation-Tool (Werkzeug zur Inhaltserstellung) mit Fokus auf Barrierefreiheit, Systemkritik und Selbstheilung.**
+Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content-Schaffende.
 
 ---
 
@@ -17,19 +17,69 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 ## 🧩 Aktuelle Start-Module
 
 - **🎲 Genre-Archiv & Eingabe**  
-  → Speicherung, Duplikatsprüfung, Komma-getrennte Eingaben  
+  → Speicherung, Duplikatsprüfung, Komma-getrennte Eingaben
 - **🧠 Zufallsgenerator**  
   → mit Auswahlmodi, Logging, Favoriten und Export
+- **📋 Todo-Listen-Modul**  
+  → einfache Aufgabenlisten verwalten
+- **🎤 Songtext-Editor**  
+  → Felder für Titel, Notizen und Text
+- **📓 Dialog-Schreiber**  
+  → Charaktere anlegen und Dialoge speichern
+- **ℹ️ Info-Manager**  
+  → eigene Befehls- oder Webseiten-Infos sammeln
+- **💬 Zitaten-Modul**  
+  → Felder für Autor, Zitat und optionale Notiz
+- **🧱 Modulbaukasten**  
+  → Module per Buttons flexibel anordnen
 
+---
+- **📝 Panel01: Genre-Liste & Zufall**
+  → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
+- **🎛 Panel02: Genre-Profile**
+  → Mehrere Genre-Listen unter Profilnamen speichern, optional mit Gewichtung
+  → Button "Gewichteter Zufall" wählt ein Profil nach Gewicht und daraus ein Genre
+ - **📊 Panel03: Dashboard – Verlauf**
+  → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
+  → Oben laufende Anzeige von Datum und Uhrzeit
+- **📋 Panel04: Textbausteine**
+  → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
+- **🧑‍🎤 Panel05: Persona-Switcher**
+  → Verschiedene Figurenprofile speichern und auswählen
+- **🖖 Panel06: Story-Sampler**
+  → Kurze Ideen sammeln und zufällig auswählen
+- **🖼️ Panel07: Cover-Layout**
+  → Einfacher Titel und Farbvorschau für Cover
+- **🎨 Panel08: Theme-Switcher**
+  → Farbmodus (dunkel, hell, blau) wählen und speichern
+- **⚙️ Panel09: Einstellungen**
+  → Schriftart (Font), Größe und Button-Rundung global anpassen. Dadurch haben alle Module den gleichen Stil.
+- **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
+- **Sichtbarer Tastaturfokus** erleichtert die Navigation per Tastatur
 ---
 
 ## 🧠 Features
 
 - Drag & Drop für Medien, Module, Templates
-- Undo-/Redo-System, ZIP-Export, Selfcheck
+- Undo-/Redo-System, ZIP-Export, Selfcheck (Fehlerprüfung via `bash tools/selfcheck.sh`)
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel
+- Gut sichtbarer Tastaturfokus zur einfachen Navigation
 - Projektordner-Management + Fehlerkorrektur
 
+
+### Geplante Erweiterungen
+- Erinnerung an ungespeicherte Änderungen
+- Favoriten-Startbildschirm
+- Auto-Backup und Undo-Verlauf
+- Modul-Prüfung vor Aktivierung
+- Farbkontrast-Optimierung nach WCAG
+- Fokusmodus und Tooltip-Akademie
+- Querverlinkung und Direkt-Export
+- ZIP-Import mit Verteilung
+- Schreibschutz pro Panel
+- Fehler-Erkennung mit Korrektur
+- Entrümplungsmodus und Doppelklick-Kopie
+- globaler Suchfilter
 ---
 
 ## 📦 Struktur
@@ -40,83 +90,9 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 data/ (baumstruktur.txt, todo.txt)
 📄 platzhalter.txt
 📁 logs/
-📁 tools/ (selfcheck.sh)
+📁 tools/ (selfcheck.sh, update_placeholder.sh, install_hook.sh)
 📁 .github/workflows/ (validate.yml)
 
-## ℹ️ Erste Schritte
-
-0. Alles automatisch starten:
-   ```bash
-   bash tools/start_tool.sh
-   ```
-   Damit startet ein lokaler Server und der Browser öffnet sich von selbst.
-1. Lokalen Server starten:
-   ```bash
-   python3 -m http.server
-   ```
-   Damit kannst du `index-DDD.html` im Browser (Programm zum Surfen im Internet) über `http://localhost:8000/index-DDD.html` aufrufen.
-2. Selfcheck ausführen:
-   ```bash
-   bash tools/selfcheck.sh
-   ```
-   Das Skript aktualisiert automatisch `platzhalter.txt`.
-3. Mehr Tipps findest du in `LAIENHILFE.md`.
-4. Über den Hilfebutton rechts öffnest du diese Datei direkt im Browser.
-
-## 🛠 Eigene Module einbinden
-
-1. Lege deine Skripte im Ordner `modules/` ab. (Skript = Datei mit Befehlen, z.B. in JavaScript.)
-2. Speichere zugehörige Oberflächen in `panels/` als HTML-Dateien.
-3. Trage den Dateinamen in `modules.json` ein. Diese Datei ist im **JSON-Format** (Textstruktur für Datenlisten). Beispiel:
-
-   ```json
-   {
-     "id": "beispiel",
-     "name": "Mein Modul",
-     "file": "panels/beispiel.html"
-  }
-  ```
-
-Damit weiß das Tool, welche Module geladen werden sollen. Starte anschließend wieder mit `bash tools/start_tool.sh`.
-Im Repository gibt es auch ein Beispielmodul `panel7` namens "Schnellhilfe" mit weiteren Kommandos.
-Neu hinzu kommt `panel8` für einen gewichteten Zufallsgenerator, `panel9` als kleine Befehlsreferenz, `panel10` mit einem kurzen Einstieg und `panel11` als kleine FAQ.
-
-## 📈 Weiterführende Tipps
-
-* `git pull` – holt die neueste Version aus dem Online-Archiv (**Repository**) auf deinen Rechner.
-* `git log` – zeigt dir eine Liste der letzten Änderungen (**Commits**).
-* `npm install -g htmlhint` – installiert das Prüfprogramm **htmlhint** (kontrolliert HTML-Dateien).
-* `python3 -m http.server 9000` – startet den Server auf Port 9000 (*Port = Anschlussnummer*).
-* `bash tools/update_placeholder.sh` – überträgt die Einträge aus `todo.txt` nach `platzhalter.txt`.
-* `git diff` – zeigt deine aktuellen Änderungen (**Diff** = Unterschiede zum letzten Stand).
-* `sudo apt-get install xclip` – installiert `xclip` (Hilfsprogramm für die Zwischenablage).
-* `grep -n SUCHBEGRIFF -r` – sucht nach einem Wort in allen Dateien (Textsuche im Projekt).
-* `git stash` – legt deine aktuellen Änderungen kurzzeitig beiseite (*Stash = Zwischenablage in Git*).
-* `cp -r ordner ordner_backup` – erstellt eine komplette Kopie eines Ordners (*Backup = Sicherungskopie*).
-* `less datei.txt` – zeigt den Inhalt seitenweise an (*Pager = Blättern im Terminal*).
-* `history | tail` – listet die letzten Befehle auf (*History = Verlauf*).
-* `git branch -a` – zeigt alle Zweige an (*Branch = Entwicklungszweig*).
-* `git checkout -b neuer_zweig` – legt einen neuen Branch an und wechselt hinein (*checkout = zu einem Zweig wechseln*).
-* `git merge anderer_zweig` – führt einen Branch in den aktuellen zusammen (*Merge = Zusammenführen*).
-* `curl -O URL` – lädt eine Datei aus dem Internet herunter (*curl = Download-Programm*).
-* `git cherry-pick COMMIT` – übernimmt gezielt eine Änderung (*Cherry-Pick = einzelne Auswahl*).
-* `tail -f datei.log` – zeigt laufend neue Logzeilen an (*tail = Dateiende lesen*).
-* `chmod +x script.sh` – macht ein Skript ausführbar (*chmod = Rechte ändern*).
-* `npm install` – lädt alle benötigten Pakete (*npm = Paketverwaltung*).
-* `git remote -v` – zeigt die gespeicherten Online-Adressen (*Remote = entfernte Quelle*).
-* `git reset --hard HEAD~1` – macht den letzten Stand rückgängig (*Reset = zurücksetzen*).
-* `tar -czf backup.tar.gz ordner/` – erstellt ein gepacktes Archiv eines Ordners (*Backup = Sicherung*).
-* `git tag -a v1.0 -m "Version 1.0"` – legt eine Versionsmarke an (*Tag = Markierung*).
-* `rsync -av quelle/ ziel/` – kopiert Dateien effizient (*rsync = Synchronisationsprogramm*).
-* `git config --global user.name "Dein Name"` – setzt deinen Namen für künftige Commits (*config = Einstellung*).
-* `git config --global user.email "mail@example.com"` – speichert deine E-Mail für Git (*global = für alle Projekte*).
-* `find . -name "*.html"` – sucht nach allen HTML-Dateien im Ordner (*find = Dateien finden*).
-* `sudo apt-get install shellcheck` – installiert **shellcheck** (prüft Shellskripte).
-* `git rebase -i HEAD~3` – ändert die letzten drei Commits (*rebase = Basis neu schreiben*).
-* `ln -s quelle ziel` – erstellt eine symbolische Verknüpfung (*Link = Verweis auf Datei*).
-* `du -sh ordner/` – zeigt die Größe eines Ordners (*du = Speicherplatz anzeigen*).
-* `git clone URL` – lädt ein ganzes Online-Repository herunter (*clone = kopieren*).
-* `mkdir neuer_ordner` – legt einen neuen Ordner an (*mkdir = make directory*).
-* `pwd` – zeigt deinen aktuellen Pfad an (*path = Verzeichnis*).
-* `cat datei.txt` – gibt den Inhalt einer Datei aus (*cat = Datei anzeigen*).
-* `rm datei.txt` – löscht eine Datei (*rm = remove*).
+Führe einmal `bash tools/install_hook.sh` aus. Danach wird `platzhalter.txt` nach jedem Commit automatisch aktualisiert.
+📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
+📁 .github/workflows/ (validate.yml)

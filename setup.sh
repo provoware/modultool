@@ -16,5 +16,6 @@ touch "$PROJECT_DIR/.gitignore"
 touch "$PROJECT_DIR/.github/workflows/validate.yml"
 
 echo "📁 Struktur erzeugt: $(date)" > "$PROJECT_DIR/logs/setup_${date_str}.log"
+echo "📁 Struktur erzeugt: $(date)" > "$PROJECT_DIR/logs/setup_$(date +%F).log"
 
 echo "✅ Setup abgeschlossen für $PROJECT_DIR"

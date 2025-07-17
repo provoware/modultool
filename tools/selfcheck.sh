@@ -3,6 +3,28 @@
 
 echo "🧪 Selfcheck gestartet..."
 
+# Haupt-ToDo-Dateien festlegen
+TODO_MAIN="todo.txt"
+TODO_DATA="data/todo.txt"
+
+# Backup der Haupt-ToDo-Datei erstellen
+if [ -f "$TODO_MAIN" ]; then
+  cp "$TODO_MAIN" "data/todo_backup_$(date +%Y%m%d%H%M%S).txt"
+fi
+
+# ========== Branch-Anzahl prüfen ==========
+BRANCH_COUNT=$(git branch --list | wc -l)
+if [ "$BRANCH_COUNT" -gt 2 ]; then
+  echo "⚠️ Hinweis: Mehr als 2 Branches vorhanden ($BRANCH_COUNT)."
+fi
+
+# ToDo-Dateien synchronisieren
+if [ -f "$TODO_MAIN" ]; then
+  if [ ! -f "$TODO_DATA" ] || ! diff -q "$TODO_MAIN" "$TODO_DATA" >/dev/null; then
+    cp "$TODO_MAIN" "$TODO_DATA"
+  fi
+fi
+
 # ========== Allgemeine Systemhinweise ==========
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   echo "📦 System: Linux"
@@ -22,6 +44,7 @@ fi
 echo "📂 JSON-Dateien werden geprüft..."
 if command -v jq >/dev/null 2>&1; then
   find . -name "*.json" -print0 | while IFS= read -r -d '' f; do
+  find . -name "*.json" | while read -r f; do
     if jq empty "$f" >/dev/null 2>&1; then
       echo "✅ OK: $f"
     else
@@ -66,6 +89,12 @@ echo "✅ baumstruktur.txt aktualisiert."
 echo "📑 Aktualisiere platzhalter.txt ..."
 bash tools/update_placeholder.sh
 echo "✅ platzhalter.txt aktualisiert."
+if [ -x tools/update_placeholder.sh ]; then
+  bash tools/update_placeholder.sh
+  echo "✅ platzhalter.txt aktualisiert."
+else
+  echo "⚠️ update_placeholder.sh nicht gefunden oder nicht ausführbar"
+fi
 
 # ========== Abschluss ==========
 echo "✅ Selfcheck abgeschlossen. Alles bereit!"
