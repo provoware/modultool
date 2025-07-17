@@ -44,7 +44,7 @@ Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und �
 
 1. Wechsel im Terminal in den Projektordner.
 2. Starte einen kleinen Webserver mit `python3 -m http.server`. (Damit werden die Dateien lokal bereitgestellt.)
-3. Öffne dann `http://localhost:8000/index-DDD.html` im Browser (Programm zum Surfen im Internet).
+3. Öffne dann `http://localhost:8000/index-MODULTOOL.html` im Browser (Programm zum Surfen im Internet).
 4. Mit `Strg+C` beendest du den Server wieder.
 
 ## Eigene Module erstellen
@@ -292,7 +292,7 @@ sudo npm install -g htmlhint
   Ändere zum Beispiel `"default_export_format": "txt"` für Text-Export.
   Danach `bash tools/selfcheck.sh` ausführen.
 
-* **Farbschema wechseln:** `nano index-DDD.html` öffnen.
+* **Farbschema wechseln:** `nano index-MODULTOOL.html` öffnen.
   Suche im `<body>`-Tag nach `data-theme`. Werte wie `dark`, `light` oder `blue` ändern das Aussehen.
   Speichern und Seite neu laden.
 

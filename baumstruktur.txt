@@ -12,7 +12,7 @@
 ./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
-./index-DDD.html
+./index-MODULTOOL.html
 ./logs/.placeholder
 ./module_versions.json
 ./modules.json
