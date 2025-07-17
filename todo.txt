@@ -137,3 +137,4 @@
 - [x] modules.json neu strukturiert und doppelte Panel-IDs entfernt
 - [x] Platzhaltermodule mit HTML-Grundgerüst ergänzt (focus_mode, direct_exporter)
 - [x] Doppelte Panel-Sektionen aus index-MODULTOOL.html entfernt
+- [x] LAIENHILFE um GitHub-Workflow erweitert (Outline)
