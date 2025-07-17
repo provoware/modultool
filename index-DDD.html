@@ -43,6 +43,9 @@
       --highlight: #46c1f6;
       --field-border: #2ccfa0;
       --field-error: #c53c3c;
+      --base-font: 16px;
+      --font-family: 'Segoe UI', Arial, sans-serif;
+      --btn-radius: 0.5rem;
     }
     [data-theme="light"] {
       --bg: #f9fafc;
@@ -107,7 +110,7 @@
 
     html, body {
       min-height: 100vh; width: 100vw; background: var(--bg); color: var(--text); margin:0; padding:0;
-      font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; line-height: 1.5;
+      font-family: var(--font-family, 'Segoe UI', Arial, sans-serif); font-size: var(--base-font, 16px); line-height:1.5;
       overflow-x: hidden;
     }
     header, footer {

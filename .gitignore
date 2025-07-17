@@ -1,0 +1,6 @@
+node_modules/
+logs/
+data/*.log
+*.tmp
+data/todo_backup_*.txt
+*.log

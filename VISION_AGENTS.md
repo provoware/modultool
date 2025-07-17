@@ -37,8 +37,9 @@
 ### 🌟 Erweiterte Kreativmodule
 - Persona-Switcher  
 - Story-Sampler  
-- Cover/Layout-Modul  
-- Projektorganizer  
+- Cover/Layout-Modul
+- Theme-Switcher
+- Projektorganizer
 - Asset-Finder  
 - Quote/Line-Manager  
 
@@ -46,7 +47,7 @@
 - **Sofort-Feedback**, **Hilfetexte**, **Ein-Klick‑Buttons**
 - **Hover-Vorschau**, **große Touch-Flächen**, **logische Struktur**
 - **Drag & Drop**, **Undo/Redo**, **ZIP-Backup**
-- **Filter, Favoriten**, **Scrollsync**, **Einstellungs-Panel**
+- **Filter, Favoriten**, **Scrollsync**, **Einstellungs-Panel ✅**
 - **Projektordner-Startwahl**, **Autofokus + Clear-Buttons**
 
 ### 🕸 Globale Technische Standards
@@ -72,9 +73,10 @@
 ---
 
 ### Panel07‑09: Erweiterungsmodule
-- Persona-Switcher: ⬜  
-- Story-Sampler: ⬜  
-- Cover/Layout: ⬜  
+- Persona-Switcher: ✅
+- Story-Sampler: ✅
+- Cover/Layout: ✅
+- Theme-Switcher: ✅
 
 ---
 
@@ -95,7 +97,7 @@ priority: hoch
 tasks:
   - UI-Layout mit Grid/Flex und ARIA/Fokus
   - JS: commaSplit -> uniqueSort -> JSON-Save/Load
-  - Zufallsmodi + Profil/Gewichtung implementieren
+  - Zufallsmodi + Profilgewichtung umsetzen ✅ umgesetzt
   - Logging + Dashboard-Integration
   - Clipboard-Ziel + farbiges Feedback
   - CSS responsiv + Test via Axe/WAVE
