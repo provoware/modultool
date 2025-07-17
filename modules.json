@@ -1,3 +1,20 @@
+{
+  "modules": [
+    {"id": "panel7", "name": "Schnellhilfe", "file": "panels/panel7.html"},
+    {"id": "panel8", "name": "Gewichteter Zufall", "file": "panels/panel8.html"},
+    {"id": "panel9", "name": "Befehlsreferenz", "file": "panels/panel9.html"},
+    {"id": "panel10", "name": "Erste Schritte", "file": "panels/panel10.html"},
+    {"id": "panel11", "name": "FAQ", "file": "panels/panel11.html"}
+  ]
+}
+  "beispiel_modul": {
+    "file": "modules/beispiel_modul.js",
+    "title": "Beispiel Modul",
+    "active": true
+  }
+}
+  "modules": []
+}
 [
   {
     "id": "panel01",

@@ -51,7 +51,7 @@ const DASH_KEY='dashboardLog';
 
 function addDashboard(val){
   const arr=JSON.parse(localStorage.getItem(DASH_KEY)||'[]');
-  arr.unshift({time:new Date().toLocaleTimeString(),value:val});
+  arr.unshift({time:new Date().toLocaleString(),value:val});
   if(arr.length>10) arr.length=10;
   localStorage.setItem(DASH_KEY,JSON.stringify(arr));
 }
@@ -131,7 +131,7 @@ randomBtn.addEventListener('click',()=>{
   const choice=list[Math.floor(Math.random()*list.length)];
   output.textContent=choice;
   const entry=document.createElement('li');
-  entry.textContent=new Date().toLocaleTimeString()+': '+choice;
+  entry.textContent=new Date().toLocaleString()+': '+choice;
   log.prepend(entry);
   addDashboard(choice);
 });
@@ -152,7 +152,7 @@ weightedBtn.addEventListener('click',()=>{
   const choice=list[Math.floor(Math.random()*list.length)];
   output.textContent=choice;
   const li=document.createElement('li');
-  li.textContent=new Date().toLocaleTimeString()+': '+choice+' ('+picked+')';
+  li.textContent=new Date().toLocaleString()+': '+choice+' ('+picked+')';
   log.prepend(li);
   addDashboard(choice);
 });

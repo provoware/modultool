@@ -16,14 +16,32 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 
 ## 🧩 Aktuelle Start-Module
 
+- **🎲 Genre-Archiv & Eingabe**  
+  → Speicherung, Duplikatsprüfung, Komma-getrennte Eingaben
+- **🧠 Zufallsgenerator**  
+  → mit Auswahlmodi, Logging, Favoriten und Export
+- **📋 Todo-Listen-Modul**  
+  → einfache Aufgabenlisten verwalten
+- **🎤 Songtext-Editor**  
+  → Felder für Titel, Notizen und Text
+- **📓 Dialog-Schreiber**  
+  → Charaktere anlegen und Dialoge speichern
+- **ℹ️ Info-Manager**  
+  → eigene Befehls- oder Webseiten-Infos sammeln
+- **💬 Zitaten-Modul**  
+  → Felder für Autor, Zitat und optionale Notiz
+- **🧱 Modulbaukasten**  
+  → Module per Buttons flexibel anordnen
+
 ---
 - **📝 Panel01: Genre-Liste & Zufall**
   → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
 - **🎛 Panel02: Genre-Profile**
   → Mehrere Genre-Listen unter Profilnamen speichern, optional mit Gewichtung
   → Button "Gewichteter Zufall" wählt ein Profil nach Gewicht und daraus ein Genre
-- **📊 Panel03: Dashboard – Verlauf**
+ - **📊 Panel03: Dashboard – Verlauf**
   → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
+  → Oben laufende Anzeige von Datum und Uhrzeit
 - **📋 Panel04: Textbausteine**
   → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
 - **🧑‍🎤 Panel05: Persona-Switcher**
@@ -48,6 +66,20 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - Gut sichtbarer Tastaturfokus zur einfachen Navigation
 - Projektordner-Management + Fehlerkorrektur
 
+
+### Geplante Erweiterungen
+- Erinnerung an ungespeicherte Änderungen
+- Favoriten-Startbildschirm
+- Auto-Backup und Undo-Verlauf
+- Modul-Prüfung vor Aktivierung
+- Farbkontrast-Optimierung nach WCAG
+- Fokusmodus und Tooltip-Akademie
+- Querverlinkung und Direkt-Export
+- ZIP-Import mit Verteilung
+- Schreibschutz pro Panel
+- Fehler-Erkennung mit Korrektur
+- Entrümplungsmodus und Doppelklick-Kopie
+- globaler Suchfilter
 ---
 
 ## 📦 Struktur
@@ -58,10 +90,9 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 📁 data/ (baumstruktur.txt, todo.txt)
 📄 platzhalter.txt
 📁 logs/
+📁 tools/ (selfcheck.sh, update_placeholder.sh, install_hook.sh)
+📁 .github/workflows/ (validate.yml)
+
+Führe einmal `bash tools/install_hook.sh` aus. Danach wird `platzhalter.txt` nach jedem Commit automatisch aktualisiert.
 📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
 📁 .github/workflows/ (validate.yml)
-📄 modules.json (Registrierung vorhandener Module)
-```
-
-## 🔀 Branches zusammenführen
-Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches zusammenführen".
