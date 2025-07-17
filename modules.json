@@ -1,3 +1,60 @@
+[
+  {
+    "id": "panel01",
+    "title": "Genre-Liste & Zufall",
+    "file": "modules/panel01.html"
+  },
+  {
+    "id": "panel02",
+    "title": "Genre-Profile",
+    "file": "modules/panel02.html"
+  },
+  {
+    "id": "panel03",
+    "title": "Dashboard – Verlauf",
+    "file": "modules/panel03.html"
+  },
+  {
+    "id": "panel04",
+    "title": "Textbausteine",
+    "file": "modules/panel04.html"
+  },
+  {
+    "id": "panel05",
+    "title": "Persona-Switcher",
+    "file": "modules/panel05.html"
+  },
+  {
+    "id": "panel06",
+    "title": "Story-Sampler",
+    "file": "modules/panel06.html"
+  },
+  {
+    "id": "panel07",
+    "title": "Cover-Layout",
+    "file": "modules/panel07.html"
+  },
+  {
+    "id": "panel08",
+    "title": "Theme-Switcher",
+    "file": "modules/panel08.html"
+  },
+  {
+    "id": "panel09",
+    "title": "Einstellungen",
+    "file": "modules/panel09.html"
+  },
+  {
+    "id": "panel10",
+    "title": "Jahresplan Übersicht",
+    "file": "modules/panel10.html"
+  },
+  {
+    "id": "panel11",
+    "title": "Monats- und Tagesplan",
+    "file": "modules/panel11.html"
+  }
+]
 {
   "modules": [
     {"id": "panel1", "name": "Genres & Zufall", "file": "modules/panel01.html"},
