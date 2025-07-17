@@ -43,6 +43,7 @@ fi
 # ========== JSON-Dateien prüfen ==========
 echo "📂 JSON-Dateien werden geprüft..."
 if command -v jq >/dev/null 2>&1; then
+  find . -name "*.json" -print0 | while IFS= read -r -d '' f; do
   find . -name "*.json" | while read -r f; do
     if jq empty "$f" >/dev/null 2>&1; then
       echo "✅ OK: $f"
@@ -93,6 +94,9 @@ find . -type f ! -path "./.git/*" ! -name "*.log" | sort > data/baumstruktur.txt
 echo "✅ baumstruktur.txt aktualisiert."
 
 # ========== Platzhalter aktualisieren ==========
+echo "📑 Aktualisiere platzhalter.txt ..."
+bash tools/update_placeholder.sh
+echo "✅ platzhalter.txt aktualisiert."
 if [ -x tools/update_placeholder.sh ]; then
   bash tools/update_placeholder.sh
   echo "✅ platzhalter.txt aktualisiert."

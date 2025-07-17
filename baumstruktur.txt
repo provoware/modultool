@@ -1,3 +1,26 @@
-# baumstruktur.txt
-# 
-# alle ordner und dateien des projektordners -aktualisiert
+./.editorconfig
+./.github/workflows/branch-limit.yml
+./.github/workflows/validate.yml
+./.gitignore
+./.modultoolrc.json
+./AGENTS.md
+./LAIENHILFE.md
+./README.md
+./VISION_AGENTS.md
+./agents_status.json
+./baumstruktur.txt
+./branch-limit.yml
+./data/baumstruktur.txt
+./data/todo.txt
+./index-DDD.html
+./logs/.placeholder
+./module_versions.json
+./modules.json
+./modules/.placeholder
+./panels/.placeholder
+./platzhalter.txt
+./setup.sh
+./todo.txt
+./tools/selfcheck.sh
+./tools/update_placeholder.sh
+./validate.yml
