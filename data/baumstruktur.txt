@@ -4,6 +4,7 @@
 ./.gitignore
 ./.modultoolrc.json
 ./AGENTS.md
+./DOKUMENTATION.md
 ./LICENSE
 ./LAIENHILFE.md
 ./README.md
@@ -13,6 +14,9 @@
 ./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
+./data/todo_backup_20250716045633.txt
+./data/todo_backup_20250716045636.txt
+./data/todo_backup_20250716045649.txt
 ./data/todo_backup_20250717162725.txt
 ./data/todo_backup_20250716044144.txt
 ./index-DDD.html
@@ -96,6 +100,7 @@
 ./platzhalter.txt
 ./setup.sh
 ./todo.txt
+./todo.txt.bak
 ./tools/comma_json.js
 ./tools/install_hook.sh
 ./tools/selfcheck.sh
