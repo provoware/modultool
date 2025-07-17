@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 23:38:16 UTC 2025
+Letztes Update: Thu Jul 17 00:56:31 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -24,3 +24,7 @@ Offene Aufgaben:
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [ ] ZIP-Backup-Modul entwickeln (Panel07)
+- [ ] Undo-/Redo-Funktion einbauen (Panel08)
+- [ ] README: lokalen Testserver via python3 -m http.server erklären
+- [ ] CI: branch-limit.yml aktivieren und testen
