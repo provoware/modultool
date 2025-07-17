@@ -695,3 +695,16 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```
   *(Erstellt ein ZIP-Archiv mit allen Dateien im aktuellen Ordner.)*
 
+- **Alte Platzhalter-Module entfernen**
+  ```bash
+  git rm modules/panel1.html modules/panel2.html
+  git rm modules/panel3.html modules/panel4.html
+  ```
+  *(Löscht nicht mehr benötigte Platzhalter. Danach `git commit` ausführen.)*
+
+- **IDs in der Modul-Liste korrigieren**
+  ```bash
+  nano modules.json
+  ```
+  *(IDs ohne führende Null eintragen, z.B. `"panel1"` statt `"panel01"`.)*
+

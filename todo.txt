@@ -151,5 +151,6 @@
 
 - [x] LAIENHILFE um Aufräumtipps ergänzt
 - [x] HTML-Dateien um Doctype erweitern (automatisiert)
-- [ ] Platzhalter-Module bereinigen
+- [x] Platzhalter-Module bereinigen
 - [x] Panel01 HTML aufräumen
+- [x] modules.json IDs an HTML angepasst
