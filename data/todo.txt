@@ -80,6 +80,10 @@
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+
+- [ ] Letzter Selfcheck vor dem Release
+- [ ] README um Releasenotizen ergaenzen
+- [ ] finale Platzhalter-Datei erstellen
 - [x] Script `create_module.sh` implementiert
 - [x] Panel10 als Vorlage angelegt
 - [ ] Weitere Module über das Script erstellen und testen

@@ -13,7 +13,6 @@
 - [x] Clipboard-Funktion mit Feedback-Farben
 - [x] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
-
 - [x] Ordner "modules/" und "panels/" erstellen
 - [x] "modules.json" für Panels anlegen
 - [x] Shellcheck-Warnungen in Skripten beheben
@@ -83,12 +82,10 @@
 - [x] modules.json und module_versions.json anlegen
 - [x] Modul 7: Notizen integriert
 - [x] Anleitung für Flexibilität & Nutzerfreundlichkeit ergänzt
-
 - [x] Liste wird beim Speichern alphabetisch sortiert
 - [x] Speichern-Feedback per Farbe umgesetzt
 - [x] Save-Button Feedback und automatische Listenbereinigung
 - [x] DOKUMENTATION.md hinzugefügt und erklärt
-
 - [ ] Templates-Modul (Panel02) erstellen
 - [ ] Undo/Redo-System einbauen
 - [ ] ZIP-Backup-Funktion ergänzen
@@ -106,12 +103,14 @@
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [ ] Letzter Selfcheck vor dem Release
+- [ ] README um Releasenotizen ergaenzen
+- [ ] finale Platzhalter-Datei erstellen
 - [x] Script `create_module.sh` implementiert
 - [x] Panel10 als Vorlage angelegt
 - [ ] Weitere Module über das Script erstellen und testen
 - [x] ShellCheck und HTMLHint installiert
 - [x] Laienhilfe um weiterf\u00fchrende Tipps erweitert
-
 - [ ] HTMLHint (HTML-Prüfwerkzeug) und ShellCheck (Shell-Skript-Prüfer) installieren
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)
 - [ ] README um Schritt-für-Schritt-Anleitung erweitern
