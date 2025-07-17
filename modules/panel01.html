@@ -12,6 +12,7 @@
   button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
   #random-output{font-weight:bold;margin-top:0.5rem;}
   #log{max-height:100px;overflow-y:auto;padding-left:1rem;}
+  #save-btn.saved{background:#15b57b;color:#fff;transition:background .3s;}
   @media(min-width:600px){#panel01{max-width:480px;}}
   button.saved{background-color:#15b57b;color:#fff;}
 </style>
@@ -20,6 +21,10 @@
 <div id="panel01">
   <h2>Genre-Liste & Zufall</h2>
   <label for="genre-input">Genres (durch Kommas trennen):</label>
+  <textarea id="genre-input" aria-label="Genre-Liste"></textarea>
+  <button id="save-btn" aria-label="Liste speichern">Speichern</button>
+  <button id="random-btn" aria-label="Zufällig auswählen">Zufall</button>
+  <button id="copy-btn" aria-label="Ergebnis kopieren">Kopieren</button>
   <textarea id="genre-input" aria-label="Genre-Liste" title="Mehrere Genres mit Komma trennen" autofocus></textarea>
   <textarea placeholder="z.B. Rock, Pop" id="genre-input" aria-label="Genre-Liste"></textarea>
   <button id="save-btn">Speichern</button>
@@ -47,9 +52,17 @@ function addDashboard(val){
 }
 function showStatus(msg){status.textContent=msg;setTimeout(()=>status.textContent="",3000);}
 function saveList(){
-  const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
+  const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
   localStorage.setItem('genres',JSON.stringify(list));
   input.value=list.join(', ');
+  return list;
+}
+function loadList(){
+  const data=localStorage.getItem('genres');
+  if(data){
+    const list=JSON.parse(data).sort((a,b)=>a.localeCompare(b));
+    input.value=list.join(', ');
+    return list;
   const list=[...new Set(input.value.split(",").map(s=>s.trim()).filter(Boolean))];
   try{
     localStorage.setItem("genres",JSON.stringify(list));
@@ -78,6 +91,11 @@ function getList(){
 saveBtn.addEventListener('click',()=>{
   saveList();
   saveBtn.classList.add('saved');
+  saveBtn.setAttribute('aria-pressed','true');
+  setTimeout(()=>{
+    saveBtn.classList.remove('saved');
+    saveBtn.removeAttribute('aria-pressed');
+  },500);
   const txt=saveBtn.textContent;
   saveBtn.textContent='Gespeichert';
   setTimeout(()=>{saveBtn.classList.remove('saved');saveBtn.textContent=txt;},800);

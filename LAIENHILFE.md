@@ -260,6 +260,10 @@ Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sin
 5. Mit **Zufall** wählst du einen Eintrag zufällig aus. Darunter entsteht ein kleines Protokoll (Log) mit Uhrzeit.
 6. Über **Kopieren** landet das Ergebnis in der Zwischenablage. Der Button färbt sich kurz grün als Bestätigung.
 
+## Neue Funktionen im Genres-Modul
+
+- Beim Speichern wird die Liste automatisch alphabetisch sortiert. So findest du Einträge schneller wieder.
+- Der **Speichern**-Knopf leuchtet kurz grün auf. Das ist ein optisches Feedback (Rückmeldung), dass alles geklappt hat.
 ## Genre-Profile verwenden
 
 1. Öffne `panel02.html` im Ordner `modules`.

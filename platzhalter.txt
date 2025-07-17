@@ -1,3 +1,4 @@
+Letztes Update: Wed Jul 16 06:26:05 UTC 2025
 Letztes Update: Wed Jul 16 06:30:15 UTC 2025
 Letztes Update: Wed Jul 16 04:56:49 UTC 2025
 Letztes Update: Thu Jul 17 16:27:25 UTC 2025
@@ -77,6 +78,9 @@ Offene Aufgaben:
 - [x] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Dashboard-Modul umgesetzt (Panel03)
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+
+- [x] Liste wird beim Speichern alphabetisch sortiert
+- [x] Speichern-Feedback per Farbe umgesetzt
 - [x] Save-Button Feedback und automatische Listenbereinigung
 - [x] DOKUMENTATION.md hinzugefügt und erklärt
 - [x] Text-Templates-Modul (Panel04) umgesetzt
