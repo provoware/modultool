@@ -23,9 +23,9 @@
 ./.git/logs/HEAD
 ./.git/logs/refs/heads/main
 ./.git/logs/refs/heads/work
-./.git/objects/pack/pack-a3dac3d86a6853bbeba698542f54ef4b533c6882.idx
-./.git/objects/pack/pack-a3dac3d86a6853bbeba698542f54ef4b533c6882.pack
-./.git/objects/pack/pack-a3dac3d86a6853bbeba698542f54ef4b533c6882.rev
+./.git/objects/pack/pack-2ed4cfa46017259f39b597a0d2459eab95034328.idx
+./.git/objects/pack/pack-2ed4cfa46017259f39b597a0d2459eab95034328.pack
+./.git/objects/pack/pack-2ed4cfa46017259f39b597a0d2459eab95034328.rev
 ./.git/packed-refs
 ./.git/refs/heads/main
 ./.git/refs/heads/work
@@ -45,6 +45,13 @@
 ./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
+./data/todo_backup_20250717231814.txt
+./data/todo_backup_20250717231816.txt
+./data/todo_backup_20250717231817.txt
+./data/todo_backup_20250717231840.txt
+./data/todo_backup_20250717231855.txt
+./data/todo_backup_20250717232226.txt
+./data/todo_backup_20250717232242.txt
 ./error_informationen.txt
 ./index-MODULTOOL.html
 ./logs/.placeholder
@@ -82,6 +89,8 @@
 ./modules/panel1.html
 ./modules/panel10.html
 ./modules/panel11.html
+./modules/panel12.html
+./modules/panel13.html
 ./modules/panel2.html
 ./modules/panel3.html
 ./modules/panel4.html
