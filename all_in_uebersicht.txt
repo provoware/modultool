@@ -13,7 +13,6 @@
 ./data/baumstruktur.txt
 ./data/todo.txt
 ./data/todo_backup_20250717162015.txt
-./data/todo_backup_20250717162113.txt
 ./error_informationen.txt
 ./index-DDD.html
 ./modules.json
