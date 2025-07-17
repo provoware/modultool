@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GridTool Pro – Fokus & Themes</title>
   <style>
     :root {
@@ -118,6 +118,7 @@
       font-weight:bold; letter-spacing:.06em; z-index:3;
     }
     header { font-size:1.17rem; padding:1.05rem 0 .8rem 0; box-shadow:0 2px 12px var(--shadow);}
+    header.top-header {display:flex;align-items:center;gap:.5em;justify-content:center;flex-wrap:wrap;}
     .fokus-bar {
       display:flex;align-items:center;justify-content:flex-end;
       gap:1em; margin-bottom:.5em;
@@ -226,6 +227,8 @@
     .dashboard-list li { background: var(--dashboard-light); color: var(--text-alt); border-radius: .6em; margin-bottom: .25em; padding: .45em .8em; font-size:.97em; display: flex; align-items: center; justify-content: space-between; gap:.5em; word-break:break-all;}
     .dashboard-copy {background:var(--edit);color:#fff;font-size:1em;border-radius:.6em;padding:.18em .6em; border:none;}
     .dashboard-copy:hover {background:var(--edit-hover);}
+    .copy-btn {background:var(--button);color:#fff;border:none;padding:.2em .7em;border-radius:.7em;margin-left:.5em;cursor:pointer;}
+    .copy-btn:focus,.copy-btn:hover{background:var(--button-hover);}
     .dashboard-timestamp { font-size:.87em; color:var(--text-light); margin-right:.2em;}
     .tmpl-inputs {display:flex; gap:.7em; margin-bottom:.7em;flex-wrap:wrap;}
     .tmpl-inputs input {min-width:110px;flex:1;}
@@ -245,11 +248,20 @@
     .debug-info{color:#5ecea6;}
     .input-help {color:var(--text-light);font-size:.97em;margin:.2em 0 .5em .1em;}
     .file-label {padding:.3em .8em;border-radius:.8em;background:var(--area);margin-left:.3em;cursor:pointer;}
+    .help-btn {padding:.3em .8em;border-radius:.6em;background:var(--button);color:var(--text);border:none;cursor:pointer;}
     .import-status{font-size:.98em;margin:.45em 0;}
+    .weight-list{display:flex;flex-direction:column;gap:.4em;max-height:220px;overflow:auto;margin-bottom:.6em;}
+    .weight-row{display:flex;align-items:center;gap:.6em;}
+    .weight-row span{flex:1;word-break:break-all;}
+    .weight-row input{width:60px;}
     .small { font-size: .93rem; color: var(--text-light);}
     .status-msg {padding:.19em 1em; margin:.2em 0 .4em 0; border-radius:.7em; font-weight:600;}
     .status-ok {background:#198d54b8; color:#f7fff9;}
     .status-error {background:#d42e4cbe; color:#fff;}
+    .flash-success {background:var(--active) !important; transition:background .3s;}
+    .flash-error {background:var(--remove) !important; transition:background .3s;}
+    .intro-overlay {position:fixed;inset:0;background:rgba(0,0,0,.85);color:var(--text);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;text-align:center;padding:1em;}
+    .intro-overlay button{margin-top:1em;padding:.6em 1.2em;border:none;border-radius:.4em;background:var(--button);color:var(--text);font-size:1.1em;cursor:pointer;}
     @media (max-width: 1100px) {
       .grid-main { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, minmax(150px, 1fr)); }
       .mod-panel {max-height:none;}
@@ -259,16 +271,31 @@
       .grid-main { grid-template-columns: 1fr; grid-template-rows: repeat(9, minmax(100px, 1fr)); }
       .sidebar {width:96vw;min-width:90vw;max-width:99vw;}
     }
+    @media (max-width: 480px) {
+      header {font-size:1.2em;}
+      .sidebar {width:98vw;min-width:98vw;max-width:98vw;}
+      .app-frame {grid-template-columns:1fr;}
+      .grid-main {grid-template-rows: repeat(9, minmax(120px,1fr));}
+      header.top-header {flex-direction:column;gap:.3em;}
+      #copySelBtn {margin-left:0;margin-top:.3em;}
+    }
   </style>
 </head>
 <body>
-<header>
+<div id="introOverlay" class="intro-overlay">
+  <h2>Willkommen im Modultool!</h2>
+  <p>Der lokale Server läuft. Diese Seite wurde automatisch geöffnet.</p>
+  <p>Klicke auf "Los geht's", um die Oberfläche zu nutzen.</p>
+  <button title="Willkommensfenster schließen" onclick="hideIntro()">Los geht's</button>
+</div>
+<header class="top-header" role="banner">
   GridTool Pro – Fokusumschaltung &bull; &copy; Pppoppi
+  <button id="copySelBtn" class="copy-btn" title="Markierten Text kopieren" aria-label="Text kopieren">⧉ Kopieren</button>
 </header>
 <div class="app-frame">
-  <aside class="sidebar left" id="sidebarLeft">
+  <aside class="sidebar left" id="sidebarLeft" role="navigation" aria-label="Module und Infos">
     <div class="sidebar-header">Module & Infos</div>
-    <div class="sidebar-h2">Module verwalten</div>
+    <div class="sidebar-h2" title="Module hier ein- oder ausschalten">Module verwalten</div>
     <ul class="sidebar-list">
       <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Genres + Zufall</li>
       <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Archiv</li>
@@ -279,9 +306,11 @@
       <li><input class="sidebar-checkbox" type="checkbox" id="mod7box" checked onchange="toggleModPanel(7)"> Modul 7</li>
       <li><input class="sidebar-checkbox" type="checkbox" id="mod8box" checked onchange="toggleModPanel(8)"> Modul 8</li>
       <li><input class="sidebar-checkbox" type="checkbox" id="mod9box" checked onchange="toggleModPanel(9)"> Modul 9</li>
+      <li><input class="sidebar-checkbox" type="checkbox" id="mod10box" checked onchange="toggleModPanel(10)"> Modul 10</li>
+      <li><input class="sidebar-checkbox" type="checkbox" id="mod11box" checked onchange="toggleModPanel(11)"> Modul 11</li>
     </ul>
     <div class="sidebar-divider"></div>
-    <div class="sidebar-h2">Infos</div>
+    <div class="sidebar-h2" title="Versionshinweise und Links">Infos</div>
     <div style="font-size:.98em;">
       <b>GridTool Pro</b> <br> Fokusumschaltung & Themes<br>
       <a href="#" style="color:var(--sidebar-accent);" onclick="alert('Changelog: Fokusumschaltung, Themes optimiert, Best-Practice-Styling für Felder, Buttons, Schrift und Kontrast.');">Changelog</a>
@@ -291,10 +320,10 @@
     </div>
   </aside>
   <div class="dragbar left" id="dragbarLeft"><div class="dragbar-inner"></div></div>
-  <main class="main-content">
+  <main class="main-content" role="main" aria-label="Hauptinhalt">
     <div class="fokus-bar">
       <label for="fokusSelect" style="font-weight:600;color:var(--highlight);margin-right:.3em;">Fokus-Modus:</label>
-      <select id="fokusSelect" aria-label="Panel auswählen" style="font-size:1.02em;border-radius:.8em;border:1.5px solid var(--highlight);padding:.25em .9em;background:var(--area);color:var(--text);">
+      <select id="fokusSelect" aria-label="Panel auswählen" title="Panel für den Fokus wählen" style="font-size:1.02em;border-radius:.8em;border:1.5px solid var(--highlight);padding:.25em .9em;background:var(--area);color:var(--text);">
         <option value="0">3x3-Grid (Standard)</option>
         <option value="1">Panel 1: Genres + Zufall</option>
         <option value="2">Panel 2: Archiv</option>
@@ -305,37 +334,39 @@
         <option value="7">Panel 7</option>
         <option value="8">Panel 8</option>
         <option value="9">Panel 9</option>
+        <option value="10">Panel 10</option>
+        <option value="11">Panel 11</option>
       </select>
-      <button class="fokus-btn" id="fokusResetBtn" style="display:none;" aria-pressed="true" onclick="switchFokus(0)">Zurück zum Grid</button>
+      <button class="fokus-btn" id="fokusResetBtn" style="display:none;" aria-pressed="true" title="Zur Übersicht" onclick="switchFokus(0)">Zurück zum Grid</button>
     </div>
     <div class="grid-main" id="gridMain">
-      <section class="mod-panel" id="panel1" tabindex="0"><h2>Genres + Zufall</h2>
+      <section class="mod-panel" id="panel1" tabindex="0" role="region" aria-labelledby="panel1-head"><h2 id="panel1-head">Genres + Zufall</h2>
         <form id="genreForm" autocomplete="off">
           <div class="input-group">
-            <input id="genreInput" type="text" placeholder="Genre(s) durch Komma getrennt…" autofocus required />
+            <input id="genreInput" type="text" placeholder="Genre(s) durch Komma getrennt…" title="Mehrere Genres mit Komma trennen" autofocus required />
             <button type="submit">➕</button>
           </div>
           <div class="input-help">Beispiel: <code>Techno, Funk, Minimal</code> (Komma-getrennt, max. 24 Genres)</div>
         </form>
         <div class="archive-actions">
-          <button onclick="saveArchive()">💾 Speichern</button>
-          <button onclick="loadArchive()">📂 Laden</button>
+          <button onclick="saveArchive()" title="Archiv lokal speichern">💾 Speichern</button>
+          <button onclick="loadArchive()" title="Gespeichertes Archiv laden">📂 Laden</button>
         </div>
         <div class="rand-actions">
-          <button class="rand-btn" onclick="pickRandomN(3)">🎲 3</button>
-          <button class="rand-btn" onclick="pickRandomN(6)">🎲 6</button>
-          <button class="rand-btn" onclick="pickRandomN(9)">🎲 9</button>
-          <button class="rand-btn" onclick="pickRandomN(12)">🎲 12</button>
-          <button class="rand-btn" onclick="pickRandomN(15)">🎲 15</button>
+          <button class="rand-btn" onclick="pickRandomN(3)" aria-label="Zufall 3 Genres">🎲 3</button>
+          <button class="rand-btn" onclick="pickRandomN(6)" aria-label="Zufall 6 Genres">🎲 6</button>
+          <button class="rand-btn" onclick="pickRandomN(9)" aria-label="Zufall 9 Genres">🎲 9</button>
+          <button class="rand-btn" onclick="pickRandomN(12)" aria-label="Zufall 12 Genres">🎲 12</button>
+          <button class="rand-btn" onclick="pickRandomN(15)" aria-label="Zufall 15 Genres">🎲 15</button>
         </div>
-        <div id="randResult" class="rand-result" style="display:none;"></div>
-        <div id="genreStatus" class="status-msg" style="display:none;"></div>
+        <div id="randResult" class="rand-result" style="display:none;" role="status" aria-live="polite"></div>
+        <div id="genreStatus" class="status-msg" style="display:none;" role="status" aria-live="polite"></div>
         <div class="input-help">Tipp: Jede Auswahl wird ins Dashboard übernommen. Du kannst Genres jederzeit editieren!</div>
       </section>
-      <section class="mod-panel" id="panel2" tabindex="0"><h2>Archiv</h2>
+      <section class="mod-panel" id="panel2" tabindex="0" role="region" aria-labelledby="panel2-head"><h2 id="panel2-head">Archiv</h2>
         <div class="search-group">
-          <input id="searchInput" type="text" placeholder="Suche im Archiv…" autocomplete="off"/>
-          <button id="clearSearch" class="search-clear" title="Suche löschen" style="display:none;">✖</button>
+          <input id="searchInput" type="text" placeholder="Suche im Archiv…" autocomplete="off" />
+          <button id="clearSearch" class="search-clear" aria-label="Suche löschen" style="display:none;">✖</button>
         </div>
         <div class="archive-list">
           <ul id="genreList"></ul>
@@ -343,55 +374,76 @@
         <div class="small">Klick: kopieren | ✏: bearbeiten | ✖: entfernen</div>
         <div class="input-help">Tipp: Mit Enter bestätigst du beim Editieren, Escape bricht ab.</div>
       </section>
-      <section class="mod-panel" id="panel3" tabindex="0"><h2>Dashboard (letzte 10 Ausgaben)</h2>
+      <section class="mod-panel" id="panel3" tabindex="0" role="region" aria-labelledby="panel3-head"><h2 id="panel3-head">Dashboard (letzte 10 Ausgaben)</h2>
         <ul id="dashboardList" class="dashboard-list"></ul>
-        <button id="clearDashboardBtn" class="dashboard-copy" style="background:var(--remove);margin-top:.5em;">Alle löschen</button>
+        <button id="clearDashboardBtn" class="dashboard-copy" aria-label="Dashboard leeren" style="background:var(--remove);margin-top:.5em;">Alle löschen</button>
         <div class="input-help">Tipp: Für alle Zufallsausgaben – kopieren per Klick!</div>
       </section>
-      <section class="mod-panel" id="panel4" tabindex="0"><h2>Text-Templates</h2>
+      <section class="mod-panel" id="panel4" tabindex="0" role="region" aria-labelledby="panel4-head"><h2 id="panel4-head">Text-Templates</h2>
         <form id="tmplForm" autocomplete="off">
           <div class="tmpl-inputs">
-            <input id="tmplTitle" type="text" placeholder="Button-Titel" required maxlength="40"/>
-            <textarea id="tmplText" placeholder="Textvorlage…" required rows="2" maxlength="500"></textarea>
-            <button type="submit">Hinzufügen</button>
+            <input id="tmplTitle" type="text" placeholder="Button-Titel" title="Titel für den Vorlagen-Button" required maxlength="40" />
+            <textarea id="tmplText" placeholder="Textvorlage…" title="Inhalt der Textvorlage" required rows="2" maxlength="500"></textarea>
+            <button type="submit" title="Neue Vorlage speichern">Hinzufügen</button>
           </div>
           <div class="input-help">Gib einen sprechenden Titel und Text ein. Beispiel: Titel: <code>Grußmail</code> – Text: <code>Hallo zusammen, ...</code></div>
         </form>
         <div class="tmpl-btnlist" id="tmplBtnList"></div>
         <div class="small">Klick: Text kopieren. ✖: Entfernen.</div>
-        <div id="tmplStatus" class="status-msg" style="display:none;"></div>
+        <div id="tmplStatus" class="status-msg" style="display:none;" role="status" aria-live="polite"></div>
       </section>
-      <section class="mod-panel" id="panel5" tabindex="0"><h2>Debug & Log</h2>
+      <section class="mod-panel" id="panel5" tabindex="0" role="region" aria-labelledby="panel5-head"><h2 id="panel5-head">Debug & Log</h2>
         <div id="debugLog" style="max-height:220px;overflow:auto;margin-bottom:.4em;"></div>
-        <button onclick="clearLog()" class="dashboard-copy" style="background:var(--remove);">Logs löschen</button>
+        <button onclick="clearLog()" class="dashboard-copy" style="background:var(--remove);" title="Alle Logeinträge entfernen">Logs löschen</button>
         <div class="input-help">Hier findest du Fehler, Warnungen und Systemereignisse. Tipp: Bei Problemen einfach Logs prüfen!</div>
         <div class="small">Selfcheck: <span id="selfcheckStatus"></span></div>
       </section>
-      <section class="mod-panel" id="panel6" tabindex="0"><h2>Modul-Import</h2>
+      <section class="mod-panel" id="panel6" tabindex="0" role="region" aria-labelledby="panel6-head"><h2 id="panel6-head">Modul-Import</h2>
         <label class="file-label">
-          <input id="importModuleFile" type="file" accept=".js,.html,.txt" style="display:none;">
+          <input id="importModuleFile" type="file" accept=".js,.html,.txt" style="display:none;" />
           Modul-Datei auswählen
         </label>
         <button onclick="triggerModuleImport()">Import starten</button>
-        <div class="import-status" id="importStatus"></div>
+        <div class="import-status" id="importStatus" role="status" aria-live="polite"></div>
         <pre id="importPreview" style="max-height:110px;overflow:auto;background:#252c2e;color:#bbb;padding:.4em .7em;border-radius:.6em;display:none;margin:.5em 0 0 0;"></pre>
         <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
       </section>
-      <section class="mod-panel" id="panel7"><h2>Modul 7</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel7" tabindex="0">
+        <h2>Notizen</h2>
+        <textarea id="notesArea" rows="6" placeholder="Schreibe deine Notizen..."></textarea>
+        <div style="margin-top:.5em;display:flex;gap:.5em;">
+          <button onclick="saveNotes()">Speichern</button>
+          <button onclick="clearNotes()">Löschen</button>
+        </div>
+        <div class="input-help">Hinweis: Deine Notizen bleiben lokal im Browser gespeichert.</div>
+      </section>
       <section class="mod-panel" id="panel8"><h2>Modul 8</h2><div class="small">Frei für weitere Features</div></section>
       <section class="mod-panel" id="panel9"><h2>Modul 9</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel7" tabindex="0" role="region" aria-labelledby="panel7-head"><h2 id="panel7-head">Modul 7</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel8" tabindex="0" role="region" aria-labelledby="panel8-head"><h2 id="panel8-head">Modul 8</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel9" tabindex="0" role="region" aria-labelledby="panel9-head"><h2 id="panel9-head">Modul 9</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel10" tabindex="0" role="region" aria-labelledby="panel10-head"><h2 id="panel10-head">Modul 10</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel11" tabindex="0" role="region" aria-labelledby="panel11-head"><h2 id="panel11-head">Modul 11</h2><div class="small">Frei für weitere Features</div></section>
     </div>
   </main>
   <div class="dragbar right" id="dragbarRight"><div class="dragbar-inner"></div></div>
-  <aside class="sidebar right" id="sidebarRight">
+  <aside class="sidebar right" id="sidebarRight" role="complementary" aria-label="Optionen und Themes">
     <div class="sidebar-header">Optionen & Themes</div>
     <div class="sidebar-h2">Farbschema</div>
     <div class="sidebar-btns" id="themeBtnGroup"></div>
     <div class="sidebar-divider"></div>
-    <div class="sidebar-h2">Globale Einstellungen</div>
+    <div class="sidebar-h2" title="Grundeinstellungen des Tools">Globale Einstellungen</div>
     <div>
-      <button onclick="resetAll()" style="margin-bottom:.5em;">Alles zurücksetzen</button>
+      <button onclick="resetAll()" aria-label="Alle Daten löschen" style="margin-bottom:.5em;">Alles zurücksetzen</button>
     </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-h2" title="Tipps und Befehle auf einen Blick">Kurze Hilfe</div>
+    <ul class="sidebar-list">
+      <li>Selfcheck: <code>bash tools/selfcheck.sh</code></li>
+      <li>Projekt speichern: <code>git commit</code></li>
+      <li>Weitere Tipps in <code>LAIENHILFE.md</code></li>
+      <li><button class="help-btn" onclick="openHelp()" title="Hilfedatei im neuen Fenster anzeigen">LAIENHILFE öffnen</button></li>
+    </ul>
     <div class="sidebar-footer">
       Für Hilfe: Siehe Hilfe-Sidebar oder frag Poppi.
     </div>
@@ -409,14 +461,17 @@ let fokusMode = 0;
 fokusSelect.onchange = function() { switchFokus(Number(fokusSelect.value)); };
 function switchFokus(mode) {
   fokusMode = mode;
-  for (let i = 1; i <= 9; ++i) {
+  for (let i = 1; i <= 11; ++i) {
     const panel = document.getElementById('panel' + i);
     if (mode === 0) {
       panel.style.display = '';
       panel.classList.remove('fokus');
+      panel.setAttribute('aria-hidden','false');
     } else {
-      panel.style.display = (i === mode ? '' : 'none');
-      if (i === mode) panel.classList.add('fokus'); else panel.classList.remove('fokus');
+      const on = (i === mode);
+      panel.style.display = on ? '' : 'none';
+      if (on) panel.classList.add('fokus'); else panel.classList.remove('fokus');
+      panel.setAttribute('aria-hidden', on ? 'false' : 'true');
     }
   }
   fokusResetBtn.style.display = (mode !== 0) ? '' : 'none';
@@ -455,26 +510,43 @@ window.onload = function() {
     dashboardData = dash ? JSON.parse(dash) : [];
     let tdata = localStorage.getItem(TMPL_KEY);
     tmplArchiv = tdata ? JSON.parse(tdata) : [];
+    loadWeights();
   } catch(e) {
     genres = []; dashboardData = []; tmplArchiv = [];
     logErr('Fehler beim Laden aus localStorage: '+e);
   }
   renderList();
   renderDashboard();
+  renderDashLog();
   renderTmplList();
+  loadNotes();
   renderLog();
-  for(let i=4;i<=9;i++) toggleModPanel(i);
+  for(let i=4;i<=11;i++) toggleModPanel(i);
 };
 /* ======= App-Logik, Panels, Logging, Dashboard usw. ======= */
 const LOCAL_KEY = 'genreArchiv_vGRIDSB';
 const DASHBOARD_KEY = 'genreDashboard_vGRIDSB';
 const TMPL_KEY = 'tmplArchiv_vGRIDSB';
+const NOTES_KEY = 'notes_vGRIDSB';
 let genres = [];
 let dashboardData = [];
 let tmplArchiv = [];
+let notesData = '';
+const WEIGHT_KEY = 'genreWeights_vGRIDSB';
+let genres = [];
+let dashboardData = [];
+let tmplArchiv = [];
+let genreWeights = {};
 let searchTerm = '';
 /* Logging und Selfcheck */
 let debugLogArr = [];
+let dashLogArr = [];
+function addDashboardEntry(text) {
+  dashboardData.unshift({ value: text, time: new Date().toLocaleString() });
+  dashboardData = dashboardData.slice(0,10);
+  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
+  renderDashboard();
+}
 function logDbg(msg, type='info') {
   debugLogArr.unshift({
     time: new Date().toLocaleTimeString(),
@@ -482,12 +554,19 @@ function logDbg(msg, type='info') {
   });
   if(debugLogArr.length>64) debugLogArr.pop();
   renderLog();
+  dashLogArr.unshift({time:new Date().toLocaleTimeString(), msg});
+  if(dashLogArr.length>10) dashLogArr.pop();
+  renderDashLog();
 }
 function logErr(msg) { logDbg(msg, 'err'); }
 function renderLog() {
   const out = document.getElementById('debugLog');
   out.innerHTML = debugLogArr.map(e=>`<div class="debug-log debug-${e.type}">[${e.time}] ${e.msg}</div>`).join('');
   document.getElementById('selfcheckStatus').innerHTML = selfcheckResult();
+}
+function renderDashLog(){
+  const out = document.getElementById('dashLog');
+  if(out) out.innerHTML = dashLogArr.map(e=>`<li><span class="dashboard-timestamp">${e.time}</span> ${e.msg}</li>`).join('');
 }
 function clearLog() { debugLogArr=[]; renderLog(); }
 function selfcheckResult() {
@@ -496,7 +575,7 @@ function selfcheckResult() {
     if(!Array.isArray(genres)) {ok=false; res.push('Genre-Archiv beschädigt');}
     if(!Array.isArray(dashboardData)) {ok=false; res.push('Dashboard beschädigt');}
     if(!Array.isArray(tmplArchiv)) {ok=false; res.push('Templates beschädigt');}
-    if(document.querySelectorAll('.mod-panel').length!==9) {ok=false; res.push('Panel-Anzahl inkonsistent');}
+    if(document.querySelectorAll('.mod-panel').length!==11) {ok=false; res.push('Panel-Anzahl inkonsistent');}
   } catch(e){ok=false;res.push('Selfcheck-Fehler: '+e);}
   return ok?'<span style="color:#7bd375;">OK</span>':('<span style="color:#eb8a7a;">'+res.join('; ')+'</span>');
 }
@@ -511,6 +590,7 @@ document.getElementById('importModuleFile').addEventListener('change', function(
     document.getElementById('importPreview').style.display='block';
     document.getElementById('importPreview').textContent = importModuleContent.substring(0,800)+(importModuleContent.length>800?' …':'');
     document.getElementById('importStatus').textContent = 'Datei geladen: '+file.name;
+    document.getElementById('importInsertBtn').style.display='inline-block';
     logDbg('Modul-Datei geladen: '+file.name);
   };
   reader.onerror = function() {
@@ -521,6 +601,26 @@ document.getElementById('importModuleFile').addEventListener('change', function(
 });
 function triggerModuleImport() {
   document.getElementById('importModuleFile').click();
+}
+function insertImportedPanel(){
+  if(!importModuleContent){
+    document.getElementById('importStatus').textContent='Keine Datei geladen!';
+    return;
+  }
+  const container=document.getElementById('gridMain');
+  const section=document.createElement('section');
+  const pid='panel'+(container.children.length+1);
+  section.className='mod-panel';
+  section.id=pid;
+  section.tabIndex=0;
+  section.setAttribute('role','region');
+  section.setAttribute('aria-labelledby',pid+'-label');
+  section.innerHTML=importModuleContent;
+  container.appendChild(section);
+  document.getElementById('importInsertBtn').style.display='none';
+  document.getElementById('importPreview').style.display='none';
+  document.getElementById('importStatus').textContent='Panel eingefügt: '+pid;
+  logDbg('Importiertes Panel angelegt: '+pid);
 }
 /* Genre/Archiv/Random */
 function renderList() {
@@ -554,10 +654,9 @@ function renderList() {
       span.title = 'Zum Kopieren klicken';
       span.onclick = () => {
         try { navigator.clipboard.writeText(value); }
-        catch(e){ logErr('Clipboard-Fehler: '+e); }
+        catch(e){ logErr('Clipboard-Fehler: '+e); flash(span,'flash-error'); return; }
         statusMsg("Genre kopiert!",1);
-        span.style.background = 'var(--active)';
-        setTimeout(()=>{ span.style.background='none'; }, 350);
+        flash(span);
       };
       li.appendChild(span);
       const edit = document.createElement('button');
@@ -603,6 +702,7 @@ function sortAndUpdate() {
   genres = [...new Set(genres.map(x => (typeof x==='object'?x.value:x).trim()).filter(x=>x.length>0))].sort((a,b)=>a.localeCompare(b, 'de'));
   localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
   renderList();
+  renderWeightList();
   logDbg('Archiv aktualisiert.');
 }
 function addGenre(str) {
@@ -632,23 +732,73 @@ function pickRandomN(n) {
   try {navigator.clipboard.writeText(result);}
   catch(e){logErr('Clipboard-Fehler: '+e);}
   statusMsg("Zufallsausgabe kopiert.",1);
-  dashboardData.unshift({
-    value: result,
-    time: new Date().toLocaleString()
+  flash(document.getElementById('randResult'));
+  addDashboardEntry(result);
+  logDbg('Zufallsausgabe erzeugt und kopiert.');
+}
+function loadWeights(){
+  try { genreWeights = JSON.parse(localStorage.getItem(WEIGHT_KEY)) || {}; }
+  catch(e){ genreWeights = {}; logErr('Gewicht-Laden: '+e); }
+}
+function saveWeights(){
+  localStorage.setItem(WEIGHT_KEY, JSON.stringify(genreWeights));
+}
+function renderWeightList(){
+  const box = document.getElementById('weightList');
+  if(!box) return;
+  box.innerHTML = '';
+  genres.forEach(g => {
+    const row = document.createElement('div');
+    row.className = 'weight-row';
+    const sp = document.createElement('span');
+    sp.textContent = g;
+    const inp = document.createElement('input');
+    inp.type='number';
+    inp.min='1';
+    inp.value = genreWeights[g] || 1;
+    inp.onchange = () => { genreWeights[g]=Math.max(1,Number(inp.value)||1); saveWeights(); };
+    row.appendChild(sp); row.appendChild(inp);
+    box.appendChild(row);
   });
+}
+function pickWeightedRandom(){
+  const pool=[];
+  genres.forEach(g=>{ const w=Number(genreWeights[g]||1); for(let i=0;i<w;i++) pool.push(g); });
+  if(pool.length===0){ statusMsg('Kein Genre vorhanden!',0); logErr('Gewichteter Zufall ohne Genres!'); return; }
+  const pick = pool[Math.floor(Math.random()*pool.length)];
+  const out = document.getElementById('weightResult');
+  out.style.display='block';
+  out.innerHTML = `<b>Gewichteter Zufall:</b> ${pick}`;
+  try { navigator.clipboard.writeText(pick); } catch(e){ logErr('Clipboard-Fehler: '+e); }
+  statusMsg('Gewichteten Zufall kopiert.',1); flash(out);
+  dashboardData.unshift({value: pick, time: new Date().toLocaleString()});
   dashboardData = dashboardData.slice(0,10);
   localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
   renderDashboard();
-  logDbg('Zufallsausgabe erzeugt und kopiert.');
+  logDbg('Gewichteten Zufall erzeugt und kopiert.');
 }
 function saveArchive() {
   localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
   statusMsg("Archiv gespeichert!",1);
+  addDashboardEntry('Archiv gespeichert');
   logDbg('Archiv gespeichert.');
 }
 function loadArchive() {
   const data = localStorage.getItem(LOCAL_KEY);
-  if(data) { genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); logDbg('Archiv geladen.');}
+  if(data) { genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); addDashboardEntry('Archiv geladen'); logDbg('Archiv geladen.'); }
+}
+function copyDash(txt, btn) {
+  try { navigator.clipboard.writeText(txt); }
+  catch(e){ logErr('Clipboard-Fehler: '+e); flash(btn,'flash-error'); return; }
+  statusMsg('In Zwischenablage.',1);
+  flash(btn);
+}
+function copyTmpl(txt, btn, title) {
+  try { navigator.clipboard.writeText(txt); }
+  catch(e){ logErr('Clipboard-Fehler: '+e); flash(btn,'flash-error'); return; }
+  tmplStatusMsg('Template kopiert: '+title,1);
+  flash(btn);
+  logDbg('Template kopiert: '+title);
 }
 /* Dashboard */
 function renderDashboard() {
@@ -657,7 +807,7 @@ function renderDashboard() {
   dashboardData.forEach(item => {
     const li = document.createElement('li');
     li.innerHTML = `<span class="dashboard-timestamp">${item.time}</span> <span>${item.value}</span>
-      <button class="dashboard-copy" title="Kopieren" onclick="navigator.clipboard.writeText('${item.value.replace(/'/g,"\\'")}');statusMsg('In Zwischenablage.',1);">⧉</button>`;
+      <button class="dashboard-copy" title="Kopieren" onclick="copyDash('${item.value.replace(/'/g,"\\'")}', this)">⧉</button>`;
     el.appendChild(li);
   });
 }
@@ -666,7 +816,10 @@ document.getElementById('clearDashboardBtn').onclick = function() {
     dashboardData = [];
     localStorage.removeItem(DASHBOARD_KEY);
     renderDashboard();
+    dashLogArr = [];
+    renderDashLog();
     statusMsg("Dashboard geleert.",1);
+    addDashboardEntry('Dashboard geleert');
     logDbg('Dashboard gelöscht.');
   }
 };
@@ -683,6 +836,7 @@ function renderTmplList() {
       try {navigator.clipboard.writeText(t.text);}
       catch(e){logErr('Clipboard-Fehler: '+e);}
       tmplStatusMsg("Template kopiert: "+t.title,1);
+      addDashboardEntry('Template kopiert: '+t.title);
       logDbg('Template kopiert: '+t.title);
     };
     btn.tabIndex = 0;
@@ -690,7 +844,7 @@ function renderTmplList() {
     rem.className = 'tmpl-remove';
     rem.innerText = '✖';
     rem.title = 'Template löschen';
-    rem.onclick = (e)=>{e.stopPropagation();tmplArchiv.splice(i,1);saveTmpl();renderTmplList();logDbg('Template gelöscht.');};
+    rem.onclick = (e)=>{e.stopPropagation();tmplArchiv.splice(i,1);saveTmpl();renderTmplList();addDashboardEntry('Template gelöscht');logDbg('Template gelöscht.');};
     btn.appendChild(rem);
     el.appendChild(btn);
   });
@@ -717,6 +871,7 @@ document.getElementById('tmplForm').onsubmit = function(e) {
   document.getElementById('tmplTitle').value = '';
   document.getElementById('tmplText').value = '';
   tmplStatusMsg("Template hinzugefügt!",1);
+  addDashboardEntry("Template hinzugefügt: "+title);
   logDbg('Template hinzugefügt: '+title);
 };
 /* Suche im Archiv */
@@ -744,16 +899,47 @@ function statusMsg(txt, ok=1) {
   el.style.display = 'block';
   setTimeout(()=>{el.style.display='none';},1800);
 }
+function flash(el, cls='flash-success') {
+  if(!el) return;
+  el.classList.add(cls);
+  setTimeout(()=>{ el.classList.remove(cls); }, 350);
+}
 function resetAll() {
   if(confirm("Alle Daten (Genres, Dashboard, Templates, Einstellungen) löschen?")) {
     localStorage.removeItem(LOCAL_KEY);
     localStorage.removeItem(DASHBOARD_KEY);
     localStorage.removeItem(TMPL_KEY);
+    localStorage.removeItem(NOTES_KEY);
     genres = []; dashboardData = []; tmplArchiv = [];
+    notesData = '';
     renderList(); renderDashboard(); renderTmplList();
+    if(document.getElementById('notesArea')) document.getElementById('notesArea').value='';
     renderLog();
     statusMsg("Alles gelöscht!",1); tmplStatusMsg("Alles gelöscht!",1);
+    addDashboardEntry("Alles gelöscht");
     logDbg('Alles gelöscht.');
+  }
+}
+
+/* Notizen-Panel */
+function saveNotes(){
+  notesData = document.getElementById('notesArea').value;
+  localStorage.setItem(NOTES_KEY, notesData);
+  logDbg('Notizen gespeichert.');
+}
+function loadNotes(){
+  const d = localStorage.getItem(NOTES_KEY);
+  if(d){
+    notesData = d;
+    document.getElementById('notesArea').value = notesData;
+  }
+}
+function clearNotes(){
+  if(confirm('Alle Notizen löschen?')){
+    notesData='';
+    document.getElementById('notesArea').value='';
+    localStorage.removeItem(NOTES_KEY);
+    logDbg('Notizen gelöscht.');
   }
 }
 /* Sidebar-Resize (optional) */
@@ -786,6 +972,41 @@ function makeSidebarResizable(side) {
 }
 makeSidebarResizable('Left');
 makeSidebarResizable('Right');
+function loadPanel(id, cb){
+  fetch('panels/'+id+'.html')
+    .then(r=>r.text())
+    .then(html=>{document.getElementById(id).innerHTML = html; if(cb) cb();})
+    .catch(e=>logErr('Panel-Load '+id+': '+e));
+}
+function loadRegisteredPanels(){
+  fetch('modules.json')
+    .then(r=>r.json())
+    .then(cfg=>{
+      cfg.modules.forEach(m=>{
+        if(m.id==='panel8') loadPanel(m.id, renderWeightList); else loadPanel(m.id);
+      });
+    })
+    .catch(e=>logErr('Module-Liste: '+e));
+}
+loadRegisteredPanels();
+function hideIntro(){
+  const el = document.getElementById('introOverlay');
+  if(el) el.style.display='none';
+}
+function openHelp(){
+  window.open('LAIENHILFE.md','_blank');
+}
+document.getElementById('copySelBtn').onclick = function(){
+  const txt = window.getSelection().toString();
+  if(!txt){ statusMsg('Nichts markiert!',0); return; }
+  try { navigator.clipboard.writeText(txt); }
+  catch(e){ logErr('Clipboard-Fehler: '+e); return; }
+  const b = this; const old = b.style.background;
+  b.style.background = 'var(--active)';
+  setTimeout(()=>{ b.style.background = old; }, 350);
+  statusMsg('Text kopiert.',1);
+  addDashboardEntry('Manuell kopiert');
+};
 </script>
 </body>
 </html>

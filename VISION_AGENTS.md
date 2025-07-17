@@ -29,7 +29,7 @@
 
 ### 🔹 Modul-Grundgerüst (Panels)
 - Panel01: *Genres, Archiv, Zufallsgenerator* (erste Kombi)
-- Panel02: *Templates* (Textbausteine)
+- Panel02: *Templates* (Textbausteine) – umgesetzt
 - Panel03: *Dashboard / Logging*
 - Panel04: *Modul-Import*
 - Panel05–09: Erweiterungsmodule nach Bedarf (Persona, Story usw.)
@@ -73,6 +73,7 @@
 ---
 
 ### Panel07‑11: Erweiterungsmodule
+### Panel07‑09: Erweiterungsmodule
 - Persona-Switcher: ✅
 - Story-Sampler: ✅
 - Cover/Layout: ✅
@@ -105,3 +106,27 @@ tasks:
   - CSS responsiv + Test via Axe/WAVE
 expected: "Modul startet auf einem Bildschirm, responsive, barrierefrei, modular erweiterbar"
 owner: "pppoppi + Dr. Allwissend_Poppsen"
+```
+
+### Weitere geplante Module und Funktionen
+- Erinnerung an ungespeicherte Änderungen beim Beenden
+- Favoriten-Startbildschirm nach Wahl der Module
+- Auto-Backup alle 5 Minuten und lokaler Undo-Verlauf
+- Automatische Validierung jedes Moduls vor Aktivierung
+- Farbkontrast-Check nach WCAG
+- Fokusmodus mit Touch-Bedienung
+- Tooltip-Akademie beim ersten Start
+- Querverlinkung der Module untereinander
+- Export als TXT, PDF oder JSON direkt aus dem Modul
+- ZIP-Import mit automatischer Verteilung der Dateien
+- Schreibschutz-Schalter in jedem Panel
+- Fehler-Erkennung mit Auto-Korrektur-Tipps
+- Entrümplungsmodus für Dateileichen
+- Doppelklick kopiert Inhalte in die Zwischenablage
+- Globaler Suchfilter über alle Panels
+- Todo-Listen-Modul
+- Songtext-Editor mit Titelfeld und Notizfeld
+- Dialog-Schreiber für neue und alte Charaktere
+- Info-Manager für eigene Befehls- und Webinfos
+- Zitaten-Modul mit Autor, Zitat und optionaler Notiz
+- Voll interaktiver Modulbaukasten

@@ -47,6 +47,10 @@ function apply(s){
   document.documentElement.style.setProperty('--btn-radius',s.radius);
   if(s.path) document.documentElement.dataset.path=s.path;
 }
+const status=document.getElementById('status');
+const KEY='appSettings';
+function show(msg){status.textContent=msg;setTimeout(()=>status.textContent='',3000);}
+function apply(s){document.documentElement.style.setProperty('--font-family',s.font);document.documentElement.style.setProperty('--base-font',s.size+'px');document.documentElement.style.setProperty('--btn-radius',s.radius);}
 function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
 function save(obj){try{localStorage.setItem(KEY,JSON.stringify(obj));show('Gespeichert');}catch(e){show('Speichern fehlgeschlagen');}}
 const data=load();
@@ -57,6 +61,9 @@ if(data.path){pathInput.value=data.path;}
 apply({font:fontSel.value,size:sizeInput.value,radius:radiusSel.value,path:pathInput.value});
 document.getElementById('save-btn').addEventListener('click',()=>{
   const obj={font:fontSel.value,size:parseInt(sizeInput.value)||16,radius:radiusSel.value,path:pathInput.value.trim()||'./data'};
+apply({font:fontSel.value,size:sizeInput.value,radius:radiusSel.value});
+document.getElementById('save-btn').addEventListener('click',()=>{
+  const obj={font:fontSel.value,size:parseInt(sizeInput.value)||16,radius:radiusSel.value};
   apply(obj);save(obj);
 });
 </script>
