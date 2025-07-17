@@ -144,3 +144,7 @@
 - [ ] Autoupdate-Skripte entfernt, Infos manuell pflegen
 - [x] Node-Skript create_module.js eingeführt
 - [x] index-DDD-Links zu index-MODULTOOL angepasst
+- [x] Startskript nutzt jetzt index-MODULTOOL.html
+- [x] LAIENHILFE: Start-URL korrigiert
+- [x] Dateilisten aktualisiert (baumstruktur/all_in_uebersicht)
+- [x] modules.json und module_versions.json bereinigt
