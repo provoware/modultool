@@ -80,6 +80,8 @@
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [ ] DEB- und AppImage-Paket bauen
+- [ ] Datei-Übersicht per Skript pflegen
 - [ ] ZIP-Backup-Modul entwickeln (Panel07)
 - [ ] Undo-/Redo-Funktion einbauen (Panel08)
 - [ ] README: lokalen Testserver via python3 -m http.server erklären

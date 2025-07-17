@@ -1,3 +1,4 @@
+Letztes Update: Thu Jul 17 16:21:13 UTC 2025
 Letztes Update: Thu Jul 17 00:56:31 UTC 2025
 Letztes Update: Thu Jul 17 00:08:19 UTC 2025
 Letztes Update: Wed Jul 16 23:59:30 UTC 2025
@@ -115,6 +116,8 @@ Offene Aufgaben:
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [ ] DEB- und AppImage-Paket bauen
+- [ ] Datei-Übersicht per Skript pflegen
 - [ ] ZIP-Backup-Modul entwickeln (Panel07)
 - [ ] Undo-/Redo-Funktion einbauen (Panel08)
 - [ ] README: lokalen Testserver via python3 -m http.server erklären

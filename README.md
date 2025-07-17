@@ -143,6 +143,16 @@ Führe einmal `bash tools/install_hook.sh` aus. Danach wird `platzhalter.txt` na
 ## 🔀 Branches zusammenführen
 Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches zusammenführen".
 
+## 📦 Pakete erstellen (.deb & AppImage)
+
+Mit dem Skript `tools/build_packages.sh` kannst du ein Debian-Paket (.deb) und ein AppImage erzeugen.
+
+```bash
+bash tools/build_packages.sh
+```
+
+Voraussetzung sind die Programme `dpkg-deb` und `appimagetool`. Falls sie fehlen, zeigt das Skript eine Warnung an.
+
 ## 🌐 Lokaler Testserver
 Um die HTML-Dateien bequem auszuprobieren, kannst du einen kleinen Webserver starten.
 
