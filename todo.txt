@@ -138,3 +138,10 @@
 - [x] Platzhaltermodule mit HTML-Grundgerüst ergänzt (focus_mode, direct_exporter)
 - [x] Doppelte Panel-Sektionen aus index-MODULTOOL.html entfernt
 - [x] LAIENHILFE um GitHub-Workflow erweitert (Outline)
+- [ ] plugin.json pro Pluginverzeichnis anlegen (Manifest mit Name und Version)
+- [ ] zentrale Update-Bibliothek in lib/ erstellen (update_manager.js)
+- [ ] gemeinsames Konfigurationsschema definieren (config_schema.json)
+- [ ] Unit- und Integrationstests einrichten
+- [ ] GitHub Actions für Linting und Testing hinzufügen
+- [ ] Schritt-für-Schritt-Assistenten für Modul-Erstellung planen
+- [ ] Barrierefreiheit automatisch prüfen (axe-core)
