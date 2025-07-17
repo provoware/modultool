@@ -1,6 +1,77 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <meta charset="UTF-8">
+  <title>Panel02 – Textbausteine</title>
+  <style>
+    #panel02{display:grid;gap:0.5rem;max-width:360px;margin:auto;font-family:sans-serif;}
+    #tmpl-list{list-style:none;padding:0;margin:0;}
+    #tmpl-list li{margin-bottom:0.5rem;border:1px solid #999;padding:0.5rem;border-radius:4px;background:#f4f4f4;display:flex;justify-content:space-between;align-items:center;}
+    #tmpl-list li button{margin-left:0.5rem;}
+    @media(min-width:600px){#panel02{max-width:500px;}}
+  </style>
+</head>
+<body>
+<div id="panel02">
+  <h2>Textbausteine</h2>
+  <label for="tmpl-title">Titel:</label>
+  <input id="tmpl-title" type="text" aria-label="Titel" required />
+  <label for="tmpl-text">Text:</label>
+  <textarea id="tmpl-text" rows="2" aria-label="Textvorlage" required></textarea>
+  <button id="add-btn">Hinzufügen</button>
+  <ul id="tmpl-list"></ul>
+</div>
+<script type="module">
+const titleInput=document.getElementById('tmpl-title');
+const textInput=document.getElementById('tmpl-text');
+const addBtn=document.getElementById('add-btn');
+const listEl=document.getElementById('tmpl-list');
+
+function loadTemplates(){
+  const data=localStorage.getItem('templates');
+  return data?JSON.parse(data):[];
+}
+
+function saveTemplates(arr){
+  localStorage.setItem('templates',JSON.stringify(arr));
+}
+
+function render(){
+  listEl.innerHTML='';
+  const arr=loadTemplates();
+  arr.forEach((t,i)=>{
+    const li=document.createElement('li');
+    const span=document.createElement('span');
+    span.textContent=t.title+': '+t.text;
+    const copyBtn=document.createElement('button');
+    copyBtn.textContent='Kopieren';
+    copyBtn.addEventListener('click',()=>navigator.clipboard.writeText(t.text));
+    const delBtn=document.createElement('button');
+    delBtn.textContent='Löschen';
+    delBtn.addEventListener('click',()=>{
+      const arr=loadTemplates();
+      arr.splice(i,1);
+      saveTemplates(arr);
+      render();
+    });
+    li.append(span,copyBtn,delBtn);
+    listEl.append(li);
+  });
+}
+
+addBtn.addEventListener('click',()=>{
+  const title=titleInput.value.trim();
+  const text=textInput.value.trim();
+  if(!title||!text) return;
+  const arr=loadTemplates();
+  arr.push({title,text});
+  saveTemplates(arr);
+  titleInput.value='';
+  textInput.value='';
+  render();
+});
+
+render();
 <meta charset="UTF-8">
 <title>Panel02 – Genre-Profile</title>
 <style>
@@ -52,6 +123,7 @@ const DASH_KEY='dashboardLog';
 function addDashboard(val){
   const arr=JSON.parse(localStorage.getItem(DASH_KEY)||'[]');
   arr.unshift({time:new Date().toLocaleTimeString(),value:val});
+  arr.unshift({time:new Date().toLocaleString(),value:val});
   if(arr.length>10) arr.length=10;
   localStorage.setItem(DASH_KEY,JSON.stringify(arr));
 }
@@ -132,6 +204,7 @@ randomBtn.addEventListener('click',()=>{
   output.textContent=choice;
   const entry=document.createElement('li');
   entry.textContent=new Date().toLocaleTimeString()+': '+choice;
+  entry.textContent=new Date().toLocaleString()+': '+choice;
   log.prepend(entry);
   addDashboard(choice);
 });
@@ -153,6 +226,7 @@ weightedBtn.addEventListener('click',()=>{
   output.textContent=choice;
   const li=document.createElement('li');
   li.textContent=new Date().toLocaleTimeString()+': '+choice+' ('+picked+')';
+  li.textContent=new Date().toLocaleString()+': '+choice+' ('+picked+')';
   log.prepend(li);
   addDashboard(choice);
 });
