@@ -549,7 +549,18 @@ Damit sind die Zweige vereint und online gesichert.
   ```bash
   git stash        # aktuelle Änderungen zwischenspeichern
   git stash pop    # später wiederherstellen
+
+- **Eigenen Port nutzen (Port)**
+  ```bash
+  python3 -m http.server 9000
   ```
+  (Startet den Server auf Port 9000. Danach im Browser `http://localhost:9000/index-MODULTOOL.html` öffnen.)
+
+- **Logdatei anzeigen (Log)**
+  ```bash
+  tail -f /tmp/modultool_server.log
+  ```
+  (Zeigt laufend neue Meldungen aus der Server-Logdatei an.)
 
 ## Pakete erstellen
 
