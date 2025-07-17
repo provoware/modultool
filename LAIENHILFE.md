@@ -47,6 +47,13 @@ Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und �
 3. Öffne dann `http://localhost:8000/index-MODULTOOL.html` im Browser (Programm zum Surfen im Internet).
 4. Mit `Strg+C` beendest du den Server wieder.
 
+## Tooltips & Eingabehilfen
+
+- Viele Felder zeigen nun Beispieltexte *(Placeholder = Platzhalter)*.
+- Halte die Maus über ein Eingabefeld, um einen **Tooltip** (kurzer Hinweis) zu sehen.
+- Beispiel: Im Modul *Persona-Switcher* weist das Namensfeld mit "Name des Profils" auf den Zweck hin.
+- Diese Tipps helfen, schneller zu verstehen, was eingetragen werden soll.
+
 ## Eigene Module erstellen
 
 1. Lege die Ordner `modules` und `panels` an, falls sie fehlen. Das machst du im Terminal (Eingabeprogramm) so:
