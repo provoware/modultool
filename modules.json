@@ -43,5 +43,10 @@
     "id": "panel09",
     "title": "Einstellungen",
     "file": "modules/panel09.html"
+  },
+  {
+    "id": "panel10",
+    "title": "Modul-Vorlage",
+    "file": "modules/panel10.html"
   }
 ]

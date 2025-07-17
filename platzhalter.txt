@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 23:38:16 UTC 2025
+Letztes Update: Thu Jul 17 17:37:18 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -24,3 +24,6 @@ Offene Aufgaben:
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [x] Script `create_module.sh` implementiert
+- [x] Panel10 als Vorlage angelegt
+- [ ] Weitere Module über das Script erstellen und testen

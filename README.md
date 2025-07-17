@@ -36,6 +36,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
   → Farbmodus (dunkel, hell, blau) wählen und speichern
 - **⚙️ Panel09: Einstellungen**
   → Schriftart (Font), Größe und Button-Rundung global anpassen. Dadurch haben alle Module den gleichen Stil.
+- **📂 Panel10: Modul-Vorlage**
+  → Vorlage für eigene Module per Skript erstellen
 - **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
 - **Sichtbarer Tastaturfokus** erleichtert die Navigation per Tastatur
 ---
@@ -47,6 +49,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel
 - Gut sichtbarer Tastaturfokus zur einfachen Navigation
 - Projektordner-Management + Fehlerkorrektur
+- Neues Modul per Skript erstellen (`bash tools/create_module.sh`)
 
 ---
 
@@ -65,3 +68,11 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 
 ## 🔀 Branches zusammenführen
 Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches zusammenführen".
+
+## Neues Modul anlegen
+
+Führe das Skript aus, um eine Vorlage zu kopieren:
+```bash
+bash tools/create_module.sh panel10 "Mein Modul"
+```
+Das Skript ergänzt **modules.json** (Modul-Liste) automatisch.
