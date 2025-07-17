@@ -1,27 +1,4 @@
-Letztes Update: Thu Jul 17 17:27:44 UTC 2025
-Letztes Update: Thu Jul 17 17:37:18 UTC 2025
-Letztes Update: Thu Jul 17 17:19:05 UTC 2025
-Letztes Update: Thu Jul 17 01:11:51 UTC 2025
-Letztes Update: Thu Jul 17 00:27:38 UTC 2025
-Letztes Update: Thu Jul 17 16:21:13 UTC 2025
-Letztes Update: Thu Jul 17 00:56:31 UTC 2025
-Letztes Update: Thu Jul 17 00:08:19 UTC 2025
-Letztes Update: Wed Jul 16 23:59:30 UTC 2025
-Letztes Update: Wed Jul 16 06:47:52 UTC 2025
-Letztes Update: Wed Jul 16 06:51:53 UTC 2025
-Letztes Update: Wed Jul 16 06:38:16 UTC 2025
-Letztes Update: Wed Jul 16 06:36:21 UTC 2025
-Letztes Update: Wed Jul 16 06:26:05 UTC 2025
-Letztes Update: Wed Jul 16 06:30:15 UTC 2025
-Letztes Update: Wed Jul 16 04:56:49 UTC 2025
-Letztes Update: Thu Jul 17 16:27:25 UTC 2025
-Letztes Update: Wed Jul 16 04:41:44 UTC 2025
-Letztes Update: Wed Jul 16 05:11:05 UTC 2025
-Letztes Update: Wed Jul 16 04:21:16 UTC 2025
-Letztes Update: Wed Jul 16 03:33:50 UTC 2025
-Letztes Update: Thu Jul 17 17:07:55 UTC 2025
-
-Offene Aufgaben:
+Letztes Update: Thu Jul 17 21:54:17 UTC 2025
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] Befehlsreferenz-Modul (panel9) ergänzen
@@ -37,7 +14,6 @@ Offene Aufgaben:
 - [x] Clipboard-Funktion mit Feedback-Farben
 - [x] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
-
 - [x] Ordner "modules/" und "panels/" erstellen
 - [x] "modules.json" für Panels anlegen
 - [x] Shellcheck-Warnungen in Skripten beheben
@@ -66,15 +42,6 @@ Offene Aufgaben:
 - [x] Dummy-Module angelegt
 - [x] ARIA-Labels erweitert
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
-- [x] Fehlerabfang für LocalStorage und Clipboard ergänzt
-- [x] Panel02 Modul erstellen (Textbausteine)
-- [x] modules.json und module_versions.json anlegen
-- [x] Modul 7: Notizen integriert
-- [x] Anleitung für Flexibilität & Nutzerfreundlichkeit ergänzt
-
-- [ ] Templates-Modul (Panel02) erstellen
-- [ ] Undo/Redo-System einbauen
-- [ ] ZIP-Backup-Funktion ergänzen
 - [ ] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
 - [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
 - [ ] Auto-Backup alle 5 Min und Undo-Verlauf lokal einbauen
@@ -96,17 +63,33 @@ Offene Aufgaben:
 - [ ] Info-Manager für eigene Befehle anlegen
 - [ ] Zitaten-Modul mit Notizfeld umsetzen
 - [ ] Interaktiven Modulbaukasten erstellen
+- Anleitung zum Selbstcheck im README ergänzt
+- [x] .gitignore angelegt (node_modules/, logs/, data/*.log, *.tmp)
+- modules.json erstellt (enthält angemeldete Panels)
+- README um Hinweis zu modules.json ergänzt
+- Nach jeder Änderung: `bash tools/selfcheck.sh` ausführen (Selbsttest)
+- MIT-Lizenz hinzugefuegt (LICENSE-Datei, Verweis in README)
+- AGENTS.md Codeblock geschlossen (triple backticks).
+- [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
+- [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
 - [x] Zufallsprofile ohne Gewichtung umgesetzt (Panel02)
 - [x] Logging ins Dashboard einbauen
 - [x] Clipboard-Funktion mit Feedback-Farben
 - [x] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Dashboard-Modul umgesetzt (Panel03)
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
-
+- [x] Fehlerabfang für LocalStorage und Clipboard ergänzt
+- [x] Panel02 Modul erstellen (Textbausteine)
+- [x] modules.json und module_versions.json anlegen
+- [x] Modul 7: Notizen integriert
+- [x] Anleitung für Flexibilität & Nutzerfreundlichkeit ergänzt
 - [x] Liste wird beim Speichern alphabetisch sortiert
 - [x] Speichern-Feedback per Farbe umgesetzt
 - [x] Save-Button Feedback und automatische Listenbereinigung
 - [x] DOKUMENTATION.md hinzugefügt und erklärt
+- [ ] Templates-Modul (Panel02) erstellen
+- [ ] Undo/Redo-System einbauen
+- [ ] ZIP-Backup-Funktion ergänzen
 - [x] Text-Templates-Modul (Panel04) umgesetzt
 - [x] Zufallsmodi mit Profilgewichtung umsetzen (Panel02)
 - [x] Nutzerfreundlichkeit & Fehlerbehandlung verbessert (Panel01/02)
@@ -121,7 +104,6 @@ Offene Aufgaben:
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
-
 - [ ] Letzter Selfcheck vor dem Release
 - [ ] README um Releasenotizen ergaenzen
 - [ ] finale Platzhalter-Datei erstellen
@@ -130,7 +112,6 @@ Offene Aufgaben:
 - [ ] Weitere Module über das Script erstellen und testen
 - [x] ShellCheck und HTMLHint installiert
 - [x] Laienhilfe um weiterf\u00fchrende Tipps erweitert
-
 - [ ] HTMLHint (HTML-Prüfwerkzeug) und ShellCheck (Shell-Skript-Prüfer) installieren
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)
 - [ ] README um Schritt-für-Schritt-Anleitung erweitern
@@ -290,3 +271,6 @@ Letztes Update: Thu Jul 17 21:52:54 UTC 2025
 - [x] Datum & Uhrzeit im Dashboard anzeigen (Panel03)
 - [ ] Autoupdate-Skripte entfernt, Infos manuell pflegen
 - [x] Node-Skript create_module.js eingeführt
+- [ ] Autoupdate-Skripte entfernt, Infos manuell pflegen
+- [x] Node-Skript create_module.js eingeführt
+- [x] index-DDD-Links zu index-MODULTOOL angepasst

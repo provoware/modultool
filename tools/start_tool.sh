@@ -1,7 +1,8 @@
 #!/bin/bash
 # tools/start_tool.sh - Startet einen lokalen Server und öffnet den Browser
 
-URL="http://localhost:8000/index-DDD.html"
+# Standardseite des Tools
+URL="http://localhost:8000/index-MODULTOOL.html"
 echo "🌐 Starte lokalen Server ..."
 python3 -m http.server >/tmp/modultool_server.log 2>&1 &
 PID=$!

@@ -9,6 +9,10 @@
 - [x] Dashboard-Modul umgesetzt (Panel03)
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [x] Zufallsmodi mit Profilgewichtung implementieren
+- [x] Logging ins Dashboard einbauen
+- [x] Clipboard-Funktion mit Feedback-Farben
+- [x] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [x] Ordner "modules/" und "panels/" erstellen
 - [x] "modules.json" für Panels anlegen
 - [x] Shellcheck-Warnungen in Skripten beheben
@@ -20,6 +24,7 @@
 - [x] Neues Modul panel10 "Erste Schritte" ergänzen
 - [x] Hilfebutton im Interface, öffnet LAIENHILFE
 - [x] Neues Modul panel11 "FAQ" einbinden
+- [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
 - [ ] Zufallsmodi mit Profilgewichtung implementieren
 - [ ] Logging ins Dashboard einbauen
 - [ ] Clipboard-Funktion mit Feedback-Farben
@@ -32,6 +37,12 @@
 - [x] Platzhalter im Modulordner durch Beispielcode ersetzen
 - [x] Dummy-Module angelegt
 - [x] ARIA-Labels erweitert
+- [x] Logging ins Dashboard einbauen
+- [x] Clipboard-Funktion mit Feedback-Farben
+- [x] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Dummy-Module angelegt
+- [x] ARIA-Labels erweitert
+- [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [ ] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
 - [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
 - [ ] Auto-Backup alle 5 Min und Undo-Verlauf lokal einbauen
@@ -60,6 +71,14 @@
 - Nach jeder Änderung: `bash tools/selfcheck.sh` ausführen (Selbsttest)
 - MIT-Lizenz hinzugefuegt (LICENSE-Datei, Verweis in README)
 - AGENTS.md Codeblock geschlossen (triple backticks).
+- [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
+- [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
+- [x] Zufallsprofile ohne Gewichtung umgesetzt (Panel02)
+- [x] Logging ins Dashboard einbauen
+- [x] Clipboard-Funktion mit Feedback-Farben
+- [x] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Dashboard-Modul umgesetzt (Panel03)
+- [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [x] Fehlerabfang für LocalStorage und Clipboard ergänzt
 - [x] Panel02 Modul erstellen (Textbausteine)
 - [x] modules.json und module_versions.json anlegen
@@ -126,3 +145,11 @@
 - [x] Datum & Uhrzeit im Dashboard anzeigen (Panel03)
 - [ ] Autoupdate-Skripte entfernt, Infos manuell pflegen
 - [x] Node-Skript create_module.js eingeführt
+- [x] Module 10/11 aufgeteilt, neue Dateien panel12 und panel13 angelegt
+- [x] Fehlerhaftes Objekt aus module_versions.json entfernt
+- [x] modules.json bereinigt (Duplikate entfernt)
+- [x] index-DDD-Links zu index-MODULTOOL angepasst
+- [x] Startskript nutzt jetzt index-MODULTOOL.html
+- [x] LAIENHILFE: Start-URL korrigiert
+- [x] Dateilisten aktualisiert (baumstruktur/all_in_uebersicht)
+- [x] modules.json und module_versions.json bereinigt
