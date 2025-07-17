@@ -85,3 +85,4 @@ modules.json → Panel-Registrierung
 /setup github           # Initialsetup CI, Branch Protection
 /check ordnung          # Strukturvalidator
 bash tools/update_placeholder.sh  # platzhalter.txt mit todo.txt abgleichen
+```
