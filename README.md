@@ -61,6 +61,17 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 📁 logs/
 📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
 📁 .github/workflows/ (validate.yml)
+```
+
+## 🧪 Selbstcheck ausführen
+
+Mit diesem Befehl startest du den Selbstcheck (kleines Prüfskript):
+
+```bash
+bash tools/selfcheck.sh
+```
+
+Das Skript aktualisiert die Datei `data/baumstruktur.txt` und zeigt dir offene Punkte aus `data/todo.txt`. Führe es regelmäßig aus und trage neue Aufgaben immer in `data/todo.txt` ein.
 📄 modules.json (Panel-Registrierung)
 ```
 

@@ -1,4 +1,5 @@
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
+- Anleitung zum Selbstcheck im README ergänzt
 - [x] .gitignore angelegt (node_modules/, logs/, data/*.log, *.tmp)
 - modules.json erstellt (enthält angemeldete Panels)
 - README um Hinweis zu modules.json ergänzt

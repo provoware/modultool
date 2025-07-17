@@ -1,3 +1,4 @@
+- Anleitung zum Selbstcheck im README ergänzt
 - Selfcheck regelmäßig ausführen
 MIT-Lizenz hinzugefuegt
 - AGENTS.md Codeblock geschlossen (triple backticks).
