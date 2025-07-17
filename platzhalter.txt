@@ -1,4 +1,4 @@
-Letztes Update: Wed Jul 16 23:38:16 UTC 2025
+Letztes Update: Thu Jul 17 17:19:05 UTC 2025
 
 Offene Aufgaben:
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
@@ -24,3 +24,5 @@ Offene Aufgaben:
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [x] ShellCheck und HTMLHint installiert
+- [x] Laienhilfe um weiterf\u00fchrende Tipps erweitert
