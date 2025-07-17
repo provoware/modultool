@@ -22,8 +22,9 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - **🎛 Panel02: Genre-Profile**
   → Mehrere Genre-Listen unter Profilnamen speichern, optional mit Gewichtung
   → Button "Gewichteter Zufall" wählt ein Profil nach Gewicht und daraus ein Genre
-- **📊 Panel03: Dashboard – Verlauf**
+ - **📊 Panel03: Dashboard – Verlauf**
   → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
+  → Oben laufende Anzeige von Datum und Uhrzeit
 - **📋 Panel04: Textbausteine**
   → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
 - **🧑‍🎤 Panel05: Persona-Switcher**
