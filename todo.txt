@@ -134,3 +134,6 @@
 - [x] LAIENHILFE: Start-URL korrigiert
 - [x] Dateilisten aktualisiert (baumstruktur/all_in_uebersicht)
 - [x] modules.json und module_versions.json bereinigt
+- [x] modules.json neu strukturiert und doppelte Panel-IDs entfernt
+- [x] Platzhaltermodule mit HTML-Grundgerüst ergänzt (focus_mode, direct_exporter)
+- [x] Doppelte Panel-Sektionen aus index-MODULTOOL.html entfernt
