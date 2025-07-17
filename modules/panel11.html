@@ -2,6 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<title>Panel11 – Monats- und Tagesplan</title>
+<style>
+  #panel11{display:grid;gap:.5rem;max-width:360px;margin:auto;font-family:var(--font-family,sans-serif);}
+  #day-list{max-height:140px;overflow-y:auto;padding-left:1rem;}
 <title>Panel11 – Blog-Editor</title>
 <style>
   #panel11{display:grid;gap:0.5rem;max-width:360px;margin:auto;font-family:var(--font-family,sans-serif);}
@@ -14,6 +18,62 @@
 </head>
 <body>
 <div id="panel11">
+  <h2>Monats- & Tagesplan</h2>
+  <label for="dateInput">Datum auswählen:</label>
+  <input type="date" id="dateInput">
+  <label for="entryText">Eintrag:</label>
+  <input type="text" id="entryText" placeholder="Kurzbeschreibung">
+  <button id="addBtn">Speichern</button>
+  <div id="monthHeader"></div>
+  <ul id="day-list"></ul>
+  <div id="dayStatus" role="status" aria-live="polite"></div>
+</div>
+<script type="module">
+import {isValidDate,isNonEmpty,loadJSON,saveJSON} from '../validation.js';
+const KEY='calendarEntries';
+const dateInput=document.getElementById('dateInput');
+const entryText=document.getElementById('entryText');
+const addBtn=document.getElementById('addBtn');
+const list=document.getElementById('day-list');
+const monthHeader=document.getElementById('monthHeader');
+const status=document.getElementById('dayStatus');
+function log(msg,type='info'){
+  status.textContent=msg;
+  setTimeout(()=>status.textContent='',4000);
+  const arr=JSON.parse(localStorage.getItem('calendarLog')||'[]');
+  arr.unshift({time:new Date().toLocaleString(),type,msg});
+  if(arr.length>20) arr.pop();
+  localStorage.setItem('calendarLog',JSON.stringify(arr));
+}
+function load(){
+  return loadJSON(KEY,[]);
+}
+function save(arr){
+  if(!saveJSON(KEY,arr)) log('Speichern fehlgeschlagen','err');
+}
+function render(month){
+  const entries=load().filter(e=>e.date.startsWith(month));
+  list.innerHTML='';
+  monthHeader.textContent=new Date(month+'-01').toLocaleString('de',{month:'long',year:'numeric'});
+  entries.sort((a,b)=>a.date.localeCompare(b.date));
+  entries.forEach(e=>{const li=document.createElement('li');li.textContent=e.date.slice(8)+' – '+e.text;list.appendChild(li);});
+  log('Monat '+monthHeader.textContent+' angezeigt');
+}
+function addEntry(){
+  const d=dateInput.value; const t=entryText.value.trim();
+  if(!(isValidDate(d)&&isNonEmpty(t))){log('Datum und Text nötig','err');return;}
+  const arr=load(); arr.push({date:d,text:t}); save(arr); log('Eintrag gespeichert'); entryText.value=''; render(d.slice(0,7)); updateDashboard();
+}
+addBtn.addEventListener('click',addEntry);
+dateInput.addEventListener('change',()=>{ if(dateInput.value) render(dateInput.value.slice(0,7)); });
+function updateDashboard(){
+  const arr=load().filter(e=>e.date>=new Date().toISOString().slice(0,10));
+  arr.sort((a,b)=>a.date.localeCompare(b.date));
+  const next=arr.slice(0,5);
+  localStorage.setItem('calendarNext5',JSON.stringify(next));
+}
+updateDashboard();
+if(dateInput.value) render(dateInput.value.slice(0,7));
   <h2>Blog-Editor</h2>
   <label for="blog-title">Titel:</label>
   <input id="blog-title" aria-label="Titel">

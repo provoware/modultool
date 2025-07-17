@@ -80,6 +80,13 @@
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+
+- [x] Kalender-Modul 1 (Panel10) mit Jahresübersicht implementiert
+- [x] Kalender-Modul 2 (Panel11) mit Monats- und Tagesansicht implementiert
+- [x] Dashboard zeigt jetzt die nächsten fünf Termine
+- [x] Laienhilfe mit Kalender-Befehlen ergänzt
+- [x] Intelligente Validierungsfunktionen eingeführt
+- [x] Module im Dashboard auswählbar
 - [ ] DEB- und AppImage-Paket bauen
 - [ ] Datei-Übersicht per Skript pflegen
 - [ ] ZIP-Backup-Modul entwickeln (Panel07)

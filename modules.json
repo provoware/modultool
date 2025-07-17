@@ -67,11 +67,13 @@
   },
   {
     "id": "panel10",
+    "title": "Jahresplan Übersicht",
     "title": "Wiki",
     "file": "modules/panel10.html"
   },
   {
     "id": "panel11",
+    "title": "Monats- und Tagesplan",
     "title": "Blog-Editor",
     "file": "modules/panel11.html"
   }
