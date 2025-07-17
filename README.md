@@ -1,7 +1,7 @@
 # 🧰 Modultool
 
-**Modulares Content-Creation-Tool mit Fokus auf Barrierefreiheit, Systemkritik & Selbstheilung.**  
-Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaffende.
+**Modulares Content-Creation-Tool (Werkzeug zur Inhaltserstellung) mit Fokus auf Barrierefreiheit, Systemkritik und Selbstheilung.**
+Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content-Schaffende.
 
 ---
 
@@ -16,18 +16,37 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 
 ## 🧩 Aktuelle Start-Module
 
-- **🎲 Genre-Archiv & Eingabe**  
-  → Speicherung, Duplikatsprüfung, Komma-getrennte Eingaben  
-- **🧠 Zufallsgenerator**  
-  → mit Auswahlmodi, Logging, Favoriten und Export
-
+---
+- **📝 Panel01: Genre-Liste & Zufall**
+  → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
+- **🎛 Panel02: Genre-Profile**
+  → Mehrere Genre-Listen unter Profilnamen speichern, optional mit Gewichtung
+  → Button "Gewichteter Zufall" wählt ein Profil nach Gewicht und daraus ein Genre
+ - **📊 Panel03: Dashboard – Verlauf**
+  → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
+  → Oben laufende Anzeige von Datum und Uhrzeit
+- **📋 Panel04: Textbausteine**
+  → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
+- **🧑‍🎤 Panel05: Persona-Switcher**
+  → Verschiedene Figurenprofile speichern und auswählen
+- **🖖 Panel06: Story-Sampler**
+  → Kurze Ideen sammeln und zufällig auswählen
+- **🖼️ Panel07: Cover-Layout**
+  → Einfacher Titel und Farbvorschau für Cover
+- **🎨 Panel08: Theme-Switcher**
+  → Farbmodus (dunkel, hell, blau) wählen und speichern
+- **⚙️ Panel09: Einstellungen**
+  → Schriftart (Font), Größe und Button-Rundung global anpassen. Dadurch haben alle Module den gleichen Stil.
+- **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
+- **Sichtbarer Tastaturfokus** erleichtert die Navigation per Tastatur
 ---
 
 ## 🧠 Features
 
 - Drag & Drop für Medien, Module, Templates
-- Undo-/Redo-System, ZIP-Export, Selfcheck
+- Undo-/Redo-System, ZIP-Export, Selfcheck (Fehlerprüfung via `bash tools/selfcheck.sh`)
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel
+- Gut sichtbarer Tastaturfokus zur einfachen Navigation
 - Projektordner-Management + Fehlerkorrektur
 
 ---
@@ -38,6 +57,22 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstler & Content-Schaff
 📁 panels/
 📁 modules/
 📁 data/ (baumstruktur.txt, todo.txt)
+📄 platzhalter.txt
 📁 logs/
-📁 tools/ (selfcheck.sh)
+📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
 📁 .github/workflows/ (validate.yml)
+📄 modules.json (Registrierung vorhandener Module)
+```
+
+## 🔀 Branches zusammenführen
+Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches zusammenführen".
+
+## 🔒 Datensicherheit und Backups
+
+Um versehentlichen Datenverlust zu vermeiden, lohnt sich eine lokale Sicherung (Backup). Ein einfaches ZIP-Archiv genügt:
+
+```bash
+zip -r backup_$(date +%Y%m%d).zip .
+```
+
+Damit wird der gesamte Ordner in eine Archivdatei verpackt. Die Datei lässt sich auf einen USB-Stick kopieren oder extern speichern. So bist du abgesichert, falls etwas schiefgeht.
