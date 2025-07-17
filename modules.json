@@ -67,6 +67,8 @@
   },
   {
     "id": "panel10",
+    "title": "Modul-Vorlage",
+    "file": "modules/panel10.html"
     "title": "Jahresplan Übersicht",
     "title": "Wiki",
     "file": "modules/panel10.html"

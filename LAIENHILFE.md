@@ -424,17 +424,16 @@ Keine
 
 ## Weitere Laien-Tipps
 
-1. Neues Modul kopieren:
+1. Neues Modul anlegen:
    ```bash
-   cp modules/panel04.html modules/neues_panel.html
+   bash tools/create_module.sh panel10 "Mein Modul"
    ```
-   Damit legst du eine Kopie an. Danach `<title>` und `<h2>` anpassen.
-2. In `modules.json` einen neuen Eintrag ergänzen.
-3. Selfcheck starten:
+   (Das Skript kopiert die Vorlage und ergänzt `modules.json` automatisch.)
+2. Selfcheck starten:
    ```bash
    bash tools/selfcheck.sh
    ```
-4. Aufgabenliste aktualisieren:
+3. Aufgabenliste aktualisieren:
    ```bash
    nano todo.txt
    ```

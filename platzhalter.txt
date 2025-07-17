@@ -1,3 +1,4 @@
+Letztes Update: Thu Jul 17 17:37:18 UTC 2025
 Letztes Update: Thu Jul 17 17:19:05 UTC 2025
 Letztes Update: Thu Jul 17 01:11:51 UTC 2025
 Letztes Update: Thu Jul 17 00:27:38 UTC 2025
@@ -119,6 +120,9 @@ Offene Aufgaben:
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [x] Script `create_module.sh` implementiert
+- [x] Panel10 als Vorlage angelegt
+- [ ] Weitere Module über das Script erstellen und testen
 - [x] ShellCheck und HTMLHint installiert
 - [x] Laienhilfe um weiterf\u00fchrende Tipps erweitert
 

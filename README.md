@@ -83,6 +83,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
   → Farbmodus (dunkel, hell, blau) wählen und speichern
 - **⚙️ Panel09: Einstellungen**
   → Schriftart (Font), Größe und Button-Rundung global anpassen. Dadurch haben alle Module den gleichen Stil.
+- **📂 Panel10: Modul-Vorlage**
+  → Vorlage für eigene Module per Skript erstellen
 - **📆 Panel10: Jahresplan Übersicht**
   → Zeigt alle Monate des Jahres mit den gespeicherten Terminen aus Panel11
 - **🗓️ Panel11: Monats- und Tagesplan**
@@ -102,6 +104,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel
 - Gut sichtbarer Tastaturfokus zur einfachen Navigation
 - Projektordner-Management + Fehlerkorrektur
+- Neues Modul per Skript erstellen (`bash tools/create_module.sh`)
 - Automatisches Update via `bash tools/autoupdate.sh`
 
 
@@ -151,6 +154,13 @@ Führe einmal `bash tools/install_hook.sh` aus. Danach wird `platzhalter.txt` na
 ## 🔀 Branches zusammenführen
 Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches zusammenführen".
 
+## Neues Modul anlegen
+
+Führe das Skript aus, um eine Vorlage zu kopieren:
+```bash
+bash tools/create_module.sh panel10 "Mein Modul"
+```
+Das Skript ergänzt **modules.json** (Modul-Liste) automatisch.
 ## 📦 Pakete erstellen (.deb & AppImage)
 
 Mit dem Skript `tools/build_packages.sh` kannst du ein Debian-Paket (.deb) und ein AppImage erzeugen.
