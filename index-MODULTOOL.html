@@ -985,7 +985,8 @@ function makeSidebarResizable(side) {
 makeSidebarResizable('Left');
 makeSidebarResizable('Right');
 function loadPanel(id, cb){
-  fetch('panels/'+id+'.html')
+  // Module liegen im Ordner "modules"
+  fetch('modules/'+id+'.html')
     .then(r=>r.text())
     .then(html=>{document.getElementById(id).innerHTML = html; if(cb) cb();})
     .catch(e=>logErr('Panel-Load '+id+': '+e));

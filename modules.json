@@ -1,24 +1,3 @@
-{
-  "modules": [
-    {"id": "panel01", "name": "Genres & Zufall", "file": "modules/panel01.html", "version": "1.0"},
-    {"id": "panel02", "name": "Textbausteine", "file": "modules/panel02.html", "version": "1.0"}
-  ]
-}
-    {"id": "panel7", "name": "Schnellhilfe", "file": "panels/panel7.html"},
-    {"id": "panel8", "name": "Gewichteter Zufall", "file": "panels/panel8.html"},
-    {"id": "panel9", "name": "Befehlsreferenz", "file": "panels/panel9.html"},
-    {"id": "panel10", "name": "Erste Schritte", "file": "panels/panel10.html"},
-    {"id": "panel11", "name": "FAQ", "file": "panels/panel11.html"}
-  ]
-}
-  "beispiel_modul": {
-    "file": "modules/beispiel_modul.js",
-    "title": "Beispiel Modul",
-    "active": true
-  }
-}
-  "modules": []
-}
 [
   {
     "id": "panel01",
@@ -67,16 +46,27 @@
   },
   {
     "id": "panel10",
-    "title": "Modul-Vorlage",
-    "file": "modules/panel10.html"
     "title": "Jahresplan Übersicht",
-    "title": "Wiki",
     "file": "modules/panel10.html"
   },
   {
     "id": "panel11",
     "title": "Monats- und Tagesplan",
-    "title": "Blog-Editor",
     "file": "modules/panel11.html"
   }
 ]
+{
+  "modules": [
+    {"id": "panel1", "name": "Genres & Zufall", "file": "modules/panel01.html"},
+    {"id": "panel2", "name": "Genre-Profile", "file": "modules/panel02.html"},
+    {"id": "panel3", "name": "Dashboard – Verlauf", "file": "modules/panel03.html"},
+    {"id": "panel4", "name": "Textbausteine", "file": "modules/panel04.html"},
+    {"id": "panel5", "name": "Persona-Switcher", "file": "modules/panel05.html"},
+    {"id": "panel6", "name": "Story-Sampler", "file": "modules/panel06.html"},
+    {"id": "panel7", "name": "Cover-Layout", "file": "modules/panel07.html"},
+    {"id": "panel8", "name": "Theme-Switcher", "file": "modules/panel08.html"},
+    {"id": "panel9", "name": "Einstellungen", "file": "modules/panel09.html"},
+    {"id": "panel10", "name": "Wiki", "file": "modules/panel10.html"},
+    {"id": "panel11", "name": "Blog-Editor", "file": "modules/panel11.html"}
+  ]
+}
