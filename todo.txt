@@ -1,4 +1,5 @@
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
+- [x] .gitignore angelegt (node_modules/, logs/, data/*.log, *.tmp)
 - modules.json erstellt (enthält angemeldete Panels)
 - README um Hinweis zu modules.json ergänzt
 - Nach jeder Änderung: `bash tools/selfcheck.sh` ausführen (Selbsttest)
