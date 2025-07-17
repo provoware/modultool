@@ -593,3 +593,55 @@ aktualisiert sich jede Sekunde von selbst.
   date
   ```
   (Zeigt Datum und Zeit an)
+
+## Weiterf\u00fchrende Laienvorschl\u00e4ge
+
+Hier siehst du in einfacher Sprache, wie du die Schritte aus dem GitHub-Outline durchf\u00fchrst. Fachbegriffe stehen in Klammern und werden kurz erkl\u00e4rt.
+
+### 1. Repository einrichten und Branch anlegen
+```bash
+git remote -v
+git remote add origin URL   # Remote (Online-Adresse) setzen
+git checkout -b refactoring # neuen Branch (Entwicklungszweig) erstellen
+```
+
+### 2. Ordner umbenennen
+```bash
+git mv modules plugins
+git mv panels ui/panels
+```
+Damit hei\u00dfen die Ordner jetzt `plugins/` und `ui/panels/`.
+
+### 3. plugin.json anlegen
+```bash
+mkdir -p plugins/mein_plugin
+nano plugins/mein_plugin/plugin.json
+```
+In dieser Datei tr\u00e4gst du Name und Version ein. `JSON` ist ein einfaches Textformat.
+
+### 4. Gemeinsame Bibliothek nutzen
+Lege den Ordner `lib/` an und erstelle dort eine Datei f\u00fcr die Update-Logik:
+```bash
+mkdir -p lib
+nano lib/update.js
+```
+
+### 5. Konfigurationsdatei
+```bash
+nano config.json
+```
+Hier speicherst du zentrale Einstellungen, die das Tool beim Start pr\u00fcft.
+
+### 6. Tests und CI
+```bash
+bash tools/selfcheck.sh
+```
+Der Selfcheck ruft HTML-, JSON- und Shell-Pr\u00fcfungen auf.
+
+### 7. \u00c4nderungen hochladen
+```bash
+git add .
+git commit -m "Refactoring vorbereitet"
+git push -u origin refactoring
+```
+Danach kannst du auf GitHub einen *Pull Request* (Zusammenf\u00fchrungsanfrage) stellen.
