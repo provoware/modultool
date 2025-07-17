@@ -22,3 +22,5 @@
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
 - [ ] Release vorbereiten: Selfcheck, README final prüfen, Release-Tag erstellen
+- [x] Hinweise zur Datensicherheit in README ergänzen
+- [x] Laienhilfe mit Backup- und Fehlerhinweisen erweitern

@@ -65,3 +65,13 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 
 ## 🔀 Branches zusammenführen
 Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches zusammenführen".
+
+## 🔒 Datensicherheit und Backups
+
+Um versehentlichen Datenverlust zu vermeiden, lohnt sich eine lokale Sicherung (Backup). Ein einfaches ZIP-Archiv genügt:
+
+```bash
+zip -r backup_$(date +%Y%m%d).zip .
+```
+
+Damit wird der gesamte Ordner in eine Archivdatei verpackt. Die Datei lässt sich auf einen USB-Stick kopieren oder extern speichern. So bist du abgesichert, falls etwas schiefgeht.
