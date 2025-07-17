@@ -1,3 +1,4 @@
+Letztes Update: Wed Jul 16 04:41:44 UTC 2025
 Letztes Update: Wed Jul 16 05:11:05 UTC 2025
 Letztes Update: Wed Jul 16 04:21:16 UTC 2025
 Letztes Update: Wed Jul 16 03:33:50 UTC 2025
@@ -42,6 +43,10 @@ Offene Aufgaben:
 - [x] Dummy-Module angelegt
 - [x] ARIA-Labels erweitert
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+
+- [ ] Templates-Modul (Panel02) erstellen
+- [ ] Undo/Redo-System einbauen
+- [ ] ZIP-Backup-Funktion ergänzen
 - [ ] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
 - [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
 - [ ] Auto-Backup alle 5 Min und Undo-Verlauf lokal einbauen
