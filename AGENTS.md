@@ -50,9 +50,10 @@ Agentenframework zur modularen Steuerung, Fehlerkontrolle und fortlaufenden Opti
 - Verwaltung von Figurenprofilen (Name, Stil, Stimme)  
 - Verknüpfung mit Zufall, Templates, Story-Sampler
 
-### 🛠 Agent_Selbstcheck  
-- Erkennt und repariert typische Laienfehler (z. B. fehlende Suffixe, ungültiges JSON)  
-- Erstellt Backups, aktualisiert `todo.txt` und `baumstruktur.txt`
+### 🛠 Agent_Selbstcheck
+- Erkennt und repariert typische Laienfehler (z. B. fehlende Suffixe, ungültiges JSON)
+- Erstellt Backups, aktualisiert `todo.txt`, `baumstruktur.txt` **und `platzhalter.txt`**
+- Nutzt dazu `tools/update_placeholder.sh`
 
 ---
 
@@ -61,6 +62,7 @@ Agentenframework zur modularen Steuerung, Fehlerkontrolle und fortlaufenden Opti
 .github/workflows/validate.yml → CI-Checks
 todo.txt → Änderungslog + Fixes
 baumstruktur.txt → Rekursive Projektstruktur
+platzhalter.txt → Ausgabe aus `todo.txt`
 agents_status.json → Agentenzustand (optional)
 modules.json → Panel-Registrierung
 
@@ -80,5 +82,6 @@ modules.json → Panel-Registrierung
 ```bash
 /runs agent_name        # z. B. /runs agent_test  
 /status agent_name      # Prüfe Agentenzustand  
-/setup github           # Initialsetup CI, Branch Protection  
-/check ordnung          # Strukturvalidator  
+/setup github           # Initialsetup CI, Branch Protection
+/check ordnung          # Strukturvalidator
+bash tools/update_placeholder.sh  # platzhalter.txt mit todo.txt abgleichen
