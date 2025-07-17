@@ -61,6 +61,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 📁 logs/
 📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
 📁 .github/workflows/ (validate.yml)
+📄 modules.json (Panel-Registrierung)
+```
 
 ## Lizenz
 
