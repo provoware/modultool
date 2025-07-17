@@ -32,6 +32,108 @@ Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erw�
 
 So behältst du jederzeit die Kontrolle über deine Dateien.
 
+## Projektstruktur anzeigen
+
+1. `cat baumstruktur.txt` (zeigt alle Dateien und Ordner) ausführen.
+2. `ls` (Inhaltsauflistung) nutzen, um aktuelle Verzeichnisse zu sehen.
+3. Bei Fragen `bash tools/selfcheck.sh` starten, das kontrolliert alles automatisch.
+
+## Weitere Tipps
+
+- Wenn du neue Module oder Panels testen m\u00f6chtest, erstelle einfach eine leere Datei in den Ordnern `modules/` oder `panels/`. Nutze daf\u00fcr:
+
+```bash
+touch modules/mein_modul.js
+```
+
+Das Kommando `touch` legt eine Datei an, ohne Inhalt. So kannst du sp\u00e4ter Code hinzuf\u00fcgen.
+
+- Um die Beispielkonfiguration `modules.json` anzupassen, \u00f6ffne sie mit `nano`:
+
+```bash
+nano modules.json
+```
+
+Hier kannst du Module eintragen. `JSON` (JavaScript Object Notation) ist ein einfaches Textformat f\u00fcr Einstellungen.
+
+- Schaue regelm\u00e4\u00dfig ins Verzeichnis `logs/`:
+
+```bash
+ls logs
+```
+
+Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler geben k\u00f6nnen.
+
+
+## Hilfreiche Zusatzbefehle
+
+- **Neuen Ordner anlegen**
+  ```bash
+  mkdir neuer_ordner
+  ```
+  Damit erstellst du ein leeres Verzeichnis. `mkdir` bedeutet "make directory" (Ordner anlegen).
+
+- **Dateiinhalt anzeigen**
+  ```bash
+  cat datei.txt
+  ```
+  Das Kommando `cat` (concatenate) zeigt den Inhalt einer Textdatei an.
+
+- **Datei loeschen**
+  ```bash
+  rm alte_datei.txt
+  ```
+
+## Platzhalter verstehen
+
+- **Beispieldatei oeffnen**
+  ```bash
+  nano logs/.placeholder
+  ```
+  Mit `nano` (Texteditor) siehst du den Inhalt und kannst Notizen ergaenzen.
+
+- **Leere Datei anlegen**
+  ```bash
+  touch panels/neues_panel.js
+  ```
+  Das Kommando `touch` erzeugt eine Datei ohne Inhalt. So bleibt der Ordner in Git erhalten.
+
+## Eigenes Modul erstellen
+
+1. Wechsele in den Ordner `modules/`:
+   ```bash
+   cd modules
+   ```
+2. Oeffne die Datei `beispiel_modul.js` mit dem Editor:
+   ```bash
+   nano beispiel_modul.js
+   ```
+   `nano` (Texteditor) erlaubt dir, den Beispielcode anzupassen.
+3. Speichere die Aenderungen mit `Strg+O` und beende mit `Strg+X`.
+4. Trage dein Modul in `modules.json` ein:
+   ```bash
+   nano ../modules.json
+   ```
+   `JSON` (Datenformat fuer Einstellungen) enthaelt eine Liste aktiver Module.
+5. Ein Selbstcheck prueft alles:
+   ```bash
+   bash ../tools/selfcheck.sh
+   ```
+
+
+## Modul im Browser ausprobieren
+
+1. Wechsle in das Hauptverzeichnis zurück:
+   ```bash
+   cd ..
+   ```
+2. Erstelle eine Testdatei, die das Beispielmodul lädt:
+   ```bash
+   echo "<script type='module' src='modules/beispiel_modul.js'></script>" > test.html
+   ```
+   Das Kommando `echo` (Text ausgeben) schreibt eine Zeile in `test.html`.
+3. Öffne `test.html` im Browser, z. B. mit einem Doppelklick im Dateimanager.
+   Nach Eingabe des Namens siehst du die Begrüßung als Text auf der Seite.
 ## Geplante Erweiterungen
 
 Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sind:
@@ -232,4 +334,3 @@ aktualisiert sich jede Sekunde von selbst.
   date
   ```
   (Zeigt Datum und Zeit an)
-

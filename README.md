@@ -98,6 +98,7 @@ Führe einmal `bash tools/install_hook.sh` aus. Danach wird `platzhalter.txt` na
 📁 .github/workflows/ (validate.yml)
 ```
 
+Weitere Dateien findest du im Ordner `data/` und im Verzeichnis `tools/`.
 ## 🧪 Selbstcheck ausführen
 
 Mit diesem Befehl startest du den Selbstcheck (kleines Prüfskript):

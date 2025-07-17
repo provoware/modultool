@@ -2,6 +2,15 @@
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
 - [ ] Zufallsmodi mit Profilgewichtung implementieren
+- [ ] Logging ins Dashboard einbauen
+- [ ] Clipboard-Funktion mit Feedback-Farben
+- [ ] CSS responsiv machen, Test mit Axe/WAVE
+- [ ] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [ ] Dokumentation aktualisieren (README, AGENTS)
+- [ ] Fehlende Dateien und Ordner mit Platzhaltern anlegen
+- [x] Platzhaltertexte in allen Ordnern ergaenzen
+- [x] Weitere Platzhaltertipps in der Laienhilfe beschreiben
+- [x] Platzhalter im Modulordner durch Beispielcode ersetzen
 - [x] Logging ins Dashboard einbauen
 - [x] Clipboard-Funktion mit Feedback-Farben
 - [x] CSS responsiv machen, Test mit Axe/WAVE

@@ -103,6 +103,7 @@ tasks:
   - CSS responsiv + Test via Axe/WAVE
 expected: "Modul startet auf einem Bildschirm, responsive, barrierefrei, modular erweiterbar"
 owner: "pppoppi + Dr. Allwissend_Poppsen"
+```
 
 ### Weitere geplante Module und Funktionen
 - Erinnerung an ungespeicherte Änderungen beim Beenden
