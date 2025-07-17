@@ -44,7 +44,7 @@ Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und �
 
 1. Wechsel im Terminal in den Projektordner.
 2. Starte einen kleinen Webserver mit `python3 -m http.server`. (Damit werden die Dateien lokal bereitgestellt.)
-3. Öffne dann `http://localhost:8000/index-DDD.html` im Browser (Programm zum Surfen im Internet).
+3. Öffne dann `http://localhost:8000/index-MODULTOOL.html` im Browser (Programm zum Surfen im Internet).
 4. Mit `Strg+C` beendest du den Server wieder.
 
 ## Eigene Module erstellen
@@ -292,7 +292,7 @@ sudo npm install -g htmlhint
   Ändere zum Beispiel `"default_export_format": "txt"` für Text-Export.
   Danach `bash tools/selfcheck.sh` ausführen.
 
-* **Farbschema wechseln:** `nano index-DDD.html` öffnen.
+* **Farbschema wechseln:** `nano index-MODULTOOL.html` öffnen.
   Suche im `<body>`-Tag nach `data-theme`. Werte wie `dark`, `light` oder `blue` ändern das Aussehen.
   Speichern und Seite neu laden.
 
@@ -549,7 +549,18 @@ Damit sind die Zweige vereint und online gesichert.
   ```bash
   git stash        # aktuelle Änderungen zwischenspeichern
   git stash pop    # später wiederherstellen
+
+- **Eigenen Port nutzen (Port)**
+  ```bash
+  python3 -m http.server 9000
   ```
+  (Startet den Server auf Port 9000. Danach im Browser `http://localhost:9000/index-MODULTOOL.html` öffnen.)
+
+- **Logdatei anzeigen (Log)**
+  ```bash
+  tail -f /tmp/modultool_server.log
+  ```
+  (Zeigt laufend neue Meldungen aus der Server-Logdatei an.)
 
 ## Pakete erstellen
 
