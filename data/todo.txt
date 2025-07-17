@@ -87,6 +87,12 @@
 - [x] Laienhilfe mit Kalender-Befehlen ergänzt
 - [x] Intelligente Validierungsfunktionen eingeführt
 - [x] Module im Dashboard auswählbar
+- [ ] DEB- und AppImage-Paket bauen
+- [ ] Datei-Übersicht per Skript pflegen
+- [ ] ZIP-Backup-Modul entwickeln (Panel07)
+- [ ] Undo-/Redo-Funktion einbauen (Panel08)
+- [ ] README: lokalen Testserver via python3 -m http.server erklären
+- [ ] CI: branch-limit.yml aktivieren und testen
 - [x] Archiv-Reset-Funktion umgesetzt
 - [x] YAML-Check im Selfcheck ergänzt
 - [x] Wiki-Modul umsetzen (Panel10)

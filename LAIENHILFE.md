@@ -528,6 +528,28 @@ git push
 ```
 Damit sind die Zweige vereint und online gesichert.
 
+
+## Pakete erstellen
+
+Mit dem Skript `tools/build_packages.sh` kannst du ein Debian-Paket (.deb) und ein AppImage erzeugen. So geht's:
+
+1. Öffne das Terminal.
+2. Tippe:
+   ```bash
+   bash tools/build_packages.sh
+   ```
+3. Falls `dpkg-deb` oder `appimagetool` fehlen, meldet das Skript eine Warnung. Installiere sie bei Bedarf mit `sudo apt-get install dpkg-dev` bzw. lade `appimagetool` herunter.
+
+## Übersicht der Dateien pflegen
+
+Die Datei `all_in_uebersicht.txt` listet alle Projektdateien. Aktualisiere sie so:
+
+```bash
+bash tools/update_overview.sh
+```
+
+Das Skript fügt neue Dateien hinzu und prüft, ob alle gelisteten Dateien existieren. Fehlt etwas, steht es in `error_informationen.txt`.
+
 ## Datum und Uhrzeit im Dashboard
 
 Im Dashboard (Panel03) steht jetzt oben die aktuelle Uhrzeit und das Datum. Die Anzeige

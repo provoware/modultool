@@ -15,6 +15,10 @@
 ./data/baumstruktur.txt
 ./data/todo.txt
 ./data/todo_backup_20250717002738.txt
+./data/todo_backup_20250717005309.txt
+./data/todo_backup_20250717005335.txt
+./data/todo_backup_20250717005508.txt
+./data/todo_backup_20250717005630.txt
 ./data/todo_backup_20250717000819.txt
 ./data/todo_backup_20250716235705.txt
 ./data/todo_backup_20250716235834.txt
@@ -146,3 +150,4 @@
 ./tools/update_placeholder.sh
 ./validate.yml
 ./validation.js
+./validate.yml

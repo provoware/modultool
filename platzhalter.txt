@@ -1,4 +1,6 @@
 Letztes Update: Thu Jul 17 00:27:38 UTC 2025
+Letztes Update: Thu Jul 17 16:21:13 UTC 2025
+Letztes Update: Thu Jul 17 00:56:31 UTC 2025
 Letztes Update: Thu Jul 17 00:08:19 UTC 2025
 Letztes Update: Wed Jul 16 23:59:30 UTC 2025
 Letztes Update: Wed Jul 16 06:47:52 UTC 2025
@@ -122,6 +124,12 @@ Offene Aufgaben:
 - [x] Laienhilfe mit Kalender-Befehlen ergänzt
 - [x] Intelligente Validierungsfunktionen eingeführt
 - [x] Module im Dashboard auswählbar
+- [ ] DEB- und AppImage-Paket bauen
+- [ ] Datei-Übersicht per Skript pflegen
+- [ ] ZIP-Backup-Modul entwickeln (Panel07)
+- [ ] Undo-/Redo-Funktion einbauen (Panel08)
+- [ ] README: lokalen Testserver via python3 -m http.server erklären
+- [ ] CI: branch-limit.yml aktivieren und testen
 - [x] Archiv-Reset-Funktion umgesetzt
 - [x] YAML-Check im Selfcheck ergänzt
 - [x] Wiki-Modul umsetzen (Panel10)
