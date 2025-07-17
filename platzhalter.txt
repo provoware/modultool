@@ -1,3 +1,4 @@
+Letztes Update: Wed Jul 16 23:59:30 UTC 2025
 Letztes Update: Wed Jul 16 06:47:52 UTC 2025
 Letztes Update: Wed Jul 16 06:51:53 UTC 2025
 Letztes Update: Wed Jul 16 06:38:16 UTC 2025
@@ -17,6 +18,12 @@ Offene Aufgaben:
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] Befehlsreferenz-Modul (panel9) ergänzen
 - [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
+- [x] Zufallsprofile ohne Gewichtung umgesetzt (Panel02)
+- [x] Logging ins Dashboard einbauen
+- [x] Clipboard-Funktion mit Feedback-Farben
+- [x] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Dashboard-Modul umgesetzt (Panel03)
+- [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [x] Zufallsmodi mit Profilgewichtung implementieren
 - [x] Logging ins Dashboard einbauen
 - [x] Clipboard-Funktion mit Feedback-Farben
@@ -106,6 +113,14 @@ Offene Aufgaben:
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [x] Wiki-Modul umsetzen (Panel10)
+- [x] Blog-Editor umsetzen (Panel11)
+- [x] Autoupdate-Skript erstellen
+- [x] Standardpfad in Einstellungen speichern
+- [ ] Undo/Redo-Funktion einbauen
+- [ ] ZIP-Backup vorbereiten
+- [ ] Filter/Favoriten integrieren
+- [ ] Scrollsync und Projektordner verwalten
 - [ ] Modul-Übersicht per Skript in module_übersicht.txt aktualisieren
 - [ ] Release vorbereiten: Selfcheck, README final prüfen, Release-Tag erstellen
 - [x] Hinweise zur Datensicherheit in README ergänzen

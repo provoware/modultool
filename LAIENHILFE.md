@@ -349,6 +349,32 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
 1. Öffne `panel09.html` im Ordner `modules`.
 2. Wähle eine **Schriftart** und gib eine **Schriftgröße** ein (Zahl in Pixel).
 3. Bestimme die **Button-Rundung** in der Auswahlliste.
+4. Trage optional einen **Standardpfad** ein, z.B. `./data`.
+5. Drücke **Speichern**, damit die Angaben im Browser bleiben.
+
+## Wiki nutzen
+
+1. Öffne `panel10.html` im Ordner `modules`.
+2. Gib einen Titel und etwas Text ein.
+3. Mit **Speichern** landet die Seite in der Liste.
+4. Wähle einen Eintrag aus und klicke **Laden**, um ihn zu bearbeiten.
+
+## Blog-Editor verwenden
+
+1. Öffne `panel11.html` im Ordner `modules`.
+2. Trage einen Titel und deinen Artikel ein.
+3. **Speichern** legt den Beitrag ab, **Laden** holt ihn aus der Liste.
+
+## Tool automatisch aktualisieren
+
+1. Öffne das Terminal.
+2. Starte das Skript:
+   ```bash
+   bash tools/autoupdate.sh
+   ```
+   Es versucht, neue Versionen aus dem Git-Repository zu holen und schreibt alles in `logs/update.log`.
+3. Mit `cat logs/update.log` kannst du prüfen, ob alles geklappt hat.
+4. Falls Probleme auftreten, fuehre `git pull` manuell aus.
 4. Drücke **Speichern**, damit die Angaben im Browser bleiben.
 ## Weiterf\u00fchrende Tipps
 
@@ -380,6 +406,12 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
    Das `-u` merkt sich das Ziel für zukünftige `git push`-Befehle.
 4. Holt vorher `git pull`, falls andere schon verändert haben. Dadurch werden die Daten zusammengeführt.
 
+## Offene Punkte bis zum Release
+
+- Undo/Redo-Funktion
+- ZIP-Backup erstellen
+- Filter/Favoriten
+- Scrollsync und Projektordner auswählen
 ## Fehlende Module
 
 Keine

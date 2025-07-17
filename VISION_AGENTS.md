@@ -72,11 +72,14 @@
 
 ---
 
+### Panel07‑11: Erweiterungsmodule
 ### Panel07‑09: Erweiterungsmodule
 - Persona-Switcher: ✅
 - Story-Sampler: ✅
 - Cover/Layout: ✅
 - Theme-Switcher: ✅
+- Wiki: ✅
+- Blog-Editor: ✅
 
 ---
 

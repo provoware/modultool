@@ -74,6 +74,20 @@
 - [x] Persona-Switcher-Modul umsetzen (Panel05)
 - [x] Story-Sampler-Modul umgesetzt (Panel06)
 - [x] Cover/Layout-Modul umsetzen (Panel07)
+
+- [x] Theme-Switcher-Modul umsetzen (Panel08)
+- [x] Einstellungs-Panel umsetzen (Panel09)
+- [x] Weitere Befehle in der Laienhilfe ergänzen
+- [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
+- [x] Branches zusammenführen (work -> main)
+- [x] Wiki-Modul umsetzen (Panel10)
+- [x] Blog-Editor umsetzen (Panel11)
+- [x] Autoupdate-Skript erstellen
+- [x] Standardpfad in Einstellungen speichern
+- [ ] Undo/Redo-Funktion einbauen
+- [ ] ZIP-Backup vorbereiten
+- [ ] Filter/Favoriten integrieren
+- [ ] Scrollsync und Projektordner verwalten
 - [x] Theme-Switcher-Modul umsetzen (Panel08)
 - [x] Einstellungs-Panel umsetzen (Panel09)
 - [ ] Weitere Befehle in der Laienhilfe ergänzen

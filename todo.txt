@@ -2,6 +2,12 @@
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] Befehlsreferenz-Modul (panel9) ergänzen
 - [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
+- [x] Zufallsprofile ohne Gewichtung umgesetzt (Panel02)
+- [x] Logging ins Dashboard einbauen
+- [x] Clipboard-Funktion mit Feedback-Farben
+- [x] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Dashboard-Modul umgesetzt (Panel03)
+- [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [x] Zufallsmodi mit Profilgewichtung implementieren
 - [x] Logging ins Dashboard einbauen
 - [x] Clipboard-Funktion mit Feedback-Farben
@@ -94,11 +100,20 @@
 - [x] Persona-Switcher-Modul umsetzen (Panel05)
 - [x] Story-Sampler-Modul umgesetzt (Panel06)
 - [x] Cover/Layout-Modul umsetzen (Panel07)
+
 - [x] Theme-Switcher-Modul umsetzen (Panel08)
 - [x] Einstellungs-Panel umsetzen (Panel09)
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [x] Wiki-Modul umsetzen (Panel10)
+- [x] Blog-Editor umsetzen (Panel11)
+- [x] Autoupdate-Skript erstellen
+- [x] Standardpfad in Einstellungen speichern
+- [ ] Undo/Redo-Funktion einbauen
+- [ ] ZIP-Backup vorbereiten
+- [ ] Filter/Favoriten integrieren
+- [ ] Scrollsync und Projektordner verwalten
 - [ ] Modul-Übersicht per Skript in module_übersicht.txt aktualisieren
 - [ ] Release vorbereiten: Selfcheck, README final prüfen, Release-Tag erstellen
 - [x] Hinweise zur Datensicherheit in README ergänzen
