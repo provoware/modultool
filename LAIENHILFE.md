@@ -114,6 +114,8 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
    bash tools/autoupdate.sh
    ```
    Es versucht, neue Versionen aus dem Git-Repository zu holen und schreibt alles in `logs/update.log`.
+3. Mit `cat logs/update.log` kannst du prüfen, ob alles geklappt hat.
+4. Falls Probleme auftreten, fuehre `git pull` manuell aus.
 ## Weiterf\u00fchrende Tipps
 
 - **Browser-Speicher leeren (localStorage)**
