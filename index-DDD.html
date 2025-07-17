@@ -118,6 +118,7 @@
       font-weight:bold; letter-spacing:.06em; z-index:3;
     }
     header { font-size:1.17rem; padding:1.05rem 0 .8rem 0; box-shadow:0 2px 12px var(--shadow);}
+    header.top-header {display:flex;align-items:center;gap:.5em;justify-content:center;flex-wrap:wrap;}
     .fokus-bar {
       display:flex;align-items:center;justify-content:flex-end;
       gap:1em; margin-bottom:.5em;
@@ -226,6 +227,8 @@
     .dashboard-list li { background: var(--dashboard-light); color: var(--text-alt); border-radius: .6em; margin-bottom: .25em; padding: .45em .8em; font-size:.97em; display: flex; align-items: center; justify-content: space-between; gap:.5em; word-break:break-all;}
     .dashboard-copy {background:var(--edit);color:#fff;font-size:1em;border-radius:.6em;padding:.18em .6em; border:none;}
     .dashboard-copy:hover {background:var(--edit-hover);}
+    .copy-btn {background:var(--button);color:#fff;border:none;padding:.2em .7em;border-radius:.7em;margin-left:.5em;cursor:pointer;}
+    .copy-btn:focus,.copy-btn:hover{background:var(--button-hover);}
     .dashboard-timestamp { font-size:.87em; color:var(--text-light); margin-right:.2em;}
     .tmpl-inputs {display:flex; gap:.7em; margin-bottom:.7em;flex-wrap:wrap;}
     .tmpl-inputs input {min-width:110px;flex:1;}
@@ -259,14 +262,19 @@
       .grid-main { grid-template-columns: 1fr; grid-template-rows: repeat(9, minmax(100px, 1fr)); }
       .sidebar {width:96vw;min-width:90vw;max-width:99vw;}
     }
+    @media (max-width: 480px) {
+      header.top-header {flex-direction:column;gap:.3em;}
+      #copySelBtn {margin-left:0;margin-top:.3em;}
+    }
   </style>
 </head>
 <body>
-<header>
+<header class="top-header" role="banner">
   GridTool Pro – Fokusumschaltung &bull; &copy; Pppoppi
+  <button id="copySelBtn" class="copy-btn" title="Markierten Text kopieren" aria-label="Text kopieren">⧉ Kopieren</button>
 </header>
 <div class="app-frame">
-  <aside class="sidebar left" id="sidebarLeft">
+  <aside class="sidebar left" id="sidebarLeft" role="navigation" aria-label="Module und Infos">
     <div class="sidebar-header">Module & Infos</div>
     <div class="sidebar-h2">Module verwalten</div>
     <ul class="sidebar-list">
@@ -291,7 +299,7 @@
     </div>
   </aside>
   <div class="dragbar left" id="dragbarLeft"><div class="dragbar-inner"></div></div>
-  <main class="main-content">
+  <main class="main-content" role="main" aria-label="Hauptinhalt">
     <div class="fokus-bar">
       <label for="fokusSelect" style="font-weight:600;color:var(--highlight);margin-right:.3em;">Fokus-Modus:</label>
       <select id="fokusSelect" aria-label="Panel auswählen" style="font-size:1.02em;border-radius:.8em;border:1.5px solid var(--highlight);padding:.25em .9em;background:var(--area);color:var(--text);">
@@ -309,7 +317,7 @@
       <button class="fokus-btn" id="fokusResetBtn" style="display:none;" aria-pressed="true" onclick="switchFokus(0)">Zurück zum Grid</button>
     </div>
     <div class="grid-main" id="gridMain">
-      <section class="mod-panel" id="panel1" tabindex="0"><h2>Genres + Zufall</h2>
+      <section class="mod-panel" id="panel1" tabindex="0" role="region" aria-labelledby="panel1-head"><h2 id="panel1-head">Genres + Zufall</h2>
         <form id="genreForm" autocomplete="off">
           <div class="input-group">
             <input id="genreInput" type="text" placeholder="Genre(s) durch Komma getrennt…" autofocus required />
@@ -322,20 +330,20 @@
           <button onclick="loadArchive()">📂 Laden</button>
         </div>
         <div class="rand-actions">
-          <button class="rand-btn" onclick="pickRandomN(3)">🎲 3</button>
-          <button class="rand-btn" onclick="pickRandomN(6)">🎲 6</button>
-          <button class="rand-btn" onclick="pickRandomN(9)">🎲 9</button>
-          <button class="rand-btn" onclick="pickRandomN(12)">🎲 12</button>
-          <button class="rand-btn" onclick="pickRandomN(15)">🎲 15</button>
+          <button class="rand-btn" onclick="pickRandomN(3)" aria-label="Zufall 3 Genres">🎲 3</button>
+          <button class="rand-btn" onclick="pickRandomN(6)" aria-label="Zufall 6 Genres">🎲 6</button>
+          <button class="rand-btn" onclick="pickRandomN(9)" aria-label="Zufall 9 Genres">🎲 9</button>
+          <button class="rand-btn" onclick="pickRandomN(12)" aria-label="Zufall 12 Genres">🎲 12</button>
+          <button class="rand-btn" onclick="pickRandomN(15)" aria-label="Zufall 15 Genres">🎲 15</button>
         </div>
-        <div id="randResult" class="rand-result" style="display:none;"></div>
-        <div id="genreStatus" class="status-msg" style="display:none;"></div>
+        <div id="randResult" class="rand-result" style="display:none;" role="status" aria-live="polite"></div>
+        <div id="genreStatus" class="status-msg" style="display:none;" role="status" aria-live="polite"></div>
         <div class="input-help">Tipp: Jede Auswahl wird ins Dashboard übernommen. Du kannst Genres jederzeit editieren!</div>
       </section>
-      <section class="mod-panel" id="panel2" tabindex="0"><h2>Archiv</h2>
+      <section class="mod-panel" id="panel2" tabindex="0" role="region" aria-labelledby="panel2-head"><h2 id="panel2-head">Archiv</h2>
         <div class="search-group">
           <input id="searchInput" type="text" placeholder="Suche im Archiv…" autocomplete="off"/>
-          <button id="clearSearch" class="search-clear" title="Suche löschen" style="display:none;">✖</button>
+          <button id="clearSearch" class="search-clear" aria-label="Suche löschen" style="display:none;">✖</button>
         </div>
         <div class="archive-list">
           <ul id="genreList"></ul>
@@ -343,12 +351,12 @@
         <div class="small">Klick: kopieren | ✏: bearbeiten | ✖: entfernen</div>
         <div class="input-help">Tipp: Mit Enter bestätigst du beim Editieren, Escape bricht ab.</div>
       </section>
-      <section class="mod-panel" id="panel3" tabindex="0"><h2>Dashboard (letzte 10 Ausgaben)</h2>
+      <section class="mod-panel" id="panel3" tabindex="0" role="region" aria-labelledby="panel3-head"><h2 id="panel3-head">Dashboard (letzte 10 Ausgaben)</h2>
         <ul id="dashboardList" class="dashboard-list"></ul>
-        <button id="clearDashboardBtn" class="dashboard-copy" style="background:var(--remove);margin-top:.5em;">Alle löschen</button>
+        <button id="clearDashboardBtn" class="dashboard-copy" aria-label="Dashboard leeren" style="background:var(--remove);margin-top:.5em;">Alle löschen</button>
         <div class="input-help">Tipp: Für alle Zufallsausgaben – kopieren per Klick!</div>
       </section>
-      <section class="mod-panel" id="panel4" tabindex="0"><h2>Text-Templates</h2>
+      <section class="mod-panel" id="panel4" tabindex="0" role="region" aria-labelledby="panel4-head"><h2 id="panel4-head">Text-Templates</h2>
         <form id="tmplForm" autocomplete="off">
           <div class="tmpl-inputs">
             <input id="tmplTitle" type="text" placeholder="Button-Titel" required maxlength="40"/>
@@ -359,38 +367,38 @@
         </form>
         <div class="tmpl-btnlist" id="tmplBtnList"></div>
         <div class="small">Klick: Text kopieren. ✖: Entfernen.</div>
-        <div id="tmplStatus" class="status-msg" style="display:none;"></div>
+        <div id="tmplStatus" class="status-msg" style="display:none;" role="status" aria-live="polite"></div>
       </section>
-      <section class="mod-panel" id="panel5" tabindex="0"><h2>Debug & Log</h2>
+      <section class="mod-panel" id="panel5" tabindex="0" role="region" aria-labelledby="panel5-head"><h2 id="panel5-head">Debug & Log</h2>
         <div id="debugLog" style="max-height:220px;overflow:auto;margin-bottom:.4em;"></div>
         <button onclick="clearLog()" class="dashboard-copy" style="background:var(--remove);">Logs löschen</button>
         <div class="input-help">Hier findest du Fehler, Warnungen und Systemereignisse. Tipp: Bei Problemen einfach Logs prüfen!</div>
         <div class="small">Selfcheck: <span id="selfcheckStatus"></span></div>
       </section>
-      <section class="mod-panel" id="panel6" tabindex="0"><h2>Modul-Import</h2>
+      <section class="mod-panel" id="panel6" tabindex="0" role="region" aria-labelledby="panel6-head"><h2 id="panel6-head">Modul-Import</h2>
         <label class="file-label">
           <input id="importModuleFile" type="file" accept=".js,.html,.txt" style="display:none;">
           Modul-Datei auswählen
         </label>
         <button onclick="triggerModuleImport()">Import starten</button>
-        <div class="import-status" id="importStatus"></div>
+        <div class="import-status" id="importStatus" role="status" aria-live="polite"></div>
         <pre id="importPreview" style="max-height:110px;overflow:auto;background:#252c2e;color:#bbb;padding:.4em .7em;border-radius:.6em;display:none;margin:.5em 0 0 0;"></pre>
         <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
       </section>
-      <section class="mod-panel" id="panel7"><h2>Modul 7</h2><div class="small">Frei für weitere Features</div></section>
-      <section class="mod-panel" id="panel8"><h2>Modul 8</h2><div class="small">Frei für weitere Features</div></section>
-      <section class="mod-panel" id="panel9"><h2>Modul 9</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel7" tabindex="0" role="region" aria-labelledby="panel7-head"><h2 id="panel7-head">Modul 7</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel8" tabindex="0" role="region" aria-labelledby="panel8-head"><h2 id="panel8-head">Modul 8</h2><div class="small">Frei für weitere Features</div></section>
+      <section class="mod-panel" id="panel9" tabindex="0" role="region" aria-labelledby="panel9-head"><h2 id="panel9-head">Modul 9</h2><div class="small">Frei für weitere Features</div></section>
     </div>
   </main>
   <div class="dragbar right" id="dragbarRight"><div class="dragbar-inner"></div></div>
-  <aside class="sidebar right" id="sidebarRight">
+  <aside class="sidebar right" id="sidebarRight" role="complementary" aria-label="Optionen und Themes">
     <div class="sidebar-header">Optionen & Themes</div>
     <div class="sidebar-h2">Farbschema</div>
     <div class="sidebar-btns" id="themeBtnGroup"></div>
     <div class="sidebar-divider"></div>
     <div class="sidebar-h2">Globale Einstellungen</div>
     <div>
-      <button onclick="resetAll()" style="margin-bottom:.5em;">Alles zurücksetzen</button>
+      <button onclick="resetAll()" aria-label="Alle Daten löschen" style="margin-bottom:.5em;">Alles zurücksetzen</button>
     </div>
     <div class="sidebar-footer">
       Für Hilfe: Siehe Hilfe-Sidebar oder frag Poppi.
@@ -474,7 +482,12 @@ let dashboardData = [];
 let tmplArchiv = [];
 let searchTerm = '';
 /* Logging und Selfcheck */
-let debugLogArr = [];
+function addDashboardEntry(text) {
+  dashboardData.unshift({ value: text, time: new Date().toLocaleString() });
+  dashboardData = dashboardData.slice(0,10);
+  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
+  renderDashboard();
+}
 function logDbg(msg, type='info') {
   debugLogArr.unshift({
     time: new Date().toLocaleTimeString(),
@@ -632,23 +645,18 @@ function pickRandomN(n) {
   try {navigator.clipboard.writeText(result);}
   catch(e){logErr('Clipboard-Fehler: '+e);}
   statusMsg("Zufallsausgabe kopiert.",1);
-  dashboardData.unshift({
-    value: result,
-    time: new Date().toLocaleString()
-  });
-  dashboardData = dashboardData.slice(0,10);
-  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
-  renderDashboard();
+  addDashboardEntry(result);
   logDbg('Zufallsausgabe erzeugt und kopiert.');
 }
 function saveArchive() {
   localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
   statusMsg("Archiv gespeichert!",1);
+  addDashboardEntry('Archiv gespeichert');
   logDbg('Archiv gespeichert.');
 }
 function loadArchive() {
   const data = localStorage.getItem(LOCAL_KEY);
-  if(data) { genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); logDbg('Archiv geladen.');}
+  if(data) { genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); addDashboardEntry('Archiv geladen'); logDbg('Archiv geladen.'); }
 }
 /* Dashboard */
 function renderDashboard() {
@@ -667,6 +675,7 @@ document.getElementById('clearDashboardBtn').onclick = function() {
     localStorage.removeItem(DASHBOARD_KEY);
     renderDashboard();
     statusMsg("Dashboard geleert.",1);
+    addDashboardEntry('Dashboard geleert');
     logDbg('Dashboard gelöscht.');
   }
 };
@@ -683,6 +692,7 @@ function renderTmplList() {
       try {navigator.clipboard.writeText(t.text);}
       catch(e){logErr('Clipboard-Fehler: '+e);}
       tmplStatusMsg("Template kopiert: "+t.title,1);
+      addDashboardEntry('Template kopiert: '+t.title);
       logDbg('Template kopiert: '+t.title);
     };
     btn.tabIndex = 0;
@@ -690,7 +700,7 @@ function renderTmplList() {
     rem.className = 'tmpl-remove';
     rem.innerText = '✖';
     rem.title = 'Template löschen';
-    rem.onclick = (e)=>{e.stopPropagation();tmplArchiv.splice(i,1);saveTmpl();renderTmplList();logDbg('Template gelöscht.');};
+    rem.onclick = (e)=>{e.stopPropagation();tmplArchiv.splice(i,1);saveTmpl();renderTmplList();addDashboardEntry('Template gelöscht');logDbg('Template gelöscht.');};
     btn.appendChild(rem);
     el.appendChild(btn);
   });
@@ -717,6 +727,7 @@ document.getElementById('tmplForm').onsubmit = function(e) {
   document.getElementById('tmplTitle').value = '';
   document.getElementById('tmplText').value = '';
   tmplStatusMsg("Template hinzugefügt!",1);
+  addDashboardEntry("Template hinzugefügt: "+title);
   logDbg('Template hinzugefügt: '+title);
 };
 /* Suche im Archiv */
@@ -753,6 +764,7 @@ function resetAll() {
     renderList(); renderDashboard(); renderTmplList();
     renderLog();
     statusMsg("Alles gelöscht!",1); tmplStatusMsg("Alles gelöscht!",1);
+    addDashboardEntry("Alles gelöscht");
     logDbg('Alles gelöscht.');
   }
 }
@@ -786,6 +798,17 @@ function makeSidebarResizable(side) {
 }
 makeSidebarResizable('Left');
 makeSidebarResizable('Right');
+document.getElementById('copySelBtn').onclick = function(){
+  const txt = window.getSelection().toString();
+  if(!txt){ statusMsg('Nichts markiert!',0); return; }
+  try { navigator.clipboard.writeText(txt); }
+  catch(e){ logErr('Clipboard-Fehler: '+e); return; }
+  const b = this; const old = b.style.background;
+  b.style.background = 'var(--active)';
+  setTimeout(()=>{ b.style.background = old; }, 350);
+  statusMsg('Text kopiert.',1);
+  addDashboardEntry('Manuell kopiert');
+};
 </script>
 </body>
 </html>

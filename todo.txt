@@ -1,4 +1,34 @@
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
+- [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
+- [x] commaSplit -> uniqueSort -> JSON-Save/Load umsetzen
+- [ ] Zufallsmodi mit Profilgewichtung implementieren
+- [x] Logging ins Dashboard einbauen
+- [x] Clipboard-Funktion mit Feedback-Farben
+- [x] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Dummy-Module angelegt
+- [x] ARIA-Labels erweitert
+- [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [ ] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
+- [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
+- [ ] Auto-Backup alle 5 Min und Undo-Verlauf lokal einbauen
+- [ ] Automatische Validierung jedes Moduls vor Aktivierung
+- [ ] Farbkontrast-Optimierung nach WCAG umsetzen
+- [ ] Fokusmodus: 1 Modul fullscreen, andere minimiert
+- [ ] Tooltip-Akademie beim ersten Start anzeigen
+- [ ] Modul-Querverlinkung zwischen Panels ermöglichen
+- [ ] Direkt-Export aus Modulen (TXT, PDF, JSON)
+- [ ] ZIP-Import und automatische Modul-Verteilung
+- [ ] Schreibschutz-Option pro Panel
+- [ ] Fehler-Erkennung mit Auto-Korrektur-Vorschlägen
+- [ ] Dateileichen-Erkennung und Entrümplungsmodus
+- [ ] Inhalte per Doppelklick in Zwischenablage kopieren
+- [ ] Globaler Suchfilter für alle Module und Inhalte
+- [ ] Todo-Listen-Modul integrieren
+- [ ] Songtext-Editor mit Titelfeld und Notiz speichern
+- [ ] Dialog-Schreiber mit Charakterverwaltung bauen
+- [ ] Info-Manager für eigene Befehle anlegen
+- [ ] Zitaten-Modul mit Notizfeld umsetzen
+- [ ] Interaktiven Modulbaukasten erstellen
 - Anleitung zum Selbstcheck im README ergänzt
 - [x] .gitignore angelegt (node_modules/, logs/, data/*.log, *.tmp)
 - modules.json erstellt (enthält angemeldete Panels)

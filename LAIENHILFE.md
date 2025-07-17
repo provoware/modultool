@@ -8,6 +8,7 @@ Hier findest du einfache Tipps zum Umgang mit dem Projekt. Fachbegriffe stehen i
 2. Tippe `nano todo.txt` und drücke **Enter**. Dadurch öffnest du die Liste mit offenen Aufgaben.
 3. Ergänze neue Punkte oder hake sie ab. Speichere mit `Strg+O`, beende mit `Strg+X`.
 4. Danach `bash tools/update_placeholder.sh` ausführen. Das aktualisiert `platzhalter.txt` automatisch.
+5. Einmalig: `bash tools/install_hook.sh` ausführen. Danach wird `platzhalter.txt` nach jedem `git commit` automatisch erneuert.
 
 ## Selbstcheck starten
 
@@ -31,6 +32,30 @@ Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erw�
 
 So behältst du jederzeit die Kontrolle über deine Dateien.
 
+## Geplante Erweiterungen
+
+Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sind:
+- Erinnerung an ungespeicherte Änderungen beim Beenden
+- persönlicher Startbildschirm mit Favoriten ("Dashboard")
+- Auto-Backup alle 5 Minuten und Undo-Verlauf (Rückgängig machen)
+- automatische Modul-Prüfung vor der Aktivierung
+- besserer Farbkontrast nach WCAG (Barrierefreiheits-Regeln)
+- Fokusmodus: ein Modul fullscreen, andere minimiert
+- Tooltip-Akademie mit kurzen Erklärungen
+- Querverlinkung zwischen Panels
+- direkter Export (TXT, PDF, JSON)
+- ZIP-Import mit Verteilen auf Module
+- Schreibschutz-Button pro Panel
+- Auto-Korrektur-Vorschläge bei Fehlern
+- Entrümplungsmodus zum Aufräumen
+- Kopieren per Doppelklick
+- globaler Suchfilter
+- Todo-Listen-Modul
+- Songtext-Editor mit Titelfeld, Notizen und Text
+- Dialog-Schreiber für eigene Charaktere
+- Info-Manager zum Sammeln von Befehlen
+- Zitaten-Modul mit Autor- und Zitatfeld
+- Interaktiver Modulbaukasten
 ## Mit der Tastatur arbeiten
 
 1. Du kannst alle Module auch ohne Maus bedienen.
