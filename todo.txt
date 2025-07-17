@@ -21,3 +21,7 @@
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+
+- [ ] Letzter Selfcheck vor dem Release
+- [ ] README um Releasenotizen ergaenzen
+- [ ] finale Platzhalter-Datei erstellen
