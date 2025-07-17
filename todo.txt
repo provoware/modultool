@@ -106,6 +106,8 @@
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [x] ShellCheck und HTMLHint installiert
+- [x] Laienhilfe um weiterf\u00fchrende Tipps erweitert
 
 - [ ] HTMLHint (HTML-Prüfwerkzeug) und ShellCheck (Shell-Skript-Prüfer) installieren
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)

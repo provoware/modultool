@@ -1,3 +1,4 @@
+Letztes Update: Thu Jul 17 17:19:05 UTC 2025
 Letztes Update: Thu Jul 17 01:11:51 UTC 2025
 Letztes Update: Thu Jul 17 00:27:38 UTC 2025
 Letztes Update: Thu Jul 17 16:21:13 UTC 2025
@@ -118,6 +119,8 @@ Offene Aufgaben:
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [x] ShellCheck und HTMLHint installiert
+- [x] Laienhilfe um weiterf\u00fchrende Tipps erweitert
 
 - [ ] HTMLHint (HTML-Prüfwerkzeug) und ShellCheck (Shell-Skript-Prüfer) installieren
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)

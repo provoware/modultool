@@ -528,6 +528,29 @@ git push
 ```
 Damit sind die Zweige vereint und online gesichert.
 
+## Weiterfuehrende Laienvorschlaege
+
+- **Neue Version holen (update)**
+  ```bash
+  git fetch        # Server-Infos abrufen
+  git pull         # Änderungen laden und einbinden
+  bash tools/selfcheck.sh
+  ```
+
+- **Eigenes Modul veröffentlichen**
+  ```bash
+  git checkout -b mein_zweig      # neuer Arbeitszweig
+  git add DATEI
+  git commit -m "Beschreibung"
+  git push -u origin mein_zweig
+  ```
+  Danach auf GitHub einen *Pull Request* (Zusammenführungsanfrage) erstellen.
+
+- **Zwischenergebnisse sichern (stash)**
+  ```bash
+  git stash        # aktuelle Änderungen zwischenspeichern
+  git stash pop    # später wiederherstellen
+  ```
 
 ## Pakete erstellen
 
