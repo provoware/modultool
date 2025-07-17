@@ -26,27 +26,65 @@
   <div id="status" role="status" aria-live="polite"></div>
 </div>
 <script type="module">
+import { showStatus, addDashboard } from './common.js';
 const input=document.getElementById('story-input');
 const saveBtn=document.getElementById('save-btn');
 const randomBtn=document.getElementById('random-btn');
 const copyBtn=document.getElementById('copy-btn');
 const output=document.getElementById('random-output');
 const log=document.getElementById('log');
-const status=document.getElementById('status');
+const statusEl=document.getElementById('status');
 const STORE_KEY='storySampler';
-const DASH_KEY='dashboardLog';
-function showStatus(msg){status.textContent=msg;setTimeout(()=>status.textContent='',3000);}
-function loadList(){try{return JSON.parse(localStorage.getItem(STORE_KEY))||[];}catch(e){showStatus('Laden fehlgeschlagen');return [];}}
-function saveList(list){try{localStorage.setItem(STORE_KEY,JSON.stringify(list));}catch(e){showStatus('Speichern fehlgeschlagen');}}
-function addDashboard(val){const arr=JSON.parse(localStorage.getItem(DASH_KEY)||'[]');arr.unshift({time:new Date().toLocaleTimeString(),value:val});if(arr.length>10) arr.length=10;localStorage.setItem(DASH_KEY,JSON.stringify(arr));}
-function render(){const list=loadList();input.value=list.join('\n');}
-saveBtn.addEventListener('click',()=>{const list=input.value.split('\n').map(s=>s.trim()).filter(Boolean);saveList(list);showStatus('Gespeichert');});
-randomBtn.addEventListener('click',()=>{const list=input.value.split('\n').map(s=>s.trim()).filter(Boolean);if(list.length===0){showStatus('Keine Einträge');return;}const choice=list[Math.floor(Math.random()*list.length)];output.textContent=choice;const li=document.createElement('li');li.textContent=new Date().toLocaleTimeString()+': '+choice;log.prepend(li);addDashboard(choice);});
-function addDashboard(val){const arr=JSON.parse(localStorage.getItem(DASH_KEY)||'[]');arr.unshift({time:new Date().toLocaleString(),value:val});if(arr.length>10) arr.length=10;localStorage.setItem(DASH_KEY,JSON.stringify(arr));}
-function render(){const list=loadList();input.value=list.join('\n');}
-saveBtn.addEventListener('click',()=>{const list=input.value.split('\n').map(s=>s.trim()).filter(Boolean);saveList(list);showStatus('Gespeichert');});
-randomBtn.addEventListener('click',()=>{const list=input.value.split('\n').map(s=>s.trim()).filter(Boolean);if(list.length===0){showStatus('Keine Einträge');return;}const choice=list[Math.floor(Math.random()*list.length)];output.textContent=choice;const li=document.createElement('li');li.textContent=new Date().toLocaleString()+': '+choice;log.prepend(li);addDashboard(choice);});
-copyBtn.addEventListener('click',()=>{const text=output.textContent;if(!text){showStatus('Nichts zum Kopieren');return;}navigator.clipboard.writeText(text).then(()=>{copyBtn.style.backgroundColor='#15b57b';setTimeout(()=>{copyBtn.style.backgroundColor='';},800);});});
+
+function loadList(){
+  try{
+    const data=localStorage.getItem(STORE_KEY);
+    return data?JSON.parse(data):[];
+  }catch(e){
+    showStatus(statusEl,'Laden fehlgeschlagen');
+    return [];
+  }
+}
+
+function saveList(list){
+  try{
+    localStorage.setItem(STORE_KEY,JSON.stringify(list));
+  }catch(e){
+    showStatus(statusEl,'Speichern fehlgeschlagen');
+  }
+}
+
+function render(){
+  const list=loadList();
+  input.value=list.join('\n');
+}
+
+saveBtn.addEventListener('click',()=>{
+  const list=input.value.split('\n').map(s=>s.trim()).filter(Boolean);
+  saveList(list);
+  showStatus(statusEl,'Gespeichert');
+});
+
+randomBtn.addEventListener('click',()=>{
+  const list=input.value.split('\n').map(s=>s.trim()).filter(Boolean);
+  if(list.length===0){showStatus(statusEl,'Keine Einträge');return;}
+  const choice=list[Math.floor(Math.random()*list.length)];
+  output.textContent=choice;
+  const li=document.createElement('li');
+  li.textContent=new Date().toLocaleString()+': '+choice;
+  log.prepend(li);
+  addDashboard(choice);
+});
+
+copyBtn.addEventListener('click',()=>{
+  const text=output.textContent;
+  if(!text){showStatus(statusEl,'Nichts zum Kopieren');return;}
+  navigator.clipboard.writeText(text).then(()=>{
+    copyBtn.style.backgroundColor='#15b57b';
+    setTimeout(()=>{copyBtn.style.backgroundColor='';},800);
+  });
+});
+
 render();
 </script>
 </body>
