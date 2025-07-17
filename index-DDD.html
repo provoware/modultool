@@ -349,6 +349,9 @@
           <div class="input-help">Beispiel: <code>Techno, Funk, Minimal</code> (Komma-getrennt, max. 24 Genres)</div>
         </form>
         <div class="archive-actions">
+          <button onclick="saveArchive()">💾 Speichern</button>
+          <button onclick="loadArchive()">📂 Laden</button>
+          <button onclick="resetArchive()" style="background:var(--remove);">🗑️ Löschen</button>
           <button onclick="saveArchive()" title="Archiv lokal speichern">💾 Speichern</button>
           <button onclick="loadArchive()" title="Gespeichertes Archiv laden">📂 Laden</button>
         </div>
@@ -799,6 +802,15 @@ function copyTmpl(txt, btn, title) {
   tmplStatusMsg('Template kopiert: '+title,1);
   flash(btn);
   logDbg('Template kopiert: '+title);
+}
+function resetArchive() {
+  if(confirm('Archiv wirklich löschen?')) {
+    localStorage.removeItem(LOCAL_KEY);
+    genres = [];
+    renderList();
+    statusMsg('Archiv geleert!',1);
+    logDbg('Archiv geleert.');
+  }
 }
 /* Dashboard */
 function renderDashboard() {

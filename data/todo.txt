@@ -80,6 +80,8 @@
 - [x] Weitere Befehle in der Laienhilfe ergänzen
 - [x] Tastaturfokus sichtbarer gemacht (Focus-Ring)
 - [x] Branches zusammenführen (work -> main)
+- [x] Archiv-Reset-Funktion umgesetzt
+- [x] YAML-Check im Selfcheck ergänzt
 - [x] Wiki-Modul umsetzen (Panel10)
 - [x] Blog-Editor umsetzen (Panel11)
 - [x] Autoupdate-Skript erstellen

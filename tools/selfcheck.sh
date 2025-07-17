@@ -63,6 +63,14 @@ else
   echo "⚠️ htmlhint nicht installiert – HTML-Check übersprungen"
 fi
 
+# ========== YAML-Dateien prüfen ==========
+echo "📄 YAML-Dateien werden geprüft..."
+if command -v yamllint >/dev/null 2>&1; then
+  find . \( -name "*.yml" -o -name "*.yaml" \) -exec yamllint -d relaxed {} \;
+else
+  echo "⚠️ yamllint nicht installiert – YAML-Check übersprungen"
+fi
+
 # ========== Shell-Skripte prüfen ==========
 echo "🐚 Shellskripte prüfen..."
 if command -v shellcheck >/dev/null 2>&1; then
@@ -94,6 +102,13 @@ if [ -x tools/update_placeholder.sh ]; then
   echo "✅ platzhalter.txt aktualisiert."
 else
   echo "⚠️ update_placeholder.sh nicht gefunden oder nicht ausführbar"
+fi
+
+# ========== Merge-Konfliktmarker prüfen ==========
+echo "🔍 Suche nach Merge-Konflikten..."
+conflicts=$(grep -R "^<<<<<<<" -n --exclude-dir=.git || true)
+if [ -n "$conflicts" ]; then
+  echo "❌ Unaufgelöste Konflikte gefunden:" && echo "$conflicts"
 fi
 
 # ========== Abschluss ==========
