@@ -20,6 +20,7 @@ Dabei wird deine Aufgabenliste automatisch gesichert und
 ```bash
 bash tools/selfcheck.sh
 ```
+Dabei wird automatisch `platzhalter.txt` auf Basis von `todo.txt` aktualisiert.
 
 Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erwähnt, wenn es fehlt. Dann kannst du es mit `npm install -g htmlhint` (JavaScript-Prüfwerkzeug) installieren.
 
@@ -32,6 +33,91 @@ Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erw�
 
 So behältst du jederzeit die Kontrolle über deine Dateien.
 
+## Tool starten
+
+Am einfachsten nutzt du das Startskript. Es erledigt alles für dich.
+
+```bash
+bash tools/start_tool.sh
+```
+
+Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und öffnet die Seite automatisch im Browser.
+
+1. Wechsel im Terminal in den Projektordner.
+2. Starte einen kleinen Webserver mit `python3 -m http.server`. (Damit werden die Dateien lokal bereitgestellt.)
+3. Öffne dann `http://localhost:8000/index-DDD.html` im Browser (Programm zum Surfen im Internet).
+4. Mit `Strg+C` beendest du den Server wieder.
+
+## Eigene Module erstellen
+
+1. Lege die Ordner `modules` und `panels` an, falls sie fehlen. Das machst du im Terminal (Eingabeprogramm) so:
+   ```bash
+   mkdir modules panels
+   ```
+2. Erstelle in `modules/` deine Skriptdatei, zum Beispiel `beispiel.js`:
+   ```bash
+   nano modules/beispiel.js
+   ```
+   *(JavaScript-Datei mit Funktionen)*
+3. Für die Oberfläche legst du `panels/beispiel.html` an:
+   ```bash
+   nano panels/beispiel.html
+   ```
+   *(HTML-Datei für das Aussehen)*
+4. Trage beide Dateien in `modules.json` ein. JSON ist ein Textformat, in dem Daten in Listen gespeichert werden:
+   ```json
+   {
+     "id": "beispiel",
+     "name": "Mein Modul",
+     "file": "panels/beispiel.html"
+   }
+   ```
+5. Starte das Tool wieder mit `bash tools/start_tool.sh`.
+
+Damit kannst du eigene Module testen.
+Im Ordner `panels` liegt bereits `panel7.html`. Dieses Modul zeigt eine kleine Schnellhilfe mit weiteren Befehlen.
+Neu hinzugekommen ist `panel8.html` für einen Zufall mit Gewichtung, `panel9.html` als Befehlsübersicht, `panel10.html` als einfacher Einstieg und `panel11.html` mit häufigen Fragen.
+Rechts findest du nun auch einen Hilfebutton, der `LAIENHILFE.md` direkt im Browser öffnet.
+
+## Weitere nützliche Befehle
+
+- `git pull` – holt neue Änderungen aus dem Online-Archiv (**Repository**) auf deinen Rechner.
+- `git log` – zeigt die letzten gespeicherten Versionen (**Commits**).
+- `npm install -g htmlhint` – installiert das Programm **htmlhint** (prüft HTML).
+- `python3 -m http.server 9000` – startet einen Server auf Port 9000 (*Port = Anschlussnummer*).
+- `bash tools/update_placeholder.sh` – kopiert Aufgaben aus `todo.txt` in `platzhalter.txt`.
+- `git diff` – zeigt deine aktuellen Änderungen (**Diff** = Unterschiede zum letzten Stand).
+- `sudo apt-get install xclip` – installiert `xclip` (Hilfsprogramm für die Zwischenablage).
+- `grep -n SUCHBEGRIFF -r` – durchsucht alle Dateien nach einem Wort (praktisch bei vielen Dateien).
+- `git stash` – legt deine aktuellen Änderungen kurz ab (*Stash = Zwischenablage in Git*).
+- `cp -r ordner ordner_backup` – macht eine komplette Kopie eines Ordners (*Backup = Sicherungskopie*).
+- `less datei.txt` – zeigt Text seitenweise an (*Pager = Blättern im Terminal*).
+- `history | tail` – listet die letzten Befehle auf (*History = Verlauf*).
+- `git branch -a` – listet alle Zweige auf (*Branch = Entwicklungszweig*).
+- `git checkout -b neuer_zweig` – erstellt und wechselt in einen neuen Branch (*checkout = zu einem Zweig wechseln*).
+- `git merge anderer_zweig` – führt einen Branch in den aktuellen zusammen (*Merge = Zusammenführen*).
+- `curl -O URL` – lädt eine Datei aus dem Internet herunter (*curl = Download-Programm*).
+- `npm install` – lädt alle benötigten Pakete (*npm = Paketverwaltung*).
+- `git remote -v` – zeigt gespeicherte Online-Adressen an (*Remote = entfernte Quelle*).
+- `git reset --hard HEAD~1` – macht den letzten Stand rückgängig (*Reset = zurücksetzen*).
+- `tar -czf backup.tar.gz ordner/` – erstellt ein gepacktes Archiv eines Ordners (*Backup = Sicherung*).
+- `git tag -a v1.0 -m "Version 1.0"` – setzt eine Versionsmarke (*Tag = Markierung*).
+- `rsync -av quelle/ ziel/` – kopiert Dateien schnell (*rsync = Synchronisationsprogramm*).
+- `git cherry-pick COMMIT` – holt gezielt eine Änderung (*Cherry-Pick = einzelne Auswahl*).
+- `tail -f datei.log` – zeigt fortlaufend neue Zeilen an (*tail = Ende der Datei*).
+- `chmod +x script.sh` – macht eine Datei ausführbar (*chmod = Rechte ändern*).
+- `git config --global user.name "Dein Name"` – hinterlegt deinen Namen in Git (*config = Einstellung*).
+- `git config --global user.email "mail@example.com"` – speichert deine Mail-Adresse (*global = für alle Projekte*).
+- `find . -name "*.html"` – sucht nach HTML-Dateien im Ordner (*find = Dateien finden*).
+- `sudo apt-get install shellcheck` – installiert **shellcheck** (prüft Shellskripte).
+- `git rebase -i HEAD~3` – ändert die letzten drei Commits (*rebase = Basis neu schreiben*).
+- `ln -s quelle ziel` – erstellt einen symbolischen Link (*Link = Verweis auf Datei*).
+- `du -sh ordner/` – zeigt die Größe eines Ordners (*du = Speicherplatz anzeigen*).
+- `git clone URL` – kopiert ein komplettes Online-Archiv auf deinen Rechner (*clone = kopieren*).
+- `mkdir neuer_ordner` – erstellt einen neuen Ordner (*mkdir = Verzeichnis anlegen*).
+- `pwd` – zeigt, in welchem Ordner du dich befindest (*print working directory*).
+- `cat datei.txt` – zeigt den Inhalt einer Datei an (*cat = Datei anzeigen*).
+- `rm datei.txt` – löscht eine Datei unwiderruflich (*rm = remove*).
 ## Projektstruktur anzeigen
 
 1. `cat baumstruktur.txt` (zeigt alle Dateien und Ordner) ausführen.

@@ -96,37 +96,3 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 Führe einmal `bash tools/install_hook.sh` aus. Danach wird `platzhalter.txt` nach jedem Commit automatisch aktualisiert.
 📁 tools/ (selfcheck.sh – sichert todo.txt und aktualisiert platzhalter.txt)
 📁 .github/workflows/ (validate.yml)
-```
-
-Weitere Dateien findest du im Ordner `data/` und im Verzeichnis `tools/`.
-## 🧪 Selbstcheck ausführen
-
-Mit diesem Befehl startest du den Selbstcheck (kleines Prüfskript):
-
-```bash
-bash tools/selfcheck.sh
-```
-
-Das Skript aktualisiert die Datei `data/baumstruktur.txt` und zeigt dir offene Punkte aus `data/todo.txt`. Führe es regelmäßig aus und trage neue Aufgaben immer in `data/todo.txt` ein.
-📄 modules.json (Panel-Registrierung)
-```
-
-## Lizenz
-
-Dieses Projekt steht unter der [MIT-Lizenz](LICENSE).
-
-📄 modules.json (Registrierung vorhandener Module)
-```
-
-## 🔀 Branches zusammenführen
-Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches zusammenführen".
-
-## 🔒 Datensicherheit und Backups
-
-Um versehentlichen Datenverlust zu vermeiden, lohnt sich eine lokale Sicherung (Backup). Ein einfaches ZIP-Archiv genügt:
-
-```bash
-zip -r backup_$(date +%Y%m%d).zip .
-```
-
-Damit wird der gesamte Ordner in eine Archivdatei verpackt. Die Datei lässt sich auf einen USB-Stick kopieren oder extern speichern. So bist du abgesichert, falls etwas schiefgeht.

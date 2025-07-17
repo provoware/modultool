@@ -14,6 +14,14 @@
 ./data/baumstruktur.txt
 ./data/todo.txt
 ./index-DDD.html
+./modules.json
+./modules/README.md
+./panels/README.md
+./panels/panel10.html
+./panels/panel11.html
+./panels/panel7.html
+./panels/panel8.html
+./panels/panel9.html
 ./logs/.placeholder
 ./module_versions.json
 ./modules.json
@@ -88,5 +96,6 @@
 ./tools/comma_json.js
 ./tools/install_hook.sh
 ./tools/selfcheck.sh
+./tools/start_tool.sh
 ./tools/update_placeholder.sh
 ./validate.yml
