@@ -167,6 +167,15 @@ Dadurch bleibt `platzhalter.txt` aktuell.
   ```
   Dieser Befehl zeigt dir Zeile für Zeile an, was sich im Vergleich zum letzten Commit geändert hat.
 
+## Datensicherheit verbessern
+
+1. Regelmäßig eine Sicherung (*Backup*) erstellen:
+   ```bash
+   zip -r sicherung_$(date +%Y%m%d).zip .
+   ```
+   Dadurch packst du den gesamten Ordner in eine ZIP-Datei. Diese Datei kannst du extern aufbewahren.
+2. Vermeide, dass vertrauliche Daten (z. B. Passwörter) im Repository landen. Kontrolle mit `git status`.
+
 ## Branches zusammenführen
 
 1. Stelle sicher, dass du auf dem Hauptzweig (**main**) bist:
