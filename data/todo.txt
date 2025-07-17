@@ -1,3 +1,4 @@
+- Selfcheck regelmäßig ausführen
 MIT-Lizenz hinzugefuegt
 - AGENTS.md Codeblock geschlossen (triple backticks).
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
