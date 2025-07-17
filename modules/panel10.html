@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Panel10 – Jahresplan Übersicht</title>
+<style>
+  #panel10{font-family:var(--font-family,sans-serif);display:grid;gap:.5rem;max-width:520px;margin:auto;}
+  .month-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;}
+  .month{background:var(--genre-bg,#23282e);padding:.5rem;border-radius:.7rem;min-height:80px;}
+  .month h3{margin:.3rem 0;font-size:1em;}
+<title>Panel10 – Wiki</title>
+<style>
+  #panel10{display:grid;gap:0.5rem;max-width:360px;margin:auto;font-family:var(--font-family,sans-serif);}
+  textarea,select,input,button{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);line-height:1.4;}
+  textarea{min-height:120px;resize:vertical;}
+  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+  #status{min-height:1.2em;}
+  @media(min-width:600px){#panel10{max-width:540px;}}
+</style>
+</head>
+<body>
+<div id="panel10">
+  <h2>Jahresplan Übersicht</h2>
+  <div class="month-grid" id="monthGrid"></div>
+  <div id="yearStatus" role="status" aria-live="polite"></div>
+</div>
+<script type="module">
+import {loadJSON} from '../validation.js';
+const KEY='calendarEntries';
+const grid=document.getElementById('monthGrid');
+const status=document.getElementById('yearStatus');
+function log(msg,type='info'){
+  status.textContent=msg;
+  setTimeout(()=>status.textContent='',4000);
+  const arr=JSON.parse(localStorage.getItem('calendarLog')||'[]');
+  arr.unshift({time:new Date().toLocaleString(),type,msg});
+  if(arr.length>20) arr.pop();
+  localStorage.setItem('calendarLog',JSON.stringify(arr));
+}
+function load(){
+  return loadJSON(KEY,[]);
+}
+function groupByMonth(entries){const months=Array.from({length:12},()=>[]);entries.forEach(e=>{const m=new Date(e.date).getMonth();months[m].push(e);});return months;}
+function render(){const entries=load();const months=groupByMonth(entries);grid.innerHTML='';months.forEach((list,i)=>{const div=document.createElement('div');div.className='month';const name=new Date(new Date().getFullYear(),i,1).toLocaleString('de',{month:'long'});div.innerHTML='<h3>'+name+'</h3>'+(list.length?'<ul>'+list.map(e=>`<li>${e.date.split('-')[2]}: ${e.text}</li>`).join('')+'</ul>':'<div>Keine Einträge</div>');grid.appendChild(div);});log('Jahresübersicht geladen');}
+render();
+  <h2>Wiki</h2>
+  <label for="wiki-title">Titel:</label>
+  <input id="wiki-title" aria-label="Titel">
+  <label for="wiki-content">Text:</label>
+  <textarea id="wiki-content" aria-label="Wiki-Text"></textarea>
+  <button id="save-wiki">Speichern</button>
+  <label for="wiki-select">Gespeicherte Seiten:</label>
+  <select id="wiki-select"></select>
+  <button id="load-wiki">Laden</button>
+  <div id="status" role="status" aria-live="polite"></div>
+</div>
+<script type="module">
+const titleInput=document.getElementById('wiki-title');
+const contentInput=document.getElementById('wiki-content');
+const saveBtn=document.getElementById('save-wiki');
+const select=document.getElementById('wiki-select');
+const loadBtn=document.getElementById('load-wiki');
+const status=document.getElementById('status');
+const KEY='wikiPages';
+
+function show(msg){status.textContent=msg;setTimeout(()=>status.textContent='',3000);}
+function loadPages(){
+  try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
+function savePages(p){try{localStorage.setItem(KEY,JSON.stringify(p));}catch(e){show('Speichern fehlgeschlagen');}}
+function refresh(){
+  const pages=loadPages();
+  select.innerHTML='';
+  Object.keys(pages).forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;select.appendChild(o);});
+}
+
+saveBtn.addEventListener('click',()=>{
+  const t=titleInput.value.trim();
+  if(!t){show('Titel fehlt');return;}
+  const pages=loadPages();
+  pages[t]=contentInput.value;
+  savePages(pages);
+  refresh();
+  select.value=t;
+  show('Seite gespeichert');
+});
+
+loadBtn.addEventListener('click',()=>{
+  const p=loadPages();
+  const t=select.value;
+  if(!t||!p[t]){show('Keine Seite gewählt');return;}
+  titleInput.value=t;
+  contentInput.value=p[t];
+  show('Geladen');
+});
+
+refresh();
+</script>
+</body>
+</html>

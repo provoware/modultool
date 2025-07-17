@@ -43,6 +43,7 @@ fi
 # ========== JSON-Dateien prüfen ==========
 echo "📂 JSON-Dateien werden geprüft..."
 if command -v jq >/dev/null 2>&1; then
+  find . -name "*.json" -print0 | while IFS= read -r -d '' f; do
   find . -name "*.json" | while read -r f; do
     if jq empty "$f" >/dev/null 2>&1; then
       echo "✅ OK: $f"
@@ -60,6 +61,14 @@ if command -v htmlhint >/dev/null 2>&1; then
   find . -name "*.html" -exec htmlhint {} \;
 else
   echo "⚠️ htmlhint nicht installiert – HTML-Check übersprungen"
+fi
+
+# ========== YAML-Dateien prüfen ==========
+echo "📄 YAML-Dateien werden geprüft..."
+if command -v yamllint >/dev/null 2>&1; then
+  find . \( -name "*.yml" -o -name "*.yaml" \) -exec yamllint -d relaxed {} \;
+else
+  echo "⚠️ yamllint nicht installiert – YAML-Check übersprungen"
 fi
 
 # ========== Shell-Skripte prüfen ==========
@@ -85,11 +94,21 @@ find . -type f ! -path "./.git/*" ! -name "*.log" | sort > data/baumstruktur.txt
 echo "✅ baumstruktur.txt aktualisiert."
 
 # ========== Platzhalter aktualisieren ==========
+echo "📑 Aktualisiere platzhalter.txt ..."
+bash tools/update_placeholder.sh
+echo "✅ platzhalter.txt aktualisiert."
 if [ -x tools/update_placeholder.sh ]; then
   bash tools/update_placeholder.sh
   echo "✅ platzhalter.txt aktualisiert."
 else
   echo "⚠️ update_placeholder.sh nicht gefunden oder nicht ausführbar"
+fi
+
+# ========== Merge-Konfliktmarker prüfen ==========
+echo "🔍 Suche nach Merge-Konflikten..."
+conflicts=$(grep -R "^<<<<<<<" -n --exclude-dir=.git || true)
+if [ -n "$conflicts" ]; then
+  echo "❌ Unaufgelöste Konflikte gefunden:" && echo "$conflicts"
 fi
 
 # ========== Abschluss ==========
