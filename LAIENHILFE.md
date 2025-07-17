@@ -645,3 +645,24 @@ git commit -m "Refactoring vorbereitet"
 git push -u origin refactoring
 ```
 Danach kannst du auf GitHub einen *Pull Request* (Zusammenf\u00fchrungsanfrage) stellen.
+
+## Weiterführende Laienvorschläge (neu)
+
+- **Tool im Browser neu laden**
+  ```bash
+  F5
+  ```
+  *(Aktualisiert die Ansicht. Falls etwas hakt, hilft oft ein Neuladen.)*
+
+- **Eigenes Farbschema einstellen (Theme)**
+  ```bash
+  echo '{"theme":"dark"}' > data/theme.json
+  ```
+  *(Legt eine kleine Einstellungsdatei an. Das Tool liest sie beim Start ein.)*
+
+- **Alle Daten sichern (Backup)**
+  ```bash
+  zip -r backup.zip .
+  ```
+  *(Erstellt ein ZIP-Archiv mit allen Dateien im aktuellen Ordner.)*
+
