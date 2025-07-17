@@ -72,6 +72,13 @@ bash tools/selfcheck.sh
 ```
 
 Das Skript aktualisiert die Datei `data/baumstruktur.txt` und zeigt dir offene Punkte aus `data/todo.txt`. Führe es regelmäßig aus und trage neue Aufgaben immer in `data/todo.txt` ein.
+📄 modules.json (Panel-Registrierung)
+```
+
+## Lizenz
+
+Dieses Projekt steht unter der [MIT-Lizenz](LICENSE).
+
 📄 modules.json (Registrierung vorhandener Module)
 ```
 

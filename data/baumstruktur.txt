@@ -4,6 +4,7 @@
 ./.gitignore
 ./.modultoolrc.json
 ./AGENTS.md
+./LICENSE
 ./LAIENHILFE.md
 ./README.md
 ./VISION_AGENTS.md
