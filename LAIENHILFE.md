@@ -19,7 +19,7 @@ Dabei wird deine Aufgabenliste automatisch gesichert und
 ```bash
 bash tools/selfcheck.sh
 ```
-Dabei wird automatisch `platzhalter.txt` auf Basis von `todo.txt` aktualisiert.
+4. Öffne `modules/panel14.html` im Browser. Dort siehst du gespeicherte Fehlermeldungen. Mit **Fehler speichern** lädst du sie herunter, **Fehler löschen** leert die Liste.
 
 Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erwähnt, wenn es fehlt. Dann kannst du es mit `npm install -g htmlhint` (JavaScript-Prüfwerkzeug) installieren.
 

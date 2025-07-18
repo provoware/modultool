@@ -53,3 +53,16 @@ export function saveJSON(key, data) {
     return false;
   }
 }
+
+export function handleError(err, msg = '') {
+  console.warn('Fehler:', msg, err);
+  if (!hasLocalStorage()) return;
+  try {
+    const log = JSON.parse(localStorage.getItem('errorLog') || '[]');
+    log.unshift({ time: new Date().toLocaleString(), msg: msg || String(err) });
+    if (log.length > 20) log.pop();
+    localStorage.setItem('errorLog', JSON.stringify(log));
+  } catch (e) {
+    console.warn('Fehler beim Schreiben des Fehlerlogs', e);
+  }
+}
