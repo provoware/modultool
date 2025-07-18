@@ -56,6 +56,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 - Projektordner-Management + Fehlerkorrektur
 - Neues Modul per Skript erstellen (`node tools/create_module.js modulID "Titel"`)
 - Automatisches Update via `bash tools/autoupdate.sh`
+- Zentrales Konfigurationsschema (`config_schema.json`)
 
 
 ### Geplante Erweiterungen
@@ -82,6 +83,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 📄 platzhalter.txt
 📄 modules.json
 📄 module_versions.json
+📄 config_schema.json
 📁 logs/
 📁 tools/ (selfcheck.sh, autoupdate.sh, create_module.js)
 📁 .github/workflows/ (validate.yml)
