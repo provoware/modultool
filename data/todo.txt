@@ -189,3 +189,5 @@
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
 - [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
 - [x] Startbildschirm schließt automatisch nach 20 Sekunden
+- [ ] Release-Endspurt: Offene Punkte laut README (Undo/Redo, ZIP-Backup, Filter/Favoriten, Scrollsync/Projektordner)
+- [ ] Vor dem Release bash tools/selfcheck.sh ausfuehren und Releasenotizen im README ergaenzen
