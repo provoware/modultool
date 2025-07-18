@@ -22,7 +22,7 @@
   <div id="dayStatus" role="status" aria-live="polite"></div>
 </div>
 <script type="module">
-import {isValidDate,isNonEmpty,loadJSON,saveJSON} from '../validation.js';
+import {isValidDate,isNonEmpty,loadJSON,saveJSON,hasLocalStorage} from '../validation.js';
 const KEY='calendarEntries';
 const dateInput=document.getElementById('dateInput');
 const entryText=document.getElementById('entryText');
@@ -33,13 +33,20 @@ const status=document.getElementById('dayStatus');
 function log(msg,type='info'){
   status.textContent=msg;
   setTimeout(()=>status.textContent='',4000);
-  const arr=JSON.parse(localStorage.getItem('calendarLog')||'[]');
-  arr.unshift({time:new Date().toLocaleString(),type,msg});
-  if(arr.length>20) arr.pop();
-  localStorage.setItem('calendarLog',JSON.stringify(arr));
+  if(hasLocalStorage()){
+    const arr=JSON.parse(localStorage.getItem('calendarLog')||'[]');
+    arr.unshift({time:new Date().toLocaleString(),type,msg});
+    if(arr.length>20) arr.pop();
+    localStorage.setItem('calendarLog',JSON.stringify(arr));
+  }
 }
-function load(){return loadJSON(KEY,[]);}
-function save(arr){if(!saveJSON(KEY,arr)) log('Speichern fehlgeschlagen','err');}
+function load(){
+  if(!hasLocalStorage()) log('LocalStorage nicht verf\u00fcgbar','err');
+  return loadJSON(KEY,[]);
+}
+function save(arr){
+  if(!saveJSON(KEY,arr)) log('Speichern fehlgeschlagen','err');
+}
 function render(month){
   const entries=load().filter(e=>e.date.startsWith(month));
   list.innerHTML='';
@@ -59,7 +66,9 @@ function updateDashboard(){
   const arr=load().filter(e=>e.date>=new Date().toISOString().slice(0,10));
   arr.sort((a,b)=>a.date.localeCompare(b.date));
   const next=arr.slice(0,5);
-  localStorage.setItem('calendarNext5',JSON.stringify(next));
+  if(hasLocalStorage()){
+    localStorage.setItem('calendarNext5',JSON.stringify(next));
+  }
 }
 updateDashboard();
 if(dateInput.value) render(dateInput.value.slice(0,7));

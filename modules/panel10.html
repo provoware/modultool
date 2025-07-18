@@ -17,17 +17,19 @@
   <div id="yearStatus" role="status" aria-live="polite"></div>
 </div>
 <script type="module">
-import {loadJSON} from '../validation.js';
+import {loadJSON,hasLocalStorage} from '../validation.js';
 const KEY='calendarEntries';
 const grid=document.getElementById('monthGrid');
 const status=document.getElementById('yearStatus');
 function log(msg){
   status.textContent=msg;
   setTimeout(()=>status.textContent='',4000);
-  const arr=JSON.parse(localStorage.getItem('calendarLog')||'[]');
-  arr.unshift({time:new Date().toLocaleString(),msg});
-  if(arr.length>20) arr.pop();
-  localStorage.setItem('calendarLog',JSON.stringify(arr));
+  if(hasLocalStorage()){
+    const arr=JSON.parse(localStorage.getItem('calendarLog')||'[]');
+    arr.unshift({time:new Date().toLocaleString(),msg});
+    if(arr.length>20) arr.pop();
+    localStorage.setItem('calendarLog',JSON.stringify(arr));
+  }
 }
 function load(){
   return loadJSON(KEY,[]);
