@@ -23,9 +23,9 @@
 ./.git/logs/HEAD
 ./.git/logs/refs/heads/main
 ./.git/logs/refs/heads/work
-./.git/objects/pack/pack-ed2e647b3c4b4386da3d1d8e784825eba9043eee.idx
-./.git/objects/pack/pack-ed2e647b3c4b4386da3d1d8e784825eba9043eee.pack
-./.git/objects/pack/pack-ed2e647b3c4b4386da3d1d8e784825eba9043eee.rev
+./.git/objects/pack/pack-5adc6c8b169f34079d3a0b34a1ee229c4cdbf8cb.idx
+./.git/objects/pack/pack-5adc6c8b169f34079d3a0b34a1ee229c4cdbf8cb.pack
+./.git/objects/pack/pack-5adc6c8b169f34079d3a0b34a1ee229c4cdbf8cb.rev
 ./.git/packed-refs
 ./.git/refs/heads/main
 ./.git/refs/heads/work
@@ -33,17 +33,17 @@
 ./.github/workflows/validate.yml
 ./.gitignore
 ./.modultoolrc.json
-./AGENTS.md
+./AGENTS-RELEASE-CHECK.md
 ./DOKUMENTATION.md
 ./LAIENHILFE.md
 ./LICENSE
 ./README.md
-./VISION_AGENTS.md
 ./agents_status.json
 ./all_in_uebersicht.txt
 ./baumstruktur.txt
 ./data/baumstruktur.txt
 ./data/todo.txt
+./data/todo_backup_20250718224615.txt
 ./error_informationen.txt
 ./index-MODULTOOL.html
 ./logs/.placeholder
@@ -55,6 +55,7 @@
 ./modules/auto_corrector.html
 ./modules/beispiel_modul.js
 ./modules/cleanup_mode.html
+./modules/common.css
 ./modules/common.js
 ./modules/content_lock.html
 ./modules/contrast_optimizer.html
@@ -82,6 +83,7 @@
 ./modules/panel11.html
 ./modules/panel12.html
 ./modules/panel13.html
+./modules/panel14.html
 ./modules/panel_template.html
 ./modules/persona_switcher.html
 ./modules/projektorganizer.html
@@ -92,6 +94,7 @@
 ./modules/tooltip_academy.html
 ./modules/unsaved_changes_warning.html
 ./modules/zip_importer.html
+./package.json
 ./panels/.placeholder
 ./panels/README.md
 ./panels/panel1.html

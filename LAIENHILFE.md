@@ -872,3 +872,32 @@ Damit rufst du `tools/selfcheck.sh` auf und prüfst das Projekt automatisch.
 
 ## Gemeinsame CSS-Datei
 Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral anpassen.
+
+## Weiterführende Laienvorschläge zur Release-Vorbereitung
+
+- **Git-Stand aktualisieren (fetch/pull)**
+  ```bash
+  git fetch     # holt neue Infos vom Server
+  git pull      # zieht Änderungen und mischt sie ein
+  ```
+  *("fetch" = herunterladen ohne einbinden, "pull" = herunterladen und einbinden.)*
+
+- **Release-Tag setzen (Tag = Markierung eines Versionsstands)**
+  ```bash
+  git tag -a v1.0 -m "Release 1.0"
+  git push --tags
+  ```
+  *(Erstellt eine Version 1.0 und lädt sie zu GitHub.)*
+
+- **Pakete bauen (DEB und AppImage)**
+  ```bash
+  bash tools/build_packages.sh
+  ```
+  *(Erzeugt Installationspakete für Linux.)*
+
+- **Cronjob für Selfcheck einrichten (Cron = Zeitplaner)**
+  ```bash
+  crontab -e
+  0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh
+  ```
+  *(Startet den Selfcheck jeden Montag um 7 Uhr automatisch.)*
