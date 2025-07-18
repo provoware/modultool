@@ -261,3 +261,8 @@
 - [ ] CSS mit Stylelint prüfen. Befehl: `npx stylelint "**/*.css"` (Stylelint = CSS-Stilprüfer).
 - [ ] Bilder verkleinern mit Imagemin. Befehl: `npx imagemin src/img/* --out-dir=dist/img` (Bildkomprimierung = kleinere Dateigröße).
 - [ ] Git-Tag für Release setzen. Befehl: `git tag -a v1.0 -m 'Version 1.0' && git push --tags` (Tag = Versionsmarkierung im Repository).
+- [ ] Pakete auf Aktualität prüfen. Befehl: `npm outdated` (outdated = veraltete Pakete anzeigen).
+- [ ] Alle Pakete aktualisieren. Befehl: `npm update` (update = auf den neuesten Stand bringen).
+- [ ] CSS automatisch mit Autoprefixer erweitern. Befehl: `npx postcss modules/*.css --use autoprefixer -d modules` (Autoprefixer = Browser-Präfixe ergänzen).
+- [ ] Web-App mit Lighthouse testen. Befehl: `npx lighthouse http://localhost:8000/index-MODULTOOL.html` (Lighthouse = Analyse für Performance und Barrierefreiheit).
+- [ ] Lokalen Server ohne Python starten. Befehl: `npx http-server` (http-server = einfacher Entwicklungsserver).
