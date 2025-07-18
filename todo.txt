@@ -177,6 +177,7 @@
 - [x] Laienhilfe erweitert (Bearbeiten und Testbefehle)
 
 - [x] panel01 Code aufgeraeumt (doppelte Funktionen entfernt und common.js genutzt)
+- [x] Panel02 Buttons & Events bereinigt
 - [ ] Fehler-&-Hilfe-Panel zeigt error_informationen.txt an
 - [ ] Startskript prüft Updates vor dem Start
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
