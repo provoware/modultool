@@ -999,6 +999,7 @@ function loadRegisteredPanels(){
     .catch(e=>logErr('Module-Liste: '+e));
 }
 loadRegisteredPanels();
+setTimeout(hideIntro, 20000);
 function hideIntro(){
   const el = document.getElementById('introOverlay');
   if(el) el.style.display='none';
