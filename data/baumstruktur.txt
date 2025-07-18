@@ -26,6 +26,9 @@
 ./.git/objects/pack/pack-82d457a61e3efd285259261300b133c5eed578c8.idx
 ./.git/objects/pack/pack-82d457a61e3efd285259261300b133c5eed578c8.pack
 ./.git/objects/pack/pack-82d457a61e3efd285259261300b133c5eed578c8.rev
+./.git/objects/pack/pack-ffee8bdbdc910ded100e8b5acc89f5cf34cd5553.idx
+./.git/objects/pack/pack-ffee8bdbdc910ded100e8b5acc89f5cf34cd5553.pack
+./.git/objects/pack/pack-ffee8bdbdc910ded100e8b5acc89f5cf34cd5553.rev
 ./.git/packed-refs
 ./.git/refs/heads/main
 ./.git/refs/heads/work
@@ -46,6 +49,7 @@
 ./data/baumstruktur.txt
 ./data/todo.txt
 ./data/todo_backup_20250718000249.txt
+./data/todo_backup_20250717235332.txt
 ./error_informationen.txt
 ./index-MODULTOOL.html
 ./logs/.placeholder

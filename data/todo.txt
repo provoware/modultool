@@ -140,7 +140,7 @@
 - [x] LAIENHILFE um GitHub-Workflow erweitert (Outline)
 - [x] common.js mit showStatus und addDashboard erstellt
 - [x] panel01, panel02 und panel06 bereinigt und nutzen common.js
-- [ ] Weitere Module auf common.js umstellen
+- [x] Weitere Module auf common.js umstellen
 - [ ] plugin.json pro Pluginverzeichnis anlegen (Manifest mit Name und Version)
 - [ ] zentrale Update-Bibliothek in lib/ erstellen (update_manager.js)
 - [ ] gemeinsames Konfigurationsschema definieren (config_schema.json)
@@ -156,3 +156,10 @@
 - [x] modules.json IDs an HTML angepasst
 - [x] Hilfetexte und Tooltips erweitert, Eingabefelder mit Platzhaltern versehen
 - [x] Persona-Switcher um Löschfunktion erweitert (Panel05)
+- [x] Panel04 auf common.js umgestellt und um Feedback erweitert
+
+- [x] Exportfunktion im Dashboard ergänzt (Panel03)
+- [x] Panel02: Bearbeiten-Funktion ergänzt
+- [x] Laienhilfe erweitert (Bearbeiten und Testbefehle)
+
+- [x] panel01 Code aufgeraeumt (doppelte Funktionen entfernt und common.js genutzt)
