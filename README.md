@@ -25,6 +25,11 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
   - **📊 Panel03: Dashboard – Verlauf**
     → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
     → Verlauf als Textdatei exportieren
+- **🎛 Panel02: Textbausteine**
+  → Kurze Texte speichern, kopieren, bearbeiten und löschen
+  → Liste wird beim Speichern alphabetisch sortiert
+- **📊 Panel03: Dashboard – Verlauf**
+  → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
 - **📋 Panel04: Textbausteine**
   → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
 - **🧑‍🎤 Panel05: Persona-Switcher**
@@ -70,6 +75,10 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
   → Mehrere Genre-Listen unter Profilnamen speichern, optional mit Gewichtung
   → Button "Gewichteter Zufall" wählt ein Profil nach Gewicht und daraus ein Genre
 - **📊 Panel03: Dashboard – Verlauf**
+- **🎛 Panel02: Textbausteine**
+  → Kurze Texte speichern, kopieren, bearbeiten und löschen
+  → Liste wird beim Speichern alphabetisch sortiert
+ - **📊 Panel03: Dashboard – Verlauf**
   → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
   → Oben laufende Anzeige von Datum und Uhrzeit
   → Verlauf als Textdatei exportieren
