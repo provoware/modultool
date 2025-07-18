@@ -189,3 +189,4 @@
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
 - [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
 - [x] Startbildschirm schließt automatisch nach 20 Sekunden
+- [x] Startskript um Selbstheilung & Exitstatus-Prüfung erweitert

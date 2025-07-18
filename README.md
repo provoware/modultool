@@ -15,7 +15,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - [Neues Modul anlegen](#neues-modul-anlegen)
 - [Pakete erstellen (.deb & AppImage)](#-pakete-erstellen-deb--appimage)
 - [Hilfe](#hilfe)
-Zum Starten: `bash tools/start_tool.sh` – überprüft neue Module und öffnet das Tool.
+Zum Starten: `bash tools/start_tool.sh` – überprüft neue Module, versucht fehlende Programme automatisch zu installieren und öffnet das Tool.
 
 Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Checker und synchronisiert deine Aufgabenlisten.
 - [Lokaler Testserver](#-lokaler-testserver)
