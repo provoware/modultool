@@ -23,9 +23,9 @@
 ./.git/logs/HEAD
 ./.git/logs/refs/heads/main
 ./.git/logs/refs/heads/work
-./.git/objects/pack/pack-ed2e647b3c4b4386da3d1d8e784825eba9043eee.idx
-./.git/objects/pack/pack-ed2e647b3c4b4386da3d1d8e784825eba9043eee.pack
-./.git/objects/pack/pack-ed2e647b3c4b4386da3d1d8e784825eba9043eee.rev
+./.git/objects/pack/pack-2ea912e8c6a3c9abe0e303d0d97287bce2b5e06e.idx
+./.git/objects/pack/pack-2ea912e8c6a3c9abe0e303d0d97287bce2b5e06e.pack
+./.git/objects/pack/pack-2ea912e8c6a3c9abe0e303d0d97287bce2b5e06e.rev
 ./.git/packed-refs
 ./.git/refs/heads/main
 ./.git/refs/heads/work
@@ -82,6 +82,7 @@
 ./modules/panel11.html
 ./modules/panel12.html
 ./modules/panel13.html
+./modules/panel14.html
 ./modules/panel_template.html
 ./modules/persona_switcher.html
 ./modules/projektorganizer.html
