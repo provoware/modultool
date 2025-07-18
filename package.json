@@ -1,0 +1,7 @@
+{
+  "name": "modultool",
+  "version": "0.1.0",
+  "scripts": {
+    "selfcheck": "bash tools/selfcheck.sh"
+  }
+}

@@ -15,7 +15,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - [Neues Modul anlegen](#neues-modul-anlegen)
 - [Pakete erstellen (.deb & AppImage)](#-pakete-erstellen-deb--appimage)
 - [Hilfe](#hilfe)
-Zum Starten: `bash tools/start_tool.sh` – überprüft neue Module und öffnet das Tool.
+Zum Starten: `bash tools/start_tool.sh` – überprüft neue Module, versucht fehlende Programme automatisch zu installieren und öffnet das Tool.
 
 Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Checker und synchronisiert deine Aufgabenlisten.
 - [Lokaler Testserver](#-lokaler-testserver)
@@ -130,6 +130,10 @@ python3 -m http.server
 ```
 
 Öffne danach `http://localhost:8000` im Browser. So lassen sich alle Module testen, ohne Dateien doppelt anzuklicken.
+## ♻ Optimierungsideen
+- Nutze `npm run selfcheck` (führt das Prüfskript aus).
+- Sichere Zwischenstände mit `git stash` (temporärer Speicher).
+- Erstelle neue Module mit `node tools/create_module.js modulID "Titel"`.
 
 ## Hilfe
 

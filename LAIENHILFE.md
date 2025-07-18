@@ -48,6 +48,16 @@ Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Se
 3. Öffne dann `http://localhost:8000/index-MODULTOOL.html` im Browser (Programm zum Surfen im Internet).
 4. Mit `Strg+C` beendest du den Server wieder.
 
+### Wenn der Start hakt
+1. Rufe `bash tools/start_tool.sh` erneut auf.
+2. Das Skript erkennt fehlende Programme wie `python3` und versucht sie bei Bedarf zu installieren (`sudo apt-get install python3`).
+3. Bei Problemen hilft ein Blick in `/tmp/modultool_server.log` (Textdatei mit Fehlermeldungen).
+4. Oder starte den Selfcheck:
+   ```bash
+   bash tools/selfcheck.sh
+   ```
+   *(Der Selfcheck prüft HTML, JSON und Shell-Skripte auf Fehler.)*
+
 ## Tooltips & Eingabehilfen
 
 - Viele Felder zeigen nun Beispieltexte *(Placeholder = Platzhalter)*.
@@ -876,3 +886,12 @@ find . -type f | sort > baumstruktur.txt
 ```bash
 zip -r modultool_backup.zip .
 ```
+## Neu: Selbstcheck mit npm
+Falls Node (Laufzeit für JavaScript) installiert ist, reicht ein kurzer Befehl:
+```bash
+npm run selfcheck
+```
+Damit rufst du `tools/selfcheck.sh` auf und prüfst das Projekt automatisch.
+
+## Gemeinsame CSS-Datei
+Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral anpassen.
