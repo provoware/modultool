@@ -479,11 +479,21 @@ Dadurch bleibt `platzhalter.txt` aktuell.
 
 *In `validation.js` stecken allgemeine Validierungsfunktionen (Prüfroutinen).*
 1. Beispiel: Datum testen
-   ```bash
-   node -e "import('./validation.js').then(m=>console.log(m.isValidDate('2025-01-01')))">
-   ```
-   Ergebnis **true** bedeutet gültig, sonst **false**.
+ ```bash
+  node -e "import('./validation.js').then(m=>console.log(m.isValidDate('2025-01-01')))">
+  ```
+  Ergebnis **true** bedeutet gültig, sonst **false**.
 2. Die Kalender-Module benutzen diese Funktionen automatisch beim Speichern.
+3. Prüfen, ob der Browser Speicher erlaubt:
+   ```bash
+   node -e "import('./validation.js').then(m=>console.log(m.hasLocalStorage()))"
+   ```
+   **true** zeigt, dass der sogenannte *localStorage* (Browserspeicher) funktioniert.
+4. Text auf gültiges JSON testen:
+   ```bash
+   node -e "import('./validation.js').then(m=>console.log(m.isValidJSON('{\"a\":1}')))">
+   ```
+   **true** bedeutet korrektes JSON (Datenformat).
 
 ## Noch mehr nützliche Befehle
 
