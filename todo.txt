@@ -97,7 +97,7 @@
 - [x] Laienhilfe um weiterf\u00fchrende Tipps erweitert
 - [x] HTMLHint (HTML-Prüfwerkzeug) und ShellCheck (Shell-Skript-Prüfer) installieren
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)
-- [ ] README um Schritt-für-Schritt-Anleitung erweitern
+- [x] README um Schritt-für-Schritt-Anleitung erweitern
 - [x] Kalender-Modul 1 (Panel10) mit Jahresübersicht implementiert
 - [x] Kalender-Modul 2 (Panel11) mit Monats- und Tagesansicht implementiert
 - [x] Dashboard zeigt jetzt die nächsten fünf Termine
@@ -192,3 +192,7 @@
 
 - [ ] Fehler-Tipps direkt im Tool anzeigen (Tooltip = kurzer Hinweis).
 - [ ] Fehler-Logdatei automatisch pflegen (logs/error.log).
+- [ ] Release-Endspurt: Offene Punkte laut README (Undo/Redo, ZIP-Backup, Filter/Favoriten, Scrollsync/Projektordner)
+- [ ] Vor dem Release bash tools/selfcheck.sh ausfuehren und Releasenotizen im README ergaenzen
+- [x] panel01 bereinigt (doppelte Elemente entfernt)
+- [x] Startskript um Selbstheilung & Exitstatus-Prüfung erweitert
