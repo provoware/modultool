@@ -191,3 +191,5 @@
 - [x] Startbildschirm schließt automatisch nach 20 Sekunden
 - [ ] Release-Endspurt: Offene Punkte laut README (Undo/Redo, ZIP-Backup, Filter/Favoriten, Scrollsync/Projektordner)
 - [ ] Vor dem Release bash tools/selfcheck.sh ausfuehren und Releasenotizen im README ergaenzen
+- [x] panel01 bereinigt (doppelte Elemente entfernt)
+- [x] Startskript um Selbstheilung & Exitstatus-Prüfung erweitert
