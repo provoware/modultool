@@ -23,9 +23,9 @@
 ./.git/logs/HEAD
 ./.git/logs/refs/heads/main
 ./.git/logs/refs/heads/work
-./.git/objects/pack/pack-c57c101e882c027afd30e17111bd774acd27bca7.idx
-./.git/objects/pack/pack-c57c101e882c027afd30e17111bd774acd27bca7.pack
-./.git/objects/pack/pack-c57c101e882c027afd30e17111bd774acd27bca7.rev
+./.git/objects/pack/pack-82d457a61e3efd285259261300b133c5eed578c8.idx
+./.git/objects/pack/pack-82d457a61e3efd285259261300b133c5eed578c8.pack
+./.git/objects/pack/pack-82d457a61e3efd285259261300b133c5eed578c8.rev
 ./.git/packed-refs
 ./.git/refs/heads/main
 ./.git/refs/heads/work
@@ -45,14 +45,13 @@
 ./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
-./data/todo_backup_20250717233222.txt
-./data/todo_backup_20250717233233.txt
-./data/todo_backup_20250717233244.txt
+./data/todo_backup_20250718000249.txt
 ./error_informationen.txt
 ./index-MODULTOOL.html
 ./logs/.placeholder
 ./module_versions.json
 ./modules.json
+./modules/.panel05.html.swp
 ./modules/.placeholder
 ./modules/README.md
 ./modules/auto_backup.html
@@ -110,7 +109,6 @@
 ./panels/panel8.html
 ./panels/panel9.html
 ./platzhalter.txt
-./selfcheck.log
 ./setup.sh
 ./todo.txt
 ./tools/autoupdate.sh

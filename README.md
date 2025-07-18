@@ -27,7 +27,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - **📋 Panel04: Textbausteine**
   → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
 - **🧑‍🎤 Panel05: Persona-Switcher**
-  → Verschiedene Figurenprofile speichern und auswählen
+  → Verschiedene Figurenprofile speichern, auswählen und löschen
 - **🖖 Panel06: Story-Sampler**
   → Kurze Ideen sammeln und zufällig auswählen
 - **🖼️ Panel07: Cover-Layout**
@@ -74,7 +74,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - **📋 Panel04: Textbausteine**
   → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
 - **🧑‍🎤 Panel05: Persona-Switcher**
-  → Verschiedene Figurenprofile speichern und auswählen
+  → Verschiedene Figurenprofile speichern, auswählen und löschen
 - **🖖 Panel06: Story-Sampler**
   → Kurze Ideen sammeln und zufällig auswählen
 - **🖼️ Panel07: Cover-Layout**

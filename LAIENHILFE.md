@@ -715,3 +715,9 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```
   *(IDs ohne führende Null eintragen, z.B. `"panel1"` statt `"panel01"`.)*
 
+
+- **Profil im Persona-Switcher löschen**
+  ```bash
+  Profil auswählen und auf "Profil löschen" klicken
+  ```
+  *(Entfernt das Profil dauerhaft aus dem Browser-Speicher (localStorage).)*
