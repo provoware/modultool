@@ -862,3 +862,17 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   Profil auswählen und auf "Profil löschen" klicken
   ```
   *(Entfernt das Profil dauerhaft aus dem Browser-Speicher (localStorage).)*
+
+## Weitere Tipps zur Ordnung
+- **Selfcheck starten** (Prüft Dateien automatisch)
+```bash
+bash tools/selfcheck.sh
+```
+- **Dateiübersicht aktualisieren** (erstellt die Datei baumstruktur.txt)
+```bash
+find . -type f | sort > baumstruktur.txt
+```
+- **Backup erstellen** (kompletten Ordner packen)
+```bash
+zip -r modultool_backup.zip .
+```

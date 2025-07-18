@@ -81,6 +81,7 @@
 - [x] Persona-Switcher-Modul umsetzen (Panel05)
 - [x] Story-Sampler-Modul umgesetzt (Panel06)
 - [x] Cover/Layout-Modul umsetzen (Panel07)
+
 - [x] Theme-Switcher-Modul umsetzen (Panel08)
 - [x] Einstellungs-Panel umsetzen (Panel09)
 - [x] Weitere Befehle in der Laienhilfe ergänzen
@@ -96,7 +97,7 @@
 - [x] Laienhilfe um weiterf\u00fchrende Tipps erweitert
 - [x] HTMLHint (HTML-Prüfwerkzeug) und ShellCheck (Shell-Skript-Prüfer) installieren
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)
-- [ ] README um Schritt-für-Schritt-Anleitung erweitern
+- [x] README um Schritt-für-Schritt-Anleitung erweitern
 - [x] Kalender-Modul 1 (Panel10) mit Jahresübersicht implementiert
 - [x] Kalender-Modul 2 (Panel11) mit Monats- und Tagesansicht implementiert
 - [x] Dashboard zeigt jetzt die nächsten fünf Termine
@@ -149,6 +150,7 @@
 - [ ] GitHub Actions für Linting und Testing hinzufügen
 - [ ] Schritt-für-Schritt-Assistenten für Modul-Erstellung planen
 - [ ] Barrierefreiheit automatisch prüfen (axe-core)
+
 - [x] LAIENHILFE um Aufräumtipps ergänzt
 - [x] HTML-Dateien um Doctype erweitern (automatisiert)
 - [x] Platzhalter-Module bereinigen
@@ -163,16 +165,18 @@
 - [ ] README um Abschnitt 'Optimierungsideen' ergänzen
 - [x] Zusätzliche Tooltips für Buttons (Panel01/02/04)
 - [x] Laienhilfe um Cronjob und Tooltip-Hinweis ergänzt
-- [ ] LAIENHILFE um weitere Nutzerfreundlichkeits-Tipps erweitern
+- [x] LAIENHILFE um weitere Nutzerfreundlichkeits-Tipps erweitern
 - [x] Fehlerhandling und Validation verbessert (validation.js, Panel10/11)
 - [x] LAIENHILFE und DOKUMENTATION um Todo-Hinweise erweitert
 - [x] panel07 nutzt common.js, Reset-Funktion ergänzt
 - [x] Story-Sampler: 'Liste löschen'-Button und Kopiermeldung
 - [x] Persona-Switcher um Löschfunktion erweitert (Panel05)
 - [x] Panel04 auf common.js umgestellt und um Feedback erweitert
+
 - [x] Exportfunktion im Dashboard ergänzt (Panel03)
 - [x] Panel02: Bearbeiten-Funktion ergänzt
 - [x] Laienhilfe erweitert (Bearbeiten und Testbefehle)
+
 - [x] panel01 Code aufgeraeumt (doppelte Funktionen entfernt und common.js genutzt)
 - [x] Panel02 Buttons & Events bereinigt
 - [x] Fehler-&-Hilfe-Panel zeigt error_informationen.txt an
@@ -181,7 +185,6 @@
 - [x] selfcheck.sh synchronisiert todo-Dateien nach Lauf
 - [x] Fehler-&-Hilfe-Panel speichert Fehler in localStorage und bietet Download
 - [x] handleError-Funktion speichert Fehlermeldungen automatisch
-- [ ] Fehler-&-Hilfe-Panel zeigt error_informationen.txt an
 - [ ] Startskript prüft Updates vor dem Start
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
 - [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf

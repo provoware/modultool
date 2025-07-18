@@ -115,6 +115,13 @@ bash tools/build_packages.sh
 
 Voraussetzung sind die Programme `dpkg-deb` und `appimagetool`. Falls sie fehlen, zeigt das Skript eine Warnung an.
 
+## 🪜 Schritt-für-Schritt Start
+1. `git clone <REPO>` (Repository, Sammlung der Dateien)
+2. `cd modultool`
+3. `bash tools/selfcheck.sh`
+4. `bash tools/start_tool.sh`
+5. Browser öffnet sich automatisch
+
 ## 🌐 Lokaler Testserver
 Um die HTML-Dateien bequem auszuprobieren, kannst du einen kleinen Webserver starten.
 

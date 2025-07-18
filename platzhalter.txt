@@ -15,6 +15,7 @@
 - [x] Hilfetexte und Tooltips ausbauen
 - [x] Startskript zum einfachen Aufrufen des Tools
 - [x] Willkommens-Overlay für neue Nutzer
+- [x] Startbildschirm blendet nach 20 Sekunden aus
 - [x] Importfunktion: geladenes Modul direkt als Panel einfügen
 - [x] Module automatisch aus modules.json laden
 - [x] Neues Modul panel10 "Erste Schritte" ergänzen
@@ -96,7 +97,7 @@
 - [x] Laienhilfe um weiterf\u00fchrende Tipps erweitert
 - [x] HTMLHint (HTML-Prüfwerkzeug) und ShellCheck (Shell-Skript-Prüfer) installieren
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)
-- [ ] README um Schritt-für-Schritt-Anleitung erweitern
+- [x] README um Schritt-für-Schritt-Anleitung erweitern
 - [x] Kalender-Modul 1 (Panel10) mit Jahresübersicht implementiert
 - [x] Kalender-Modul 2 (Panel11) mit Monats- und Tagesansicht implementiert
 - [x] Dashboard zeigt jetzt die nächsten fünf Termine
@@ -164,7 +165,7 @@
 - [ ] README um Abschnitt 'Optimierungsideen' ergänzen
 - [x] Zusätzliche Tooltips für Buttons (Panel01/02/04)
 - [x] Laienhilfe um Cronjob und Tooltip-Hinweis ergänzt
-- [ ] LAIENHILFE um weitere Nutzerfreundlichkeits-Tipps erweitern
+- [x] LAIENHILFE um weitere Nutzerfreundlichkeits-Tipps erweitern
 - [x] Fehlerhandling und Validation verbessert (validation.js, Panel10/11)
 - [x] LAIENHILFE und DOKUMENTATION um Todo-Hinweise erweitert
 - [x] panel07 nutzt common.js, Reset-Funktion ergänzt
@@ -184,10 +185,6 @@
 - [x] selfcheck.sh synchronisiert todo-Dateien nach Lauf
 - [x] Fehler-&-Hilfe-Panel speichert Fehler in localStorage und bietet Download
 - [x] handleError-Funktion speichert Fehlermeldungen automatisch
-- [ ] Startskript prüft Updates vor dem Start
-- [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
-- [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
-- [ ] Fehler-&-Hilfe-Panel zeigt error_informationen.txt an
 - [ ] Startskript prüft Updates vor dem Start
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
 - [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
