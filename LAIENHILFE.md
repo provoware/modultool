@@ -344,6 +344,12 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
 2. Trage einen Titel ein.
 3. Wähle eine Farbe im Farbfeld.
 4. Klicke auf **Speichern**, die Vorschau zeigt dein Cover.
+5. Über **Zurücksetzen** löscht du Titel und Farbe wieder.
+6. Für eine schnelle Vorschau starte im Terminal (Befehlsfenster):
+   ```bash
+   python3 -m http.server
+   ```
+   Öffne dann im Browser (Programm zum Surfen) `http://localhost:8000/modules/panel07.html`.
 
 ## Theme-Switcher nutzen
 
