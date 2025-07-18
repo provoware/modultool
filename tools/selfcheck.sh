@@ -92,8 +92,12 @@ echo "🌲 baumstruktur.txt manuell mit 'find . -type f | sort > data/baumstrukt
 echo "📑 platzhalter.txt manuell aus todo.txt generieren"
 
 # ========== Merge-Konfliktmarker prüfen ==========
+# ToDo-Dateien nach Prüfung synchronisieren
 echo "🔍 Suche nach Merge-Konflikten..."
 conflicts=$(grep -R "^<<<<<<<" -n --exclude-dir=.git || true)
+if [ -f "$TODO_MAIN" ]; then
+  cp "$TODO_MAIN" "$TODO_DATA"
+fi
 if [ -n "$conflicts" ]; then
   echo "❌ Unaufgelöste Konflikte gefunden:" && echo "$conflicts"
 fi

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Fehler & Hilfe</title>
+  <style>
+    #panel14{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:var(--font-family,sans-serif);}
+    button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+  </style>
+</head>
+<body>
+<div id="panel14">
+  <h2>Fehler & Hilfe</h2>
+  <a href="LAIENHILFE.md" target="_blank">Ausführliche Hilfe öffnen</a>
+  <pre id="errorInfo" style="max-height:150px;overflow:auto;background:#222;color:#eee;padding:.4em;"></pre>
+  <script>
+    fetch("error_informationen.txt")
+      .then(r => r.text())
+      .then(t => { document.getElementById("errorInfo").textContent = t || "Keine Fehlerhinweise vorhanden."; });
+  </script>
+</div>
+</body>
+</html>
