@@ -189,3 +189,6 @@
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
 - [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
 - [x] Startbildschirm schließt automatisch nach 20 Sekunden
+
+- [ ] Fehler-Tipps direkt im Tool anzeigen (Tooltip = kurzer Hinweis).
+- [ ] Fehler-Logdatei automatisch pflegen (logs/error.log).
