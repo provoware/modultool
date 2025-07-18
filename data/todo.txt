@@ -157,3 +157,5 @@
 - [x] Hilfetexte und Tooltips erweitert, Eingabefelder mit Platzhaltern versehen
 - [x] Panel02: Bearbeiten-Funktion ergänzt
 - [x] Laienhilfe erweitert (Bearbeiten und Testbefehle)
+
+- [x] panel01 Code aufgeraeumt (doppelte Funktionen entfernt und common.js genutzt)
