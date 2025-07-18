@@ -7,6 +7,7 @@
   #panel04{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:var(--font-family, sans-serif);}
   #template-list{display:flex;flex-direction:column;gap:0.4rem;}
   .tmpl-btn{background:#338a5d;color:#fff;border:none;border-radius:var(--btn-radius,0.8rem);padding:0.4rem 0.8rem;font-size:var(--base-font,1rem);cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;line-height:1.4;}
+  .tmpl-btn.copied{background:#15b57b;}
   .remove-btn{background:#db3665;border-radius:var(--btn-radius,0.8rem);color:#fff;padding:0.3rem 0.6rem;border:none;cursor:pointer;}
   input,textarea,button{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);line-height:1.4;}
   button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
@@ -25,12 +26,15 @@
             placeholder="Text hier eingeben" title="Inhalt des Textbausteins"></textarea>
   <button id="add-btn">Hinzufügen</button>
   <div id="template-list"></div>
+  <div id="status" role="status" aria-live="polite"></div>
 </div>
 <script type="module">
+import { showStatus, addDashboard } from './common.js';
 const titleInput=document.getElementById('title-input');
 const textInput=document.getElementById('text-input');
 const addBtn=document.getElementById('add-btn');
 const listDiv=document.getElementById('template-list');
+const statusEl=document.getElementById('status');
 const STORE_KEY='templates';
 
 function loadTemplates(){
@@ -41,17 +45,29 @@ function saveTemplates(arr){
   localStorage.setItem(STORE_KEY,JSON.stringify(arr));
 }
 function render(){
-  const arr=loadTemplates();
+  const arr=loadTemplates().sort((a,b)=>a.title.localeCompare(b.title));
   listDiv.innerHTML='';
   arr.forEach((t,i)=>{
     const btn=document.createElement('button');
     btn.className='tmpl-btn';
     btn.textContent=t.title;
-    btn.onclick=()=>{navigator.clipboard.writeText(t.text);};
+    btn.onclick=()=>{
+      navigator.clipboard.writeText(t.text).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),800);
+        addDashboard('Snippet: '+t.title);
+        showStatus(statusEl,'Kopiert: '+t.title);
+      });
+    };
     const rm=document.createElement('button');
     rm.className='remove-btn';
     rm.textContent='✖';
-    rm.onclick=()=>{arr.splice(i,1);saveTemplates(arr);render();};
+    rm.onclick=()=>{
+      arr.splice(i,1);
+      saveTemplates(arr);
+      render();
+      showStatus(statusEl,'Gelöscht: '+t.title);
+    };
     const wrapper=document.createElement('div');
     wrapper.appendChild(btn);wrapper.appendChild(rm);
     listDiv.appendChild(wrapper);
@@ -60,12 +76,18 @@ function render(){
 addBtn.addEventListener('click',()=>{
   const title=titleInput.value.trim();
   const text=textInput.value.trim();
-  if(!title||!text) return;
+  if(!title||!text){
+    showStatus(statusEl,'Titel oder Text fehlt');
+    return;
+  }
   const arr=loadTemplates();
   arr.push({title,text});
   saveTemplates(arr);
-  titleInput.value='';textInput.value='';
+  titleInput.value='';
+  textInput.value='';
   render();
+  showStatus(statusEl,'Gespeichert');
+  addDashboard('Template gespeichert: '+title);
 });
 render();
 </script>

@@ -287,11 +287,15 @@ sudo npm install -g htmlhint
 
 ## Textbaustein-Modul benutzen
 
-1. Öffne `panel02.html` im Ordner `modules`.
+1. Öffne `panel04.html` im Ordner `modules`.
 2. Trage einen kurzen Titel und den Text in die Felder ein.
+3. Klicke auf **Hinzufügen**. Die Liste sortiert sich automatisch alphabetisch.
+4. Über **Kopieren** erscheint der Button kurz grün und der Eintrag landet im Dashboard.
+5. Mit **Löschen** verschwindet der Eintrag aus der Liste und dem Speicher.
 3. Klicke auf **Hinzufügen**. Der Eintrag erscheint darunter in der Liste.
 4. Über **Kopieren** landet der Text in deiner Zwischenablage.
-5. Mit **Löschen** entfernst du einen Eintrag aus der Liste und dem Speicher.
+5. Mit **Bearbeiten** lädst du den Eintrag in die Felder, passt ihn an und klickst **Aktualisieren**.
+6. Mit **Löschen** entfernst du einen Eintrag aus der Liste und dem Speicher.
 ## Flexibilität & Nutzerfreundlichkeit erhöhen
 
 * **Konfigurationsdatei bearbeiten:** `nano .modultoolrc.json`
@@ -344,6 +348,12 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
 2. Trage einen Titel ein.
 3. Wähle eine Farbe im Farbfeld.
 4. Klicke auf **Speichern**, die Vorschau zeigt dein Cover.
+5. Über **Zurücksetzen** löscht du Titel und Farbe wieder.
+6. Für eine schnelle Vorschau starte im Terminal (Befehlsfenster):
+   ```bash
+   python3 -m http.server
+   ```
+   Öffne dann im Browser (Programm zum Surfen) `http://localhost:8000/modules/panel07.html`.
 
 ## Theme-Switcher nutzen
 
@@ -609,7 +619,18 @@ aktualisiert sich jede Sekunde von selbst.
   ```bash
   date
   ```
-  (Zeigt Datum und Zeit an)
+(Zeigt Datum und Zeit an)
+
+### Verlauf exportieren
+
+Im Dashboard kannst du den Verlauf jetzt als Textdatei speichern.
+So geht es:
+
+```bash
+1. Panel03 im Browser öffnen
+2. Auf **Exportieren** klicken
+```
+Die Datei `dashboard_log.txt` erscheint im Download-Ordner.
 
 ## Weiterf\u00fchrende Laienvorschl\u00e4ge
 
@@ -723,5 +744,50 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```bash
   nano modules.json
   ```
-  *(IDs ohne führende Null eintragen, z.B. `"panel1"` statt `"panel01"`.)*
+*(IDs ohne führende Null eintragen, z.B. `"panel1"` statt `"panel01"`.)*
 
+- **Textbausteine extern bearbeiten**
+  ```bash
+  nano modules/panel02.html
+  ```
+  *(Öffnet das Modul im Editor. "nano" ist ein einfacher Texteditor im Terminal.)*
+
+
+## Todo-Liste immer aktualisieren
+
+- Nach jeder Änderung die Datei `todo.txt` öffnen:
+  ```bash
+  nano todo.txt
+  ```
+  *("nano" ist ein einfacher Texteditor)*
+- Neue Aufgaben eintragen oder erledigte abhaken.
+- Speichern mit **Strg+O**, beenden mit **Strg+X**.
+- Danach die Liste in `platzhalter.txt` kopieren:
+  ```bash
+  cp todo.txt platzhalter.txt
+  ```
+  *("cp" bedeutet Copy und erstellt eine Kopie)*
+- Beide Dateien zur Versionskontrolle sichern:
+  ```bash
+  git add todo.txt platzhalter.txt
+  git commit -m "Todo-Liste aktualisiert"
+  ```
+  *("git" speichert die Änderungen im Repository)*
+- **Modul im Browser testen**
+  ```bash
+  python3 -m http.server
+  ```
+  *(Startet einen lokalen Server. Danach `http://localhost:8000/modules/panel02.html` im Browser öffnen.)*
+
+- **Vorlagen in Datei speichern (Export)**
+  ```bash
+  node tools/comma_json.js save "Beispieltext" my_templates.json
+  ```
+  *(Speichert eine kommagetrennte Liste als JSON-Datei. `JSON` ist ein einfaches Textformat.)*
+
+
+- **Profil im Persona-Switcher löschen**
+  ```bash
+  Profil auswählen und auf "Profil löschen" klicken
+  ```
+  *(Entfernt das Profil dauerhaft aus dem Browser-Speicher (localStorage).)*
