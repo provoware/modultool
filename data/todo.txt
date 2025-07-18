@@ -223,3 +223,8 @@
 - [ ] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`
 - [ ] Code-Formatierung mit Prettier (Formatierer = ordnet Einr\u00fcckungen und Leerzeichen). Befehl: `npx prettier --write .`
 - [ ] JavaScript-Code pr\u00fcfen mit ESLint (Linting = Fehler- und Stilpr\u00fcfung). Befehl: `npx eslint .`
+- [ ] Import-Dateien checken: nur JSON und unter 1 MB (Security = Schutz vor großen oder fremden Dateien). Beispiel im Code: `if(file.size>1000000||!file.name.endsWith('.json')) return alert('Datei zu groß oder kein JSON');`
+- [ ] Versionsnummer in localStorage speichern (Versionierung = Daten einfach aktualisieren). Befehl: `localStorage.setItem('DATA_VERSION','1')`
+- [ ] Suche entprellen (Debounce = kurze Wartezeit vor dem Suchlauf). Befehl: `npm install lodash.debounce`
+- [ ] Dynamische Elemente mit eindeutigen IDs versehen (ID = unverwechselbare Kennung). Beispiel: `elem.id='panel-'+index`
+- [ ] Service Worker einrichten für Offline-Betrieb (PWA = Webapp zum Installieren). Befehl: `npx workbox-cli wizard`
