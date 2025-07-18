@@ -3,8 +3,21 @@
 **Modulares Content-Creation-Tool (Werkzeug zur Inhaltserstellung) mit Fokus auf Barrierefreiheit, Systemkritik und Selbstheilung.**
 Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content-Schaffende.
 
----
+[Ausführliche Hilfe](LAIENHILFE.md)
 
+## Inhalt
+- [Ziele](#-ziele)
+- [Aktuelle Start-Module](#-aktuelle-start-module)
+- [Features](#-features)
+- [Struktur](#-struktur)
+- [Offene Punkte](#-offene-punkte-fuer-das-release)
+- [Branches zusammenführen](#-branches-zusammenführen)
+- [Neues Modul anlegen](#neues-modul-anlegen)
+- [Pakete erstellen (.deb & AppImage)](#-pakete-erstellen-deb--appimage)
+Zum Starten: `bash tools/start_tool.sh` – überprüft neue Module und öffnet das Tool.
+
+Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Checker und synchronisiert deine Aufgabenlisten.
+- [Lokaler Testserver](#-lokaler-testserver)
 ## 🎯 Ziele
 
 - Offline lauffähiges Creator-Tool für Text, Audio, Bild & Video
@@ -17,97 +30,20 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 ## 🧩 Aktuelle Start-Module
 
 ---
-- **📝 Panel01: Genre-Liste & Zufall**
-  → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
-- **🎛 Panel02: Genre-Profile**
-  → Mehrere Genre-Listen unter Profilnamen speichern, optional mit Gewichtung
-  → Button "Gewichteter Zufall" wählt ein Profil nach Gewicht und daraus ein Genre
-  - **📊 Panel03: Dashboard – Verlauf**
-    → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
-    → Verlauf als Textdatei exportieren
-- **🎛 Panel02: Textbausteine**
-  → Kurze Texte speichern, kopieren, bearbeiten und löschen
-  → Liste wird beim Speichern alphabetisch sortiert
-- **📊 Panel03: Dashboard – Verlauf**
-  → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
-- **📋 Panel04: Textbausteine**
-  → Kurze Textbausteine speichern, Liste alphabetisch sortiert
-  → Kopieren mit grünem Feedback und Dashboard-Eintrag
-- **🧑‍🎤 Panel05: Persona-Switcher**
-  → Verschiedene Figurenprofile speichern, auswählen und löschen
-- **🖖 Panel06: Story-Sampler**
-  → Kurze Ideen sammeln und zufällig auswählen
-- **🖼️ Panel07: Cover-Layout**
-  → Einfacher Titel und Farbvorschau für Cover, jetzt mit Zurücksetzen
- - **🎨 Panel08: Theme-Switcher**
-   → Farbmodus (dunkel, hell, blau) wählen und speichern
- - **⚙️ Panel09: Einstellungen**
-   → Schriftart (Font), Größe, Button-Rundung und Standardpfad einstellen. Dadurch haben alle Module den gleichen Stil.
- - **📚 Panel10: Wiki**
-   → Wissenseinträge unter Titel speichern und laden
- - **📰 Panel11: Blog-Editor**
-   → Blogartikel unter ihrem Titel verfassen und speichern
- - **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
- - **Sichtbarer Tastaturfokus** erleichtert die Navigation per Tastatur
-- **📑 Panel02: Textbausteine**
-  → Kurze Texte speichern, kopieren und löschen
-  → Listeneingabe, gespeicherte Liste wird alphabetisch sortiert, Zufallswahl mit Log & Kopierfunktion sowie grünem Feedback beim Speichern
-- **🎲 Genre-Archiv & Eingabe**  
-  → Speicherung, Duplikatsprüfung, Komma-getrennte Eingaben
-- **🧠 Zufallsgenerator**  
-  → mit Auswahlmodi, Logging, Favoriten und Export
-- **📋 Todo-Listen-Modul**  
-  → einfache Aufgabenlisten verwalten
-- **🎤 Songtext-Editor**  
-  → Felder für Titel, Notizen und Text
-- **📓 Dialog-Schreiber**  
-  → Charaktere anlegen und Dialoge speichern
-- **ℹ️ Info-Manager**  
-  → eigene Befehls- oder Webseiten-Infos sammeln
-- **💬 Zitaten-Modul**  
-  → Felder für Autor, Zitat und optionale Notiz
-- **🧱 Modulbaukasten**  
-  → Module per Buttons flexibel anordnen
-
----
-- **📝 Panel01: Genre-Liste & Zufall**
-  → Listeneingabe, Speicherung und Zufallswahl mit Log & Kopierfunktion
-- **🎛 Panel02: Genre-Profile**
-  → Mehrere Genre-Listen unter Profilnamen speichern, optional mit Gewichtung
-  → Button "Gewichteter Zufall" wählt ein Profil nach Gewicht und daraus ein Genre
-- **📊 Panel03: Dashboard – Verlauf**
-- **🎛 Panel02: Textbausteine**
-  → Kurze Texte speichern, kopieren, bearbeiten und löschen
-  → Liste wird beim Speichern alphabetisch sortiert
- - **📊 Panel03: Dashboard – Verlauf**
-  → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
-  → Oben laufende Anzeige von Datum und Uhrzeit
-  → Verlauf als Textdatei exportieren
-- **📋 Panel04: Textbausteine**
-  → Kurze Textbausteine speichern, Liste alphabetisch sortiert
-  → Kopieren mit grünem Feedback und Dashboard-Eintrag
-- **🧑‍🎤 Panel05: Persona-Switcher**
-  → Verschiedene Figurenprofile speichern, auswählen und löschen
-- **🖖 Panel06: Story-Sampler**
-  → Kurze Ideen sammeln und zufällig auswählen
-- **🖼️ Panel07: Cover-Layout**
-    → Einfacher Titel und Farbvorschau für Cover, jetzt mit Zurücksetzen
-- **🎨 Panel08: Theme-Switcher**
-  → Farbmodus (dunkel, hell, blau) wählen und speichern
-- **⚙️ Panel09: Einstellungen**
-  → Schriftart (Font), Größe und Button-Rundung global anpassen. Dadurch haben alle Module den gleichen Stil.
-- **📂 Panel10: Modul-Vorlage**
-  → Vorlage für eigene Module per Skript erstellen
-- **📆 Panel10: Jahresplan Übersicht**
-  → Zeigt alle Monate des Jahres mit den gespeicherten Terminen aus Panel11
-- **🗓️ Panel11: Monats- und Tagesplan**
-  → Termine pro Tag anlegen und verwalten, aktualisiert automatisch das Dashboard
-- **Globale Validierungsfunktionen**
-  → Datei `validation.js` bietet Datum- und Text-Prüfung und testet `localStorage` sowie JSON
-- **Modul-Dropdown im Dashboard**
-  → Dort lassen sich alle Module aus `modules.json` bequem öffnen
-- **Statusmeldungen** informieren, wenn Eingaben fehlen oder das Kopieren nicht klappt
-- **Sichtbarer Tastaturfokus** erleichtert die Navigation per Tastatur
+- **Panel01: Genre-Liste & Zufall** – Liste eingeben und zufälliges Genre kopieren
+- **Panel02: Textbausteine** – kurze Texte speichern und kopieren
+- **Panel03: Dashboard: Verlauf** – Aktionen anzeigen und exportieren
+- **Panel04: Textbausteine (Vorlagen)** – Vorlagentexte sammeln
+- **Panel05: Persona-Switcher** – Profile verwalten
+- **Panel06: Story-Sampler** – Ideen zufällig ziehen
+- **Panel07: Cover-Layout** – einfacher Titel und Farbe
+- **Panel08: Theme-Switcher** – Farbmodus wählen
+- **Panel09: Einstellungen** – Schriftart und Pfad
+- **Panel10: Jahresplan Übersicht** – Termine pro Monat
+- **Panel11: Monats- und Tagesplan** – detaillierte Einträge
+- **Panel12: Wiki** – Wissenseinträge speichern
+- **Panel13: Blog-Editor** – Blogartikel verfassen
+- **Panel14: Fehler & Hilfe** – Fehlermeldungen anzeigen
 ---
 
 ## 🧠 Features
