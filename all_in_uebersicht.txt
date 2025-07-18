@@ -17,12 +17,8 @@
 ./agents_status.json
 ./all_in_uebersicht.txt
 ./baumstruktur.txt
-./branch-limit.yml
 ./data/baumstruktur.txt
 ./data/todo.txt
-./data/todo_backup_20250717233222.txt
-./data/todo_backup_20250717233233.txt
-./data/todo_backup_20250717233244.txt
 ./error_informationen.txt
 ./index-MODULTOOL.html
 ./logs/.placeholder
@@ -85,7 +81,6 @@
 ./panels/panel8.html
 ./panels/panel9.html
 ./platzhalter.txt
-./selfcheck.log
 ./setup.sh
 ./todo.txt
 ./tools/autoupdate.sh
@@ -94,5 +89,4 @@
 ./tools/create_module.js
 ./tools/selfcheck.sh
 ./tools/start_tool.sh
-./validate.yml
 ./validation.js
