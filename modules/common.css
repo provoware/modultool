@@ -1,0 +1,8 @@
+/* Gemeinsame Stilregeln fuer alle Module */
+.mod-panel {
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.mod-panel h2 {
+  margin-top: 0;
+}
