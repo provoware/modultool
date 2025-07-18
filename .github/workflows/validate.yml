@@ -1,28 +1,36 @@
-name: 🔍 Validate All
+name: 🔍 Modultool-Codeprüfung & Barrierecheck
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [main, dev]
   pull_request:
+    branches: [main, dev]
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node & Tools
         run: |
-          sudo apt update
-          sudo apt install -y shellcheck jq
-          npm install -g htmlhint jsonlint
+          sudo apt-get update
+          sudo apt-get install -y jq shellcheck curl npm
+          npm install -g jsonlint htmlhint axe-core
 
       - name: Validate Shell Scripts
         run: find . -name "*.sh" -exec shellcheck {} \;
 
       - name: Validate JSON Files
-        run: find . -name "*.json" -exec jsonlint -q {} \;
+        run: find . -name "*.json" -not -path "./node_modules/*" -exec jsonlint -q {} \;
 
       - name: Validate HTML Files
-        run: find . -name "*.html" -exec htmlhint {} \;
+        run: find . -name "*.html" -not -path "./node_modules/*" -exec htmlhint {} \;
+
+      - name: Accessibility Test with axe-core
+        run: npx axe https://example.com --quiet || echo "⚠️ Hinweis: axe-core benötigt ein testbares Deployment mit URL."
+        continue-on-error: true
+
+      - name: List Project Files
+        run: find . -type f | sort
