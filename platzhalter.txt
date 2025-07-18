@@ -1,3 +1,16 @@
+# Liste mit offenen Aufgaben
+- [ ] plugin.json pro Pluginverzeichnis anlegen
+- [ ] lib/update_manager.js erstellen
+- [ ] config_schema.json einrichten
+- [ ] Unit- und Integrationstests einrichten
+- [ ] GitHub Actions für Linting und Testing hinzufügen
+- [ ] ZIP-Backup-Modul fertigstellen
+- [ ] Undo/Redo-Funktion implementieren
+- [ ] Filter- und Favoriten-Funktion ergänzen
+- [ ] Scrollsync und Projektordner verwalten
+- [ ] Wöchentlichen Selfcheck automatisieren (Cronjob)
+- [ ] Release vorbereiten: Selfcheck, README prüfen, Release-Tag erstellen
+- [ ] DEB- und AppImage-Paket bauen
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] Befehlsreferenz-Modul (panel9) ergänzen
