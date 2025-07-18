@@ -38,7 +38,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - **🖖 Panel06: Story-Sampler**
   → Kurze Ideen sammeln und zufällig auswählen
 - **🖼️ Panel07: Cover-Layout**
-  → Einfacher Titel und Farbvorschau für Cover
+  → Einfacher Titel und Farbvorschau für Cover, jetzt mit Zurücksetzen
  - **🎨 Panel08: Theme-Switcher**
    → Farbmodus (dunkel, hell, blau) wählen und speichern
  - **⚙️ Panel09: Einstellungen**
@@ -91,7 +91,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - **🖖 Panel06: Story-Sampler**
   → Kurze Ideen sammeln und zufällig auswählen
 - **🖼️ Panel07: Cover-Layout**
-  → Einfacher Titel und Farbvorschau für Cover
+    → Einfacher Titel und Farbvorschau für Cover, jetzt mit Zurücksetzen
 - **🎨 Panel08: Theme-Switcher**
   → Farbmodus (dunkel, hell, blau) wählen und speichern
 - **⚙️ Panel09: Einstellungen**
