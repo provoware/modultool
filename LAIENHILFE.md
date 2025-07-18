@@ -713,5 +713,26 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```bash
   nano modules.json
   ```
-  *(IDs ohne führende Null eintragen, z.B. `"panel1"` statt `"panel01"`.)*
+*(IDs ohne führende Null eintragen, z.B. `"panel1"` statt `"panel01"`.)*
+
+## Noch mehr Laien-Tipps (neu)
+
+- **Tooltips nutzen**
+  Halte die Maus über eine Schaltfläche oder ein Eingabefeld. Ein kleiner Hinweis erscheint. *(Tooltip = kurzer erklärender Text).* So erkennst du schneller, was ein Knopf bewirkt.
+
+- **Selfcheck automatisch starten**
+  ```bash
+  crontab -e
+  ```
+  Füge diese Zeile ein:
+  ```bash
+  0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh
+  ```
+  *(Cron ist ein Zeitplaner unter Linux. Damit läuft der Selbstcheck jeden Montag um 7 Uhr.)*
+
+- **todo.txt aktuell halten**
+  ```bash
+  cp todo.txt platzhalter.txt
+  ```
+  *(Kopiert die Aufgabenliste. So bleibt `platzhalter.txt` auf demselben Stand.)*
 
