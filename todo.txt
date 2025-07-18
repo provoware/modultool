@@ -220,3 +220,6 @@
 - [ ] Theme umschalten ohne "null"-Attribut
 - [ ] Fokus nur auf sichtbare Panels zulassen
 - [ ] Logging vereinheitlichen
+- [ ] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`
+- [ ] Code-Formatierung mit Prettier (Formatierer = ordnet Einr\u00fcckungen und Leerzeichen). Befehl: `npx prettier --write .`
+- [ ] JavaScript-Code pr\u00fcfen mit ESLint (Linting = Fehler- und Stilpr\u00fcfung). Befehl: `npx eslint .`

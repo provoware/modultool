@@ -11,6 +11,10 @@
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob)
 - [ ] Release vorbereiten: Selfcheck, README prüfen, Release-Tag erstellen
 - [ ] DEB- und AppImage-Paket bauen
+- [ ] CI/CD-Pipeline einrichten (Lint → Test → Build → Release)
+- [ ] Accessibility-Audit der Panels durchführen und Code aufräumen
+- [ ] Automatische Versionierung und Changelog-Workflow einrichten
+- [ ] JavaScript-Tools auf TypeScript umstellen (Schema-Validierung)
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] Befehlsreferenz-Modul (panel9) ergänzen
@@ -209,3 +213,13 @@
 - [ ] Vor dem Release bash tools/selfcheck.sh ausfuehren und Releasenotizen im README ergaenzen
 - [x] panel01 bereinigt (doppelte Elemente entfernt)
 - [x] Startskript um Selbstheilung & Exitstatus-Prüfung erweitert
+
+- [ ] Doppelte Variablen wie "let genres" entfernen
+- [ ] Einfache Archiv-Buttons einrichten
+- [ ] fehlenden Button "importInsertBtn" ergänzen
+- [ ] Theme umschalten ohne "null"-Attribut
+- [ ] Fokus nur auf sichtbare Panels zulassen
+- [ ] Logging vereinheitlichen
+- [ ] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`
+- [ ] Code-Formatierung mit Prettier (Formatierer = ordnet Einr\u00fcckungen und Leerzeichen). Befehl: `npx prettier --write .`
+- [ ] JavaScript-Code pr\u00fcfen mit ESLint (Linting = Fehler- und Stilpr\u00fcfung). Befehl: `npx eslint .`
