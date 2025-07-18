@@ -25,7 +25,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - **📊 Panel03: Dashboard – Verlauf**
   → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
 - **📋 Panel04: Textbausteine**
-  → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
+  → Kurze Textbausteine speichern, Liste alphabetisch sortiert
+  → Kopieren mit grünem Feedback und Dashboard-Eintrag
 - **🧑‍🎤 Panel05: Persona-Switcher**
   → Verschiedene Figurenprofile speichern und auswählen
 - **🖖 Panel06: Story-Sampler**
@@ -72,7 +73,8 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
   → Zufallsausgaben aus allen Modulen zentral anzeigen und löschen
   → Oben laufende Anzeige von Datum und Uhrzeit
 - **📋 Panel04: Textbausteine**
-  → Kurze Textbausteine speichern und per Klick in die Zwischenablage kopieren
+  → Kurze Textbausteine speichern, Liste alphabetisch sortiert
+  → Kopieren mit grünem Feedback und Dashboard-Eintrag
 - **🧑‍🎤 Panel05: Persona-Switcher**
   → Verschiedene Figurenprofile speichern und auswählen
 - **🖖 Panel06: Story-Sampler**
