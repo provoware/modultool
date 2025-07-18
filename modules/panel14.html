@@ -17,6 +17,36 @@
     fetch("../error_informationen.txt")
       .then(r => r.text())
       .then(t => { document.getElementById("errorInfo").textContent = t || "Keine Fehlerhinweise vorhanden."; });
+  <button id="saveErrorsBtn">Fehler speichern</button>
+  <button id="clearErrorsBtn">Fehler löschen</button>
+  <script type="module">
+    import { handleError } from '../validation.js';
+    const info=document.getElementById('errorInfo');
+    function loadLog(){
+      try{
+        const log=JSON.parse(localStorage.getItem('errorLog')||'[]');
+        info.textContent=log.map(e=>`[${e.time}] ${e.msg}`).join('\n')||'Keine Fehler gespeichert.';
+        return true;
+      }catch(e){
+        info.textContent='Fehler beim Laden des Logs';
+        handleError(e,'Fehlerlog laden');
+        return false;
+      }
+    }
+    document.getElementById('saveErrorsBtn').addEventListener('click',()=>{
+      const blob=new Blob([info.textContent],{type:'text/plain'});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a');
+      a.href=url; a.download='error_log.txt'; a.click();
+      URL.revokeObjectURL(url);
+    });
+    document.getElementById('clearErrorsBtn').addEventListener('click',()=>{
+      localStorage.removeItem('errorLog');
+      loadLog();
+    });
+    window.addEventListener('error',e=>handleError(e.error||e.message,'Global'));
+    window.addEventListener('unhandledrejection',e=>handleError(e.reason,'Promise'));
+    loadLog();
   </script>
 </div>
 </body>

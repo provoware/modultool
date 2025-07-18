@@ -19,7 +19,7 @@ Dabei wird deine Aufgabenliste automatisch gesichert und
 ```bash
 bash tools/selfcheck.sh
 ```
-Dabei wird automatisch `platzhalter.txt` auf Basis von `todo.txt` aktualisiert.
+4. Öffne `modules/panel14.html` im Browser. Dort siehst du gespeicherte Fehlermeldungen. Mit **Fehler speichern** lädst du sie herunter, **Fehler löschen** leert die Liste.
 
 Falls Meldungen erscheinen, befolge die Tipps. Zum Beispiel wird `htmlhint` erwähnt, wenn es fehlt. Dann kannst du es mit `npm install -g htmlhint` (JavaScript-Prüfwerkzeug) installieren.
 
@@ -42,6 +42,7 @@ bash tools/start_tool.sh
 
 Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und öffnet die Seite automatisch im Browser.
 
+Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Sekunden automatisch oder per Klick auf 'Los geht's'.
 1. Wechsel im Terminal in den Projektordner.
 2. Starte einen kleinen Webserver mit `python3 -m http.server`. (Damit werden die Dateien lokal bereitgestellt.)
 3. Öffne dann `http://localhost:8000/index-MODULTOOL.html` im Browser (Programm zum Surfen im Internet).

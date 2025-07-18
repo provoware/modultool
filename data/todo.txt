@@ -15,6 +15,7 @@
 - [x] Hilfetexte und Tooltips ausbauen
 - [x] Startskript zum einfachen Aufrufen des Tools
 - [x] Willkommens-Overlay für neue Nutzer
+- [x] Startbildschirm blendet nach 20 Sekunden aus
 - [x] Importfunktion: geladenes Modul direkt als Panel einfügen
 - [x] Module automatisch aus modules.json laden
 - [x] Neues Modul panel10 "Erste Schritte" ergänzen
@@ -80,7 +81,6 @@
 - [x] Persona-Switcher-Modul umsetzen (Panel05)
 - [x] Story-Sampler-Modul umgesetzt (Panel06)
 - [x] Cover/Layout-Modul umsetzen (Panel07)
-
 - [x] Theme-Switcher-Modul umsetzen (Panel08)
 - [x] Einstellungs-Panel umsetzen (Panel09)
 - [x] Weitere Befehle in der Laienhilfe ergänzen
@@ -149,7 +149,6 @@
 - [ ] GitHub Actions für Linting und Testing hinzufügen
 - [ ] Schritt-für-Schritt-Assistenten für Modul-Erstellung planen
 - [ ] Barrierefreiheit automatisch prüfen (axe-core)
-
 - [x] LAIENHILFE um Aufräumtipps ergänzt
 - [x] HTML-Dateien um Doctype erweitern (automatisiert)
 - [x] Platzhalter-Module bereinigen
@@ -171,14 +170,19 @@
 - [x] Story-Sampler: 'Liste löschen'-Button und Kopiermeldung
 - [x] Persona-Switcher um Löschfunktion erweitert (Panel05)
 - [x] Panel04 auf common.js umgestellt und um Feedback erweitert
-
 - [x] Exportfunktion im Dashboard ergänzt (Panel03)
 - [x] Panel02: Bearbeiten-Funktion ergänzt
 - [x] Laienhilfe erweitert (Bearbeiten und Testbefehle)
-
 - [x] panel01 Code aufgeraeumt (doppelte Funktionen entfernt und common.js genutzt)
 - [x] Panel02 Buttons & Events bereinigt
 - [x] Fehler-&-Hilfe-Panel zeigt error_informationen.txt an
 - [ ] Startskript prüft Updates vor dem Start
 - [x] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
 - [x] selfcheck.sh synchronisiert todo-Dateien nach Lauf
+- [x] Fehler-&-Hilfe-Panel speichert Fehler in localStorage und bietet Download
+- [x] handleError-Funktion speichert Fehlermeldungen automatisch
+- [ ] Fehler-&-Hilfe-Panel zeigt error_informationen.txt an
+- [ ] Startskript prüft Updates vor dem Start
+- [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
+- [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
+- [x] Startbildschirm schließt automatisch nach 20 Sekunden
