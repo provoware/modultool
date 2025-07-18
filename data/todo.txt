@@ -177,7 +177,8 @@
 - [x] Laienhilfe erweitert (Bearbeiten und Testbefehle)
 
 - [x] panel01 Code aufgeraeumt (doppelte Funktionen entfernt und common.js genutzt)
-- [ ] Fehler-&-Hilfe-Panel zeigt error_informationen.txt an
+- [x] Panel02 Buttons & Events bereinigt
+- [x] Fehler-&-Hilfe-Panel zeigt error_informationen.txt an
 - [ ] Startskript prüft Updates vor dem Start
-- [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
-- [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
+- [x] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
+- [x] selfcheck.sh synchronisiert todo-Dateien nach Lauf
