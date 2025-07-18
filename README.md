@@ -34,7 +34,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
   → Kurze Textbausteine speichern, Liste alphabetisch sortiert
   → Kopieren mit grünem Feedback und Dashboard-Eintrag
 - **🧑‍🎤 Panel05: Persona-Switcher**
-  → Verschiedene Figurenprofile speichern und auswählen
+  → Verschiedene Figurenprofile speichern, auswählen und löschen
 - **🖖 Panel06: Story-Sampler**
   → Kurze Ideen sammeln und zufällig auswählen
 - **🖼️ Panel07: Cover-Layout**
@@ -87,7 +87,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
   → Kurze Textbausteine speichern, Liste alphabetisch sortiert
   → Kopieren mit grünem Feedback und Dashboard-Eintrag
 - **🧑‍🎤 Panel05: Persona-Switcher**
-  → Verschiedene Figurenprofile speichern und auswählen
+  → Verschiedene Figurenprofile speichern, auswählen und löschen
 - **🖖 Panel06: Story-Sampler**
   → Kurze Ideen sammeln und zufällig auswählen
 - **🖼️ Panel07: Cover-Layout**
