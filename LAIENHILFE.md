@@ -42,6 +42,7 @@ bash tools/start_tool.sh
 
 Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und öffnet die Seite automatisch im Browser.
 
+Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Sekunden automatisch oder per Klick auf 'Los geht's'.
 1. Wechsel im Terminal in den Projektordner.
 2. Starte einen kleinen Webserver mit `python3 -m http.server`. (Damit werden die Dateien lokal bereitgestellt.)
 3. Öffne dann `http://localhost:8000/index-MODULTOOL.html` im Browser (Programm zum Surfen im Internet).

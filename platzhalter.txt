@@ -183,3 +183,8 @@
 - [ ] Startskript prüft Updates vor dem Start
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
 - [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
+- [ ] Fehler-&-Hilfe-Panel zeigt error_informationen.txt an
+- [ ] Startskript prüft Updates vor dem Start
+- [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
+- [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
+- [x] Startbildschirm schließt automatisch nach 20 Sekunden

@@ -15,6 +15,7 @@
 - [x] Hilfetexte und Tooltips ausbauen
 - [x] Startskript zum einfachen Aufrufen des Tools
 - [x] Willkommens-Overlay für neue Nutzer
+- [x] Startbildschirm blendet nach 20 Sekunden aus
 - [x] Importfunktion: geladenes Modul direkt als Panel einfügen
 - [x] Module automatisch aus modules.json laden
 - [x] Neues Modul panel10 "Erste Schritte" ergänzen
@@ -180,6 +181,8 @@
 - [x] Panel02 Buttons & Events bereinigt
 - [x] Fehler-&-Hilfe-Panel speichert Fehler in localStorage und bietet Download
 - [x] handleError-Funktion speichert Fehlermeldungen automatisch
+- [ ] Fehler-&-Hilfe-Panel zeigt error_informationen.txt an
 - [ ] Startskript prüft Updates vor dem Start
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
 - [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
+- [x] Startbildschirm schließt automatisch nach 20 Sekunden
