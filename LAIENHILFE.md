@@ -715,3 +715,30 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```
   *(IDs ohne führende Null eintragen, z.B. `"panel1"` statt `"panel01"`.)*
 
+## Nutzerfreundlichkeit weiter verbessern
+
+- **Kurzbefehl zum Start (Alias)**
+  ```bash
+  echo "alias modstart='bash tools/start_tool.sh'" >> ~/.bashrc
+  source ~/.bashrc
+  ```
+  *(Alias = selbstgewählter Kurzname für einen Befehl. `source` liest die Datei neu ein.)*
+
+- **Schriftgröße anpassen (CSS = Gestaltungssprache)**
+  ```bash
+  echo "body { font-size: 18px; }" > panels/style_override.css
+  ```
+  *(Erzeugt eine Datei, die im Browser die Schrift etwas größer darstellt.)*
+
+- **Module schnell durchsuchen (grep = Suchprogramm)**
+  ```bash
+  grep -n "<title>" modules/*.html
+  ```
+  *(Zeigt alle Titelzeilen in den Moduldateien mit Nummer an.)*
+
+- **Hilfe im Terminal aufrufen (man = Handbuch)**
+  ```bash
+  man bash
+  ```
+  *(Zeigt das Handbuch zur Befehls-Shell. Mit `q` beendest du die Anzeige.)*
+
