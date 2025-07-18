@@ -21,6 +21,7 @@
   <textarea id="tmpl-text" rows="2" aria-label="Textvorlage"
             placeholder="Inhalt hier eingeben" title="Text für die Vorlage" required></textarea>
   <button id="add-btn">Hinzufügen</button>
+  <button id="update-btn" style="display:none">Aktualisieren</button>
   <ul id="tmpl-list"></ul>
   <div id="status" role="status" aria-live="polite"></div>
 </div>
@@ -29,9 +30,11 @@ import { showStatus } from './common.js';
 const titleInput=document.getElementById('tmpl-title');
 const textInput=document.getElementById('tmpl-text');
 const addBtn=document.getElementById('add-btn');
+const updateBtn=document.getElementById('update-btn');
 const listEl=document.getElementById('tmpl-list');
 const statusEl=document.getElementById('status');
 const STORE_KEY='templates';
+let editIndex=-1;
 
 function loadTemplates(){
   try{
@@ -61,10 +64,24 @@ function render(){
     const copyBtn=document.createElement('button');
     copyBtn.textContent='Kopieren';
     copyBtn.addEventListener('click',()=>navigator.clipboard.writeText(t.text));
+    const editBtn=document.createElement('button');
+    editBtn.textContent='Bearbeiten';
+    editBtn.addEventListener('click',()=>{
+      titleInput.value=t.title;
+      textInput.value=t.text;
+      editIndex=i;
+      addBtn.style.display='none';
+      updateBtn.style.display='inline';
+    });
     const delBtn=document.createElement('button');
     delBtn.textContent='Löschen';
-    delBtn.addEventListener('click',()=>{const list=loadTemplates();list.splice(i,1);saveTemplates(list);render();});
-    li.append(span,copyBtn,delBtn);
+    delBtn.addEventListener('click',()=>{
+      const list=loadTemplates();
+      list.splice(i,1);
+      saveTemplates(list);
+      render();
+    });
+    li.append(span,copyBtn,editBtn,delBtn);
     listEl.append(li);
   });
 }
@@ -80,6 +97,23 @@ addBtn.addEventListener('click',()=>{
   textInput.value='';
   render();
   showStatus(statusEl,'Vorlage gespeichert');
+});
+
+updateBtn.addEventListener('click',()=>{
+  const title=titleInput.value.trim();
+  const text=textInput.value.trim();
+  if(editIndex<0){return;}
+  if(!title || !text){showStatus(statusEl,'Titel oder Text fehlt');return;}
+  const arr=loadTemplates();
+  arr[editIndex]={title,text};
+  saveTemplates(arr);
+  editIndex=-1;
+  titleInput.value='';
+  textInput.value='';
+  addBtn.style.display='inline';
+  updateBtn.style.display='none';
+  render();
+  showStatus(statusEl,'Vorlage aktualisiert');
 });
 
 render();
