@@ -21,7 +21,6 @@
   <textarea id="tmpl-text" rows="2" aria-label="Textvorlage"
             placeholder="Inhalt hier eingeben" title="Text für die Vorlage" required></textarea>
   <button id="add-btn" title="Vorlage speichern">Hinzufügen</button>
-  <button id="add-btn">Hinzufügen</button>
   <button id="update-btn" style="display:none">Aktualisieren</button>
   <ul id="tmpl-list"></ul>
   <div id="status" role="status" aria-live="polite"></div>
@@ -79,13 +78,6 @@ function render(){
     delBtn.textContent='Löschen';
     delBtn.title='Vorlage entfernen';
     delBtn.addEventListener('click',()=>{const list=loadTemplates();list.splice(i,1);saveTemplates(list);render();});
-    li.append(span,copyBtn,delBtn);
-    delBtn.addEventListener('click',()=>{
-      const list=loadTemplates();
-      list.splice(i,1);
-      saveTemplates(list);
-      render();
-    });
     li.append(span,copyBtn,editBtn,delBtn);
     listEl.append(li);
   });
