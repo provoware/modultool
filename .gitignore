@@ -4,3 +4,4 @@ data/*.log
 *.tmp
 data/todo_backup_*.txt
 *.log
+dist/
