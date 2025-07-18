@@ -178,6 +178,11 @@
 
 - [x] panel01 Code aufgeraeumt (doppelte Funktionen entfernt und common.js genutzt)
 - [x] Panel02 Buttons & Events bereinigt
+- [x] Fehler-&-Hilfe-Panel speichert Fehler in localStorage und bietet Download
+- [x] handleError-Funktion speichert Fehlermeldungen automatisch
+- [ ] Startskript prüft Updates vor dem Start
+- [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
+- [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
 - [ ] Fehler-&-Hilfe-Panel zeigt error_informationen.txt an
 - [ ] Startskript prüft Updates vor dem Start
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen

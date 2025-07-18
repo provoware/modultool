@@ -25,6 +25,7 @@
 </div>
 <script type="module">
 import { showStatus, addDashboard } from './common.js';
+import { handleError } from '../validation.js';
 const titleInput=document.getElementById('title-input');
 const colorInput=document.getElementById('color-input');
 const preview=document.getElementById('preview');
@@ -36,6 +37,7 @@ function load(){
   try {
     return JSON.parse(localStorage.getItem(KEY)) || {};
   } catch(e) {
+    handleError(e,'Cover laden');
     return {};
   }
 }
@@ -47,6 +49,7 @@ function saveData(obj){
     addDashboard('Cover: ' + (obj.title || ''));
   } catch(e) {
     showStatus(status, 'Speichern fehlgeschlagen');
+    handleError(e,'Cover speichern');
   }
 }
 
@@ -62,11 +65,16 @@ saveBtn.addEventListener('click', () => {
 });
 
 resetBtn.addEventListener('click', () => {
-  localStorage.removeItem(KEY);
-  titleInput.value = '';
-  colorInput.value = '#ff6699';
-  render({});
-  showStatus(status, 'Zur\u00fcckgesetzt');
+  try {
+    localStorage.removeItem(KEY);
+    titleInput.value = '';
+    colorInput.value = '#ff6699';
+    render({});
+    showStatus(status, 'Zur\u00fcckgesetzt');
+  } catch(e){
+    showStatus(status,'Zur\u00fccksetzen fehlgeschlagen');
+    handleError(e,'Cover reset');
+  }
 });
 
 const data = load();
