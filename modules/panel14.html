@@ -13,6 +13,10 @@
   <h2>Fehler & Hilfe</h2>
   <a href="LAIENHILFE.md" target="_blank">Ausführliche Hilfe öffnen</a>
   <pre id="errorInfo" style="max-height:150px;overflow:auto;background:#222;color:#eee;padding:.4em;"></pre>
+  <script>
+    fetch("../error_informationen.txt")
+      .then(r => r.text())
+      .then(t => { document.getElementById("errorInfo").textContent = t || "Keine Fehlerhinweise vorhanden."; });
   <button id="saveErrorsBtn">Fehler speichern</button>
   <button id="clearErrorsBtn">Fehler löschen</button>
   <script type="module">

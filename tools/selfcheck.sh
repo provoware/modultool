@@ -6,6 +6,7 @@ echo "🧪 Selfcheck gestartet..."
 # Haupt-ToDo-Dateien festlegen
 TODO_MAIN="todo.txt"
 TODO_DATA="data/todo.txt"
+TODO_COPY="platzhalter.txt"
 
 # Backup der Haupt-ToDo-Datei erstellen
 if [ -f "$TODO_MAIN" ]; then
@@ -22,6 +23,9 @@ fi
 if [ -f "$TODO_MAIN" ]; then
   if [ ! -f "$TODO_DATA" ] || ! diff -q "$TODO_MAIN" "$TODO_DATA" >/dev/null; then
     cp "$TODO_MAIN" "$TODO_DATA"
+  fi
+  if [ ! -f "$TODO_COPY" ] || ! diff -q "$TODO_MAIN" "$TODO_COPY" >/dev/null; then
+    cp "$TODO_MAIN" "$TODO_COPY"
   fi
 fi
 
@@ -89,7 +93,7 @@ fi
 
 # ========== Hinweise zum manuellen Aktualisieren ==========
 echo "🌲 baumstruktur.txt manuell mit 'find . -type f | sort > data/baumstruktur.txt' aktualisieren"
-echo "📑 platzhalter.txt manuell aus todo.txt generieren"
+echo "📑 platzhalter.txt automatisch aktualisiert"
 
 # ========== Merge-Konfliktmarker prüfen ==========
 # ToDo-Dateien nach Prüfung synchronisieren

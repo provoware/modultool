@@ -286,6 +286,17 @@ sudo apt-get install -y shellcheck npm
 sudo npm install -g htmlhint
 ```
 
+## Fehler & Hilfe-Panel nutzen
+
+1. Öffne `modules/panel14.html` im Browser.
+2. Das Panel liest die Datei `error_informationen.txt` und zeigt sie im Textfeld an.
+3. Aktualisiere die Datei bei Bedarf mit:
+   ```bash
+   nano error_informationen.txt
+   ```
+   *("nano" ist ein einfacher Texteditor im Terminal.)*
+4. Seite neu laden (**F5**), um die Änderungen zu sehen.
+
 ## Textbaustein-Modul benutzen
 
 1. Öffne `panel04.html` im Ordner `modules`.
