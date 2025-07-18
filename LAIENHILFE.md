@@ -287,11 +287,15 @@ sudo npm install -g htmlhint
 
 ## Textbaustein-Modul benutzen
 
-1. Öffne `panel02.html` im Ordner `modules`.
+1. Öffne `panel04.html` im Ordner `modules`.
 2. Trage einen kurzen Titel und den Text in die Felder ein.
+3. Klicke auf **Hinzufügen**. Die Liste sortiert sich automatisch alphabetisch.
+4. Über **Kopieren** erscheint der Button kurz grün und der Eintrag landet im Dashboard.
+5. Mit **Löschen** verschwindet der Eintrag aus der Liste und dem Speicher.
 3. Klicke auf **Hinzufügen**. Der Eintrag erscheint darunter in der Liste.
 4. Über **Kopieren** landet der Text in deiner Zwischenablage.
-5. Mit **Löschen** entfernst du einen Eintrag aus der Liste und dem Speicher.
+5. Mit **Bearbeiten** lädst du den Eintrag in die Felder, passt ihn an und klickst **Aktualisieren**.
+6. Mit **Löschen** entfernst du einen Eintrag aus der Liste und dem Speicher.
 ## Flexibilität & Nutzerfreundlichkeit erhöhen
 
 * **Konfigurationsdatei bearbeiten:** `nano .modultoolrc.json`
@@ -344,6 +348,12 @@ Die gespeicherten Module findest du gesammelt in `modules.json`.
 2. Trage einen Titel ein.
 3. Wähle eine Farbe im Farbfeld.
 4. Klicke auf **Speichern**, die Vorschau zeigt dein Cover.
+5. Über **Zurücksetzen** löscht du Titel und Farbe wieder.
+6. Für eine schnelle Vorschau starte im Terminal (Befehlsfenster):
+   ```bash
+   python3 -m http.server
+   ```
+   Öffne dann im Browser (Programm zum Surfen) `http://localhost:8000/modules/panel07.html`.
 
 ## Theme-Switcher nutzen
 
@@ -469,11 +479,21 @@ Dadurch bleibt `platzhalter.txt` aktuell.
 
 *In `validation.js` stecken allgemeine Validierungsfunktionen (Prüfroutinen).*
 1. Beispiel: Datum testen
-   ```bash
-   node -e "import('./validation.js').then(m=>console.log(m.isValidDate('2025-01-01')))">
-   ```
-   Ergebnis **true** bedeutet gültig, sonst **false**.
+ ```bash
+  node -e "import('./validation.js').then(m=>console.log(m.isValidDate('2025-01-01')))">
+  ```
+  Ergebnis **true** bedeutet gültig, sonst **false**.
 2. Die Kalender-Module benutzen diese Funktionen automatisch beim Speichern.
+3. Prüfen, ob der Browser Speicher erlaubt:
+   ```bash
+   node -e "import('./validation.js').then(m=>console.log(m.hasLocalStorage()))"
+   ```
+   **true** zeigt, dass der sogenannte *localStorage* (Browserspeicher) funktioniert.
+4. Text auf gültiges JSON testen:
+   ```bash
+   node -e "import('./validation.js').then(m=>console.log(m.isValidJSON('{\"a\":1}')))">
+   ```
+   **true** bedeutet korrektes JSON (Datenformat).
 
 ## Noch mehr nützliche Befehle
 
@@ -599,7 +619,18 @@ aktualisiert sich jede Sekunde von selbst.
   ```bash
   date
   ```
-  (Zeigt Datum und Zeit an)
+(Zeigt Datum und Zeit an)
+
+### Verlauf exportieren
+
+Im Dashboard kannst du den Verlauf jetzt als Textdatei speichern.
+So geht es:
+
+```bash
+1. Panel03 im Browser öffnen
+2. Auf **Exportieren** klicken
+```
+Die Datei `dashboard_log.txt` erscheint im Download-Ordner.
 
 ## Weiterf\u00fchrende Laienvorschl\u00e4ge
 
@@ -713,7 +744,51 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```bash
   nano modules.json
   ```
-  *(IDs ohne führende Null eintragen, z.B. `"panel1"` statt `"panel01"`.)*
+*(IDs ohne führende Null eintragen, z.B. `"panel1"` statt `"panel01"`.)*
+
+## Noch mehr Laien-Tipps (neu)
+
+- **Tooltips nutzen**
+  Halte die Maus über eine Schaltfläche oder ein Eingabefeld. Ein kleiner Hinweis erscheint. *(Tooltip = kurzer erklärender Text).* So erkennst du schneller, was ein Knopf bewirkt.
+
+- **Selfcheck automatisch starten**
+  ```bash
+  crontab -e
+  ```
+  Füge diese Zeile ein:
+  ```bash
+  0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh
+  ```
+  *(Cron ist ein Zeitplaner unter Linux. Damit läuft der Selbstcheck jeden Montag um 7 Uhr.)*
+
+- **todo.txt aktuell halten**
+  ```bash
+  cp todo.txt platzhalter.txt
+  ```
+  *(Kopiert die Aufgabenliste. So bleibt `platzhalter.txt` auf demselben Stand.)*
+- **Textbausteine extern bearbeiten**
+  ```bash
+  nano modules/panel02.html
+  ```
+  *(Öffnet das Modul im Editor. "nano" ist ein einfacher Texteditor im Terminal.)*
+
+
+## Todo-Liste immer aktualisieren
+
+## Nutzerfreundlichkeit weiter verbessern
+
+- **Kurzbefehl zum Start (Alias)**
+  ```bash
+  echo "alias modstart='bash tools/start_tool.sh'" >> ~/.bashrc
+  source ~/.bashrc
+  ```
+  *(Alias = selbstgewählter Kurzname für einen Befehl. `source` liest die Datei neu ein.)*
+
+- **Schriftgröße anpassen (CSS = Gestaltungssprache)**
+  ```bash
+  echo "body { font-size: 18px; }" > panels/style_override.css
+  ```
+  *(Erzeugt eine Datei, die im Browser die Schrift etwas größer darstellt.)*
 
 - **Selfcheck ausführen**
   ```bash
@@ -727,3 +802,51 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```
   *(`htmlhint` sucht typische Fehler in HTML-Dateien.)*
 
+- **Module schnell durchsuchen (grep = Suchprogramm)**
+  ```bash
+  grep -n "<title>" modules/*.html
+  ```
+  *(Zeigt alle Titelzeilen in den Moduldateien mit Nummer an.)*
+
+- **Hilfe im Terminal aufrufen (man = Handbuch)**
+  ```bash
+  man bash
+  ```
+  *(Zeigt das Handbuch zur Befehls-Shell. Mit `q` beendest du die Anzeige.)*
+
+- Nach jeder Änderung die Datei `todo.txt` öffnen:
+  ```bash
+  nano todo.txt
+  ```
+  *("nano" ist ein einfacher Texteditor)*
+- Neue Aufgaben eintragen oder erledigte abhaken.
+- Speichern mit **Strg+O**, beenden mit **Strg+X**.
+- Danach die Liste in `platzhalter.txt` kopieren:
+  ```bash
+  cp todo.txt platzhalter.txt
+  ```
+  *("cp" bedeutet Copy und erstellt eine Kopie)*
+- Beide Dateien zur Versionskontrolle sichern:
+  ```bash
+  git add todo.txt platzhalter.txt
+  git commit -m "Todo-Liste aktualisiert"
+  ```
+  *("git" speichert die Änderungen im Repository)*
+- **Modul im Browser testen**
+  ```bash
+  python3 -m http.server
+  ```
+  *(Startet einen lokalen Server. Danach `http://localhost:8000/modules/panel02.html` im Browser öffnen.)*
+
+- **Vorlagen in Datei speichern (Export)**
+  ```bash
+  node tools/comma_json.js save "Beispieltext" my_templates.json
+  ```
+  *(Speichert eine kommagetrennte Liste als JSON-Datei. `JSON` ist ein einfaches Textformat.)*
+
+
+- **Profil im Persona-Switcher löschen**
+  ```bash
+  Profil auswählen und auf "Profil löschen" klicken
+  ```
+  *(Entfernt das Profil dauerhaft aus dem Browser-Speicher (localStorage).)*
