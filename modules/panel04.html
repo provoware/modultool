@@ -24,7 +24,7 @@
   <label for="text-input">Text:</label>
   <textarea id="text-input" aria-label="Template-Text"
             placeholder="Text hier eingeben" title="Inhalt des Textbausteins"></textarea>
-  <button id="add-btn">Hinzufügen</button>
+  <button id="add-btn" title="Textbaustein speichern">Hinzufügen</button>
   <div id="template-list"></div>
   <div id="status" role="status" aria-live="polite"></div>
 </div>
@@ -51,6 +51,13 @@ function render(){
     const btn=document.createElement('button');
     btn.className='tmpl-btn';
     btn.textContent=t.title;
+    btn.title='Text kopieren';
+    btn.onclick=()=>{navigator.clipboard.writeText(t.text);};
+    const rm=document.createElement('button');
+    rm.className='remove-btn';
+    rm.textContent='✖';
+    rm.title='Textbaustein löschen';
+    rm.onclick=()=>{arr.splice(i,1);saveTemplates(arr);render();};
     btn.onclick=()=>{
       navigator.clipboard.writeText(t.text).then(()=>{
         btn.classList.add('copied');
