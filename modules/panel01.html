@@ -4,33 +4,36 @@
 <meta charset="UTF-8">
 <title>Panel01 – Genre-Liste & Zufall</title>
 <style>
-  #panel01 {display:grid; gap:0.5rem; max-width:480px; margin:auto; font-family:var(--font-family, sans-serif);}
-  #genre-input{min-height:80px; resize:vertical;}
-  button,input,textarea{font-size:var(--base-font,1rem); border-radius:var(--btn-radius,0.5rem); line-height:1.4;}
-  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc); outline-offset:2px;}
-  #random-output{font-weight:bold; margin-top:0.5rem;}
-  #log{max-height:100px; overflow-y:auto; padding-left:1rem;}
-  #save-btn.saved{background:#15b57b; color:#fff; transition:background .3s;}
-  #panel01{display:grid;gap:0.5rem;max-width:320px;margin:auto;font-family:var(--font-family,sans-serif);}
+  #panel01{display:grid;gap:0.5rem;max-width:480px;margin:auto;font-family:var(--font-family,sans-serif);}
   #genre-input{min-height:80px;resize:vertical;}
+  #panel01{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:var(--font-family,sans-serif);}
+  textarea{min-height:80px;resize:vertical;}
   button,input,textarea{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);line-height:1.4;}
   button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
   #random-output{font-weight:bold;margin-top:0.5rem;}
   #log{max-height:100px;overflow-y:auto;padding-left:1rem;}
   #save-btn.saved{background:#15b57b;color:#fff;transition:background .3s;}
-  @media(min-width:600px){#panel01{max-width:480px;}}
 </style>
 </head>
 <body>
 <div id="panel01">
   <h2>Genre-Liste & Zufall</h2>
   <label for="genre-input">Genres (durch Kommas trennen):</label>
-  <textarea id="genre-input" aria-label="Genre-Liste" placeholder="z.B. Rock, Pop"></textarea>
+  <textarea id="genre-input" aria-label="Genre-Liste" placeholder="z.B. Rock, Pop" autofocus></textarea>
   <button id="save-btn" aria-label="Liste speichern">Speichern</button>
   <button id="random-btn" aria-label="Zufällig auswählen">Zufall</button>
   <button id="copy-btn" aria-label="Ergebnis kopieren">Kopieren</button>
+  <textarea id="genre-input" aria-label="Genre-Liste" placeholder="z.B. Rock, Pop"></textarea>
+  <button id="save-btn" aria-label="Liste speichern" title="Liste sichern">Speichern</button>
+  <button id="random-btn" aria-label="Zufällig auswählen" title="Zufall erzeugen">Zufall</button>
+  <button id="copy-btn" aria-label="Ergebnis kopieren" title="Text in Zwischenablage kopieren">Kopieren</button>
   <label for="genre-input">Genres (mit Komma trennen):</label>
   <textarea id="genre-input" aria-label="Genre-Liste" title="Mehrere Genres mit Komma trennen" autofocus></textarea>
+  <button id="save-btn" title="Liste sichern">Speichern</button>
+  <button id="random-btn" title="Zufall erzeugen">Zufall</button>
+  <button id="copy-btn" title="Text in Zwischenablage kopieren">Kopieren</button>
+  <label for="genre-input">Genres (Komma-getrennt):</label>
+  <textarea id="genre-input" aria-label="Genre-Liste" placeholder="Rock, Pop"></textarea>
   <button id="save-btn">Speichern</button>
   <button id="random-btn">Zufall</button>
   <button id="copy-btn">Kopieren</button>
@@ -39,47 +42,26 @@
   <div id="status" role="status" aria-live="polite"></div>
 </div>
 <script type="module">
-import { showStatus, addDashboard } from './common.js';
+import {showStatus, addDashboard} from './common.js';
 const input=document.getElementById('genre-input');
 const saveBtn=document.getElementById('save-btn');
 const randomBtn=document.getElementById('random-btn');
 const copyBtn=document.getElementById('copy-btn');
 const output=document.getElementById('random-output');
 const log=document.getElementById('log');
-const status=document.getElementById('status');
-const DASH_KEY='dashboardLog';
-
-function addDashboard(val){
-  const arr=JSON.parse(localStorage.getItem(DASH_KEY)||'[]');
-  arr.unshift({time:new Date().toLocaleString(),value:val});
-  if(arr.length>10) arr.length=10;
-  localStorage.setItem(DASH_KEY,JSON.stringify(arr));
-}
-
-function showStatus(msg){
-  status.textContent=msg;
-  setTimeout(()=>{status.textContent='';},3000);
-}
-
-function saveList(){
-  const list=[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
-  try{
-    localStorage.setItem('genres',JSON.stringify(list));
-    input.value=list.join(', ');
-    showStatus('Gespeichert');
-  }catch(e){
-    showStatus('Speichern fehlgeschlagen');
 const statusEl=document.getElementById('status');
+const status=document.getElementById('status');
 const STORAGE_KEY='genres';
 
 function getList(){
-  return [...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))];
+  return input.value.split(',').map(s=>s.trim()).filter(Boolean);
 }
 
 function saveList(){
-  const list=getList().sort((a,b)=>a.localeCompare(b));
+  const list=[...new Set(getList())].sort((a,b)=>a.localeCompare(b));
   try{
     localStorage.setItem(STORAGE_KEY,JSON.stringify(list));
+    input.value=list.join(', ');
     showStatus(statusEl,'Liste gespeichert');
   }catch(e){
     showStatus(statusEl,'Speichern fehlgeschlagen');
@@ -89,31 +71,25 @@ function saveList(){
 
 function loadList(){
   try{
-    const data=localStorage.getItem('genres');
     const data=localStorage.getItem(STORAGE_KEY);
     if(data){
-      const list=JSON.parse(data);
-      input.value=list.join(', ');
-      return list;
+      input.value=JSON.parse(data).join(', ');
     }
   }catch(e){
-    showStatus('Laden fehlgeschlagen');
-  }
-  return [];
-}
-
-function getList(){
-  return input.value.split(',').map(s=>s.trim()).filter(Boolean);
-}
-
-saveBtn.addEventListener('click',saveList);
-
-randomBtn.addEventListener('click',()=>{
-  const list=getList();
-  if(list.length===0){showStatus('Liste ist leer');return;}
     showStatus(statusEl,'Laden fehlgeschlagen');
+    showStatus(status,'Laden fehlgeschlagen');
   }
-  return [];
+}
+
+function saveList(){
+  const list=getList().sort((a,b)=>a.localeCompare(b));
+  try{
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(list));
+    input.value=list.join(', ');
+    showStatus(status,'Liste gespeichert');
+  }catch(e){
+    showStatus(status,'Speichern fehlgeschlagen');
+  }
 }
 
 saveBtn.addEventListener('click',()=>{
@@ -124,18 +100,18 @@ saveBtn.addEventListener('click',()=>{
 
 randomBtn.addEventListener('click',()=>{
   const list=getList();
-  if(list.length===0){showStatus(statusEl,'Liste ist leer');return;}
+  if(list.length===0){showStatus(status,'Liste ist leer');return;}
   const choice=list[Math.floor(Math.random()*list.length)];
   output.textContent=choice;
   const li=document.createElement('li');
-  li.textContent=new Date().toLocaleString()+': '+choice;
+  li.textContent=`${new Date().toLocaleString()}: ${choice}`;
   log.prepend(li);
   addDashboard(choice);
 });
 
 copyBtn.addEventListener('click',()=>{
   const text=output.textContent;
-  if(!text){showStatus('Nichts zum Kopieren');return;}
+  if(!text){showStatus(statusEl,'Nichts zum Kopieren');return;}
   if(navigator.clipboard&&navigator.clipboard.writeText){
     navigator.clipboard.writeText(text).then(()=>{
       copyBtn.style.backgroundColor='#15b57b';
@@ -144,11 +120,11 @@ copyBtn.addEventListener('click',()=>{
   }else{
     console.warn('Clipboard-API nicht verfügbar');
   }
-  if(!text){showStatus(statusEl,'Nichts zum Kopieren');return;}
+  if(!text){showStatus(status,'Nichts zum Kopieren');return;}
   navigator.clipboard.writeText(text).then(()=>{
     copyBtn.style.backgroundColor='#15b57b';
-    setTimeout(()=>{copyBtn.style.backgroundColor='';},800);
-  });
+    setTimeout(()=>copyBtn.style.backgroundColor='',800);
+  }).catch(()=>showStatus(status,'Kopieren fehlgeschlagen'));
 });
 
 loadList();

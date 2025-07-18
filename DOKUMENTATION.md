@@ -14,6 +14,7 @@ Diese Datei hilft dir, das Modultool ohne Vorwissen zu benutzen. Jeder Fachbegri
 1. `nano todo.txt` – Aufgaben bearbeiten (falls Nano fehlt, kann `vi` genutzt werden).
 2. Speichern und danach bei Bedarf `platzhalter.txt` manuell aus `todo.txt` erzeugen.
 
+3. `cp todo.txt platzhalter.txt` – kopiert die Liste in die Platzhalterdatei. ("cp" steht für copy, also kopieren)
 ## 3. Selbstcheck ausführen
 
 Das Skript prüft typische Fehler und aktualisiert die Strukturliste.
