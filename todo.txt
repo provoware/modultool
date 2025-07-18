@@ -155,6 +155,8 @@
 - [x] Panel01 HTML aufräumen
 - [x] modules.json IDs an HTML angepasst
 - [x] Hilfetexte und Tooltips erweitert, Eingabefelder mit Platzhaltern versehen
+
+- [x] Exportfunktion im Dashboard ergänzt (Panel03)
 - [x] Panel02: Bearbeiten-Funktion ergänzt
 - [x] Laienhilfe erweitert (Bearbeiten und Testbefehle)
 

@@ -600,7 +600,18 @@ aktualisiert sich jede Sekunde von selbst.
   ```bash
   date
   ```
-  (Zeigt Datum und Zeit an)
+(Zeigt Datum und Zeit an)
+
+### Verlauf exportieren
+
+Im Dashboard kannst du den Verlauf jetzt als Textdatei speichern.
+So geht es:
+
+```bash
+1. Panel03 im Browser öffnen
+2. Auf **Exportieren** klicken
+```
+Die Datei `dashboard_log.txt` erscheint im Download-Ordner.
 
 ## Weiterf\u00fchrende Laienvorschl\u00e4ge
 
