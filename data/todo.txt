@@ -11,6 +11,10 @@
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob)
 - [ ] Release vorbereiten: Selfcheck, README prüfen, Release-Tag erstellen
 - [ ] DEB- und AppImage-Paket bauen
+- [ ] CI/CD-Pipeline einrichten (Lint → Test → Build → Release)
+- [ ] Accessibility-Audit der Panels durchführen und Code aufräumen
+- [ ] Automatische Versionierung und Changelog-Workflow einrichten
+- [ ] JavaScript-Tools auf TypeScript umstellen (Schema-Validierung)
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] Befehlsreferenz-Modul (panel9) ergänzen
@@ -209,3 +213,37 @@
 - [ ] Vor dem Release bash tools/selfcheck.sh ausfuehren und Releasenotizen im README ergaenzen
 - [x] panel01 bereinigt (doppelte Elemente entfernt)
 - [x] Startskript um Selbstheilung & Exitstatus-Prüfung erweitert
+
+- [ ] Doppelte Variablen wie "let genres" entfernen
+- [ ] Einfache Archiv-Buttons einrichten
+- [ ] fehlenden Button "importInsertBtn" ergänzen
+- [ ] Theme umschalten ohne "null"-Attribut
+- [ ] Fokus nur auf sichtbare Panels zulassen
+- [ ] Logging vereinheitlichen
+- [ ] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`
+- [ ] Code-Formatierung mit Prettier (Formatierer = ordnet Einr\u00fcckungen und Leerzeichen). Befehl: `npx prettier --write .`
+- [ ] JavaScript-Code pr\u00fcfen mit ESLint (Linting = Fehler- und Stilpr\u00fcfung). Befehl: `npx eslint .`
+- [ ] Import-Dateien checken: nur JSON und unter 1 MB (Security = Schutz vor großen oder fremden Dateien). Beispiel im Code: `if(file.size>1000000||!file.name.endsWith('.json')) return alert('Datei zu groß oder kein JSON');`
+- [ ] Versionsnummer in localStorage speichern (Versionierung = Daten einfach aktualisieren). Befehl: `localStorage.setItem('DATA_VERSION','1')`
+- [ ] Suche entprellen (Debounce = kurze Wartezeit vor dem Suchlauf). Befehl: `npm install lodash.debounce`
+- [ ] Dynamische Elemente mit eindeutigen IDs versehen (ID = unverwechselbare Kennung). Beispiel: `elem.id='panel-'+index`
+- [ ] Service Worker einrichten für Offline-Betrieb (PWA = Webapp zum Installieren). Befehl: `npx workbox-cli wizard`
+
+- [ ] Redundante Arrays wie "genres" und "dashboardData" in einem einzigen Objekt `state` sammeln. Befehl: `grep -n "genres" -r`
+- [ ] Genre-Eingaben strikt auf 24 Zeichen begrenzen. Beispiel: `if(input.value.length > 24) return alert("Max 24 Zeichen");`
+- [ ] Gewichtete Zufallsauswahl vor dem Anzeigen laden. Befehl: `window.addEventListener("DOMContentLoaded", initWeights);`
+- [ ] fetch("modules.json") mit Fehlermeldung absichern. Beispiel:
+  ```js
+  fetch("modules.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); });
+  ```
+- [ ] Logeinträge im localStorage speichern (Ringpuffer = nur die letzten 50). Befehl: `localStorage.setItem("logs", JSON.stringify(logs.slice(-50)))`
+- [ ] Selfcheck-Fehler direkt mit Lösung verlinken. Befehl: `node tools/map_errors.js`
+- [ ] Listen per DocumentFragment erneuern (schnelleres Rendering). Befehl:
+  ```js
+  const frag=document.createDocumentFragment();
+  items.forEach(i=>frag.appendChild(i));
+  list.replaceChildren(frag);
+  ```
+- [ ] Skripte aus index-MODULTOOL.html in `app.js` auslagern und mit `<script type="module" defer src="app.js"></script>` einbinden
+- [ ] Zentrale Einstellungen in `config.js` speichern (z.B. Limits, Theme-Liste). Befehl: `nano config.js`
+- [ ] Eine `manifest.json` für die PWA anlegen. Befehl: `npx workbox-cli generateSW`
