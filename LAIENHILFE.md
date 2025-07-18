@@ -287,8 +287,11 @@ sudo npm install -g htmlhint
 
 ## Textbaustein-Modul benutzen
 
-1. Öffne `panel02.html` im Ordner `modules`.
+1. Öffne `panel04.html` im Ordner `modules`.
 2. Trage einen kurzen Titel und den Text in die Felder ein.
+3. Klicke auf **Hinzufügen**. Die Liste sortiert sich automatisch alphabetisch.
+4. Über **Kopieren** erscheint der Button kurz grün und der Eintrag landet im Dashboard.
+5. Mit **Löschen** verschwindet der Eintrag aus der Liste und dem Speicher.
 3. Klicke auf **Hinzufügen**. Der Eintrag erscheint darunter in der Liste.
 4. Über **Kopieren** landet der Text in deiner Zwischenablage.
 5. Mit **Bearbeiten** lädst du den Eintrag in die Felder, passt ihn an und klickst **Aktualisieren**.
@@ -738,4 +741,10 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   python3 -m http.server
   ```
   *(Startet einen lokalen Server. Danach `http://localhost:8000/modules/panel02.html` im Browser öffnen.)*
+
+- **Vorlagen in Datei speichern (Export)**
+  ```bash
+  node tools/comma_json.js save "Beispieltext" my_templates.json
+  ```
+  *(Speichert eine kommagetrennte Liste als JSON-Datei. `JSON` ist ein einfaches Textformat.)*
 
