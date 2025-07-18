@@ -862,3 +862,13 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   Profil auswählen und auf "Profil löschen" klicken
   ```
   *(Entfernt das Profil dauerhaft aus dem Browser-Speicher (localStorage).)*
+
+## Neu: Selbstcheck mit npm
+Falls Node (Laufzeit für JavaScript) installiert ist, reicht ein kurzer Befehl:
+```bash
+npm run selfcheck
+```
+Damit rufst du `tools/selfcheck.sh` auf und prüfst das Projekt automatisch.
+
+## Gemeinsame CSS-Datei
+Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral anpassen.
