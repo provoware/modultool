@@ -742,6 +742,27 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```
   *(Öffnet das Modul im Editor. "nano" ist ein einfacher Texteditor im Terminal.)*
 
+
+## Todo-Liste immer aktualisieren
+
+- Nach jeder Änderung die Datei `todo.txt` öffnen:
+  ```bash
+  nano todo.txt
+  ```
+  *("nano" ist ein einfacher Texteditor)*
+- Neue Aufgaben eintragen oder erledigte abhaken.
+- Speichern mit **Strg+O**, beenden mit **Strg+X**.
+- Danach die Liste in `platzhalter.txt` kopieren:
+  ```bash
+  cp todo.txt platzhalter.txt
+  ```
+  *("cp" bedeutet Copy und erstellt eine Kopie)*
+- Beide Dateien zur Versionskontrolle sichern:
+  ```bash
+  git add todo.txt platzhalter.txt
+  git commit -m "Todo-Liste aktualisiert"
+  ```
+  *("git" speichert die Änderungen im Repository)*
 - **Modul im Browser testen**
   ```bash
   python3 -m http.server
