@@ -1,7 +1,7 @@
 # Liste mit offenen Aufgaben
 - [ ] plugin.json pro Pluginverzeichnis anlegen
 - [ ] lib/update_manager.js erstellen
-- [ ] config_schema.json einrichten
+- [x] config_schema.json einrichten
 - [ ] Unit- und Integrationstests einrichten
 - [ ] GitHub Actions für Linting und Testing hinzufügen
 - [ ] ZIP-Backup-Modul fertigstellen
@@ -158,7 +158,7 @@
 - [x] Weitere Module auf common.js umstellen
 - [ ] plugin.json pro Pluginverzeichnis anlegen (Manifest mit Name und Version)
 - [ ] zentrale Update-Bibliothek in lib/ erstellen (update_manager.js)
-- [ ] gemeinsames Konfigurationsschema definieren (config_schema.json)
+- [x] gemeinsames Konfigurationsschema definieren (config_schema.json)
 - [ ] Unit- und Integrationstests einrichten
 - [ ] GitHub Actions für Linting und Testing hinzufügen
 - [ ] Schritt-für-Schritt-Assistenten für Modul-Erstellung planen

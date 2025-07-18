@@ -692,13 +692,18 @@ nano config.json
 ```
 Hier speicherst du zentrale Einstellungen, die das Tool beim Start pr\u00fcft.
 
-### 6. Tests und CI
+### 6. Konfigurationsschema erstellen
+```bash
+nano config_schema.json
+```
+In dieser Datei beschreibst du, welche Einstellungen erlaubt sind.
+*(Schema = Vorlage f\u00fcr eine Datenstruktur in JSON).* 
+### 7. Tests und CI
 ```bash
 bash tools/selfcheck.sh
 ```
 Der Selfcheck ruft HTML-, JSON- und Shell-Pr\u00fcfungen auf.
-
-### 7. \u00c4nderungen hochladen
+### 8. \u00c4nderungen hochladen
 ```bash
 git add .
 git commit -m "Refactoring vorbereitet"
@@ -767,6 +772,11 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   nano modules.json
   ```
 *(IDs ohne führende Null eintragen, z.B. `"panel1"` statt `"panel01"`.)*
+- **Konfigurationsschema prüfen**
+  ```bash
+  jq config_schema.json
+  ```
+  *("jq" ist ein Programm zum Anzeigen und Prüfen von JSON-Dateien.)*
 
 ## Noch mehr Laien-Tipps (neu)
 
