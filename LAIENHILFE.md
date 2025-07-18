@@ -790,6 +790,18 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```
   *(Erzeugt eine Datei, die im Browser die Schrift etwas größer darstellt.)*
 
+- **Selfcheck ausführen**
+  ```bash
+  bash tools/selfcheck.sh
+  ```
+  *(Prüft HTML, JSON und Shell-Skripte. Meldet Fehler verständlich.)*
+
+- **HTML-Datei prüfen**
+  ```bash
+  htmlhint modules/panel01.html
+  ```
+  *(`htmlhint` sucht typische Fehler in HTML-Dateien.)*
+
 - **Module schnell durchsuchen (grep = Suchprogramm)**
   ```bash
   grep -n "<title>" modules/*.html
