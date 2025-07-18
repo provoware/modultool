@@ -2,6 +2,14 @@
   "name": "modultool",
   "version": "0.1.0",
   "scripts": {
-    "selfcheck": "bash tools/selfcheck.sh"
+    "selfcheck": "bash tools/selfcheck.sh",
+    "lint": "npm run selfcheck",
+    "test": "echo 'Noch keine Tests'",
+    "build": "tsc",
+    "release": "npm version patch"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.14",
+    "typescript": "^5.2.2"
   }
 }

@@ -934,3 +934,36 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh
   ```
   *(Startet den Selfcheck jeden Montag um 7 Uhr automatisch.)*
+
+## Weitere Tipps für Fortgeschrittene
+
+- **CI/CD-Pipeline nutzen (CI/CD = automatische Abläufe bei jeder Änderung)**
+  ```bash
+  # Dateien zum Commit vormerken
+  git add .github/workflows/ci.yml package.json tsconfig.json tools/create_module.ts
+  git commit -m "CI-Pipeline und TypeScript eingerichtet"
+  git push
+  ```
+  *(Der Ablauf prüft den Code (Lint), führt Tests aus, baut die Dateien und bereitet eine neue Version vor.)*
+
+- **TypeScript installieren (TypeScript = strengerer JavaScript-Dialekt)**
+  ```bash
+  npm install --save-dev typescript
+  npx tsc
+  ```
+  *(Erstellt aus .ts-Dateien fertige .js-Dateien im Ordner `dist`.)*
+
+- **Barrierefreiheit prüfen (Accessibility = Zugänglichkeit)**
+  ```bash
+  npx axe http://localhost:8000/index-MODULTOOL.html > a11y-report.txt
+  ```
+  *(Erzeugt einen Bericht über mögliche Zugänglichkeits-Probleme.)*
+
+- **Version erhöhen und Changelog (Änderungsliste) erstellen**
+  ```bash
+  npm version patch
+  git log -1 --pretty=format:"- %s" >> CHANGELOG.md
+  git add CHANGELOG.md package.json
+  git commit -m "Neue Version und Changelog"
+  ```
+  *(Erhöht die Versionsnummer und ergänzt die Datei `CHANGELOG.md`.)*

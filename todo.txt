@@ -11,6 +11,10 @@
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob)
 - [ ] Release vorbereiten: Selfcheck, README prüfen, Release-Tag erstellen
 - [ ] DEB- und AppImage-Paket bauen
+- [ ] CI/CD-Pipeline einrichten (Lint → Test → Build → Release)
+- [ ] Accessibility-Audit der Panels durchführen und Code aufräumen
+- [ ] Automatische Versionierung und Changelog-Workflow einrichten
+- [ ] JavaScript-Tools auf TypeScript umstellen (Schema-Validierung)
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] Befehlsreferenz-Modul (panel9) ergänzen
