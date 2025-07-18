@@ -1,4 +1,3 @@
-Letztes Update: Thu Jul 17 23:36:07 UTC 2025
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] Befehlsreferenz-Modul (panel9) ergänzen
@@ -155,3 +154,5 @@ Letztes Update: Thu Jul 17 23:36:07 UTC 2025
 - [x] Platzhalter-Module bereinigen
 - [x] Panel01 HTML aufräumen
 - [x] modules.json IDs an HTML angepasst
+- [x] Hilfetexte und Tooltips erweitert, Eingabefelder mit Platzhaltern versehen
+- [x] LAIENHILFE und DOKUMENTATION um Todo-Hinweise erweitert

@@ -155,3 +155,4 @@
 - [x] Panel01 HTML aufräumen
 - [x] modules.json IDs an HTML angepasst
 - [x] Hilfetexte und Tooltips erweitert, Eingabefelder mit Platzhaltern versehen
+- [x] LAIENHILFE und DOKUMENTATION um Todo-Hinweise erweitert
