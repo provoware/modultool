@@ -158,6 +158,21 @@ python3 -m http.server
 - Erstelle neue Module mit `node tools/create_module.js modulID "Titel"`.
 - Suche Module über das Feld **Module filtern** und markiere Favoriten per Stern.
 
+## 📂 Module laden
+
+Das Dashboard lädt jetzt alle Module automatisch aus `modules.json`.
+Du kannst die Liste mit diesem Befehl prüfen:
+
+```bash
+node lib/update_manager.js sync
+```
+
+Eine Übersicht der Modulnutzung erhältst du mit:
+
+```bash
+node tools/show_usage.js
+```
+
 ## 🖥 Layout & Zoom
 - Über das Dropdown **Fokus-Modus** blendest du alle anderen Panels aus und siehst ein Modul bildschirmfüllend.
 - Halte **Strg** gedrückt und rolle mit dem Mausrad, um hinein- oder herauszuzoomen (Browser-Zoom). Mit **Strg+0** stellst du die Normalgröße wieder her.
