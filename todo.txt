@@ -15,6 +15,16 @@
 - [ ] Accessibility-Audit der Panels durchführen und Code aufräumen
 - [ ] Automatische Versionierung und Changelog-Workflow einrichten
 - [ ] JavaScript-Tools auf TypeScript umstellen (Schema-Validierung)
+- [ ] Eingaben prüfen (Input-Sanitierung) für IDs und Pfade
+- [ ] Alle Konfigs mit Schema validieren (JSON Schema/Zod)
+- [ ] Eigene Fehlerklassen definieren
+- [ ] Zentralen Error-Handler einrichten
+- [ ] Fehlermeldungen nutzerfreundlich formulieren
+- [ ] Automatischen Rollback bei Abbruch einbauen
+- [ ] Wiederholen-Funktion nach Fehler anbieten
+- [ ] Logging mit Zeitstempel im UI anzeigen
+- [ ] Log-Download-Button einfügen
+- [ ] Standard-Vorlagen und Beispiel-Module bereitstellen
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] Befehlsreferenz-Modul (panel9) ergänzen
@@ -218,11 +228,18 @@
 - [x] fehlenden Button "importInsertBtn" ergänzen
 - [x] Theme umschalten ohne "null"-Attribut
 - [x] Fokus nur auf sichtbare Panels zulassen
+
+- [ ] Doppelte Variablen wie "let genres" entfernen
+- [ ] Einfache Archiv-Buttons einrichten
+- [ ] fehlenden Button "importInsertBtn" ergänzen
+- [ ] Theme umschalten ohne "null"-Attribut
+- [ ] Fokus nur auf sichtbare Panels zulassen
 - [ ] Logging vereinheitlichen
 - [ ] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`
 - [ ] Code-Formatierung mit Prettier (Formatierer = ordnet Einr\u00fcckungen und Leerzeichen). Befehl: `npx prettier --write .`
 - [ ] JavaScript-Code pr\u00fcfen mit ESLint (Linting = Fehler- und Stilpr\u00fcfung). Befehl: `npx eslint .`
 - [x] Import-Dateien checken: nur JSON und unter 1 MB (Security = Schutz vor großen oder fremden Dateien). Beispiel im Code: `if(file.size>1000000||!file.name.endsWith('.json')) return alert('Datei zu groß oder kein JSON');`
+- [ ] Import-Dateien checken: nur JSON und unter 1 MB (Security = Schutz vor großen oder fremden Dateien). Beispiel im Code: `if(file.size>1000000||!file.name.endsWith('.json')) return alert('Datei zu groß oder kein JSON');`
 - [ ] Versionsnummer in localStorage speichern (Versionierung = Daten einfach aktualisieren). Befehl: `localStorage.setItem('DATA_VERSION','1')`
 - [ ] Suche entprellen (Debounce = kurze Wartezeit vor dem Suchlauf). Befehl: `npm install lodash.debounce`
 - [ ] Dynamische Elemente mit eindeutigen IDs versehen (ID = unverwechselbare Kennung). Beispiel: `elem.id='panel-'+index`
@@ -230,6 +247,7 @@
 
 - [ ] Redundante Arrays wie "genres" und "dashboardData" in einem einzigen Objekt `state` sammeln. Befehl: `grep -n "genres" -r`
 - [x] Genre-Eingaben strikt auf 24 Zeichen begrenzen. Beispiel: `if(input.value.length > 24) return alert("Max 24 Zeichen");`
+- [ ] Genre-Eingaben strikt auf 24 Zeichen begrenzen. Beispiel: `if(input.value.length > 24) return alert("Max 24 Zeichen");`
 - [ ] Gewichtete Zufallsauswahl vor dem Anzeigen laden. Befehl: `window.addEventListener("DOMContentLoaded", initWeights);`
 - [ ] fetch("modules.json") mit Fehlermeldung absichern. Beispiel:
   ```js
