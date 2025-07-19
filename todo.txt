@@ -276,3 +276,33 @@
 - [ ] Ablenkungsfreier Modus per F11 (Menüs ausblenden)
 - [ ] Kontext-Hilfe per F1 für jedes Eingabefeld
 - [ ] Farbige Statuszeile für Speichern- und Fehlermeldungen
+- [x] Offline-Hilfeseite als PDF zum Herunterladen
+- [ ] Tastenkombinationen im UI einblenden (Shortcut-Hilfe)
+- [ ] Zurück-Button nach Modul-Maximierung einbauen
+
+# Weitere Laienvorschläge (Zusatz 5)
+- [ ] Live-Schnellsuche in der Sidebar
+- [ ] Balkendiagramm über meistgenutzte Module
+- [ ] Kurze Hilfetexte direkt neben Modulen
+- [ ] Papierkorb- und Backup-Shortcuts anzeigen
+- [ ] Ausklappbare Loganzeige im Fußbereich
+- [ ] Theme per Klick wechseln
+- [ ] Tooltip-Texte an allen Buttons
+- [ ] Große Aktionsflächen für Touch
+
+# Weitere Laienvorschläge (Zusatz 6)
+- [x] Offline-Hilfeseite als PDF erzeugen
+- [ ] Shortcut-Übersicht per F10 anzeigen
+- [ ] Zurück-Button nach Modul-Maximierung
+- [ ] Fehlerprotokoll live im Footer darstellen
+# Weitere Laienvorschläge (Zusatz 7)
+- [ ] Grundordner gui/core/assets/backups erstellen
+- [ ] Modultemplate als Klasse speichern
+- [ ] Einfaches Dashboard-Skript anlegen
+- [ ] README mit neuer Struktur aktualisieren
+
+# Weitere Laienvorschläge (Zusatz 8)
+- [ ] Module automatisch aus modules.json laden
+- [ ] module_loader.js in eigenen Projekten nutzen
+- [x] show_usage.js im README dokumentieren
+

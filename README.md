@@ -90,6 +90,10 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 ```text
 📁 panels/
 📁 modules/
+📁 gui/
+📁 core/
+📁 assets/
+📁 backups/
 📁 data/ (baumstruktur.txt, todo.txt)
 📄 platzhalter.txt
 📄 modules.json
@@ -154,6 +158,21 @@ python3 -m http.server
 - Erstelle neue Module mit `node tools/create_module.js modulID "Titel"`.
 - Suche Module über das Feld **Module filtern** und markiere Favoriten per Stern.
 
+## 📂 Module laden
+
+Das Dashboard lädt jetzt alle Module automatisch aus `modules.json`.
+Du kannst die Liste mit diesem Befehl prüfen:
+
+```bash
+node lib/update_manager.js sync
+```
+
+Eine Übersicht der Modulnutzung erhältst du mit:
+
+```bash
+node tools/show_usage.js
+```
+
 ## 🖥 Layout & Zoom
 - Über das Dropdown **Fokus-Modus** blendest du alle anderen Panels aus und siehst ein Modul bildschirmfüllend.
 - Halte **Strg** gedrückt und rolle mit dem Mausrad, um hinein- oder herauszuzoomen (Browser-Zoom). Mit **Strg+0** stellst du die Normalgröße wieder her.
@@ -186,3 +205,8 @@ Das ruft jeden Montag um 7 Uhr das Skript `weekly_selfcheck.sh` auf. Es startet 
 ## Hilfe
 
 Ausführliche Tipps findest du in der Datei [LAIENHILFE.md](LAIENHILFE.md). Dort stehen alle Schritte in einfacher Sprache mit Beispielen.
+Um die Hilfe als PDF zu erhalten, führe aus:
+```bash
+bash tools/offline_help.sh
+```
+Das Skript benötigt `pandoc` und legt `assets/laienhilfe.pdf` an.
