@@ -224,18 +224,18 @@
 - [x] Fokusmodus per Body-Klasse aktivieren
 - [ ] Feste Höhen in Panels entfernen
 - [ ] Fluides Schriftbild mit `clamp()` für Textgrößen
-- [ ] Sticky-Header und Scroll nur bei Bedarf
-- [ ] Einheitliche Button-Klasse in common.css
+- [x] Sticky-Header und Scroll nur bei Bedarf
+- [x] Einheitliche Button-Klasse in common.css
 - [x] Statusmeldungen vom Layout trennen (Toast-Layer)
 - [x] Scrollposition beim Panelwechsel merken
 - [ ] Module vor dem Import mit DOMPurify reinigen
-- [ ] Platzhaltertexte bei leeren Listen anzeigen
+- [x] Platzhaltertexte bei leeren Listen anzeigen
 - [x] `max-height:470px` im Layout entfernen
 - [x] Sidebars mit `clamp()` breiter machen
 - [x] Fokusmodus-Panel immer 100% Höhe
 - [x] Reservefläche für Statusmeldungen einplanen
 - [x] Grid-Abstände fluid anpassen
-- [ ] Globale Overflow-Kontrolle einrichten
+- [x] Globale Overflow-Kontrolle einrichten
 - [ ] Panelwechsel ohne kompletten Re-Render
 - [ ] Farbpalette reduzieren und klare Zustände
 - [ ] Fokusmarkierung klar darstellen

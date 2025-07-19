@@ -112,7 +112,7 @@
     html, body {
       min-height: 100vh; width: 100vw; background: var(--bg); color: var(--text); margin:0; padding:0;
       font-family: var(--font-family, 'Segoe UI', Arial, sans-serif); font-size: var(--base-font, 16px); line-height:1.5;
-      overflow-x: hidden;
+      overflow-x: hidden; overflow-y: hidden; display:flex; flex-direction:column;
     }
     header, footer {
       background: var(--header); color: var(--text-alt); width:100vw; min-width:320px; text-align:center;
@@ -147,7 +147,8 @@
       display: grid;
       grid-template-columns: minmax(var(--sidebar-min), 20vw) var(--dragbar-width) 1fr var(--dragbar-width) minmax(var(--sidebar-min), 21vw);
       grid-template-rows: 1fr;
-      width: 100vw; min-height: 77vh; max-width: 99vw; box-sizing:border-box;
+      width: 100vw; flex:1 1 auto; max-width: 99vw; box-sizing:border-box;
+      overflow-y:auto;
     }
     .sidebar {
       background: var(--sidebar-bg); color: var(--sidebar-txt);
@@ -203,7 +204,10 @@
     }
     .mod-panel.fokus {box-shadow:0 0 0 6px var(--highlight),0 4px 22px var(--shadow);border:2.2px solid var(--focus-ring);}
     body.focus-mode .mod-panel.fokus {height:100vh;}
-    .mod-panel h2 { font-size:1.16rem; margin-top:0; margin-bottom:.64rem; color:var(--text);}
+    .mod-panel h2 {
+      font-size:1.16rem; margin-top:0; margin-bottom:.64rem; color:var(--text);
+      position:sticky; top:0; background:var(--area); padding:.4rem 0; z-index:1;
+    }
     .input-group { display: flex; gap: .5rem; margin-bottom: 1rem; }
     input, button, select, textarea {
       border-radius: 1rem; border: 1.7px solid var(--field-border); outline: none; padding: 0.7rem 1.1rem; font-size: 1rem; background: var(--input); color: var(--text); transition: border .16s,box-shadow .17s;
@@ -270,6 +274,7 @@
     .profile-actions input,.profile-actions select{flex:1 1 130px;min-width:120px;}
     .profile-actions button{padding:.3em .9em;}
     .small { font-size: .93rem; color: var(--text-light);}
+    .placeholder { font-size:.95rem; color:var(--text-light); margin:.3em 0; }
     .status-msg {padding:.19em 1em; margin:.2em 0 .4em 0; border-radius:.7em; font-weight:600;}
     .status-ok {background:#198d54b8; color:#f7fff9;}
     .status-error {background:#d42e4cbe; color:#fff;}
@@ -318,15 +323,15 @@
 </div>
 <header class="top-header" role="banner">
   GridTool Pro – Fokusumschaltung &bull; &copy; Pppoppi
-  <button id="copySelBtn" class="copy-btn" title="Markierten Text kopieren" aria-label="Text kopieren">⧉ Kopieren</button>
-  <button id="toggleLeft" class="sidebar-toggle" aria-label="Menü umschalten">☰</button>
-  <button id="toggleRight" class="sidebar-toggle" aria-label="Optionen umschalten">⚙</button>
+  <button id="copySelBtn" class="btn copy-btn" title="Markierten Text kopieren" aria-label="Text kopieren">⧉ Kopieren</button>
+  <button id="toggleLeft" class="btn sidebar-toggle" aria-label="Menü umschalten">☰</button>
+  <button id="toggleRight" class="btn sidebar-toggle" aria-label="Optionen umschalten">⚙</button>
 </header>
 <div id="toastLayer" class="toast-layer" role="status" aria-live="polite"></div>
 <div class="app-frame">
   <aside class="sidebar left" id="sidebarLeft" role="navigation" aria-label="Module und Infos">
     <div class="sidebar-header">Module & Infos</div>
-    <button id="moduleToggleBtn" class="module-toggle-btn" onclick="toggleModuleList()">Module ein/aus</button>
+    <button id="moduleToggleBtn" class="btn module-toggle-btn" onclick="toggleModuleList()">Module ein/aus</button>
     <div id="moduleListWrap">
     <div class="sidebar-h2" title="Module hier ein- oder ausschalten">Module verwalten</div>
     <input id="moduleSearch" type="text" placeholder="Module filtern…" aria-label="Module filtern" />
@@ -400,12 +405,14 @@
         </div>
         <div class="archive-list">
           <ul id="genreList"></ul>
+          <p id="archiveEmpty" class="placeholder" style="display:none;">Keine Genres gespeichert.</p>
         </div>
         <div class="small">Klick: kopieren | ✏: bearbeiten | ✖: entfernen</div>
         <div class="input-help">Tipp: Mit Enter bestätigst du beim Editieren, Escape bricht ab.</div>
       </section>
       <section class="mod-panel" id="panel3" tabindex="0" role="region" aria-labelledby="panel3-head"><h2 id="panel3-head">Dashboard (letzte 10 Ausgaben)</h2>
         <ul id="dashboardList" class="dashboard-list"></ul>
+        <p id="dashEmpty" class="placeholder" style="display:none;">Noch keine Einträge.</p>
         <ul id="dashLog" class="dashboard-list" aria-label="Systemprotokoll"></ul>
         <button id="clearDashboardBtn" class="dashboard-copy" aria-label="Dashboard leeren" style="background:var(--remove);margin-top:.5em;">Alle löschen</button>
         <div class="input-help">Tipp: Für alle Zufallsausgaben – kopieren per Klick!</div>
@@ -810,6 +817,8 @@ function insertImportedPanel(){
 function renderList() {
   const list = document.getElementById('genreList');
   list.innerHTML = '';
+  const ph = document.getElementById('archiveEmpty');
+  ph.style.display = state.genres.length ? 'none' : 'block';
   let filter = state.searchTerm.trim().toLowerCase();
   state.genres.forEach((g, idx) => {
     let value = typeof g === 'object' ? g.value : g;
@@ -998,6 +1007,8 @@ function resetArchive() {
 function renderDashboard() {
   const el = document.getElementById('dashboardList');
   el.innerHTML = '';
+  const ph = document.getElementById('dashEmpty');
+  ph.style.display = state.dashboardData.length ? 'none' : 'block';
   state.dashboardData.forEach(item => {
     const li = document.createElement('li');
     li.innerHTML = `<span class="dashboard-timestamp">${item.time}</span> <span>${item.value}</span>

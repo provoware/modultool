@@ -1756,4 +1756,32 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
   sort -u todo.txt -o todo.txt
   bash tools/sync_todo.sh
   ```
-  *(Entfernt doppelte Einträge und kopiert die Liste in `data/todo.txt` sowie `platzhalter.txt`.)*
+*(Entfernt doppelte Einträge und kopiert die Liste in `data/todo.txt` sowie `platzhalter.txt`.)*
+
+## Layout anpassen
+
+- **Button-Klasse vereinheitlichen**
+  ```bash
+  grep -n '<button' index-MODULTOOL.html
+  ```
+  *(Listet alle Knöpfe auf. Füge überall `class="btn"` hinzu, damit sie gleich aussehen.)*
+
+- **Leere Listen markieren**
+  ```js
+  const ph = document.getElementById('archiveEmpty');
+  ph.style.display = state.genres.length ? 'none' : 'block';
+  ```
+  *(Zeigt einen kurzen Hinweis, wenn keine Einträge vorhanden sind.)*
+
+- **Panels mit klebender Überschrift**
+  ```css
+  .mod-panel h2 { position: sticky; top: 0; background: var(--area); }
+  ```
+  *(Die Überschrift bleibt beim Scrollen oben kleben.)*
+
+- **Überlauf steuern**
+  ```css
+  body { overflow: hidden; }
+  .app-frame { overflow-y: auto; }
+  ```
+  *(So scrollt nur der Hauptbereich und nicht die ganze Seite.)*
