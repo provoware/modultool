@@ -14,8 +14,19 @@
 - [ ] Accessibility-Audit der Panels durchführen und Code aufräumen
 - [ ] Automatische Versionierung und Changelog-Workflow einrichten
 - [ ] JavaScript-Tools auf TypeScript umstellen (Schema-Validierung)
+- [ ] Eingaben prüfen (Input-Sanitierung) für IDs und Pfade
+- [ ] Alle Konfigs mit Schema validieren (JSON Schema/Zod)
+- [ ] Eigene Fehlerklassen definieren
+- [ ] Zentralen Error-Handler einrichten
+- [ ] Fehlermeldungen nutzerfreundlich formulieren
+- [ ] Automatischen Rollback bei Abbruch einbauen
+- [ ] Wiederholen-Funktion nach Fehler anbieten
+- [ ] Logging mit Zeitstempel im UI anzeigen
+- [ ] Log-Download-Button einfügen
+- [ ] Standard-Vorlagen und Beispiel-Module bereitstellen
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
-- [ ] Zufallsmodi mit Profilgewichtung implementieren
+- [x] Zufallsmodi mit Profilgewichtung implementieren
+- [x] Genre-Profile per Schnellwahl auswählbar
 - [x] Logging ins Dashboard einbauen
 - [x] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
