@@ -13,5 +13,7 @@ export class App {
         await m.init();
       }
     }
+  init() {
+    this.modules.forEach(m => m.init && m.init());
   }
 }
