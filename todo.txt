@@ -63,7 +63,8 @@
 
 - [ ] Letzter Selfcheck vor dem Release
 - [ ] README um Releasenotizen ergaenzen
-- [ ] finale Platzhalter-Datei erstellen
+- [x] finale Platzhalter-Datei erstellen
+- [x] Platzhalter-Beispiel erweitert
 - [ ] Weitere Module über das Script erstellen und testen
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)
 - [ ] DEB- und AppImage-Paket bauen

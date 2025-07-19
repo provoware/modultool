@@ -1501,3 +1501,9 @@ neuesten Stand zu bringen.
   cat module_versions.json
   ```
   *(Listet die gespeicherten Modulversionen auf.)*
+
+- **Platzhalter-Beispiel erweitern**
+  ```bash
+  nano modules/.placeholder
+  ```
+  *(Am Ende findest du die Funktion `demoSpeichern`. Sie zeigt, wie `saveJSON` und `loadJSON` (Daten sichern und laden) funktionieren.)*
