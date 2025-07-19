@@ -95,6 +95,8 @@
 
 - [ ] Startskript prüft Updates vor dem Start
 - [ ] Startskript prüft Updates vor dem Start
+- [x] Hilfeoption (-h) und Browser-Auswahl (--no-browser) im Startskript
+- [x] Port-Option (-p) im Startskript
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
 - [x] selfcheck.sh synchronisiert todo-Dateien nach Lauf
 
@@ -214,4 +216,5 @@
 - [ ] Offene Punkte aus AGENTS-RELEASE-CHECK.md bearbeiten
 - [x] Release-Checkliste in LAIENHILFE ergänzt
 - [x] Willkommensfenster per X oder Esc schließen
+- [x] Startskript installiert fehlende Node-Pakete automatisch
 - [x] Globale Standards dokumentiert

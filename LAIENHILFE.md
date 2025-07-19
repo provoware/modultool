@@ -35,10 +35,27 @@ So behältst du jederzeit die Kontrolle über deine Dateien.
 ## Tool starten
 
 Am einfachsten nutzt du das Startskript. Es erledigt alles für dich.
+Mit `-h` oder `--help` zeigt es eine kleine Hilfe an.
 
 ```bash
 bash tools/start_tool.sh
 ```
+Oder ohne Browserstart:
+```bash
+bash tools/start_tool.sh --no-browser
+```
+
+Einen anderen Port wählst du mit `-p`:
+```bash
+bash tools/start_tool.sh -p 9000
+```
+(Port = Anschlussnummer für den Server)
+
+Ob der Standardport frei ist, prüfst du so:
+```bash
+lsof -i :8000
+```
+Zeigt der Befehl einen Prozess an, ist der Port belegt und das Skript nimmt automatisch den nächsten freien.
 
 Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und öffnet die Seite automatisch im Browser.
 
@@ -51,8 +68,9 @@ Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Se
 ### Wenn der Start hakt
 1. Rufe `bash tools/start_tool.sh` erneut auf.
 2. Das Skript erkennt fehlende Programme wie `python3` und versucht sie bei Bedarf zu installieren (`sudo apt-get install python3`).
-3. Bei Problemen hilft ein Blick in `/tmp/modultool_server.log` (Textdatei mit Fehlermeldungen).
-4. Oder starte den Selfcheck:
+3. Fehlen Node-Pakete, lädt das Skript sie automatisch mit `npm install` nach.
+4. Bei Problemen hilft ein Blick in `/tmp/modultool_server.log` (Textdatei mit Fehlermeldungen).
+5. Oder starte den Selfcheck:
    ```bash
    bash tools/selfcheck.sh
    ```
@@ -64,6 +82,8 @@ Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Se
 - Halte die Maus über ein Eingabefeld, um einen **Tooltip** (kurzer Hinweis) zu sehen.
 - Beispiel: Im Modul *Persona-Switcher* weist das Namensfeld mit "Name des Profils" auf den Zweck hin.
 - Diese Tipps helfen, schneller zu verstehen, was eingetragen werden soll.
+- Für das Startskript kannst du `bash tools/start_tool.sh -h` eingeben. Das
+  zeigt eine kurze Erklärung der Optionen *(Option = zusätzliche Einstellung)*.
 
 ## Eigene Module erstellen
 

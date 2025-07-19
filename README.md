@@ -15,7 +15,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - [Neues Modul anlegen](#neues-modul-anlegen)
 - [Pakete erstellen (.deb & AppImage)](#-pakete-erstellen-deb--appimage)
 - [Hilfe](#hilfe)
-Zum Starten: `npm start` oder `bash tools/start_tool.sh` – beide Varianten prüfen neue Module, versuchen fehlende Programme automatisch zu installieren und öffnen das Tool.
+Zum Starten: `npm start` oder `bash tools/start_tool.sh`. Mit `-h` zeigt das Skript eine Hilfe, `--no-browser` startet nur den Server. Mit `-p 9000` legst du die Anschlussnummer (Port) fest. Alle Varianten prüfen neue Module, installieren fehlende Programme und laden nötige Node-Pakete (`npm install`) automatisch, bevor sie das Tool öffnen.
 
 Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Checker und synchronisiert deine Aufgabenlisten.
 - [Lokaler Testserver](#-lokaler-testserver)
