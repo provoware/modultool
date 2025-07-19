@@ -1912,4 +1912,29 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   statusLabel.setText("Text gespeichert")
   ```
   *(Kurze Rückmeldung hilft beim Verständnis.)*
+## Weitere Laienvorschläge (Zusatz 3)
+
+- **Veraltete Pakete aufspüren (outdated = veraltet)**
+  ```bash
+  npm outdated
+  ```
+  *(Zeigt an, welche Pakete nicht auf dem neuesten Stand sind.)*
+
+- **CSS-Stil prüfen (Stylelint = CSS-Überprüfung)**
+  ```bash
+  npx stylelint "**/*.css"
+  ```
+  *(Stylelint weist dich auf Fehler und uneinheitliche Schreibweisen hin.)*
+
+- **Installationspakete erstellen (PWA = Web-App zum Installieren)**
+  ```bash
+  npx workbox-cli wizard
+  ```
+  *(Der Assistent hilft dir, eine `manifest.json` anzulegen und Offline-Funktionen einzurichten.)*
+
+- **Aktuelle Änderungen anzeigen (git status = Übersicht)**
+  ```bash
+  git status
+  ```
+  *(Zeigt, welche Dateien geändert wurden und noch gespeichert werden müssen.)*
 
