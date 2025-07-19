@@ -20,6 +20,8 @@
 ./data/baumstruktur.txt
 ./data/todo.txt
 ./data/todo_backup_20250719083615.txt
+./data/todo_backup_20250719083201.txt
+./data/todo_backup_20250719083237.txt
 ./error_informationen.txt
 ./index-MODULTOOL.html
 ./lib/update_manager.js
