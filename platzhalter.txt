@@ -242,3 +242,13 @@
 - [ ] Breakpoints feinjustieren und Wide Mode testen
 - [x] Scroll-Cache nutzen und Re-Render minimieren
 - [ ] CSS in Module aufteilen
+- [ ] Layout auf QSplitter und QGridLayout umstellen
+- [ ] Zentrale Sidebar mit Panel-Management
+- [ ] Panels als Klassen kapseln
+- [ ] Vollständige Tab- und Screenreader-Navigation
+- [ ] Sprechende Labels und Tooltips ergänzen
+- [ ] Globale Fehlerbehandlung mit Nutzerfeedback
+- [ ] Undo/Redo, Papierkorb und automatische Backups
+- [ ] Einheitliches Trash-Design
+- [ ] Geführtes Onboarding und Hilfe-Panel
+- [ ] Laienfreundliche Hinweise beim Speichern und Löschen
