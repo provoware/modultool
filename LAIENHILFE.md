@@ -1016,3 +1016,45 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   npx lighthouse http://localhost:8080/index-MODULTOOL.html
   ```
   *(Liefert Berichte zu Performance und Barrierefreiheit.)*
+
+- **Node-Version anzeigen (Node.js = JavaScript-Laufzeitumgebung)**
+  ```bash
+  node --version
+  ```
+  *(Zeigt, welche Node-Version installiert ist.)*
+
+- **Sicherheitsprüfung der Pakete (npm audit fix = bekannte Lücken schließen)**
+  ```bash
+  npm audit fix
+  ```
+  *(Aktualisiert automatisch fehlerhafte Abhängigkeiten.)*
+
+- **CSS prüfen (Stylelint = Stilkontrolle)**
+  ```bash
+  npx stylelint "**/*.css"
+  ```
+  *(Findet Probleme im Aussehen der Stylesheets.)*
+
+- **Bilder verkleinern (Imagemin = Bildkomprimierung)**
+  ```bash
+  npx imagemin src/img/* --out-dir=dist/img
+  ```
+  *(Erzeugt kleinere Dateien für schnellere Ladezeiten.)*
+
+- **Version im Git markieren (Tag = Versionsmarkierung)**
+  ```bash
+  git tag -a v1.0 -m 'Version 1.0' && git push --tags
+  ```
+  *(Setzt eine feste Versionsnummer im Repository.)*
+
+- **package.json anlegen (npm init = Projekt starten)**
+  ```bash
+  npm init -y
+  ```
+  *(Erstellt eine Grundeinstellung für dein Projekt. npm merkt sich dort alle Pakete.)*
+
+- **Debounce-Funktion installieren (kurze Wartezeit einbauen)**
+  ```bash
+  npm install lodash.debounce
+  ```
+  *(`lodash.debounce` verzögert eine Funktion, bis kurz Ruhe ist. Praktisch für Suchfelder.)*
