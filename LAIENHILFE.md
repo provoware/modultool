@@ -1724,3 +1724,36 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
 
 - **CSS modularisieren**
   Lege pro Panel eine eigene `.css`-Datei an und binde sie mit `<link rel="stylesheet" href="modules/panel.css">` ein.
+
+## Weiterführende Laienvorschläge (Fortsetzung)
+
+- **CSS automatisch ergänzen (Autoprefixer = Browser-Vorsilben)**
+  ```bash
+  npx postcss modules/*.css --use autoprefixer -d modules
+  ```
+  *(Setzt fehlende Präfixe für verschiedene Browser ein.)*
+
+- **Bilder verkleinern (Imagemin = Bildkomprimierung)**
+  ```bash
+  npx imagemin src/img/* --out-dir=dist/img
+  ```
+  *(Macht Grafiken kleiner, damit die Seite schneller lädt.)*
+
+- **HTML formatieren (Prettier = Formatier-Werkzeug)**
+  ```bash
+  npx prettier --write modules/*.html
+  ```
+  *(Rückt den Code ordentlich ein.)*
+
+- **JavaScript prüfen (ESLint = Fehler- und Stilprüfung)**
+  ```bash
+  npx eslint modules/*.js
+  ```
+  *(Zeigt typische Tippfehler im Skript an.)*
+
+- **todo.txt sortieren und abgleichen**
+  ```bash
+  sort -u todo.txt -o todo.txt
+  bash tools/sync_todo.sh
+  ```
+  *(Entfernt doppelte Einträge und kopiert die Liste in `data/todo.txt` sowie `platzhalter.txt`.)*

@@ -213,6 +213,8 @@
 - [x] README mit Hinweisen auf npm start und npm run sync
 - [x] Modulversionen mit npm run sync aktualisiert
 - [x] Weiterfuehrende Laienvorschlaege ergaenzt
+- [x] Weitere Laienvorschläge (Fortsetzung) ergänzt
+- [x] Hinweis auf todo.txt-Synchronisation aufgenommen
 - [ ] Offene Punkte aus AGENTS-RELEASE-CHECK.md bearbeiten
 - [x] Release-Checkliste in LAIENHILFE ergänzt
 - [x] Willkommensfenster per X oder Esc schließen
