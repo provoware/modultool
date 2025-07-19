@@ -142,6 +142,7 @@ python3 -m http.server
 - Bei jedem `git push` laufen GitHub Actions (automatische Abläufe) und prüfen den Code mit `npm run lint` und `npm test`.
 - Aktualisiere die Modulversionen mit `npm run sync`.
 - Sichere Zwischenstände mit `git stash` (temporärer Speicher).
+- Erstelle ein ZIP-Backup mit `bash tools/zip_backup.sh`.
 - Erstelle neue Module mit `node tools/create_module.js modulID "Titel"`.
 
 ## 🖥 Layout & Zoom

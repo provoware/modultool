@@ -3,7 +3,7 @@
 - [x] lib/update_manager.js erstellen
 - [x] Unit- und Integrationstests einrichten
 - [x] GitHub Actions für Linting und Testing hinzufügen
-- [ ] ZIP-Backup-Modul fertigstellen
+- [x] ZIP-Backup-Modul fertigstellen
 - [ ] Undo/Redo-Funktion implementieren
 - [ ] Filter- und Favoriten-Funktion ergänzen
 - [ ] Scrollsync und Projektordner verwalten
@@ -59,7 +59,7 @@
 - AGENTS.md Codeblock geschlossen (triple backticks).
 - [ ] Templates-Modul (Panel02) erstellen
 - [ ] Undo/Redo-System einbauen
-- [ ] ZIP-Backup-Funktion ergänzen
+- [x] ZIP-Backup-Funktion ergänzen
 
 - [ ] Letzter Selfcheck vor dem Release
 - [ ] README um Releasenotizen ergaenzen
@@ -70,10 +70,10 @@
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)
 - [ ] DEB- und AppImage-Paket bauen
 - [ ] Datei-Übersicht per Skript pflegen
-- [ ] ZIP-Backup-Modul entwickeln (Panel07)
+- [x] ZIP-Backup-Modul entwickeln (Panel07)
 - [ ] Undo-/Redo-Funktion einbauen (Panel08)
 - [ ] Undo/Redo-Funktion einbauen
-- [ ] ZIP-Backup vorbereiten
+- [x] ZIP-Backup vorbereiten
 - [ ] Filter/Favoriten integrieren
 - [ ] Scrollsync und Projektordner verwalten
 - [ ] Modul-Übersicht per Skript in module_übersicht.txt aktualisieren

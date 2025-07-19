@@ -94,6 +94,11 @@
       "id": "exporter",
       "title": "Direkt-Export",
       "file": "modules/direct_exporter.html"
+    },
+    {
+      "id": "zipbackup",
+      "title": "ZIP-Backup",
+      "file": "modules/zip_backup.html"
     }
   ]
 }

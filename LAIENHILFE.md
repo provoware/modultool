@@ -1564,6 +1564,13 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
   ```
   *(Erzeugt eine Sicherungsdatei mit Datum im Namen.)*
 
+- **Backup per Skript**
+  ```bash
+  bash tools/zip_backup.sh
+  ```
+  *(Startet eine automatische ZIP-Erstellung.)*
+
+
 - **Aufgabenliste anzeigen**
   ```bash
   cat todo.txt

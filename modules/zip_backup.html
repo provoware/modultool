@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>ZIP-Backup</title>
+<style>
+  #zipBackup{display:grid;gap:.5rem;max-width:340px;margin:auto;font-family:var(--font-family,sans-serif);}
+  input,button{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,.5rem);line-height:1.4;}
+  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+  #status{min-height:1.2em;}
+</style>
+</head>
+<body>
+<div id="zipBackup">
+  <h2>ZIP-Backup</h2>
+  <button id="saveZipBtn">Backup herunterladen</button>
+  <input type="file" id="loadZipInput" accept="application/zip">
+  <div id="status" role="status" aria-live="polite"></div>
+</div>
+<script type="module">
+import {showStatus} from './common.js';
+import JSZip from 'https://cdn.jsdelivr.net/npm/jszip@3.10.1/+esm';
+
+const saveBtn=document.getElementById('saveZipBtn');
+const loadInput=document.getElementById('loadZipInput');
+const status=document.getElementById('status');
+
+saveBtn.onclick=async()=>{
+  const zip=new JSZip();
+  const data={};
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    data[k]=localStorage.getItem(k);
+  }
+  zip.file('storage.json',JSON.stringify(data,null,2));
+  const blob=await zip.generateAsync({type:'blob'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='modultool_backup.zip';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showStatus(status,'Backup erstellt');
+};
+
+loadInput.onchange=async()=>{
+  const file=loadInput.files[0];
+  if(!file){return;}
+  try{
+    const zip=await JSZip.loadAsync(file);
+    const text=await zip.file('storage.json').async('string');
+    const data=JSON.parse(text);
+    for(const [k,v] of Object.entries(data)){
+      localStorage.setItem(k,v);
+    }
+    showStatus(status,'Backup geladen');
+  }catch(e){
+    showStatus(status,'Laden fehlgeschlagen');
+  }
+};
+</script>
+</body>
+</html>

@@ -9,7 +9,7 @@ Diese Liste sammelt offene Aufgaben für den finalen Release. Pro Iteration soll
 - [x] config_schema.json einführen
 - [x] Unit- und Integrationstests einrichten
 - [x] GitHub Actions für Linting und Testing aktivieren
-- [ ] ZIP-Backup-Modul fertigstellen
+- [x] ZIP-Backup-Modul fertigstellen
 - [ ] Undo/Redo-Funktion implementieren
 - [ ] Filter- und Favoriten-Funktion ergänzen
 - [ ] Scrollsync und Projektordner-Steuerung
