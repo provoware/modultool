@@ -214,3 +214,4 @@
 - [ ] Offene Punkte aus AGENTS-RELEASE-CHECK.md bearbeiten
 - [x] Release-Checkliste in LAIENHILFE ergänzt
 - [x] Willkommensfenster per X oder Esc schließen
+- [x] Globale Standards dokumentiert

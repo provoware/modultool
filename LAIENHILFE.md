@@ -1600,6 +1600,20 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
   ```
   *(Mit dem Skript kannst du Projekte erstellen, auswählen, löschen und das aktuelle anzeigen.)*
 
+## Globale Standards (Kurzfassung)
+
+- **Dateien ordentlich halten** (Struktur)
+  Siehe `GLOBALE_STANDARDS.md` fuer die komplette Liste.
+- **Neues Modul anlegen**
+  ```bash
+  node tools/create_module.js
+  ```
+  *(Legt automatisch einen Ordner und Basisdateien an.)*
+- **Tests ausfuehren**
+  ```bash
+  npm test
+  ```
+  *(Stellt sicher, dass alles funktioniert.)*
 - **Favoriten-Startseite öffnen**
   ```bash
   xdg-open modules/favorites_start_screen.html
