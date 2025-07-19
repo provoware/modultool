@@ -1992,3 +1992,100 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   Oben erscheint eine farbige Zeile nach dem Speichern oder bei Fehlern.
   Grün bedeutet Erfolg, Rot zeigt ein Problem an.
 
+## Weitere Laienvorschläge (Zusatz 5)
+
+- **Live-Suche für Module**  
+  Gib im Suchfeld links ein Wort ein. Die Liste passt sich direkt an.
+
+- **Modulstatistik anzeigen (Balkendiagramm)**  
+  ```bash
+  node tools/show_usage.js
+  ```
+  *(Dieses Skript erstellt ein kleines Balkendiagramm über die meistgenutzten Module.)*
+
+- **Kurze Hilfe direkt am Modul (Overlay = eingeblendetes Fenster)**  
+  ```js
+  showHint('So löst du das Problem...');
+  ```
+  *(Zeigt einen Hinweis genau dort, wo du gerade arbeitest.)*
+
+- **Papierkorb- und Backup-Ordner schnell öffnen**  
+  ```bash
+  xdg-open trash/    # Papierkorb
+  xdg-open backups/  # Sicherungen
+  ```
+  *(Ein Klick startet den Dateimanager im richtigen Ordner.)*
+
+- **Protokoll unten einblenden (Log = Aufzeichnung)**  
+  ```bash
+  tail -f logs/app.log
+  ```
+  *(Du siehst sofort, was zuletzt passiert ist. Beende mit Strg+C.)*
+
+- **Theme wechseln (Kontrast = Farbunterschied)**  
+  ```bash
+  F2
+  ```
+  *(Mit F2 schaltest du zwischen hell und dunkel um.)*
+
+- **Tooltips an jedem Button**  
+  ```html
+  <button title="Speichern">💾</button>
+  ```
+  *(Der Text im `title` erscheint beim Überfahren mit der Maus.)*
+
+- **Große Aktionsflächen**  
+  Knöpfe und Eingabefelder mindestens 40 px hoch und breit machen. So triffst du sie auch mit dem Finger.
+
+## Weitere Laienvorschläge (Zusatz 6)
+
+- **Offline-Hilfeseite erstellen (PDF = druckbares Dokument)**
+  ```bash
+  wkhtmltopdf LAIENHILFE.md hilfe.pdf
+  ```
+  *(Dieses Kommando erzeugt aus der Hilfedatei eine PDF-Datei für die Nutzung ohne Internet.)*
+
+- **Tastenkombinationen anzeigen (Shortcut-Übersicht)**
+  ```bash
+  F10
+  ```
+  *(F10 öffnet ein Fenster mit allen wichtigen Tasten. ESC schließt es wieder.)*
+
+- **Zurück nach Modul-Maximierung (ESC = abbrechen)**
+  ```bash
+  ESC
+  ```
+  *(Drücke ESC, um vom Vollbild eines Moduls wieder zur Übersicht zu gelangen.)*
+
+- **Fehlerprotokoll live verfolgen (tail = Dateiende verfolgen)**
+  ```bash
+  tail -f logs/error.log
+  ```
+  *(Damit siehst du sofort neue Fehlermeldungen. Beende mit Strg+C.)*
+
+## Weitere Laienvorschläge (Zusatz 7)
+
+- **Ordnerstruktur erstellen (mkdir = Ordner anlegen)**
+  ```bash
+  mkdir -p gui core assets backups
+  ```
+  *(Legt alle Grundordner an. Kleinbuchstaben und keine Leerzeichen.)*
+
+- **Modulgerüst kopieren (create_module = Modulvorlage)**
+  ```bash
+  node tools/create_module.js beispiel "Mein erstes Modul"
+  ```
+  *(Erzeugt HTML-Vorlage und plugin.json automatisch.)*
+
+- **Neues Grundgerüst laden (module_template.js)**
+  ```javascript
+  import ModuleTemplate from './gui/module_template.js';
+  ```
+  *(Diese Klasse kannst du für eigene Module ableiten.)*
+
+- **Dashboard anzeigen (Browser = Anzeigeprogramm)**
+  ```bash
+  bash tools/start_tool.sh --no-browser
+  xdg-open http://localhost:8000/index-MODULTOOL.html
+  ```
+  *(Startet den Server und öffnet das Dashboard im Browser.)*
