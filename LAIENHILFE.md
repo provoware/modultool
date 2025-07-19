@@ -293,9 +293,9 @@ Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler ge
 Diese Befehle halten deine Module sauber und sicher.
 ## Geplante Erweiterungen
 
-Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sind:
 - persönlicher Startbildschirm mit Favoriten ("Dashboard")
-- Auto-Backup alle 5 Minuten und Undo-Verlauf (Rückgängig machen)
+- automatisches Backup alle 5 Minuten
+- Undo/Redo-Knöpfe im Genre-Panel zum Rückgängig machen
 - automatische Modul-Prüfung vor der Aktivierung
 - besserer Farbkontrast nach WCAG (Barrierefreiheits-Regeln)
 - Fokusmodus: ein Modul fullscreen, andere minimiert
@@ -533,7 +533,6 @@ sudo npm install -g htmlhint
 
 ## Offene Punkte bis zum Release
 
-- Undo/Redo-Funktion
 - ZIP-Backup erstellen
 - Filter/Favoriten
 - Scrollsync und Projektordner auswählen
@@ -1061,7 +1060,7 @@ Folgende Aufgaben sind noch offen:
 - [x] Unit- und Integrationstests einrichten
 - [x] GitHub Actions für Linting und Tests
 - [ ] ZIP-Backup-Modul fertigstellen
-- [ ] Undo/Redo-Funktion
+- [x] Undo/Redo-Funktion
 - [ ] Filter und Favoriten
 - [ ] Scrollsync und Projektordner
 - [ ] Vor dem Release `bash tools/selfcheck.sh` ausführen
@@ -1218,6 +1217,10 @@ Folgende Aufgaben sind noch offen:
   deleteJSON('exampleData');
   ```
   *(`deleteJSON` löscht den Schlüssel `exampleData` aus dem Browser-Speicher.)*
+
+- **Letzte Änderung zurücknehmen (Undo = rückgängig)**
+  Klicke im Genre-Panel auf **Undo**, um die vorherige Liste wiederherzustellen.
+  Mit **Redo** holst du die Änderung zurück.
 
 - **Modulliste einklappen (Dropdown = ausklappbares Menü)**
   Klicke links auf **"Module ein/aus"**. Die Liste mit Häkchen erscheint oder verschwindet.

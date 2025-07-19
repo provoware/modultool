@@ -65,7 +65,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 
 ### Geplante Erweiterungen
 - Favoriten-Startbildschirm
-- Auto-Backup und Undo-Verlauf
+- Auto-Backup vorhanden, Undo-Verlauf umgesetzt
 - Modul-Prüfung vor Aktivierung
 - Farbkontrast-Optimierung nach WCAG
 - Fokusmodus und Tooltip-Akademie
@@ -95,7 +95,6 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 
 ## 🗒 Offene Punkte für das Release
 
-- Undo/Redo-Funktion
 - ZIP-Backup
 - Filter und Favoriten
 - Scrollsync und Projektordner-Verwaltung
@@ -127,6 +126,7 @@ Voraussetzung sind die Programme `dpkg-deb` und `appimagetool`. Falls sie fehlen
 3. `bash tools/selfcheck.sh`
 4. `npm start`  # startet das Tool
 5. Browser öffnet sich automatisch. Ein Willkommensfenster erscheint und schließt sich nach 20 Sekunden. Mit **Esc** oder dem kleinen **X** oben rechts kannst du es sofort schließen.
+6. Im Modul "Genre-Liste" findest du nun **Undo** und **Redo**. Damit machst du Eingaben rückgängig oder stellst sie wieder her.
 
 ## 🌐 Lokaler Testserver
 Um die HTML-Dateien bequem auszuprobieren, kannst du einen kleinen Webserver starten.

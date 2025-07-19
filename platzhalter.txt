@@ -4,7 +4,7 @@
 - [x] Unit- und Integrationstests einrichten
 - [x] GitHub Actions für Linting und Testing hinzufügen
 - [x] ZIP-Backup-Modul fertigstellen
-- [ ] Undo/Redo-Funktion implementieren
+- [x] Undo/Redo-Funktion implementieren
 - [ ] Filter- und Favoriten-Funktion ergänzen
 - [ ] Scrollsync und Projektordner verwalten
 - [x] Wöchentlichen Selfcheck automatisieren (Cronjob)
