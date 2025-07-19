@@ -157,8 +157,8 @@
       width: 100%; height: 100%; box-sizing: border-box;
       overflow-x: hidden; overflow-y: auto; z-index:2;
     }
-    .sidebar.left { grid-column:1; width:min(max(20vw, var(--sidebar-min)), var(--sidebar-max));}
-    .sidebar.right { grid-column:5; width:min(max(21vw, var(--sidebar-min)), var(--sidebar-max));}
+    .sidebar.left { grid-column:1; width:clamp(var(--sidebar-min), 20vw, var(--sidebar-max));}
+    .sidebar.right { grid-column:5; width:clamp(var(--sidebar-min), 21vw, var(--sidebar-max));}
     .sidebar-header {font-size:1.12em; font-weight:600; margin-bottom:1em; color:var(--sidebar-accent);}
     .sidebar-divider {border-bottom:1px solid var(--sidebar-divider); margin:.9em 0;}
     .sidebar-list {margin:0; padding:0 0 0 .3em; list-style:none;}
@@ -186,10 +186,10 @@
     .main-content { grid-column:3; width:100%; height:100%; display:flex; justify-content:center; align-items:stretch; transition: width .17s;}
     .grid-main {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(clamp(18rem, 33%, 22rem), 1fr));
       grid-auto-rows: minmax(160px, auto);
       grid-auto-flow: row dense;
-      gap: 1.15rem;
+      gap: clamp(0.5rem, 2vw, 1rem);
       max-width: 1380px;
       width: 97vw;
       margin: 22px auto 24px auto;
@@ -198,10 +198,11 @@
     .mod-panel {
       background: var(--area); border-radius: 1.55rem; box-shadow: 0 4px 18px var(--shadow);
       padding: 1.22rem 1.12rem; display: flex; flex-direction: column;
-      min-width:0; margin:0; overflow-x: hidden; overflow-y: auto; max-height:470px; transition: box-shadow .18s,border .18s;
+      min-width:0; margin:0; overflow-x: hidden; overflow-y: auto; transition: box-shadow .18s,border .18s;
       border:2.2px solid transparent;
     }
     .mod-panel.fokus {box-shadow:0 0 0 6px var(--highlight),0 4px 22px var(--shadow);border:2.2px solid var(--focus-ring);}
+    body.focus-mode .mod-panel.fokus {height:100vh;}
     .mod-panel h2 { font-size:1.16rem; margin-top:0; margin-bottom:.64rem; color:var(--text);}
     .input-group { display: flex; gap: .5rem; margin-bottom: 1rem; }
     input, button, select, textarea {
@@ -272,6 +273,9 @@
     .status-msg {padding:.19em 1em; margin:.2em 0 .4em 0; border-radius:.7em; font-weight:600;}
     .status-ok {background:#198d54b8; color:#f7fff9;}
     .status-error {background:#d42e4cbe; color:#fff;}
+    .toast-layer{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);padding:.4em 1em;border-radius:.7em;font-weight:600;display:none;z-index:9999;}
+    .toast-ok{background:#198d54b8;color:#f7fff9;}
+    .toast-error{background:#d42e4cbe;color:#fff;}
     .flash-success {background:var(--active) !important; transition:background .3s;}
     .flash-error {background:var(--remove) !important; transition:background .3s;}
     .intro-overlay {position:fixed;inset:0;background:rgba(0,0,0,.85);color:var(--text);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;text-align:center;padding:1em;}
@@ -318,6 +322,7 @@
   <button id="toggleLeft" class="sidebar-toggle" aria-label="Menü umschalten">☰</button>
   <button id="toggleRight" class="sidebar-toggle" aria-label="Optionen umschalten">⚙</button>
 </header>
+<div id="toastLayer" class="toast-layer" role="status" aria-live="polite"></div>
 <div class="app-frame">
   <aside class="sidebar left" id="sidebarLeft" role="navigation" aria-label="Module und Infos">
     <div class="sidebar-header">Module & Infos</div>
@@ -517,7 +522,9 @@ function updateFocusButtons(){
   });
 }
 function switchFokus(mode) {
+  if(mode!==0) scrollCache = window.scrollY;
   fokusMode = mode;
+  document.body.classList.toggle('focus-mode', mode !== 0);
   if (mode !== 0) {
     const target = document.getElementById('panel' + mode);
     if (target && target.style.display === 'none') {
@@ -546,6 +553,8 @@ function switchFokus(mode) {
   if (mode !== 0) {
     const pf = document.getElementById('panel' + mode);
     if (pf) pf.focus();
+  } else {
+    window.scrollTo(0, scrollCache);
   }
   updateFocusButtons();
 }
@@ -631,6 +640,7 @@ const FAV_KEY = 'modFavorites_v1';
 let favorites = [];
 let modulesConfig = [];
 let scrollSync = false;
+let scrollCache = 0;
 function loadProfiles(){
   try{ state.genreProfiles = JSON.parse(localStorage.getItem(PROFILES_KEY)) || {}; }
   catch(e){ state.genreProfiles = {}; logErr('Profile-Laden: '+e); }
@@ -1164,11 +1174,12 @@ function toggleScrollSync(){
 }
 /* Meldungen & Reset */
 function statusMsg(txt, ok=1) {
-  let el = document.getElementById('genreStatus');
-  el.innerText = txt;
-  el.className = 'status-msg ' + (ok ? 'status-ok':'status-error');
+  const el = document.getElementById('toastLayer');
+  if(!el) return;
+  el.textContent = txt;
+  el.className = 'toast-layer ' + (ok ? 'toast-ok' : 'toast-error');
   el.style.display = 'block';
-  setTimeout(()=>{el.style.display='none';},1800);
+  setTimeout(()=>{el.style.display='none';}, 2000);
 }
 function flash(el, cls='flash-success') {
   if(!el) return;
