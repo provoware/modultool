@@ -404,14 +404,17 @@ sudo npm install -g htmlhint
 - Der **Speichern**-Knopf leuchtet kurz grün auf. Das ist ein optisches Feedback (Rückmeldung), dass alles geklappt hat.
 ## Genre-Profile verwenden
 
-1. Öffne `panel02.html` im Ordner `modules`.
-2. Gib einen Profilnamen ein und ergänze deine Genres.
-3. Wähle bei Bedarf eine **Gewichtung** (Zahl bestimmt, wie oft das Profil gezogen wird).
-4. Mit **Profil speichern** legst du die Liste an.
-5. Über **Zufall** erhältst du eines der Genres aus dem gewählten Profil.
-6. Mit **Gewichteter Zufall** wird ein Profil nach Gewicht gewählt und daraus ein Genre angezeigt.
+1. Starte das Tool mit:
+   ```bash
+   bash tools/start_tool.sh
+   ```
+2. Im Panel **Genres + Zufall** gibst du deine Genres ein (Komma-getrennt).
+3. Darunter steht das Feld **Profilname**. Trage dort z. B. `Hart`, `Schnell` oder `Chill` ein.
+4. Klicke auf **Profil speichern**. Das Profil erscheint in der Auswahl.
+5. Wähle ein Profil aus, um es zu laden. Über **Profil löschen** entfernst du es wieder.
+6. Die 🎲-Buttons ziehen zufällig Genres aus dem geladenen Profil.
 
-Die gespeicherten Module findest du gesammelt in `modules.json`.
+*(Profil = Sammlung deiner Genre-Listen, im Browser gespeichert.)*
 
 ## Persona-Switcher nutzen
 
@@ -761,7 +764,7 @@ Hier speicherst du zentrale Einstellungen, die das Tool beim Start pr\u00fcft.
 nano config_schema.json
 ```
 In dieser Datei beschreibst du, welche Einstellungen erlaubt sind.
-*(Schema = Vorlage f\u00fcr eine Datenstruktur in JSON).* 
+*(Schema = Vorlage f\u00fcr eine Datenstruktur in JSON).*
 ### 7. Tests und CI
 ```bash
 bash tools/selfcheck.sh
@@ -1288,3 +1291,51 @@ npm update        # aktualisiert diese Pakete automatisch
   document.addEventListener('DOMContentLoaded', loadWeights);
   ```
   *(Lädt die Gewichtungen sofort, bevor du die Zufallsfunktion nutzt.)*
+
+## Weiterf\u00fchrende Laienvorschl\u00e4ge (Zusatz)
+
+- **Letzten Commit anzeigen (log)**
+  ```bash
+  git log -1
+  ```
+  *(log = Liste der vorherigen Versionen im Repository.)*
+
+- **Code-Stil automatisch pr\u00fcfen (lint)**
+  ```bash
+  npm run lint
+  ```
+  *(lint = Stilpr\u00fcfung, findet typische Fehler.)*
+
+- **Lokalen Testserver starten (serve)**
+  ```bash
+  npx serve
+  ```
+  *(serve = kleines Programm, das Dateien im Browser bereitstellt.)*
+
+- **todo.txt synchron halten**
+  ```bash
+  cp todo.txt platzhalter.txt
+  cp todo.txt data/todo.txt
+  ```
+  *(So haben alle Kopien der Aufgabenliste den gleichen Stand.)*
+
+## Weiterf\u00fchrende Tipps
+
+- **Dateien aufr\u00e4umen (Whitespace entfernen)**
+  ```bash
+  find . -name '*.txt' -o -name '*.md' | xargs sed -i 's/[ \t]*$//'
+  ```
+  *(Whitespace = \u00fcberfl\u00fcssige Leerzeichen am Zeilenende. Der Befehl entfernt sie aus allen Text- und Markdown-Dateien.)*
+
+- **Zeilenenden vereinheitlichen (newline = Zeilenumbruch)**
+  ```bash
+  for f in $(find . -name '*.txt' -o -name '*.md'); do tail -c1 "$f" | od -An -t x1 | grep -q '0a' || echo >> "$f"; done
+  ```
+  *(Sorgt daf\u00fcr, dass jede Datei mit einem Zeilenumbruch endet.)*
+
+- **Aufgabenliste erweitern**
+  ```bash
+  echo '- [ ] Textdateien bereinigen (Whitespace, Newline)' >> todo.txt
+  bash tools/sync_todo.sh
+  ```
+  *(Der erste Befehl erg\u00e4nzt einen neuen Punkt in deiner Aufgabenliste. Der zweite Befehl synchronisiert die anderen Listen.)*
