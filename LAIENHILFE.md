@@ -1224,4 +1224,26 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
     navigator.serviceWorker.register('sw.js');
   }
   ```
-  *(Dieses kleine Skript laedt `sw.js` und ermoeglicht Offline-Zugriff.)*
+*(Dieses kleine Skript laedt `sw.js` und ermoeglicht Offline-Zugriff.)*
+
+## Neue Tipps zur mobilen Ansicht
+
+- **Seitenleisten einblenden**
+  - Klicke auf den Menü-Button `☰` oder das Zahnrad `⚙`. Damit schiebst du die linke bzw. rechte Seitenleiste ein oder aus.
+  - Auf kleinen Bildschirmen (unter 780 px Breite) erscheinen die Seitenleisten als Schublade.
+
+- **Logbuch im Dashboard**
+  - Im Panel "Dashboard" siehst du jetzt ein zweites Feld mit den letzten Systemmeldungen.
+  - Jeder Eintrag zeigt Uhrzeit und Text. Bei Problemen kannst du hier nachschauen.
+
+## Praktische Befehle (Kurzfassung)
+
+```bash
+git status        # zeigt geänderte Dateien ("Status")
+git add datei     # fügt eine Datei zum nächsten "Commit" hinzu
+git commit -m "Nachricht"  # sichert die Änderungen dauerhaft
+npm outdated      # listet veraltete Pakete im Projekt
+npm update        # aktualisiert diese Pakete automatisch
+```
+
+*(Die Befehle können einfach kopiert und im Terminal ausgeführt werden.)*

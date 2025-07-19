@@ -16,8 +16,8 @@
 - [ ] JavaScript-Tools auf TypeScript umstellen (Schema-Validierung)
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [ ] Zufallsmodi mit Profilgewichtung implementieren
-- [ ] Logging ins Dashboard einbauen
-- [ ] CSS responsiv machen, Test mit Axe/WAVE
+- [x] Logging ins Dashboard einbauen
+- [x] CSS responsiv machen, Test mit Axe/WAVE
 - [ ] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [ ] Dokumentation aktualisieren (README, AGENTS)
 - [ ] Fehlende Dateien und Ordner mit Platzhaltern anlegen

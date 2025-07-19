@@ -167,6 +167,7 @@
     .sidebar-footer {margin-top:auto; color:var(--sidebar-accent); font-size:.93em;}
     .sidebar-h2 {font-size:1.13em; font-weight:500; margin:.35em 0 .63em 0;}
     .module-toggle-btn{background:var(--sidebar-accent);color:#fff;border:none;padding:.4em .9em;border-radius:.8em;margin-bottom:.6em;cursor:pointer;}
+    .sidebar-toggle{background:var(--button);color:var(--text);border:none;padding:.4em .7em;border-radius:.6em;cursor:pointer;display:none;}
     #moduleListWrap{margin-bottom:.6em;}
     #moduleListWrap.hidden{display:none;}
     .sidebar-btns button {margin:.17em .22em .22em 0; padding:.64em 1.25em; background:var(--sidebar-accent); color:#fff; border:none; border-radius:1.2em; cursor:pointer;}
@@ -274,13 +275,16 @@
       .mod-panel {max-height:none;}
     }
     @media (max-width: 780px) {
-      .app-frame {grid-template-columns: 1fr var(--dragbar-width) 1fr var(--dragbar-width) 1fr;}
-      .sidebar {width:96vw;min-width:90vw;max-width:99vw;}
+      .app-frame {grid-template-columns:1fr;}
+      .dragbar{display:none;}
+      .sidebar {position:fixed;top:0;bottom:0;width:85vw;max-width:360px;height:100vh;transform:translateX(-110%);transition:transform .3s;}
+      .sidebar.left{left:0;}
+      .sidebar.right{right:0;transform:translateX(110%);}
+      .sidebar.show{transform:translateX(0);}
+      .sidebar-toggle{display:inline-block;}
     }
     @media (max-width: 480px) {
       header {font-size:1.2em;}
-      .sidebar {width:98vw;min-width:98vw;max-width:98vw;}
-      .app-frame {grid-template-columns:1fr;}
       header.top-header {flex-direction:column;gap:.3em;}
       #copySelBtn {margin-left:0;margin-top:.3em;}
     }
@@ -297,6 +301,8 @@
 <header class="top-header" role="banner">
   GridTool Pro – Fokusumschaltung &bull; &copy; Pppoppi
   <button id="copySelBtn" class="copy-btn" title="Markierten Text kopieren" aria-label="Text kopieren">⧉ Kopieren</button>
+  <button id="toggleLeft" class="sidebar-toggle" aria-label="Menü umschalten">☰</button>
+  <button id="toggleRight" class="sidebar-toggle" aria-label="Optionen umschalten">⚙</button>
 </header>
 <div class="app-frame">
   <aside class="sidebar left" id="sidebarLeft" role="navigation" aria-label="Module und Infos">
@@ -386,6 +392,7 @@
       </section>
       <section class="mod-panel" id="panel3" tabindex="0" role="region" aria-labelledby="panel3-head"><h2 id="panel3-head">Dashboard (letzte 10 Ausgaben)</h2>
         <ul id="dashboardList" class="dashboard-list"></ul>
+        <ul id="dashLog" class="dashboard-list" aria-label="Systemprotokoll"></ul>
         <button id="clearDashboardBtn" class="dashboard-copy" aria-label="Dashboard leeren" style="background:var(--remove);margin-top:.5em;">Alle löschen</button>
         <div class="input-help">Tipp: Für alle Zufallsausgaben – kopieren per Klick!</div>
       </section>
@@ -612,7 +619,10 @@ function renderLog(){
 }
 function renderDashLog(){
   const out = document.getElementById('dashLog');
-  if(out) out.innerHTML = logArr.slice(0,10).map(e=>`<li><span class="dashboard-timestamp">${e.time}</span> ${e.msg}</li>`).join('');
+  if(out){
+    out.innerHTML = logArr.slice(0,10).map(e=>`<li><span class="dashboard-timestamp">${e.time}</span> ${e.msg}</li>`).join('');
+    out.style.display = logArr.length ? 'block' : 'none';
+  }
 }
 function clearLog(){
   logArr=[];
@@ -1093,6 +1103,12 @@ document.getElementById('copySelBtn').onclick = function(){
   setTimeout(()=>{ b.style.background = old; }, 350);
   statusMsg('Text kopiert.',1);
   addDashboardEntry('Manuell kopiert');
+};
+document.getElementById('toggleLeft').onclick = function(){
+  document.getElementById('sidebarLeft').classList.toggle('show');
+};
+document.getElementById('toggleRight').onclick = function(){
+  document.getElementById('sidebarRight').classList.toggle('show');
 };
 </script>
 </body>
