@@ -140,10 +140,12 @@
     }
     .fokus-btn:focus { box-shadow: 0 0 0 3px var(--focus-ring); }
     .fokus-btn[aria-pressed="true"] { background: var(--button); color: #fff; }
+    .panel-focus-btn{align-self:flex-end;background:var(--highlight);color:#fff;border:none;padding:.32em .8em;border-radius:.8em;cursor:pointer;margin-bottom:.5em;}
+    .mod-panel.fokus .panel-focus-btn{display:block;width:100%;margin-bottom:1em;font-size:1.05em;}
     footer { font-size:1.03rem; padding:.95rem 0; background: var(--footer); color: var(--text-alt); box-shadow:0 -2px 10px var(--shadow);}
     .app-frame {
       display: grid;
-      grid-template-columns: minmax(0,auto) var(--dragbar-width) 1fr var(--dragbar-width) minmax(0,auto);
+      grid-template-columns: minmax(var(--sidebar-min), 20vw) var(--dragbar-width) 1fr var(--dragbar-width) minmax(var(--sidebar-min), 21vw);
       grid-template-rows: 1fr;
       width: 100vw; min-height: 77vh; max-width: 99vw; box-sizing:border-box;
     }
@@ -155,8 +157,8 @@
       width: 100%; height: 100%; box-sizing: border-box;
       overflow-x: hidden; overflow-y: auto; z-index:2;
     }
-    .sidebar.left { grid-column:1; width: var(--sidebar-width-left);}
-    .sidebar.right { grid-column:5; width: var(--sidebar-width-right);}
+    .sidebar.left { grid-column:1; width:min(max(20vw, var(--sidebar-min)), var(--sidebar-max));}
+    .sidebar.right { grid-column:5; width:min(max(21vw, var(--sidebar-min)), var(--sidebar-max));}
     .sidebar-header {font-size:1.12em; font-weight:600; margin-bottom:1em; color:var(--sidebar-accent);}
     .sidebar-divider {border-bottom:1px solid var(--sidebar-divider); margin:.9em 0;}
     .sidebar-list {margin:0; padding:0 0 0 .3em; list-style:none;}
@@ -164,6 +166,9 @@
     .sidebar-checkbox {width:1.13em; height:1.13em; accent-color:var(--sidebar-accent);}
     .sidebar-footer {margin-top:auto; color:var(--sidebar-accent); font-size:.93em;}
     .sidebar-h2 {font-size:1.13em; font-weight:500; margin:.35em 0 .63em 0;}
+    .module-toggle-btn{background:var(--sidebar-accent);color:#fff;border:none;padding:.4em .9em;border-radius:.8em;margin-bottom:.6em;cursor:pointer;}
+    #moduleListWrap{margin-bottom:.6em;}
+    #moduleListWrap.hidden{display:none;}
     .sidebar-btns button {margin:.17em .22em .22em 0; padding:.64em 1.25em; background:var(--sidebar-accent); color:#fff; border:none; border-radius:1.2em; cursor:pointer;}
     .sidebar-btns button.active {background:var(--area); color:var(--sidebar-txt);}
     .dragbar { grid-row: 1; width: var(--dragbar-width); background: transparent; cursor: ew-resize; z-index:10; position: relative;}
@@ -269,7 +274,7 @@
       .mod-panel {max-height:none;}
     }
     @media (max-width: 780px) {
-      .app-frame {grid-template-columns: 1fr var(--dragbar-width) 100vw var(--dragbar-width) 1fr;}
+      .app-frame {grid-template-columns: 1fr var(--dragbar-width) 1fr var(--dragbar-width) 1fr;}
       .sidebar {width:96vw;min-width:90vw;max-width:99vw;}
     }
     @media (max-width: 480px) {
@@ -295,6 +300,8 @@
 <div class="app-frame">
   <aside class="sidebar left" id="sidebarLeft" role="navigation" aria-label="Module und Infos">
     <div class="sidebar-header">Module & Infos</div>
+    <button id="moduleToggleBtn" class="module-toggle-btn" onclick="toggleModuleList()">Module ein/aus</button>
+    <div id="moduleListWrap">
     <div class="sidebar-h2" title="Module hier ein- oder ausschalten">Module verwalten</div>
     <ul class="sidebar-list">
       <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Genres + Zufall</li>
@@ -309,6 +316,7 @@
       <li><input class="sidebar-checkbox" type="checkbox" id="mod10box" checked onchange="toggleModPanel(10)"> Modul 10</li>
       <li><input class="sidebar-checkbox" type="checkbox" id="mod11box" checked onchange="toggleModPanel(11)"> Modul 11</li>
     </ul>
+    </div>
     <div class="sidebar-divider"></div>
     <div class="sidebar-h2" title="Versionshinweise und Links">Infos</div>
     <div style="font-size:.98em;">
@@ -352,8 +360,6 @@
           <button onclick="saveArchive()">💾 Speichern</button>
           <button onclick="loadArchive()">📂 Laden</button>
           <button onclick="resetArchive()" style="background:var(--remove);">🗑️ Löschen</button>
-          <button onclick="saveArchive()" title="Archiv lokal speichern">💾 Speichern</button>
-          <button onclick="loadArchive()" title="Gespeichertes Archiv laden">📂 Laden</button>
         </div>
         <div class="rand-actions">
           <button class="rand-btn" onclick="pickRandomN(3)" aria-label="Zufall 3 Genres">🎲 3</button>
@@ -462,6 +468,22 @@ const fokusSelect = document.getElementById('fokusSelect');
 const fokusResetBtn = document.getElementById('fokusResetBtn');
 let fokusMode = 0;
 fokusSelect.onchange = function() { switchFokus(Number(fokusSelect.value)); };
+function updateFocusButtons(){
+  document.querySelectorAll('.panel-focus-btn').forEach((btn,idx)=>{
+    const mode=idx+1;
+    if(fokusMode===0){
+      btn.textContent='Fokus';
+      btn.onclick=()=>switchFokus(mode);
+      btn.style.display='';
+    }else if(fokusMode===mode){
+      btn.textContent='Zurück';
+      btn.onclick=()=>switchFokus(0);
+      btn.style.display='';
+    }else{
+      btn.style.display='none';
+    }
+  });
+}
 function switchFokus(mode) {
   fokusMode = mode;
   if (mode !== 0) {
@@ -492,6 +514,7 @@ function switchFokus(mode) {
     const pf = document.getElementById('panel' + mode);
     if (pf) pf.focus();
   }
+  updateFocusButtons();
 }
 /* ====== Farbschema & Initialisierung ====== */
 const themes = [
@@ -538,6 +561,7 @@ window.onload = function() {
   loadNotes();
   renderLog();
   for(let i=4;i<=11;i++) toggleModPanel(i);
+  setTimeout(()=>{addFocusButtons();updateFocusButtons();},300);
 };
 /* ======= App-Logik, Panels, Logging, Dashboard usw. ======= */
 const LOCAL_KEY = 'genreArchiv_vGRIDSB';
@@ -917,6 +941,20 @@ document.getElementById('clearSearch').onclick = function() {
 function toggleModPanel(idx) {
   const cb = document.getElementById('mod'+idx+'box');
   document.getElementById('panel'+idx).style.display = cb.checked ? '' : 'none';
+}
+function toggleModuleList(){
+  const wrap=document.getElementById('moduleListWrap');
+  wrap.style.display = wrap.style.display==='none' ? '' : 'none';
+}
+function addFocusButtons(){
+  document.querySelectorAll('#gridMain .mod-panel').forEach((p,i)=>{
+    const b=document.createElement('button');
+    b.className='panel-focus-btn';
+    b.type='button';
+    b.textContent='Fokus';
+    b.onclick=()=>switchFokus(i+1);
+    p.insertBefore(b,p.firstChild);
+  });
 }
 /* Meldungen & Reset */
 function statusMsg(txt, ok=1) {

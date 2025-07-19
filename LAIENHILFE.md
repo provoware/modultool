@@ -1074,3 +1074,11 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   localStorage.setItem('DATA_VERSION', '1');
   ```
   *(Merkt sich die Daten-Version "1". So kannst du später prüfen, ob gespeicherte Informationen erneuert werden müssen.)*
+
+- **Modulliste einklappen (Dropdown = ausklappbares Menü)**
+  Klicke links auf **"Module ein/aus"**. Die Liste mit Häkchen erscheint oder verschwindet.
+  So bleibt in der Seitenleiste mehr Platz.
+
+- **Fokusmodus direkt im Panel wechseln**
+  Jedes Modul hat jetzt einen kleinen *Fokus*-Knopf. Ein Klick blendet nur dieses Panel ein.
+  Im Fokus siehst du oben im Panel den Knopf **Zurück**, der wieder die normale Übersicht zeigt.
