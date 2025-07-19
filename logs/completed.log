@@ -6,3 +6,4 @@
 2025-07-19 01:12:14 - Listen mit DocumentFragment erneuern
 2025-07-19 01:16:04 - erledigte Aufgabenliste bereinigt
 2025-07-19 01:20:22 - Modul-Import jetzt mit DOMPurify gesichert
+2025-07-19 01:26:00 - Arrays zentral in state-Objekt gesammelt

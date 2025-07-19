@@ -1184,6 +1184,18 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   ```
   *(Erst alle Elemente sammeln, dann in einem Rutsch einfügen. Das spart Zeit.)*
 
+- **Gemeinsames Zustandsobjekt nutzen (state = Sammelstelle für Daten)**
+  ```js
+  const state = {
+    genres: [],
+    dashboardData: [],
+    tmplArchiv: []
+  };
+  // Zugriff: state.genres.push('Rock');
+  ```
+  *(Statt viele einzelne Variablen zu pflegen, liegt alles an einer Stelle. Das
+  vermeidet doppelte Deklarationen.)*
+
 - **Einstellungen zentral speichern (config.js = Sammelstelle fuer Optionen)**
   ```js
   // Datei config.js

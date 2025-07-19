@@ -545,14 +545,14 @@ window.onload = function() {
   switchFokus(0);
   try {
     let data = localStorage.getItem(LOCAL_KEY);
-    genres = data ? JSON.parse(data) : [];
+    state.genres = data ? JSON.parse(data) : [];
     let dash = localStorage.getItem(DASHBOARD_KEY);
-    dashboardData = dash ? JSON.parse(dash) : [];
+    state.dashboardData = dash ? JSON.parse(dash) : [];
     let tdata = localStorage.getItem(TMPL_KEY);
-    tmplArchiv = tdata ? JSON.parse(tdata) : [];
+    state.tmplArchiv = tdata ? JSON.parse(tdata) : [];
     loadWeights();
   } catch(e) {
-    genres = []; dashboardData = []; tmplArchiv = [];
+    state.genres = []; state.dashboardData = []; state.tmplArchiv = [];
     logErr('Fehler beim Laden aus localStorage: '+e);
   }
   loadLogs();
@@ -571,13 +571,15 @@ const DASHBOARD_KEY = 'genreDashboard_vGRIDSB';
 const TMPL_KEY = 'tmplArchiv_vGRIDSB';
 const NOTES_KEY = 'notes_vGRIDSB';
 const LOG_KEY = 'logArchiv_vGRIDSB';
-let genres = [];
-let dashboardData = [];
-let tmplArchiv = [];
-let notesData = '';
 const WEIGHT_KEY = 'genreWeights_vGRIDSB';
-let genreWeights = {};
-let searchTerm = '';
+const state = {
+  genres: [],
+  dashboardData: [],
+  tmplArchiv: [],
+  notesData: '',
+  genreWeights: {},
+  searchTerm: ''
+};
 let searchTimer;
 /* Logging und Selfcheck */
 let logArr = [];
@@ -590,9 +592,9 @@ function loadLogs(){
   }
 }
 function addDashboardEntry(text) {
-  dashboardData.unshift({ value: text, time: new Date().toLocaleString() });
-  dashboardData = dashboardData.slice(0,10);
-  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
+  state.dashboardData.unshift({ value: text, time: new Date().toLocaleString() });
+  state.dashboardData = state.dashboardData.slice(0,10);
+  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(state.dashboardData));
   renderDashboard();
 }
 function addLog(msg, type='info') {
@@ -621,9 +623,9 @@ function clearLog(){
 function selfcheckResult() {
   let ok = true, res = [];
   try {
-    if(!Array.isArray(genres)) {ok=false; res.push('Genre-Archiv beschädigt');}
-    if(!Array.isArray(dashboardData)) {ok=false; res.push('Dashboard beschädigt');}
-    if(!Array.isArray(tmplArchiv)) {ok=false; res.push('Templates beschädigt');}
+    if(!Array.isArray(state.genres)) {ok=false; res.push('Genre-Archiv beschädigt');}
+    if(!Array.isArray(state.dashboardData)) {ok=false; res.push('Dashboard beschädigt');}
+    if(!Array.isArray(state.tmplArchiv)) {ok=false; res.push('Templates beschädigt');}
     if(!Array.isArray(logArr)) {ok=false; res.push('Logs beschädigt');}
     if(document.querySelectorAll('.mod-panel').length!==11) {ok=false; res.push('Panel-Anzahl inkonsistent');}
   } catch(e){ok=false;res.push('Selfcheck-Fehler: '+e);}
@@ -681,8 +683,8 @@ function insertImportedPanel(){
 function renderList() {
   const list = document.getElementById('genreList');
   list.innerHTML = '';
-  let filter = searchTerm.trim().toLowerCase();
-  genres.forEach((g, idx) => {
+  let filter = state.searchTerm.trim().toLowerCase();
+  state.genres.forEach((g, idx) => {
     let value = typeof g === 'object' ? g.value : g;
     if(filter && !value.toLowerCase().includes(filter)) return;
     const li = document.createElement('li');
@@ -723,13 +725,13 @@ function renderList() {
     const rm = document.createElement('button');
     rm.className = 'remove-btn';
     rm.innerText = '✖';
-    rm.onclick = () => { genres.splice(idx,1); sortAndUpdate(); addLog('Genre gelöscht.'); };
+    rm.onclick = () => { state.genres.splice(idx,1); sortAndUpdate(); addLog('Genre gelöscht.'); };
     li.appendChild(rm);
     list.appendChild(li);
   });
 }
 function startEdit(idx) {
-  genres = genres.map((g, i) => i===idx ? {value: typeof g==='object'?g.value:g, _edit:true} : (typeof g==='object'?g.value:g));
+  state.genres = state.genres.map((g, i) => i===idx ? {value: typeof g==='object'?g.value:g, _edit:true} : (typeof g==='object'?g.value:g));
   renderList();
   setTimeout(() => {
     const input = document.querySelector('input.genre-edit');
@@ -738,31 +740,31 @@ function startEdit(idx) {
 }
 function finishEdit(idx, newVal) {
   newVal = newVal.trim();
-  if(newVal && !genres.includes(newVal)) {
-    genres[idx] = newVal;
+  if(newVal && !state.genres.includes(newVal)) {
+    state.genres[idx] = newVal;
   } else if (!newVal) {
-    genres.splice(idx,1);
-  } else if (genres.includes(newVal) && genres[idx] !== newVal) {
-    genres.splice(idx,1);
+    state.genres.splice(idx,1);
+  } else if (state.genres.includes(newVal) && state.genres[idx] !== newVal) {
+    state.genres.splice(idx,1);
   }
   sortAndUpdate();
 }
 function cancelEdit(idx) {
-  if(typeof genres[idx] === 'object' && genres[idx]._edit) {
-    genres[idx] = genres[idx].value;
+  if(typeof state.genres[idx] === 'object' && state.genres[idx]._edit) {
+    state.genres[idx] = state.genres[idx].value;
     sortAndUpdate();
   }
 }
 function sortAndUpdate() {
-  genres = [...new Set(genres.map(x => (typeof x==='object'?x.value:x).trim()).filter(x=>x.length>0))].sort((a,b)=>a.localeCompare(b, 'de'));
-  localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
+  state.genres = [...new Set(state.genres.map(x => (typeof x==='object'?x.value:x).trim()).filter(x=>x.length>0))].sort((a,b)=>a.localeCompare(b, 'de'));
+  localStorage.setItem(LOCAL_KEY, JSON.stringify(state.genres));
   renderList();
   renderWeightList();
   addLog('Archiv aktualisiert.');
 }
 function addGenre(str) {
   str.split(',').map(s=>s.trim()).filter(s=>s.length>0).forEach(s => {
-    if(!genres.includes(s)) genres.push(s);
+    if(!state.genres.includes(s)) state.genres.push(s);
   });
   sortAndUpdate();
   addLog('Genre(s) hinzugefügt.');
@@ -775,8 +777,8 @@ document.getElementById('genreForm').onsubmit = (e) => {
   input.focus();
 };
 function pickRandomN(n) {
-  if(genres.length===0) {statusMsg("Kein Genre vorhanden!",0);logErr('Zufallsgenerator ohne Genres!');return;}
-  let pool = [...genres], picked=[];
+  if(state.genres.length===0) {statusMsg("Kein Genre vorhanden!",0);logErr('Zufallsgenerator ohne Genres!');return;}
+  let pool = [...state.genres], picked=[];
   while(pool.length && picked.length<n){
     const idx = Math.floor(Math.random()*pool.length);
     picked.push(pool.splice(idx,1)[0]);
@@ -792,17 +794,17 @@ function pickRandomN(n) {
   addLog('Zufallsausgabe erzeugt und kopiert.');
 }
 function loadWeights(){
-  try { genreWeights = JSON.parse(localStorage.getItem(WEIGHT_KEY)) || {}; }
-  catch(e){ genreWeights = {}; logErr('Gewicht-Laden: '+e); }
+  try { state.genreWeights = JSON.parse(localStorage.getItem(WEIGHT_KEY)) || {}; }
+  catch(e){ state.genreWeights = {}; logErr('Gewicht-Laden: '+e); }
 }
 function saveWeights(){
-  localStorage.setItem(WEIGHT_KEY, JSON.stringify(genreWeights));
+  localStorage.setItem(WEIGHT_KEY, JSON.stringify(state.genreWeights));
 }
 function renderWeightList(){
   const box = document.getElementById('weightList');
   if(!box) return;
   box.innerHTML = '';
-  genres.forEach(g => {
+  state.genres.forEach(g => {
     const row = document.createElement('div');
     row.className = 'weight-row';
     const sp = document.createElement('span');
@@ -810,15 +812,15 @@ function renderWeightList(){
     const inp = document.createElement('input');
     inp.type='number';
     inp.min='1';
-    inp.value = genreWeights[g] || 1;
-    inp.onchange = () => { genreWeights[g]=Math.max(1,Number(inp.value)||1); saveWeights(); };
+    inp.value = state.genreWeights[g] || 1;
+    inp.onchange = () => { state.genreWeights[g]=Math.max(1,Number(inp.value)||1); saveWeights(); };
     row.appendChild(sp); row.appendChild(inp);
     box.appendChild(row);
   });
 }
 function pickWeightedRandom(){
   const pool=[];
-  genres.forEach(g=>{ const w=Number(genreWeights[g]||1); for(let i=0;i<w;i++) pool.push(g); });
+  state.genres.forEach(g=>{ const w=Number(state.genreWeights[g]||1); for(let i=0;i<w;i++) pool.push(g); });
   if(pool.length===0){ statusMsg('Kein Genre vorhanden!',0); logErr('Gewichteter Zufall ohne Genres!'); return; }
   const pick = pool[Math.floor(Math.random()*pool.length)];
   const out = document.getElementById('weightResult');
@@ -826,21 +828,21 @@ function pickWeightedRandom(){
   out.innerHTML = `<b>Gewichteter Zufall:</b> ${pick}`;
   try { navigator.clipboard.writeText(pick); } catch(e){ logErr('Clipboard-Fehler: '+e); }
   statusMsg('Gewichteten Zufall kopiert.',1); flash(out);
-  dashboardData.unshift({value: pick, time: new Date().toLocaleString()});
-  dashboardData = dashboardData.slice(0,10);
-  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
+  state.dashboardData.unshift({value: pick, time: new Date().toLocaleString()});
+  state.dashboardData = state.dashboardData.slice(0,10);
+  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(state.dashboardData));
   renderDashboard();
   addLog('Gewichteten Zufall erzeugt und kopiert.');
 }
 function saveArchive() {
-  localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
+  localStorage.setItem(LOCAL_KEY, JSON.stringify(state.genres));
   statusMsg("Archiv gespeichert!",1);
   addDashboardEntry('Archiv gespeichert');
   addLog('Archiv gespeichert.');
 }
 function loadArchive() {
   const data = localStorage.getItem(LOCAL_KEY);
-  if(data) { genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); addDashboardEntry('Archiv geladen'); addLog('Archiv geladen.'); }
+  if(data) { state.genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); addDashboardEntry('Archiv geladen'); addLog('Archiv geladen.'); }
 }
 function copyDash(txt, btn) {
   try { navigator.clipboard.writeText(txt); }
@@ -858,7 +860,7 @@ function copyTmpl(txt, btn, title) {
 function resetArchive() {
   if(confirm('Archiv wirklich löschen?')) {
     localStorage.removeItem(LOCAL_KEY);
-    genres = [];
+    state.genres = [];
     renderList();
     statusMsg('Archiv geleert!',1);
     addLog('Archiv geleert.');
@@ -868,7 +870,7 @@ function resetArchive() {
 function renderDashboard() {
   const el = document.getElementById('dashboardList');
   el.innerHTML = '';
-  dashboardData.forEach(item => {
+  state.dashboardData.forEach(item => {
     const li = document.createElement('li');
     li.innerHTML = `<span class="dashboard-timestamp">${item.time}</span> <span>${item.value}</span>
       <button class="dashboard-copy" title="Kopieren" onclick="copyDash('${item.value.replace(/'/g,"\\'")}', this)">⧉</button>`;
@@ -877,7 +879,7 @@ function renderDashboard() {
 }
 document.getElementById('clearDashboardBtn').onclick = function() {
   if(confirm('Alle Dashboard-Einträge wirklich löschen?')) {
-    dashboardData = [];
+    state.dashboardData = [];
     localStorage.removeItem(DASHBOARD_KEY);
     renderDashboard();
     logArr = [];
@@ -891,7 +893,7 @@ document.getElementById('clearDashboardBtn').onclick = function() {
 function renderTmplList() {
   const el = document.getElementById('tmplBtnList');
   el.innerHTML = '';
-  tmplArchiv.forEach((t,i)=>{
+  state.tmplArchiv.forEach((t,i)=>{
     const btn = document.createElement('button');
     btn.className = 'tmpl-btn';
     btn.innerText = t.title;
@@ -908,13 +910,13 @@ function renderTmplList() {
     rem.className = 'tmpl-remove';
     rem.innerText = '✖';
     rem.title = 'Template löschen';
-    rem.onclick = (e)=>{e.stopPropagation();tmplArchiv.splice(i,1);saveTmpl();renderTmplList();addDashboardEntry('Template gelöscht');addLog('Template gelöscht.');};
+    rem.onclick = (e)=>{e.stopPropagation();state.tmplArchiv.splice(i,1);saveTmpl();renderTmplList();addDashboardEntry('Template gelöscht');addLog('Template gelöscht.');};
     btn.appendChild(rem);
     el.appendChild(btn);
   });
 }
 function saveTmpl() {
-  localStorage.setItem(TMPL_KEY, JSON.stringify(tmplArchiv));
+  localStorage.setItem(TMPL_KEY, JSON.stringify(state.tmplArchiv));
 }
 function tmplStatusMsg(txt, ok=1) {
   let el = document.getElementById('tmplStatus');
@@ -928,8 +930,8 @@ document.getElementById('tmplForm').onsubmit = function(e) {
   let title = document.getElementById('tmplTitle').value.trim();
   let text = document.getElementById('tmplText').value.trim();
   if(!title || !text) { tmplStatusMsg("Bitte Titel & Text angeben.",0); logErr('Template: Leere Felder'); return; }
-  tmplArchiv.unshift({title, text});
-  if(tmplArchiv.length>24) tmplArchiv=tmplArchiv.slice(0,24);
+  state.tmplArchiv.unshift({title, text});
+  if(state.tmplArchiv.length>24) state.tmplArchiv=state.tmplArchiv.slice(0,24);
   saveTmpl();
   renderTmplList();
   document.getElementById('tmplTitle').value = '';
@@ -943,13 +945,13 @@ document.getElementById('searchInput').oninput = function() {
   const val = this.value;
   clearTimeout(searchTimer);
   searchTimer = setTimeout(() => {
-    searchTerm = val;
-    document.getElementById('clearSearch').style.display = searchTerm ? '' : 'none';
+    state.searchTerm = val;
+    document.getElementById('clearSearch').style.display = state.searchTerm ? '' : 'none';
     renderList();
   }, 200);
 };
 document.getElementById('clearSearch').onclick = function() {
-  searchTerm = '';
+  state.searchTerm = '';
   document.getElementById('searchInput').value = '';
   this.style.display = 'none';
   renderList();
@@ -992,8 +994,8 @@ function resetAll() {
     localStorage.removeItem(DASHBOARD_KEY);
     localStorage.removeItem(TMPL_KEY);
     localStorage.removeItem(NOTES_KEY);
-    genres = []; dashboardData = []; tmplArchiv = [];
-    notesData = '';
+    state.genres = []; state.dashboardData = []; state.tmplArchiv = [];
+    state.notesData = '';
     renderList(); renderDashboard(); renderTmplList();
     if(document.getElementById('notesArea')) document.getElementById('notesArea').value='';
     renderLog();
@@ -1005,20 +1007,20 @@ function resetAll() {
 
 /* Notizen-Panel */
 function saveNotes(){
-  notesData = document.getElementById('notesArea').value;
-  localStorage.setItem(NOTES_KEY, notesData);
+  state.notesData = document.getElementById('notesArea').value;
+  localStorage.setItem(NOTES_KEY, state.notesData);
   addLog('Notizen gespeichert.');
 }
 function loadNotes(){
   const d = localStorage.getItem(NOTES_KEY);
   if(d){
-    notesData = d;
-    document.getElementById('notesArea').value = notesData;
+    state.notesData = d;
+    document.getElementById('notesArea').value = state.notesData;
   }
 }
 function clearNotes(){
   if(confirm('Alle Notizen löschen?')){
-    notesData='';
+    state.notesData='';
     document.getElementById('notesArea').value='';
     localStorage.removeItem(NOTES_KEY);
     addLog('Notizen gelöscht.');

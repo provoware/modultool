@@ -93,7 +93,7 @@
 - [ ] Dynamische Elemente mit eindeutigen IDs versehen (ID = unverwechselbare Kennung). Beispiel: `elem.id='panel-'+index`
 - [ ] Service Worker einrichten für Offline-Betrieb (PWA = Webapp zum Installieren). Befehl: `npx workbox-cli wizard`
 
-- [ ] Redundante Arrays wie "genres" und "dashboardData" in einem einzigen Objekt `state` sammeln. Befehl: `grep -n "genres" -r`
+- [x] Redundante Arrays wie "genres" und "dashboardData" in einem einzigen Objekt `state` sammeln. Befehl: `grep -n "genres" -r`
 - [ ] Gewichtete Zufallsauswahl vor dem Anzeigen laden. Befehl: `window.addEventListener("DOMContentLoaded", initWeights);`
   ```js
   fetch("modules.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); });
