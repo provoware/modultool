@@ -10,7 +10,17 @@ mkdir -p "$PROJECTS_DIR"
 case "$1" in
   list)
     echo "Verfügbare Projekte:";
-    ls "$PROJECTS_DIR" || echo "(keine)";
+    active=""; [ -f "$ACTIVE_FILE" ] && active=$(cat "$ACTIVE_FILE")
+    for p in "$PROJECTS_DIR"/*; do
+      [ -d "$p" ] || continue
+      bn=$(basename "$p")
+      if [ "$bn" = "$active" ]; then
+        echo "* $bn (aktiv)"
+      else
+        echo "  $bn"
+      fi
+    done
+    [ -z "$(ls -A "$PROJECTS_DIR")" ] && echo "(keine)";
     ;;
   create)
     if [ -z "$2" ]; then
@@ -32,6 +42,13 @@ case "$1" in
     echo "$2" > "$ACTIVE_FILE";
     echo "Aktives Projekt: $2";
     ;;
+  current)
+    if [ -f "$ACTIVE_FILE" ]; then
+      echo "Aktives Projekt: $(cat "$ACTIVE_FILE")"
+    else
+      echo "Kein Projekt ausgewählt."
+    fi
+    ;;
   delete)
     if [ -z "$2" ]; then
       echo "Name fehlt. Beispiel: $0 delete meinprojekt";
@@ -44,6 +61,9 @@ case "$1" in
     read -p "Wirklich löschen? [y/N] " ans; 
     if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
       rm -rf "$PROJECTS_DIR/$2";
+      if [ -f "$ACTIVE_FILE" ] && [ "$(cat "$ACTIVE_FILE")" = "$2" ]; then
+        rm -f "$ACTIVE_FILE";
+      fi
       echo "Projekt '$2' entfernt.";
     else
       echo "Abgebrochen.";

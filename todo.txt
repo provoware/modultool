@@ -35,6 +35,7 @@
 - [x] Fehlende Dateien und Ordner mit Platzhaltern anlegen
 - [x] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
 - [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
+- [x] Bugfix: Startbildschirm schließt per X-Button
 - [ ] Automatische Validierung jedes Moduls vor Aktivierung
 - [x] Farbkontrast-Optimierung nach WCAG umsetzen
 - [ ] Fokusmodus: 1 Modul fullscreen, andere minimiert

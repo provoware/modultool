@@ -1593,7 +1593,9 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
 - **Projektordner verwalten (project = Sammlung deiner Dateien)**
   ```bash
   bash tools/manage_projects.sh list        # zeigt vorhandene Projekte
-  bash tools/manage_projects.sh create Test # legt "Test" an
-  bash tools/manage_projects.sh set Test    # wählt "Test" aus
+  bash tools/manage_projects.sh create Test # legt "Test" an und wählt ihn
+  bash tools/manage_projects.sh set Test    # setzt "Test" als aktiv
+  bash tools/manage_projects.sh current     # zeigt das aktive Projekt
+  bash tools/manage_projects.sh delete Test # löscht "Test"
   ```
-  *(Mit dem Skript kannst du Projekte erstellen, auswählen und löschen.)*
+  *(Mit dem Skript kannst du Projekte erstellen, auswählen, löschen und das aktuelle anzeigen.)*

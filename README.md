@@ -58,6 +58,11 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 - Gut sichtbarer Tastaturfokus zur einfachen Navigation
 - Projektordner-Management + Fehlerkorrektur
 - Projektordner lassen sich mit `bash tools/manage_projects.sh` verwalten
+  - `list` zeigt alle Projekte, das aktive ist markiert
+  - `create NAME` legt einen Ordner an und setzt ihn als aktiv
+  - `set NAME` wählt einen bestehenden Ordner
+  - `delete NAME` entfernt einen Ordner
+  - `current` zeigt das momentan aktive Projekt
 - Neues Modul per Skript erstellen (`node tools/create_module.js modulID "Titel"`)
 - Automatisches Update via `bash tools/autoupdate.sh`
 - Zentrales Konfigurationsschema (`config_schema.json`)
