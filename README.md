@@ -52,6 +52,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 
 - Drag & Drop für Medien, Module, Templates
 - Undo-/Redo-System, ZIP-Export, Selfcheck (Fehlerprüfung via `bash tools/selfcheck.sh`)
+- Filter für Module und Favoritenliste im Menü
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel
 - Gut sichtbarer Tastaturfokus zur einfachen Navigation
 - Projektordner-Management + Fehlerkorrektur
@@ -64,7 +65,6 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 - Beispielmodule: Story-Sampler, Info-Manager, Modul-Baukasten
 
 ### Geplante Erweiterungen
-- Favoriten-Startbildschirm
 - Auto-Backup vorhanden, Undo-Verlauf umgesetzt
 - Modul-Prüfung vor Aktivierung
 - Farbkontrast-Optimierung nach WCAG
@@ -95,8 +95,6 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 
 ## 🗒 Offene Punkte für das Release
 
-- ZIP-Backup
-- Filter und Favoriten
 - Scrollsync und Projektordner-Verwaltung
 
 ## 🔀 Branches zusammenführen
@@ -144,6 +142,7 @@ python3 -m http.server
 - Sichere Zwischenstände mit `git stash` (temporärer Speicher).
 - Erstelle ein ZIP-Backup mit `bash tools/zip_backup.sh`.
 - Erstelle neue Module mit `node tools/create_module.js modulID "Titel"`.
+- Suche Module über das Feld **Module filtern** und markiere Favoriten per Stern.
 
 ## 🖥 Layout & Zoom
 - Über das Dropdown **Fokus-Modus** blendest du alle anderen Panels aus und siehst ein Modul bildschirmfüllend.

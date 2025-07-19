@@ -293,7 +293,7 @@ Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler ge
 Diese Befehle halten deine Module sauber und sicher.
 ## Geplante Erweiterungen
 
-- persönlicher Startbildschirm mit Favoriten ("Dashboard")
+- Favoriten im Modul-Menü wählbar
 - automatisches Backup alle 5 Minuten
 - Undo/Redo-Knöpfe im Genre-Panel zum Rückgängig machen
 - automatische Modul-Prüfung vor der Aktivierung
@@ -533,8 +533,6 @@ sudo npm install -g htmlhint
 
 ## Offene Punkte bis zum Release
 
-- ZIP-Backup erstellen
-- Filter/Favoriten
 - Scrollsync und Projektordner auswählen
 ## Fehlende Module
 
@@ -859,6 +857,13 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```
   *(Erstellt ein ZIP-Archiv mit allen Dateien im aktuellen Ordner.)*
 
+- **Module filtern und als Favorit markieren**
+  ```bash
+  # Text ins Suchfeld "Module filtern" tippen
+  # Stern anklicken, um Modul oben zu merken
+  ```
+  *(Das Suchfeld grenzt die Modul-Liste ein. Der Stern speichert Lieblingsmodule.)*
+
 - **Alte Platzhalter-Module entfernen**
   ```bash
   git rm modules/panel1.html modules/panel2.html
@@ -1059,9 +1064,9 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
 Folgende Aufgaben sind noch offen:
 - [x] Unit- und Integrationstests einrichten
 - [x] GitHub Actions für Linting und Tests
-- [ ] ZIP-Backup-Modul fertigstellen
+- [x] ZIP-Backup-Modul fertigstellen
 - [x] Undo/Redo-Funktion
-- [ ] Filter und Favoriten
+- [x] Filter und Favoriten
 - [ ] Scrollsync und Projektordner
 - [ ] Vor dem Release `bash tools/selfcheck.sh` ausführen
 - [ ] Mit `git tag -a v1.0 -m "Release 1.0"` markieren und `git push --tags`

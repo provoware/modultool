@@ -5,7 +5,7 @@
 - [x] GitHub Actions für Linting und Testing hinzufügen
 - [x] ZIP-Backup-Modul fertigstellen
 - [x] Undo/Redo-Funktion implementieren
-- [ ] Filter- und Favoriten-Funktion ergänzen
+- [x] Filter- und Favoriten-Funktion ergänzen
 - [ ] Scrollsync und Projektordner verwalten
 - [x] Wöchentlichen Selfcheck automatisieren (Cronjob)
 - [ ] Release vorbereiten: Selfcheck, README prüfen, Release-Tag erstellen
