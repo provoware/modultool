@@ -1339,3 +1339,18 @@ npm update        # aktualisiert diese Pakete automatisch
   bash tools/sync_todo.sh
   ```
   *(Der erste Befehl erg\u00e4nzt einen neuen Punkt in deiner Aufgabenliste. Der zweite Befehl synchronisiert die anderen Listen.)*
+
+## Modul-Versionen verwalten
+
+- **Versionen angleichen (sync)**
+  ```bash
+  node lib/update_manager.js sync
+  ```
+  *(sync = Abgleich. Der Befehl legt f\u00fcr neue Module eine Version 1.0 in `module_versions.json` an.)*
+
+- **Version erh\u00f6hen (bump)**
+  ```bash
+  node lib/update_manager.js bump panel12
+  ```
+  *(bump = erh\u00f6hen. Dadurch wird die Patch-Version des angegebenen Moduls um eins gesteigert.)*
+
