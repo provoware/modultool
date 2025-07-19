@@ -186,3 +186,5 @@
 - [x] Grid automatisch anpassen (auto-fit = Module passen sich der Fensterbreite an). CSS-Beispiel: `grid-template-columns: repeat(auto-fit, minmax(280px,1fr));`
 - [x] Weitere Laienvorschläge in LAIENHILFE ergänzt
 - [ ] Textdateien bereinigen (Whitespace & Newline)
+- [ ] Code-Stil prüfen (Linting = automatischer Stilcheck). Befehl: `npm run lint`
+- [ ] Eingaben prüfen (Validation = Datenkontrolle). Befehl: `node validation.js`
