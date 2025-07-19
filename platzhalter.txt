@@ -217,6 +217,11 @@
 - [ ] Einfache Archiv-Buttons einrichten
 - [x] fehlenden Button "importInsertBtn" ergänzen
 - [x] Theme umschalten ohne "null"-Attribut
+
+- [ ] Doppelte Variablen wie "let genres" entfernen
+- [ ] Einfache Archiv-Buttons einrichten
+- [ ] fehlenden Button "importInsertBtn" ergänzen
+- [ ] Theme umschalten ohne "null"-Attribut
 - [ ] Fokus nur auf sichtbare Panels zulassen
 - [ ] Logging vereinheitlichen
 - [ ] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`

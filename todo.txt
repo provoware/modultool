@@ -15,6 +15,16 @@
 - [ ] Accessibility-Audit der Panels durchführen und Code aufräumen
 - [ ] Automatische Versionierung und Changelog-Workflow einrichten
 - [ ] JavaScript-Tools auf TypeScript umstellen (Schema-Validierung)
+- [ ] Eingaben prüfen (Input-Sanitierung) für IDs und Pfade
+- [ ] Alle Konfigs mit Schema validieren (JSON Schema/Zod)
+- [ ] Eigene Fehlerklassen definieren
+- [ ] Zentralen Error-Handler einrichten
+- [ ] Fehlermeldungen nutzerfreundlich formulieren
+- [ ] Automatischen Rollback bei Abbruch einbauen
+- [ ] Wiederholen-Funktion nach Fehler anbieten
+- [ ] Logging mit Zeitstempel im UI anzeigen
+- [ ] Log-Download-Button einfügen
+- [ ] Standard-Vorlagen und Beispiel-Module bereitstellen
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [x] UX-Layout mit Grid/Flex und ARIA-Fokus verbessern
 - [x] Befehlsreferenz-Modul (panel9) ergänzen
@@ -217,6 +227,11 @@
 - [ ] Einfache Archiv-Buttons einrichten
 - [x] fehlenden Button "importInsertBtn" ergänzen
 - [x] Theme umschalten ohne "null"-Attribut
+
+- [ ] Doppelte Variablen wie "let genres" entfernen
+- [ ] Einfache Archiv-Buttons einrichten
+- [ ] fehlenden Button "importInsertBtn" ergänzen
+- [ ] Theme umschalten ohne "null"-Attribut
 - [ ] Fokus nur auf sichtbare Panels zulassen
 - [ ] Logging vereinheitlichen
 - [ ] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`
