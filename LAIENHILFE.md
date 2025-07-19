@@ -378,6 +378,12 @@ sudo npm install -g htmlhint
    ```
    *("nano" ist ein einfacher Texteditor im Terminal.)*
 4. Seite neu laden (**F5**), um die Änderungen zu sehen.
+5. Trage deine Hinweise in `error_informationen.txt` ein, zum Beispiel:
+   ```
+   Modul nicht gefunden -> modules.json pruefen
+   Selfcheck starten -> bash tools/selfcheck.sh
+   ```
+   *(Die Datei sammelt einfache Fehlernotizen.)*
 
 ## Textbaustein-Modul benutzen
 

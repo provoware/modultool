@@ -95,6 +95,7 @@
 
 - [ ] Fehler-Tipps direkt im Tool anzeigen (Tooltip = kurzer Hinweis).
 - [ ] Fehler-Logdatei automatisch pflegen (logs/error.log).
+- [ ] Fehlerhinweise in error_informationen.txt ergänzen
 - [ ] Release-Endspurt: Offene Punkte laut README (Undo/Redo, ZIP-Backup, Filter/Favoriten, Scrollsync/Projektordner)
 - [ ] Vor dem Release bash tools/selfcheck.sh ausfuehren und Releasenotizen im README ergaenzen
 - [ ] Einfache Archiv-Buttons einrichten

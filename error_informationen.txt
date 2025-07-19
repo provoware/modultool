@@ -1,1 +1,5 @@
-
+# Tipps bei Fehlermeldungen
+- Browser-Konsole mit F12 öffnen und "Console" prüfen.
+- Selfcheck ausführen: `bash tools/selfcheck.sh`
+- HTML-Prüfer installieren: `npm install -g htmlhint`
+- Fehlende Dateien hier notieren, z.B. `modules/panel_xy.html`
