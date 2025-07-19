@@ -120,9 +120,9 @@
 
 - [ ] Doppelte Variablen wie "let genres" entfernen
 - [ ] Einfache Archiv-Buttons einrichten
-- [ ] fehlenden Button "importInsertBtn" ergänzen
-- [ ] Theme umschalten ohne "null"-Attribut
-- [ ] Fokus nur auf sichtbare Panels zulassen
+- [x] fehlenden Button "importInsertBtn" ergänzen
+- [x] Theme umschalten ohne "null"-Attribut
+- [x] Fokus nur auf sichtbare Panels zulassen
 - [ ] Logging vereinheitlichen
 - [ ] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`
 - [ ] Code-Formatierung mit Prettier (Formatierer = ordnet Einr\u00fcckungen und Leerzeichen). Befehl: `npx prettier --write .`
@@ -188,6 +188,7 @@
 - [ ] Textdateien bereinigen (Whitespace & Newline)
 - [ ] Code-Stil prüfen (Linting = automatischer Stilcheck). Befehl: `npm run lint`
 - [ ] Eingaben prüfen (Validation = Datenkontrolle). Befehl: `node validation.js`
-- [ ] Fokus-Dropdown dynamisch generieren
-- [ ] Fokusmodus an Panel-Anzahl anpassen
-- [ ] Fokus-Menü in Header integrieren
+- [x] Fokus-Dropdown dynamisch generieren
+- [x] Fokusmodus an Panel-Anzahl anpassen
+- [x] Fokus-Menü in Header integrieren
+- [x] Export-Funktion für Zitate und Todo-Liste

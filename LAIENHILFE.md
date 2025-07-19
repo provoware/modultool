@@ -1372,3 +1372,23 @@ python3 -m http.server
 4. Mit **Hinzufügen** landet der Eintrag im localStorage (Browser-Speicher).
 5. Über **Kopieren** steht der Text in der Zwischenablage (Clipboard). **Löschen** entfernt ihn wieder.
 
+## Daten exportieren
+
+Mit wenigen Klicks kannst du deine Listen sichern (Export = Daten als Datei speichern).
+
+### Todo-Liste speichern
+```bash
+python3 -m http.server
+```
+*(Server starten)*
+1. Rufe `http://localhost:8000/modules/todo_list.html` auf.
+2. Drücke **Exportieren**. Der Browser lädt `todos.json` herunter.
+
+### Zitate speichern
+```bash
+python3 -m http.server
+```
+*(Server starten)*
+1. Öffne `http://localhost:8000/modules/quote_manager.html`.
+2. Klicke auf **Exportieren**. Du bekommst die Datei `quotes.json`.
+
