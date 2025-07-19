@@ -1089,11 +1089,11 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   ```
   *(Liefert Berichte zu Performance und Barrierefreiheit.)*
 
-- **Node-Version anzeigen (Node.js = JavaScript-Laufzeitumgebung)**
-  ```bash
-  node --version
-  ```
-  *(Zeigt, welche Node-Version installiert ist.)*
+ - **Node-Version anzeigen (Node.js = JavaScript-Laufzeitumgebung)**
+   ```bash
+   bash tools/node_version.sh
+   ```
+   *(Führt `node --version` aus und zeigt die installierte Version.)*
 
 - **Sicherheitsprüfung der Pakete (npm audit fix = bekannte Lücken schließen)**
   ```bash
