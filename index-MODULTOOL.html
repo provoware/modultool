@@ -1051,7 +1051,7 @@ function loadPanel(id, cb){
 }
 function loadRegisteredPanels(){
   fetch('modules.json')
-    .then(r=>r.json())
+    .then(r=>{if(!r.ok) throw new Error(r.status); return r.json();})
     .then(cfg=>{
       cfg.modules.forEach(m=>{
         if(m.id==='panel8') loadPanel(m.id, renderWeightList); else loadPanel(m.id);

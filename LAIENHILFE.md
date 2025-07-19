@@ -1107,3 +1107,21 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
 - **Fokusmodus direkt im Panel wechseln**
   Jedes Modul hat jetzt einen kleinen *Fokus*-Knopf. Ein Klick blendet nur dieses Panel ein.
   Im Fokus siehst du oben im Panel den Knopf **Zurück**, der wieder die normale Übersicht zeigt.
+
+- **Dateien sicher laden (fetch = Dateien abrufen)**
+  ```js
+  fetch('modules.json').then(r => {
+    if (!r.ok) throw new Error(r.status); // r.ok prüft auf Erfolg
+    return r.json();
+  });
+  ```
+  *(Wirft eine Fehlermeldung, wenn die Datei nicht geladen werden konnte.)*
+
+- **Automatisches Backup im Browser (setInterval = Zeitsteuerung)**
+  ```js
+  setInterval(() => {
+    const data = { notes: localStorage.getItem('notes_vGRIDSB') };
+    localStorage.setItem('autoBackupData', JSON.stringify(data));
+  }, 300000);
+  ```
+  *(Speichert deine Notizen alle fünf Minuten in `localStorage`.)*
