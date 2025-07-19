@@ -496,7 +496,11 @@ function renderThemeBtnGroup() {
   ).join('');
 }
 function setTheme(t) {
-  document.body.setAttribute('data-theme', t==="default"?null:t);
+  if (t === 'default') {
+    document.body.removeAttribute('data-theme');
+  } else {
+    document.body.setAttribute('data-theme', t);
+  }
   curTheme = t;
   localStorage.setItem('themePppoppi', t);
   renderThemeBtnGroup();

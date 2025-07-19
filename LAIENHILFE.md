@@ -989,3 +989,30 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   git commit -m "Neue Version und Changelog"
   ```
   *(Erhöht die Versionsnummer und ergänzt die Datei `CHANGELOG.md`.)*
+
+## Neue Laien-Tipps
+
+- **Lokalen Server starten (http-server = kleiner Webserver)**
+  ```bash
+  npx http-server
+  ```
+  *(Zeigt die Dateien im Browser unter `http://localhost:8080` an.)*
+
+- **Pakete prüfen und aktualisieren (npm = Paketmanager)**
+  ```bash
+  npm outdated
+  npm update
+  ```
+  *(`npm outdated` listet veraltete Pakete auf, `npm update` bringt sie auf den neuesten Stand.)*
+
+- **CSS automatisch anpassen (Autoprefixer = ergänzt Browser-Vorsilben)**
+  ```bash
+  npx postcss modules/*.css --use autoprefixer -d modules
+  ```
+  *(Erzeugt neue CSS-Dateien mit zusätzlichen Präfixen für ältere Browser.)*
+
+- **Seite mit Lighthouse prüfen (Lighthouse = Analysewerkzeug)**
+  ```bash
+  npx lighthouse http://localhost:8080/index-MODULTOOL.html
+  ```
+  *(Liefert Berichte zu Performance und Barrierefreiheit.)*
