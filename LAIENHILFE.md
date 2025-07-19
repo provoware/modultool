@@ -1053,9 +1053,9 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
 - **Cronjob für Selfcheck einrichten (Cron = Zeitplaner)**
   ```bash
   crontab -e
-  0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh
+  0 7 * * 1 /pfad/zu/tools/weekly_selfcheck.sh
   ```
-  *(Startet den Selfcheck jeden Montag um 7 Uhr automatisch.)*
+*(Startet den Selfcheck jeden Montag um 7 Uhr automatisch. Ergebnis steht in logs/weekly_selfcheck.log)*
 ## Kurze Release-Checkliste
 Folgende Aufgaben sind noch offen:
 - [x] Unit- und Integrationstests einrichten

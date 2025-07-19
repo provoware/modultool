@@ -13,6 +13,6 @@ Diese Liste sammelt offene Aufgaben für den finalen Release. Pro Iteration soll
 - [ ] Undo/Redo-Funktion implementieren
 - [ ] Filter- und Favoriten-Funktion ergänzen
 - [ ] Scrollsync und Projektordner-Steuerung
-- [ ] Wöchentlichen Selfcheck per Cronjob ausführen
-- [ ] Release vorbereiten (Selfcheck, README prüfen, Tag setzen)
+- [x] Wöchentlichen Selfcheck per Cronjob ausführen
+- [x] Release vorbereiten (Selfcheck, README prüfen, Tag setzen)
 - [ ] DEB- und AppImage-Pakete bauen

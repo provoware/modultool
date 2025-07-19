@@ -7,7 +7,7 @@
 - [ ] Undo/Redo-Funktion implementieren
 - [ ] Filter- und Favoriten-Funktion ergänzen
 - [ ] Scrollsync und Projektordner verwalten
-- [ ] Wöchentlichen Selfcheck automatisieren (Cronjob)
+- [x] Wöchentlichen Selfcheck automatisieren (Cronjob)
 - [ ] Release vorbereiten: Selfcheck, README prüfen, Release-Tag erstellen
 - [ ] DEB- und AppImage-Paket bauen
 - [ ] CI/CD-Pipeline einrichten (Lint → Test → Build → Release)
@@ -67,7 +67,7 @@
 - [x] Platzhalter-Beispiel erweitert
 - [x] deleteJSON-Funktion ergänzt
 - [ ] Weitere Module über das Script erstellen und testen
-- [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)
+- [x] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/weekly_selfcheck.sh`)
 - [ ] DEB- und AppImage-Paket bauen
 - [ ] Datei-Übersicht per Skript pflegen
 - [x] ZIP-Backup-Modul entwickeln (Panel07)

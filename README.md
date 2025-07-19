@@ -162,7 +162,17 @@ Bei *"modules.json defekt"* öffne die Datei und prüfe die Klammern:
 ```bash
 nano modules.json
 ```
+
 Speichere mit **Strg+O**, beende mit **Strg+X** und lade die Seite neu.
+## ⏲ Selfcheck automatisch ausführen
+Um das Projekt regelmäßig zu prüfen, kannst du einen Zeitplan (Cronjob) anlegen.
+
+```bash
+crontab -e
+0 7 * * 1 /pfad/zu/tools/weekly_selfcheck.sh
+```
+Das ruft jeden Montag um 7 Uhr das Skript `weekly_selfcheck.sh` auf. Es startet den Selfcheck und speichert alles in `logs/weekly_selfcheck.log`.
+
 
 ## Hilfe
 
