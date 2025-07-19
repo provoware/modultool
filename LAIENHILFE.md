@@ -1046,3 +1046,15 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   git tag -a v1.0 -m 'Version 1.0' && git push --tags
   ```
   *(Setzt eine feste Versionsnummer im Repository.)*
+
+- **package.json anlegen (npm init = Projekt starten)**
+  ```bash
+  npm init -y
+  ```
+  *(Erstellt eine Grundeinstellung für dein Projekt. npm merkt sich dort alle Pakete.)*
+
+- **Debounce-Funktion installieren (kurze Wartezeit einbauen)**
+  ```bash
+  npm install lodash.debounce
+  ```
+  *(`lodash.debounce` verzögert eine Funktion, bis kurz Ruhe ist. Praktisch für Suchfelder.)*

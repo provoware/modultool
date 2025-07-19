@@ -463,24 +463,33 @@ let fokusMode = 0;
 fokusSelect.onchange = function() { switchFokus(Number(fokusSelect.value)); };
 function switchFokus(mode) {
   fokusMode = mode;
+  if (mode !== 0) {
+    const target = document.getElementById('panel' + mode);
+    if (target && target.style.display === 'none') {
+      fokusSelect.value = '0';
+      logDbg('Panel im Fokus ausgeblendet.');
+      return;
+    }
+  }
   for (let i = 1; i <= 11; ++i) {
     const panel = document.getElementById('panel' + i);
     if (mode === 0) {
-      panel.style.display = '';
+      const box=document.getElementById('mod'+i+'box');
+      panel.style.display = box && !box.checked ? 'none' : '';
       panel.classList.remove('fokus');
-      panel.setAttribute('aria-hidden','false');
+      panel.setAttribute('aria-hidden',panel.style.display==='none'?'true':'false');
     } else {
       const on = (i === mode);
       panel.style.display = on ? '' : 'none';
-      if (on) panel.classList.add('fokus'); else panel.classList.remove('fokus');
+      panel.classList.toggle('fokus', on);
       panel.setAttribute('aria-hidden', on ? 'false' : 'true');
     }
   }
   fokusResetBtn.style.display = (mode !== 0) ? '' : 'none';
   fokusSelect.value = String(mode);
   if (mode !== 0) {
-    const pf = document.getElementById('panel'+mode);
-    if (pf) { pf.focus(); }
+    const pf = document.getElementById('panel' + mode);
+    if (pf) pf.focus();
   }
 }
 /* ====== Farbschema & Initialisierung ====== */
