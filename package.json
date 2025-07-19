@@ -6,7 +6,9 @@
     "lint": "npm run selfcheck",
     "test": "echo 'Noch keine Tests'",
     "build": "tsc",
-    "release": "npm version patch"
+    "release": "npm version patch",
+    "start": "bash tools/start_tool.sh",
+    "sync": "node lib/update_manager.js sync"
   },
   "devDependencies": {
     "@types/node": "^24.0.14",
