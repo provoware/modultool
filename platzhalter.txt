@@ -95,6 +95,7 @@
 
 - [ ] Startskript prüft Updates vor dem Start
 - [ ] Startskript prüft Updates vor dem Start
+- [x] Hilfeoption (-h) und Browser-Auswahl (--no-browser) im Startskript
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
 - [x] selfcheck.sh synchronisiert todo-Dateien nach Lauf
 

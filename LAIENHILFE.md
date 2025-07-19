@@ -35,9 +35,14 @@ So behältst du jederzeit die Kontrolle über deine Dateien.
 ## Tool starten
 
 Am einfachsten nutzt du das Startskript. Es erledigt alles für dich.
+Mit `-h` oder `--help` zeigt es eine kleine Hilfe an.
 
 ```bash
 bash tools/start_tool.sh
+```
+Oder ohne Browserstart:
+```bash
+bash tools/start_tool.sh --no-browser
 ```
 
 Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und öffnet die Seite automatisch im Browser.
@@ -64,6 +69,8 @@ Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Se
 - Halte die Maus über ein Eingabefeld, um einen **Tooltip** (kurzer Hinweis) zu sehen.
 - Beispiel: Im Modul *Persona-Switcher* weist das Namensfeld mit "Name des Profils" auf den Zweck hin.
 - Diese Tipps helfen, schneller zu verstehen, was eingetragen werden soll.
+- Für das Startskript kannst du `bash tools/start_tool.sh -h` eingeben. Das
+  zeigt eine kurze Erklärung der Optionen *(Option = zusätzliche Einstellung)*.
 
 ## Eigene Module erstellen
 

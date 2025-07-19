@@ -1,6 +1,27 @@
 #!/bin/bash
 # tools/start_tool.sh - Startet einen lokalen Server und öffnet den Browser
 
+show_help() {
+  cat <<EOF
+Nutzung: bash tools/start_tool.sh [OPTION]
+  -h, --help        zeigt diese kurze Hilfe
+  -n, --no-browser  startet ohne Browser
+EOF
+}
+
+NO_BROWSER=0
+for arg in "$@"; do
+  case $arg in
+    -h|--help)
+      show_help
+      exit 0
+      ;;
+    -n|--no-browser)
+      NO_BROWSER=1
+      ;;
+  esac
+done
+
 echo "🔄 Suche nach Updates..."
 if ! git fetch >/dev/null 2>&1; then
   echo "⚠️ git fetch fehlgeschlagen. Prüfe deine Internetverbindung."
@@ -42,12 +63,16 @@ if ! start_server; then
   start_server || { echo "Server konnte nicht gestartet werden."; exit 1; }
 fi
 
-if command -v xdg-open >/dev/null; then
-  xdg-open "$URL" &
-elif command -v open >/dev/null; then
-  open "$URL" &
+if [ "$NO_BROWSER" -eq 0 ]; then
+  if command -v xdg-open >/dev/null; then
+    xdg-open "$URL" &
+  elif command -v open >/dev/null; then
+    open "$URL" &
+  else
+    echo "Bitte Browser manuell öffnen und $URL aufrufen"
+  fi
 else
-  echo "Bitte Browser manuell öffnen und $URL aufrufen"
+  echo "Browserstart übersprungen (--no-browser)"
 fi
 echo "👍 Server läuft (Beenden mit Strg+C)"
 wait $PID
