@@ -533,7 +533,8 @@ sudo npm install -g htmlhint
 
 ## Offene Punkte bis zum Release
 
-- Projektordner auswählen
+*Projektordner lassen sich nun mit `bash tools/manage_projects.sh` auswählen*
+
 ## Fehlende Module
 
 Keine
@@ -1071,7 +1072,7 @@ Folgende Aufgaben sind noch offen:
 - [x] Undo/Redo-Funktion
 - [x] Filter und Favoriten
 - [x] Scrollsync zuschaltbar
-- [ ] Projektordner verwalten
+- [x] Projektordner verwalten (Script `bash tools/manage_projects.sh`)
 - [ ] Vor dem Release `bash tools/selfcheck.sh` ausführen
 - [ ] Mit `git tag -a v1.0 -m "Release 1.0"` markieren und `git push --tags`
 - [ ] Pakete bauen mit `bash tools/build_packages.sh`
@@ -1588,3 +1589,11 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
   cat todo.txt
   ```
   *(Zeigt alle offenen Punkte an.)*
+
+- **Projektordner verwalten (project = Sammlung deiner Dateien)**
+  ```bash
+  bash tools/manage_projects.sh list        # zeigt vorhandene Projekte
+  bash tools/manage_projects.sh create Test # legt "Test" an
+  bash tools/manage_projects.sh set Test    # wählt "Test" aus
+  ```
+  *(Mit dem Skript kannst du Projekte erstellen, auswählen und löschen.)*
