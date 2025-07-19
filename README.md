@@ -52,6 +52,8 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 
 - Drag & Drop für Medien, Module, Templates
 - Undo-/Redo-System, ZIP-Export, Selfcheck (Fehlerprüfung via `bash tools/selfcheck.sh`)
+- Filter für Module und Favoritenliste im Menü
+- Scrollsync zwischen den Panels (gemeinsame Scroll-Position)
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel
 - Gut sichtbarer Tastaturfokus zur einfachen Navigation
 - Projektordner-Management + Fehlerkorrektur
@@ -64,8 +66,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 - Beispielmodule: Story-Sampler, Info-Manager, Modul-Baukasten
 
 ### Geplante Erweiterungen
-- Favoriten-Startbildschirm
-- Auto-Backup und Undo-Verlauf
+- Auto-Backup vorhanden, Undo-Verlauf umgesetzt
 - Modul-Prüfung vor Aktivierung
 - Farbkontrast-Optimierung nach WCAG
 - Fokusmodus und Tooltip-Akademie
@@ -95,10 +96,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 
 ## 🗒 Offene Punkte für das Release
 
-- Undo/Redo-Funktion
-- ZIP-Backup
-- Filter und Favoriten
-- Scrollsync und Projektordner-Verwaltung
+- Projektordner-Verwaltung
 
 ## 🔀 Branches zusammenführen
 Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches zusammenführen".
@@ -126,7 +124,9 @@ Voraussetzung sind die Programme `dpkg-deb` und `appimagetool`. Falls sie fehlen
 2. `cd modultool`
 3. `bash tools/selfcheck.sh`
 4. `npm start`  # startet das Tool
-5. Browser öffnet sich automatisch
+5. Browser öffnet sich automatisch. Ein Willkommensfenster erscheint und schließt sich nach 20 Sekunden. Mit **Esc** oder dem kleinen **X** oben rechts kannst du es sofort schließen.
+6. Im Modul "Genre-Liste" findest du nun **Undo** und **Redo**. Damit machst du Eingaben rückgängig oder stellst sie wieder her.
+7. Rechts in der Leiste kannst du **Scrollsync** ein- oder ausschalten. Dann scrollen alle Panels gemeinsam.
 
 ## 🌐 Lokaler Testserver
 Um die HTML-Dateien bequem auszuprobieren, kannst du einen kleinen Webserver starten.
@@ -138,9 +138,13 @@ python3 -m http.server
 Öffne danach `http://localhost:8000` im Browser. So lassen sich alle Module testen, ohne Dateien doppelt anzuklicken.
 ## ♻ Optimierungsideen
 - Nutze `npm run selfcheck` (führt das Prüfskript aus).
+- Starte die neuen Unit-Tests mit `npm test`.
+- Bei jedem `git push` laufen GitHub Actions (automatische Abläufe) und prüfen den Code mit `npm run lint` und `npm test`.
 - Aktualisiere die Modulversionen mit `npm run sync`.
 - Sichere Zwischenstände mit `git stash` (temporärer Speicher).
+- Erstelle ein ZIP-Backup mit `bash tools/zip_backup.sh`.
 - Erstelle neue Module mit `node tools/create_module.js modulID "Titel"`.
+- Suche Module über das Feld **Module filtern** und markiere Favoriten per Stern.
 
 ## 🖥 Layout & Zoom
 - Über das Dropdown **Fokus-Modus** blendest du alle anderen Panels aus und siehst ein Modul bildschirmfüllend.
@@ -159,7 +163,17 @@ Bei *"modules.json defekt"* öffne die Datei und prüfe die Klammern:
 ```bash
 nano modules.json
 ```
+
 Speichere mit **Strg+O**, beende mit **Strg+X** und lade die Seite neu.
+## ⏲ Selfcheck automatisch ausführen
+Um das Projekt regelmäßig zu prüfen, kannst du einen Zeitplan (Cronjob) anlegen.
+
+```bash
+crontab -e
+0 7 * * 1 /pfad/zu/tools/weekly_selfcheck.sh
+```
+Das ruft jeden Montag um 7 Uhr das Skript `weekly_selfcheck.sh` auf. Es startet den Selfcheck und speichert alles in `logs/weekly_selfcheck.log`.
+
 
 ## Hilfe
 

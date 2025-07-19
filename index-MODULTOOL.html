@@ -170,6 +170,8 @@
     .sidebar-toggle{background:var(--button);color:var(--text);border:none;padding:.4em .7em;border-radius:.6em;cursor:pointer;display:none;}
     #moduleListWrap{margin-bottom:.6em;}
     #moduleListWrap.hidden{display:none;}
+    #moduleSearch{width:100%;margin-bottom:.5em;padding:.4em;border-radius:.6em;border:1px solid var(--sidebar-divider);}
+    .fav-btn{margin-left:auto;background:none;border:none;color:var(--sidebar-accent);cursor:pointer;font-size:1.1em;line-height:1;}
     .sidebar-btns button {margin:.17em .22em .22em 0; padding:.64em 1.25em; background:var(--sidebar-accent); color:#fff; border:none; border-radius:1.2em; cursor:pointer;}
     .sidebar-btns button.active {background:var(--area); color:var(--sidebar-txt);}
     .dragbar { grid-row: 1; width: var(--dragbar-width); background: transparent; cursor: ew-resize; z-index:10; position: relative;}
@@ -196,7 +198,7 @@
     .mod-panel {
       background: var(--area); border-radius: 1.55rem; box-shadow: 0 4px 18px var(--shadow);
       padding: 1.22rem 1.12rem; display: flex; flex-direction: column;
-      min-width:0; margin:0; overflow: hidden; max-height:470px; transition: box-shadow .18s,border .18s;
+      min-width:0; margin:0; overflow-x: hidden; overflow-y: auto; max-height:470px; transition: box-shadow .18s,border .18s;
       border:2.2px solid transparent;
     }
     .mod-panel.fokus {box-shadow:0 0 0 6px var(--highlight),0 4px 22px var(--shadow);border:2.2px solid var(--focus-ring);}
@@ -274,6 +276,7 @@
     .flash-error {background:var(--remove) !important; transition:background .3s;}
     .intro-overlay {position:fixed;inset:0;background:rgba(0,0,0,.85);color:var(--text);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;text-align:center;padding:1em;}
     .intro-overlay button{margin-top:1em;padding:.6em 1.2em;border:none;border-radius:.4em;background:var(--button);color:var(--text);font-size:1.1em;cursor:pointer;}
+    .intro-overlay .intro-close{position:absolute;top:.5em;right:.5em;background:none;font-size:1.4em;border:none;color:var(--text);cursor:pointer;}
     @media (max-width: 1100px) {
       .mod-panel {max-height:none;}
     }
@@ -302,8 +305,9 @@
 <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.0.3/dist/purify.min.js"></script>
 </head>
 <body>
-<div id="introOverlay" class="intro-overlay">
-  <h2>Willkommen im Modultool!</h2>
+<div id="introOverlay" class="intro-overlay" role="dialog" aria-labelledby="introTitle">
+  <button class="intro-close" aria-label="Fenster schließen" onclick="hideIntro()">×</button>
+  <h2 id="introTitle">Willkommen im Modultool!</h2>
   <p>Der lokale Server läuft. Diese Seite wurde automatisch geöffnet.</p>
   <p>Klicke auf "Los geht's", um die Oberfläche zu nutzen.</p>
   <button title="Willkommensfenster schließen" onclick="hideIntro()">Los geht's</button>
@@ -320,19 +324,8 @@
     <button id="moduleToggleBtn" class="module-toggle-btn" onclick="toggleModuleList()">Module ein/aus</button>
     <div id="moduleListWrap">
     <div class="sidebar-h2" title="Module hier ein- oder ausschalten">Module verwalten</div>
-    <ul class="sidebar-list">
-      <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Genres + Zufall</li>
-      <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Archiv</li>
-      <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Dashboard</li>
-      <li><input class="sidebar-checkbox" type="checkbox" id="mod4box" checked onchange="toggleModPanel(4)"> Text-Templates</li>
-      <li><input class="sidebar-checkbox" type="checkbox" id="mod5box" checked onchange="toggleModPanel(5)"> Debug & Log</li>
-      <li><input class="sidebar-checkbox" type="checkbox" id="mod6box" checked onchange="toggleModPanel(6)"> Modul-Import</li>
-      <li><input class="sidebar-checkbox" type="checkbox" id="mod7box" checked onchange="toggleModPanel(7)"> Modul 7</li>
-      <li><input class="sidebar-checkbox" type="checkbox" id="mod8box" checked onchange="toggleModPanel(8)"> Modul 8</li>
-      <li><input class="sidebar-checkbox" type="checkbox" id="mod9box" checked onchange="toggleModPanel(9)"> Modul 9</li>
-      <li><input class="sidebar-checkbox" type="checkbox" id="mod10box" checked onchange="toggleModPanel(10)"> Modul 10</li>
-      <li><input class="sidebar-checkbox" type="checkbox" id="mod11box" checked onchange="toggleModPanel(11)"> Modul 11</li>
-    </ul>
+    <input id="moduleSearch" type="text" placeholder="Module filtern…" aria-label="Module filtern" />
+    <ul id="moduleList" class="sidebar-list"></ul>
     </div>
     <div class="sidebar-divider"></div>
     <div class="sidebar-h2" title="Versionshinweise und Links">Infos</div>
@@ -466,6 +459,7 @@
     <div class="sidebar-h2" title="Grundeinstellungen des Tools">Globale Einstellungen</div>
     <div>
       <button onclick="resetAll()" aria-label="Alle Daten löschen" style="margin-bottom:.5em;">Alles zurücksetzen</button>
+      <button id="scrollSyncBtn" type="button" onclick="toggleScrollSync()" style="margin-left:.4em;">Scrollsync: aus</button>
     </div>
     <div class="sidebar-divider"></div>
     <div class="sidebar-h2" title="Tipps und Befehle auf einen Blick">Kurze Hilfe</div>
@@ -607,6 +601,10 @@ window.onload = function() {
   for(let i=4;i<=11;i++) toggleModPanel(i);
   renderFocusSelect();
   setTimeout(()=>{addFocusButtons();updateFocusButtons();},300);
+  const searchField=document.getElementById('moduleSearch');
+  if(searchField){
+    searchField.addEventListener('input',e=>{moduleSearchTerm=e.target.value;renderModuleList();});
+  }
 };
 /* ======= App-Logik, Panels, Logging, Dashboard usw. ======= */
 const LOCAL_KEY = 'genreArchiv_vGRIDSB';
@@ -630,6 +628,10 @@ const state = {
 let searchTimer;
 let genreWeights = {};
 let searchTerm = '';
+const FAV_KEY = 'modFavorites_v1';
+let favorites = [];
+let modulesConfig = [];
+let scrollSync = false;
 function loadProfiles(){
   try{ state.genreProfiles = JSON.parse(localStorage.getItem(PROFILES_KEY)) || {}; }
   catch(e){ state.genreProfiles = {}; logErr('Profile-Laden: '+e); }
@@ -1084,6 +1086,55 @@ function toggleModuleList(){
   const wrap=document.getElementById('moduleListWrap');
   wrap.style.display = wrap.style.display==='none' ? '' : 'none';
 }
+
+function loadFavorites(){
+  try { favorites = JSON.parse(localStorage.getItem(FAV_KEY)) || []; }
+  catch(e){ favorites = []; }
+}
+function saveFavorites(){
+  localStorage.setItem(FAV_KEY, JSON.stringify(favorites));
+}
+function toggleFavorite(id){
+  const idx=favorites.indexOf(id);
+  if(idx>=0) favorites.splice(idx,1); else favorites.push(id);
+  saveFavorites();
+  renderModuleList();
+}
+let moduleSearchTerm='';
+function renderModuleList(){
+  const list=document.getElementById('moduleList');
+  if(!list) return;
+  list.innerHTML='';
+  const term=moduleSearchTerm.toLowerCase();
+  const mods=[...modulesConfig];
+  mods.sort((a,b)=>{
+    const af=favorites.includes(a.id)?0:1;
+    const bf=favorites.includes(b.id)?0:1;
+    if(af!==bf) return af-bf;
+    return a.title.localeCompare(b.title,'de');
+  });
+  mods.forEach(m=>{
+    if(term && !m.title.toLowerCase().includes(term)) return;
+    if(!document.getElementById(m.id)) return;
+    const li=document.createElement('li');
+    li.dataset.id=m.id;
+    const cb=document.createElement('input');
+    cb.type='checkbox';
+    cb.className='sidebar-checkbox';
+    cb.id='mod'+m.id.replace('panel','')+'box';
+    cb.checked=true;
+    cb.onchange=()=>toggleModPanel(parseInt(m.id.replace('panel',''))||0);
+    const span=document.createElement('span');
+    span.textContent=' '+m.title;
+    const star=document.createElement('button');
+    star.type='button';
+    star.className='fav-btn';
+    star.textContent=favorites.includes(m.id)?'★':'☆';
+    star.onclick=()=>toggleFavorite(m.id);
+    li.append(cb, span, star);
+    list.appendChild(li);
+  });
+}
 function addFocusButtons(){
   document.querySelectorAll('#gridMain .mod-panel').forEach((p,i)=>{
     const b=document.createElement('button');
@@ -1092,6 +1143,24 @@ function addFocusButtons(){
     b.textContent='Fokus';
     b.onclick=()=>switchFokus(i+1);
     p.insertBefore(b,p.firstChild);
+  });
+}
+
+function handlePanelScroll(e){
+  if(!scrollSync) return;
+  const pos = e.target.scrollTop;
+  document.querySelectorAll('#gridMain .mod-panel').forEach(p=>{
+    if(p!==e.target) p.scrollTop = pos;
+  });
+}
+
+function toggleScrollSync(){
+  scrollSync = !scrollSync;
+  const btn=document.getElementById('scrollSyncBtn');
+  if(btn) btn.textContent = scrollSync ? 'Scrollsync: an' : 'Scrollsync: aus';
+  document.querySelectorAll('#gridMain .mod-panel').forEach(p=>{
+    p.removeEventListener('scroll', handlePanelScroll);
+    if(scrollSync) p.addEventListener('scroll', handlePanelScroll);
   });
 }
 /* Meldungen & Reset */
@@ -1176,8 +1245,9 @@ function makeSidebarResizable(side) {
 makeSidebarResizable('Left');
 makeSidebarResizable('Right');
 function loadPanel(id, cb){
-  // Module liegen im Ordner "modules"
-  fetch('modules/'+id+'.html')
+  const cfg = modulesConfig.find(m=>m.id===id);
+  const path = cfg && cfg.file ? cfg.file : 'modules/'+id+'.html';
+  fetch(path)
     .then(r=>r.text())
     .then(html=>{document.getElementById(id).innerHTML = html; if(cb) cb();})
     .catch(e=>logErr('Panel-Load '+id+': '+e));
@@ -1192,7 +1262,10 @@ async function loadRegisteredPanels(){
     let cfg;
     try { cfg = await res.json(); }
     catch(err){ throw new Error('modules.json defekt: '+err.message); }
-    cfg.modules.forEach(m=>{
+    modulesConfig = cfg.modules;
+    loadFavorites();
+    renderModuleList();
+    modulesConfig.forEach(m=>{
       if(m.id==='panel8') loadPanel(m.id, renderWeightList); else loadPanel(m.id);
     });
   } catch(e){
@@ -1203,6 +1276,7 @@ async function loadRegisteredPanels(){
 loadRegisteredPanels();
 // Intro-Overlay nach 20 Sekunden automatisch ausblenden
 setTimeout(hideIntro, 20000);
+document.addEventListener('keyup', e => { if(e.key === 'Escape') hideIntro(); });
 function hideIntro(){
   const el = document.getElementById('introOverlay');
   if(el) el.style.display='none';

@@ -1,13 +1,14 @@
 # Liste mit offenen Aufgaben
 - [x] plugin.json pro Pluginverzeichnis anlegen
 - [x] lib/update_manager.js erstellen
-- [ ] Unit- und Integrationstests einrichten
-- [ ] GitHub Actions für Linting und Testing hinzufügen
-- [ ] ZIP-Backup-Modul fertigstellen
-- [ ] Undo/Redo-Funktion implementieren
-- [ ] Filter- und Favoriten-Funktion ergänzen
-- [ ] Scrollsync und Projektordner verwalten
-- [ ] Wöchentlichen Selfcheck automatisieren (Cronjob)
+- [x] Unit- und Integrationstests einrichten
+- [x] GitHub Actions für Linting und Testing hinzufügen
+- [x] ZIP-Backup-Modul fertigstellen
+- [x] Undo/Redo-Funktion implementieren
+- [x] Filter- und Favoriten-Funktion ergänzen
+- [x] Scrollsync zuschaltbar
+- [ ] Projektordner verwalten
+- [x] Wöchentlichen Selfcheck automatisieren (Cronjob)
 - [ ] Release vorbereiten: Selfcheck, README prüfen, Release-Tag erstellen
 - [ ] DEB- und AppImage-Paket bauen
 - [ ] CI/CD-Pipeline einrichten (Lint → Test → Build → Release)
@@ -31,7 +32,7 @@
 - [x] CSS responsiv machen, Test mit Axe/WAVE
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [x] Dokumentation aktualisieren (README, AGENTS)
-- [ ] Fehlende Dateien und Ordner mit Platzhaltern anlegen
+- [x] Fehlende Dateien und Ordner mit Platzhaltern anlegen
 - [x] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
 - [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
 - [ ] Automatische Validierung jedes Moduls vor Aktivierung
@@ -59,34 +60,36 @@
 - AGENTS.md Codeblock geschlossen (triple backticks).
 - [ ] Templates-Modul (Panel02) erstellen
 - [ ] Undo/Redo-System einbauen
-- [ ] ZIP-Backup-Funktion ergänzen
+- [x] ZIP-Backup-Funktion ergänzen
 
 - [ ] Letzter Selfcheck vor dem Release
 - [ ] README um Releasenotizen ergaenzen
 - [x] finale Platzhalter-Datei erstellen
 - [x] Platzhalter-Beispiel erweitert
+- [x] deleteJSON-Funktion ergänzt
 - [ ] Weitere Module über das Script erstellen und testen
-- [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)
+- [x] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/weekly_selfcheck.sh`)
 - [ ] DEB- und AppImage-Paket bauen
 - [ ] Datei-Übersicht per Skript pflegen
-- [ ] ZIP-Backup-Modul entwickeln (Panel07)
+- [x] ZIP-Backup-Modul entwickeln (Panel07)
 - [ ] Undo-/Redo-Funktion einbauen (Panel08)
 - [ ] Undo/Redo-Funktion einbauen
-- [ ] ZIP-Backup vorbereiten
-- [ ] Filter/Favoriten integrieren
-- [ ] Scrollsync und Projektordner verwalten
+- [x] ZIP-Backup vorbereiten
+ - [ ] Filter/Favoriten integrieren
+ - [x] Scrollsync zuschaltbar
+ - [ ] Projektordner verwalten
 - [ ] Modul-Übersicht per Skript in module_übersicht.txt aktualisieren
 - [ ] Release vorbereiten: Selfcheck, README final prüfen, Release-Tag erstellen
 - [ ] Autoupdate-Skripte entfernt, Infos manuell pflegen
 - [x] plugin.json pro Pluginverzeichnis anlegen (Manifest mit Name und Version)
 - [x] zentrale Update-Bibliothek in lib/ erstellen (update_manager.js)
-- [ ] Unit- und Integrationstests einrichten
-- [ ] GitHub Actions für Linting und Testing hinzufügen
+- [x] Unit- und Integrationstests einrichten
+- [x] GitHub Actions für Linting und Testing hinzufügen
 - [ ] Schritt-für-Schritt-Assistenten für Modul-Erstellung planen
 - [ ] Barrierefreiheit automatisch prüfen (axe-core)
 
 - [ ] Unnötige Platzhalter-Dateien entfernen
-- [ ] GitHub-Workflow test.yml für automatische Prüfungen
+- [x] GitHub-Workflow test.yml für automatische Prüfungen
 
 
 - [ ] Startskript prüft Updates vor dem Start
@@ -97,7 +100,7 @@
 - [ ] Fehler-Tipps direkt im Tool anzeigen (Tooltip = kurzer Hinweis).
 - [ ] Fehler-Logdatei automatisch pflegen (logs/error.log).
 - [ ] Fehlerhinweise in error_informationen.txt ergänzen
-- [ ] Release-Endspurt: Offene Punkte laut README (Undo/Redo, ZIP-Backup, Filter/Favoriten, Scrollsync/Projektordner)
+ - [ ] Release-Endspurt: Offene Punkte laut README (Undo/Redo, ZIP-Backup, Filter/Favoriten, Projektordner)
 - [ ] Vor dem Release bash tools/selfcheck.sh ausfuehren und Releasenotizen im README ergaenzen
 - [ ] Einfache Archiv-Buttons einrichten
 - [x] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`
@@ -208,3 +211,5 @@
 - [x] Modulversionen mit npm run sync aktualisiert
 - [x] Weiterfuehrende Laienvorschlaege ergaenzt
 - [ ] Offene Punkte aus AGENTS-RELEASE-CHECK.md bearbeiten
+- [x] Release-Checkliste in LAIENHILFE ergänzt
+- [x] Willkommensfenster per X oder Esc schließen

@@ -21,6 +21,8 @@
   <button id="save-btn" aria-label="Liste speichern">Speichern</button>
   <button id="random-btn" aria-label="Zufällig auswählen">Zufall</button>
   <button id="copy-btn" aria-label="Ergebnis kopieren">Kopieren</button>
+  <button id="undo-btn" aria-label="Letzten Schritt rückgängig machen">Undo</button>
+  <button id="redo-btn" aria-label="Rückgängig gemachten Schritt wiederholen">Redo</button>
   <div id="random-output" role="status" aria-live="polite"></div>
   <ul id="log"></ul>
   <div id="status" role="status" aria-live="polite"></div>
@@ -32,10 +34,15 @@ const input=document.getElementById('genre-input');
 const saveBtn=document.getElementById('save-btn');
 const randomBtn=document.getElementById('random-btn');
 const copyBtn=document.getElementById('copy-btn');
+const undoBtn=document.getElementById('undo-btn');
+const redoBtn=document.getElementById('redo-btn');
 const output=document.getElementById('random-output');
 const log=document.getElementById('log');
 const statusEl=document.getElementById('status');
 const STORAGE_KEY='genres';
+const undoStack=[];
+const redoStack=[];
+let skipHistory=false;
 function hasTooLong(arr){
   return arr.some(g=>g.length>24);
 }
@@ -43,6 +50,10 @@ function getList(){
   return input.value.split(',').map(s=>s.trim()).filter(Boolean);
 }
 function saveList(){
+  if(!skipHistory){
+    undoStack.push(input.value);
+    redoStack.length=0;
+  }
   const raw=getList();
   if(hasTooLong(raw)){showStatus(statusEl,'Max 24 Zeichen pro Genre');return [];} 
   const list=[...new Set(raw)].sort((a,b)=>a.localeCompare(b));
@@ -94,6 +105,24 @@ copyBtn.addEventListener('click',()=>{
   }else{
     console.warn('Clipboard-API nicht verfügbar');
   }
+});
+undoBtn.addEventListener('click',()=>{
+  if(!undoStack.length) return;
+  redoStack.push(input.value);
+  const prev=undoStack.pop();
+  skipHistory=true;
+  input.value=prev;
+  saveList();
+  skipHistory=false;
+});
+redoBtn.addEventListener('click',()=>{
+  if(!redoStack.length) return;
+  undoStack.push(input.value);
+  const next=redoStack.pop();
+  skipHistory=true;
+  input.value=next;
+  saveList();
+  skipHistory=false;
 });
 loadList();
 </script>

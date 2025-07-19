@@ -7,12 +7,13 @@ Diese Liste sammelt offene Aufgaben für den finalen Release. Pro Iteration soll
 - [x] plugin.json pro Pluginordner anlegen
 - [x] lib/update_manager.js erstellen
 - [x] config_schema.json einführen
-- [ ] Unit- und Integrationstests einrichten
-- [ ] GitHub Actions für Linting und Testing aktivieren
-- [ ] ZIP-Backup-Modul fertigstellen
-- [ ] Undo/Redo-Funktion implementieren
-- [ ] Filter- und Favoriten-Funktion ergänzen
-- [ ] Scrollsync und Projektordner-Steuerung
-- [ ] Wöchentlichen Selfcheck per Cronjob ausführen
-- [ ] Release vorbereiten (Selfcheck, README prüfen, Tag setzen)
+- [x] Unit- und Integrationstests einrichten
+- [x] GitHub Actions für Linting und Testing aktivieren
+- [x] ZIP-Backup-Modul fertigstellen
+- [x] Undo/Redo-Funktion implementieren
+- [x] Filter- und Favoriten-Funktion ergänzen
+- [x] Scrollsync zuschaltbar
+- [ ] Projektordner-Steuerung
+- [x] Wöchentlichen Selfcheck per Cronjob ausführen
+- [x] Release vorbereiten (Selfcheck, README prüfen, Tag setzen)
 - [ ] DEB- und AppImage-Pakete bauen

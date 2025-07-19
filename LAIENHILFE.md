@@ -42,7 +42,7 @@ bash tools/start_tool.sh
 
 Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und öffnet die Seite automatisch im Browser.
 
-Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Sekunden automatisch oder per Klick auf 'Los geht's'.
+Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Sekunden automatisch oder per Klick auf "Los geht's". Neu: Oben rechts gibt es ein kleines "X". Ein Druck auf **Esc** oder ein Klick auf dieses X blendet das Fenster ebenfalls aus.
 1. Wechsel im Terminal in den Projektordner.
 2. Starte einen kleinen Webserver mit `python3 -m http.server`. (Damit werden die Dateien lokal bereitgestellt.)
 3. Öffne dann `http://localhost:8000/index-MODULTOOL.html` im Browser (Programm zum Surfen im Internet).
@@ -293,9 +293,9 @@ Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler ge
 Diese Befehle halten deine Module sauber und sicher.
 ## Geplante Erweiterungen
 
-Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sind:
-- persönlicher Startbildschirm mit Favoriten ("Dashboard")
-- Auto-Backup alle 5 Minuten und Undo-Verlauf (Rückgängig machen)
+- Favoriten im Modul-Menü wählbar
+- automatisches Backup alle 5 Minuten
+- Undo/Redo-Knöpfe im Genre-Panel zum Rückgängig machen
 - automatische Modul-Prüfung vor der Aktivierung
 - besserer Farbkontrast nach WCAG (Barrierefreiheits-Regeln)
 - Fokusmodus: ein Modul fullscreen, andere minimiert
@@ -533,10 +533,7 @@ sudo npm install -g htmlhint
 
 ## Offene Punkte bis zum Release
 
-- Undo/Redo-Funktion
-- ZIP-Backup erstellen
-- Filter/Favoriten
-- Scrollsync und Projektordner auswählen
+- Projektordner auswählen
 ## Fehlende Module
 
 Keine
@@ -559,9 +556,12 @@ Keine
    Änderungen speichern (**Strg+O**) und schließen (**Strg+X**). Danach:
    ```bash
   # Platzhalter manuell aktualisieren
-  cp todo.txt platzhalter.txt
+ cp todo.txt platzhalter.txt
   ```
 Dadurch bleibt `platzhalter.txt` aktuell.
+4. Scrollsync nutzen:
+   Klicke rechts auf **Scrollsync: an/aus**. Damit
+   rollen alle Panels gleichzeitig.
 
 ## Kalender-Module nutzen
 
@@ -796,6 +796,13 @@ In dieser Datei beschreibst du, welche Einstellungen erlaubt sind.
 bash tools/selfcheck.sh
 ```
 Der Selfcheck ruft HTML-, JSON- und Shell-Pr\u00fcfungen auf.
+### 7.1 Unit-Tests ausführen
+Für eigene Tests wird das Paket *Mocha* (Test-Framework) genutzt.
+```bash
+npm test
+```
+*(Startet alle Dateien im Ordner `test/` mit der Endung `.test.js`.)*
+
 ### 8. \u00c4nderungen hochladen
 ```bash
 git add .
@@ -852,6 +859,13 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   zip -r backup.zip .
   ```
   *(Erstellt ein ZIP-Archiv mit allen Dateien im aktuellen Ordner.)*
+
+- **Module filtern und als Favorit markieren**
+  ```bash
+  # Text ins Suchfeld "Module filtern" tippen
+  # Stern anklicken, um Modul oben zu merken
+  ```
+  *(Das Suchfeld grenzt die Modul-Liste ein. Der Stern speichert Lieblingsmodule.)*
 
 - **Alte Platzhalter-Module entfernen**
   ```bash
@@ -1012,6 +1026,11 @@ Falls Node (Laufzeit für JavaScript) installiert ist, reicht ein kurzer Befehl:
 npm run selfcheck
 ```
 Damit rufst du `tools/selfcheck.sh` auf und prüfst das Projekt automatisch.
+```
+npm test
+```
+*(Führt die Unit-Tests aus.)*
+
 
 ## Gemeinsame CSS-Datei
 Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral anpassen.
@@ -1041,9 +1060,22 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
 - **Cronjob für Selfcheck einrichten (Cron = Zeitplaner)**
   ```bash
   crontab -e
-  0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh
+  0 7 * * 1 /pfad/zu/tools/weekly_selfcheck.sh
   ```
-  *(Startet den Selfcheck jeden Montag um 7 Uhr automatisch.)*
+*(Startet den Selfcheck jeden Montag um 7 Uhr automatisch. Ergebnis steht in logs/weekly_selfcheck.log)*
+## Kurze Release-Checkliste
+Folgende Aufgaben sind noch offen:
+- [x] Unit- und Integrationstests einrichten
+- [x] GitHub Actions für Linting und Tests
+- [x] ZIP-Backup-Modul fertigstellen
+- [x] Undo/Redo-Funktion
+- [x] Filter und Favoriten
+- [x] Scrollsync zuschaltbar
+- [ ] Projektordner verwalten
+- [ ] Vor dem Release `bash tools/selfcheck.sh` ausführen
+- [ ] Mit `git tag -a v1.0 -m "Release 1.0"` markieren und `git push --tags`
+- [ ] Pakete bauen mit `bash tools/build_packages.sh`
+
 
 ## Weitere Tipps für Fortgeschrittene
 
@@ -1187,6 +1219,17 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   localStorage.setItem('DATA_VERSION', '1');
   ```
   *(Merkt sich die Daten-Version "1". So kannst du später prüfen, ob gespeicherte Informationen erneuert werden müssen.)*
+
+- **Gespeicherte Daten wieder löschen (deleteJSON = Eintrag entfernen)**
+  ```js
+  import { deleteJSON } from './modules/common.js';
+  deleteJSON('exampleData');
+  ```
+  *(`deleteJSON` löscht den Schlüssel `exampleData` aus dem Browser-Speicher.)*
+
+- **Letzte Änderung zurücknehmen (Undo = rückgängig)**
+  Klicke im Genre-Panel auf **Undo**, um die vorherige Liste wiederherzustellen.
+  Mit **Redo** holst du die Änderung zurück.
 
 - **Modulliste einklappen (Dropdown = ausklappbares Menü)**
   Klicke links auf **"Module ein/aus"**. Die Liste mit Häkchen erscheint oder verschwindet.
@@ -1507,3 +1550,41 @@ neuesten Stand zu bringen.
   nano modules/.placeholder
   ```
   *(Am Ende findest du die Funktion `demoSpeichern`. Sie zeigt, wie `saveJSON` und `loadJSON` (Daten sichern und laden) funktionieren.)*
+Dort gibt es jetzt auch `demoLoeschen`. Diese Funktion nutzt `deleteJSON` und entfernt den gespeicherten Eintrag wieder.
+
+## GitHub Actions nutzen
+GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach jedem Hochladen (*Push*).
+
+1. Änderungen sichern und hochladen:
+   ```bash
+   git add .
+   git commit -m "Änderungen gespeichert"
+   git push
+   ```
+2. Auf der GitHub-Seite siehst du unter **Actions** den Ablauf `Lint and Test`.
+   Er ruft `npm run lint`, `npm test` und `bash tools/selfcheck.sh` auf.
+3. Bei Erfolg steht ein grünes Häkchen neben dem Commit. Fehler kannst du dort nachlesen.
+
+## Weitere Laienvorschläge
+
+- **Startfenster schließen**
+  Drücke die Taste **Esc** oder klicke oben rechts auf **X**, wenn das Willkommensfenster erscheint.
+
+- **Backup der Daten (zip = komprimierte Datei)**
+  ```bash
+  zip -r backup_$(date +%Y-%m-%d).zip data/ modules/ panels/
+  ```
+  *(Erzeugt eine Sicherungsdatei mit Datum im Namen.)*
+
+- **Backup per Skript**
+  ```bash
+  bash tools/zip_backup.sh
+  ```
+  *(Startet eine automatische ZIP-Erstellung.)*
+
+
+- **Aufgabenliste anzeigen**
+  ```bash
+  cat todo.txt
+  ```
+  *(Zeigt alle offenen Punkte an.)*
