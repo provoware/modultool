@@ -1428,3 +1428,7 @@ python3 -m http.server
   1. `bash tools/start_tool.sh` – startet Server und Browser.
   2. `http://localhost:8000/modules/contrast_optimizer.html` öffnen.
   3. Farben wählen und auf **Kontrast prüfen** klicken. Ab 4.5 gilt der Text als gut lesbar.
+- **Panel-Größe testen (responsive = reagiert auf Fensterbreite)**
+  1. Drücke `Strg+Shift+I` im Browser, um die Entwicklerwerkzeuge zu öffnen.
+  2. Klicke auf das Handy-Icon (Device Toolbar).
+  3. Ändere die Breite und beobachte das Layout.

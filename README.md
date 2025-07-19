@@ -59,6 +59,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 - Zentrales Konfigurationsschema (`config_schema.json`)
 - Warnung vor ungespeicherten Änderungen beim Verlassen
 
+- Beispielmodule: Story-Sampler, Info-Manager, Modul-Baukasten
 
 ### Geplante Erweiterungen
 - Favoriten-Startbildschirm
