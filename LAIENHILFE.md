@@ -868,6 +868,14 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```
   *(Öffnet das Modul im Editor. "nano" ist ein einfacher Texteditor im Terminal.)*
 
+- **Layout & Zoom steuern**
+  ```bash
+  F11             # Vollbildmodus
+  Strg+Mausrad    # Zoom
+  Strg+0          # Normalgröße
+  ```
+  *(Im Fokus-Modus füllt ein gewähltes Panel den ganzen Bildschirm.)*
+
 
 ## Todo-Liste immer aktualisieren
 
@@ -1150,15 +1158,27 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   Jedes Modul hat jetzt einen kleinen *Fokus*-Knopf. Ein Klick blendet nur dieses Panel ein.
   Im Fokus siehst du oben im Panel den Knopf **Zurück**, der wieder die normale Übersicht zeigt.
 
+
 - **Dateien sicher laden (fetch = Dateien abrufen)**
   ```js
-  fetch('modules.json').then(r => {
-    if (!r.ok) throw new Error(r.status); // r.ok prüft auf Erfolg
-    return r.json();
-  });
+  async function loadRegisteredPanels(){
+    const res = await fetch('modules.json');
+    if(!res.ok){
+      if(res.status === 404) throw new Error('Modulliste nicht gefunden (404)');
+      throw new Error('HTTP ' + res.status);
+    }
+    const cfg = await res.json(); // prüft auf gültiges JSON
+    cfg.modules.forEach(m => loadPanel(m.id));
+  }
   ```
-  *(Wirft eine Fehlermeldung, wenn die Datei nicht geladen werden konnte.)*
+  *(Bricht mit einer klaren Meldung ab, wenn die Datei fehlt oder fehlerhaft ist.)*
 
+- **modules.json reparieren**
+  ```bash
+  ls -l modules.json   # Prüfen, ob die Datei existiert
+  nano modules.json    # Inhalt öffnen und Klammern prüfen
+  ```
+  *(Nach dem Speichern Seite neu laden, um die Module zu laden.)*
 - **Automatisches Backup im Browser (setInterval = Zeitsteuerung)**
   ```js
   setInterval(() => {
