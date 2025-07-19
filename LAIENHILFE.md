@@ -1176,9 +1176,9 @@ Folgende Aufgaben sind noch offen:
 
 - **Sicherheitsprüfung der Pakete (npm audit fix = bekannte Lücken schließen)**
   ```bash
-  npm audit fix
+  npm run audit
   ```
-  *(Aktualisiert automatisch fehlerhafte Abhängigkeiten.)*
+  *(Führt `npm audit fix` aus und schließt bekannte Schwachstellen.)*
 
 - **CSS prüfen (Stylelint = Stilkontrolle)**
   ```bash

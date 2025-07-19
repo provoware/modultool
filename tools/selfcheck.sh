@@ -106,5 +106,12 @@ if [ -n "$conflicts" ]; then
   echo "❌ Unaufgelöste Konflikte gefunden:" && echo "$conflicts"
 fi
 
+# ========== Sicherheitsprüfung ==========
+if [ -x tools/security_check.sh ]; then
+  bash tools/security_check.sh
+else
+  echo "⚠️ Sicherheitsprüfung übersprungen (tools/security_check.sh fehlt)"
+fi
+
 # ========== Abschluss ==========
 echo "✅ Selfcheck abgeschlossen. Alles bereit!"
