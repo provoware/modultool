@@ -162,7 +162,7 @@
 - [ ] Zentrale Einstellungen in `config.js` speichern (z.B. Limits, Theme-Liste). Befehl: `nano config.js`
 - [ ] Eine `manifest.json` für die PWA anlegen. Befehl: `npx workbox-cli generateSW`
 - [ ] Einheitlichen Funktionsstil nutzen (Pfeilfunktion = ()=>{} oder function). Automatisch anpassen: `npx eslint . --fix`
-- [ ] Farbwerte vereinheitlichen und Design-Token nutzen. Datei öffnen mit `nano modules/common.css`
+- [x] Farbwerte vereinheitlichen und Design-Token nutzen. Datei öffnen mit `nano modules/common.css`
 - [ ] Panel-Kopfzeilen einheitlich benennen. Fundstellen anzeigen mit `grep -n head modules/*.html`
 - [ ] Verschachtelte Buttons vermeiden. Kontrollieren: `grep -n "<button" -r modules`
 - [ ] Kontrast im hellen Theme optimieren. Farbe in `modules/common.css` anpassen (`nano modules/common.css`)
@@ -194,7 +194,8 @@
 - [x] Export-Funktion für Zitate und Todo-Liste
 
 - [ ] Kontrastwerte nach WCAG pruefen (Kontrast = Unterschied zwischen Vorder- und Hintergrund). Befehl: `npx lighthouse http://localhost:8000/index-MODULTOOL.html`
-- [ ] Einheitliche Schriftgroesse per CSS-Variable `--base-font` in index-MODULTOOL.html setzen (base-font = Grundschrift).
+- [x] Einheitliche Schriftgroesse per CSS-Variable `--base-font` in index-MODULTOOL.html setzen (base-font = Grundschrift).
 - [ ] Buttons und Links mit `aria-label` ergaenzen (ARIA = zusaetzliche Bildschirmleser-Beschreibung).
-- [ ] Grid-Layout mit `grid-template-columns: repeat(auto-fit, minmax(320px,1fr))` in modules/common.css erweitern (Grid = Raster zur Anordnung).
-- [ ] Theme-Farben zentral in modules/common.css definieren (Theme = Farbpalette).
+- [x] Grid-Layout mit `grid-template-columns: repeat(auto-fit, minmax(320px,1fr))` in modules/common.css erweitern (Grid = Raster zur Anordnung).
+- [x] Theme-Farben zentral in modules/common.css definieren (Theme = Farbpalette).
+- [ ] Schaltflaechen-Stil zentral in modules/common.css definieren
