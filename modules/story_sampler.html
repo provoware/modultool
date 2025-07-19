@@ -1,2 +1,33 @@
 <!DOCTYPE html>
-<!-- Placeholder Story Sampler -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Story Sampler</title>
+<style>
+  #storySampler{display:grid;gap:.5rem;max-width:340px;margin:auto;font-family:var(--font-family,sans-serif);}
+  #storyOutput{font-weight:bold;min-height:2em;}
+  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+</style>
+</head>
+<body>
+<div id="storySampler">
+  <h2>Story Sampler</h2>
+  <button id="newStoryBtn">Neuen Vorschlag anzeigen</button>
+  <div id="storyOutput" aria-live="polite"></div>
+</div>
+<script type="module">
+const stories=[
+  'Ein verirrter Roboter findet eine neue Familie.',
+  'Eine mutige Bäckerin rettet die Stadt vor einem Sturm.',
+  'Zwei Freunde entdecken ein geheimes Portal im Wald.',
+  'Ein Haustier erzählt seine Sicht auf die Welt.'
+];
+const btn=document.getElementById('newStoryBtn');
+const output=document.getElementById('storyOutput');
+btn.addEventListener('click',()=>{
+  const idx=Math.floor(Math.random()*stories.length);
+  output.textContent=stories[idx];
+});
+</script>
+</body>
+</html>

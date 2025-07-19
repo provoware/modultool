@@ -1409,3 +1409,8 @@ python3 -m http.server
 
 - **Einheitliche Knöpfe nutzen (class = Klasse)**
   Füge jedem `<button>` das Attribut `class="btn"` hinzu. So greifen die zentralen Regeln aus `modules/common.css`.
+
+- **Panel-Größe testen (responsive = reagiert auf Fensterbreite)**
+  1. Drücke `Strg+Shift+I` im Browser, um die Entwicklerwerkzeuge zu öffnen.
+  2. Klicke auf das Handy-Icon (Device Toolbar).
+  3. Ändere die Breite und beobachte das Layout.

@@ -58,6 +58,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 - Automatisches Update via `bash tools/autoupdate.sh`
 - Zentrales Konfigurationsschema (`config_schema.json`)
 
+- Beispielmodule: Story-Sampler, Info-Manager, Modul-Baukasten
 
 ### Geplante Erweiterungen
 - Erinnerung an ungespeicherte Änderungen

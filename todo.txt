@@ -199,3 +199,4 @@
 - [x] Grid-Layout mit `grid-template-columns: repeat(auto-fit, minmax(320px,1fr))` in modules/common.css erweitern (Grid = Raster zur Anordnung).
 - [x] Theme-Farben zentral in modules/common.css definieren (Theme = Farbpalette).
 - [ ] Schaltflaechen-Stil zentral in modules/common.css definieren
+- [x] Story-Sampler-Modul ergänzt

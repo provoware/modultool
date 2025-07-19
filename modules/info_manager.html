@@ -1,2 +1,35 @@
 <!DOCTYPE html>
-<!-- Placeholder Info Manager Module -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Info Manager</title>
+<style>
+  #infoMgr{display:grid;gap:.5rem;max-width:340px;margin:auto;font-family:var(--font-family,sans-serif);}
+  textarea{min-height:6em;}
+  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+</style>
+</head>
+<body>
+<div id="infoMgr">
+  <h2>Info-Manager</h2>
+  <textarea id="infoText" placeholder="Eigene Befehle hier notieren"></textarea>
+  <button id="saveInfoBtn">Speichern</button>
+  <div id="msg" aria-live="polite"></div>
+</div>
+<script type="module">
+const KEY='infoManagerData';
+const textarea=document.getElementById('infoText');
+const msg=document.getElementById('msg');
+function load(){
+  textarea.value=localStorage.getItem(KEY)||'';
+}
+function save(){
+  localStorage.setItem(KEY,textarea.value);
+  msg.textContent='Gespeichert';
+  setTimeout(()=>msg.textContent='',1500);
+}
+document.getElementById('saveInfoBtn').addEventListener('click',save);
+load();
+</script>
+</body>
+</html>
