@@ -69,6 +69,11 @@
       "id": "panel14",
       "title": "Fehler & Hilfe",
       "file": "modules/panel14.html"
+    },
+    {
+      "id": "todo",
+      "title": "Todo-Liste",
+      "file": "modules/todo_list.html"
     }
   ]
 }

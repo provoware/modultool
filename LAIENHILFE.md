@@ -1354,3 +1354,9 @@ npm update        # aktualisiert diese Pakete automatisch
   ```
   *(bump = erh\u00f6hen. Dadurch wird die Patch-Version des angegebenen Moduls um eins gesteigert.)*
 
+
+- **Todo-Modul nutzen (localStorage = Browser-Speicher)**
+  ```bash
+  python3 -m http.server
+  ```
+  *(Startet einen kleinen Server. Rufe `http://localhost:8000/modules/todo_list.html` auf und verwalte deine Aufgaben.)*

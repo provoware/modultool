@@ -45,7 +45,7 @@
 - [ ] Fehler-Erkennung mit Auto-Korrektur-Vorschlägen
 - [ ] Dateileichen-Erkennung und Entrümplungsmodus
 - [ ] Globaler Suchfilter für alle Module und Inhalte
-- [ ] Todo-Listen-Modul integrieren
+- [x] Todo-Listen-Modul integrieren
 - [ ] Songtext-Editor mit Titelfeld und Notiz speichern
 - [ ] Dialog-Schreiber mit Charakterverwaltung bauen
 - [ ] Info-Manager für eigene Befehle anlegen
