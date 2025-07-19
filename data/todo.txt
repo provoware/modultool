@@ -235,7 +235,7 @@
   ```
 - [x] Logeinträge im localStorage speichern (Ringpuffer = nur die letzten 50). Befehl: `localStorage.setItem("logs", JSON.stringify(logs.slice(-50)))`
 - [ ] Selfcheck-Fehler direkt mit Lösung verlinken. Befehl: `node tools/map_errors.js`
-- [ ] Listen per DocumentFragment erneuern (schnelleres Rendering). Befehl:
+- [x] Listen per DocumentFragment erneuern (schnelleres Rendering). Befehl:
   ```js
   const frag=document.createDocumentFragment();
   items.forEach(i=>frag.appendChild(i));

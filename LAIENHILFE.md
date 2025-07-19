@@ -1155,3 +1155,19 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   }, 300000);
   ```
   *(Speichert deine Notizen alle fünf Minuten in `localStorage`.)*
+
+- **Logs begrenzt speichern (Ringpuffer = nur die letzten 50 Einträge)**
+  ```js
+  const arr = JSON.parse(localStorage.getItem('logs') || '[]');
+  arr.push({time: Date.now(), msg: 'Aktion'});
+  localStorage.setItem('logs', JSON.stringify(arr.slice(-50)));
+  ```
+  *(So bleibt der Verlauf klein und ältere Einträge werden automatisch entfernt.)*
+
+- **Listen schneller zeichnen (DocumentFragment = Sammelbehälter im Speicher)**
+  ```js
+  const frag = document.createDocumentFragment();
+  items.forEach(i => frag.appendChild(i));
+  list.replaceChildren(frag);
+  ```
+  *(Erst alle Elemente sammeln, dann in einem Rutsch einfügen. Das spart Zeit.)*

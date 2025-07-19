@@ -3,3 +3,4 @@
 2025-07-19 00:55:31 - Auto-Backup Modul umgesetzt und modules.json-Fehlerprüfung
 2025-07-19 01:01:15 - Logging zusammengelegt und Doppelklick-Kopierer hinzugefügt
 2025-07-19 01:08:13 - Logs persistieren in localStorage
+2025-07-19 01:12:14 - Listen mit DocumentFragment erneuern
