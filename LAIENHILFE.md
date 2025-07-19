@@ -1686,3 +1686,41 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
 
 - **Platzhaltertexte nutzen**
   Zeige bei leeren Listen einen Hinweis wie "Noch nichts gespeichert" an.
+
+- **Grid-Abstände flexibel halten**
+  ```css
+  gap: clamp(0.5rem, 2vw, 1rem);
+  ```
+  *("gap" bestimmt den Abstand im Raster. "clamp" begrenzt Werte nach oben und unten.)*
+
+- **Overflow global kontrollieren**
+  Setze `overflow: hidden;` im `<body>`. Einzelne Listen erhalten `overflow: auto;`.
+
+- **Re-Render vermeiden (DOM diff = Vergleich im Dokument)**
+  Blende Panels per `style.display='none'` aus, statt sie neu zu laden.
+
+- **Farbpalette reduzieren**
+  Nutze wenige Basisfarben in `modules/common.css`, wichtige Elemente heben sich so besser ab.
+
+- **Fokus sichtbar machen**
+  ```css
+  .btn:focus { outline: 2px solid var(--focus-ring); }
+  ```
+  *("outline" zeigt den Fokus-Ring, `--focus-ring` ist eine CSS-Variable.)*
+
+- **Breakpoints fein abstimmen (Media Query = Bedingung für Bildschirmbreite)**
+  ```css
+  @media (min-width: 1600px) { body.wide { font-size: 1.1rem; } }
+  ```
+  *(Ab 1600 Pixel Breite gilt der "Wide"-Modus.)*
+
+- **Scroll-Cache nutzen**
+  ```js
+  const pos = window.scrollY;
+  showPanel(id);
+  window.scrollTo(0, pos);
+  ```
+  *(Speichert die Position und stellt sie nach dem Wechsel wieder her.)*
+
+- **CSS modularisieren**
+  Lege pro Panel eine eigene `.css`-Datei an und binde sie mit `<link rel="stylesheet" href="modules/panel.css">` ein.
