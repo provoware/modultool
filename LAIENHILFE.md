@@ -1171,3 +1171,33 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   list.replaceChildren(frag);
   ```
   *(Erst alle Elemente sammeln, dann in einem Rutsch einfügen. Das spart Zeit.)*
+
+- **Einstellungen zentral speichern (config.js = Sammelstelle fuer Optionen)**
+  ```js
+  // Datei config.js
+  export const LIMITS = { importSize: 1_000_000 };
+  export const THEMES = ['default', 'dark', 'blue'];
+  ```
+  *(Hier landen alle wichtigen Werte. Andere Dateien importieren diese Optionen.)*
+
+- **Skripte auslagern (app.js = Hauptdatei)**
+  1. Erstelle `app.js` und kopiere den JavaScript-Code aus `index-MODULTOOL.html` hinein.
+  2. Binde es im HTML ein:
+  ```html
+  <script type="module" defer src="app.js"></script>
+  ```
+  *(So bleibt die HTML-Datei uebersichtlich und der Code laesst sich besser warten.)*
+
+- **Installierbare Web-App (PWA = Progressive Web App)**
+  ```bash
+  npx workbox-cli wizard
+  ```
+  *(Erstellt eine `manifest.json` und einen Service Worker. Damit kann die Seite offline funktionieren.)*
+
+- **Service Worker registrieren (Hintergrundhelfer)**
+  ```js
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+  ```
+  *(Dieses kleine Skript laedt `sw.js` und ermoeglicht Offline-Zugriff.)*
