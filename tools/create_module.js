@@ -20,6 +20,18 @@ function createModule(id, title) {
   content = content.replace(/{{ID}}/g, id).replace(/{{TITLE}}/g, title);
   fs.writeFileSync(target, content);
 
+  // plugin.json automatisch anlegen
+  const pluginDir = path.join('plugins', id);
+  if (!fs.existsSync(pluginDir)) {
+    fs.mkdirSync(pluginDir, { recursive: true });
+  }
+  const pluginFile = path.join(pluginDir, 'plugin.json');
+  if (!fs.existsSync(pluginFile)) {
+    const info = { id, name: title, version: '1.0.0' };
+    fs.writeFileSync(pluginFile, JSON.stringify(info, null, 2));
+    console.log(`plugin.json created at ${pluginFile}`);
+  }
+
   try {
     const data = JSON.parse(fs.readFileSync(modulesFile, 'utf8'));
     if (Array.isArray(data.modules)) {

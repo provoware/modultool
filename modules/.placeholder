@@ -13,3 +13,16 @@ export function begruessung() {
   document.body.appendChild(text);
 }
 # --- Ende des Beispiels ---
+
+# --- Erweiterung: Daten speichern und laden ---
+# Mit saveJSON() und loadJSON() aus common.js lassen sich Daten einfach sichern.
+# Beispiel: Speichere die aktuelle Zeit in "exampleData" und lade sie wieder.
+import { saveJSON, loadJSON } from './common.js';
+
+export function demoSpeichern() {
+  const obj = { time: new Date().toISOString() };
+  saveJSON('exampleData', obj);
+  const loaded = loadJSON('exampleData');
+  console.log('Geladen:', loaded);
+}
+# --- Ende der Erweiterung ---

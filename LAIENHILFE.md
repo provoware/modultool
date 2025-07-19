@@ -766,6 +766,12 @@ nano plugins/mein_plugin/plugin.json
 ```
 In dieser Datei tr\u00e4gst du Name und Version ein. `JSON` ist ein einfaches Textformat.
 
+Seit Version 1.0 legt das Skript `create_module.js` diese Datei automatisch an:
+```bash
+node tools/create_module.js modulID "Mein Modul"
+```
+Danach liegt `plugins/modulID/plugin.json` mit allen Angaben (ID, Name, Version) bereit.
+
 ### 4. Gemeinsame Bibliothek nutzen
 Lege den Ordner `lib/` an und erstelle dort eine Datei f\u00fcr die Update-Logik:
 ```bash
@@ -1468,3 +1474,36 @@ npm run sync
 
 Nach dem Aktualisieren kannst du `npm update` ausführen, um alle Pakete auf den
 neuesten Stand zu bringen.
+
+## Weiterfuehrende Laienvorschlaege (Ergaenzung)
+
+- **Aenderungshistorie ansehen (History = Verlauf)**
+  ```bash
+  git log --oneline
+  ```
+  *(Zeigt knapp an, was zuletzt gespeichert wurde.)*
+
+- **todo.txt abgleichen (sync = abgleichen)**
+  ```bash
+  nano todo.txt
+  bash tools/sync_todo.sh
+  ```
+  *("sync_todo.sh" kopiert die Datei in "data/todo.txt" und "platzhalter.txt".)*
+
+- **plugin.json pruefen (Manifest = Datenblatt)**
+  ```bash
+  cat plugins/modulID/plugin.json
+  ```
+  *(Zeigt ID, Name und Version des Moduls.)*
+
+- **Versionen anzeigen (module_versions.json)**
+  ```bash
+  cat module_versions.json
+  ```
+  *(Listet die gespeicherten Modulversionen auf.)*
+
+- **Platzhalter-Beispiel erweitern**
+  ```bash
+  nano modules/.placeholder
+  ```
+  *(Am Ende findest du die Funktion `demoSpeichern`. Sie zeigt, wie `saveJSON` und `loadJSON` (Daten sichern und laden) funktionieren.)*
