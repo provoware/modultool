@@ -90,6 +90,10 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 ```text
 📁 panels/
 📁 modules/
+📁 gui/
+📁 core/
+📁 assets/
+📁 backups/
 📁 data/ (baumstruktur.txt, todo.txt)
 📄 platzhalter.txt
 📄 modules.json
