@@ -109,6 +109,11 @@
       "id": "tooltip",
       "title": "Tooltip Akademie",
       "file": "modules/tooltip_academy.html"
+    },
+    {
+      "id": "feedback",
+      "title": "Nutzer-Feedback",
+      "file": "modules/user_feedback.html"
     }
   ]
 }
