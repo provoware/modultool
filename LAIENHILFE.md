@@ -237,6 +237,28 @@ Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler ge
    Das Kommando `echo` (Text ausgeben) schreibt eine Zeile in `test.html`.
 3. Öffne `test.html` im Browser, z. B. mit einem Doppelklick im Dateimanager.
    Nach Eingabe des Namens siehst du die Begrüßung als Text auf der Seite.
+
+## Code aufräumen
+
+1. **Skripte formatieren (Prettier = automatischer Formatierer)**
+   ```bash
+   npx prettier --write .
+   ```
+   *(Ordnet Einrückungen und Leerzeichen.)*
+
+2. **JavaScript prüfen (ESLint = Fehler- und Stilprüfung)**
+   ```bash
+   npx eslint .
+   ```
+   *(Findet Tippfehler und falsche Muster.)*
+
+3. **HTML säubern (DOMPurify = Sanitizer)**
+   ```bash
+   npm install dompurify
+   ```
+   *(Entfernt gefährliche Inhalte bei Importen.)*
+
+Diese Befehle halten deine Module sauber und sicher.
 ## Geplante Erweiterungen
 
 Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sind:
