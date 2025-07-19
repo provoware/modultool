@@ -8,7 +8,8 @@
     "build": "tsc",
     "release": "npm version patch",
     "start": "bash tools/start_tool.sh",
-    "sync": "node lib/update_manager.js sync"
+    "sync": "node lib/update_manager.js sync",
+    "audit": "bash tools/security_check.sh"
   },
   "devDependencies": {
     "@types/node": "^24.0.14",
