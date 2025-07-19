@@ -410,6 +410,7 @@
         <button onclick="triggerModuleImport()">Import starten</button>
         <div class="import-status" id="importStatus" role="status" aria-live="polite"></div>
         <pre id="importPreview" style="max-height:110px;overflow:auto;background:#252c2e;color:#bbb;padding:.4em .7em;border-radius:.6em;display:none;margin:.5em 0 0 0;"></pre>
+        <button id="importInsertBtn" onclick="insertImportedPanel()" style="display:none;">Einfügen</button>
         <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
       </section>
       <section class="mod-panel" id="panel7" tabindex="0">
@@ -495,7 +496,11 @@ function renderThemeBtnGroup() {
   ).join('');
 }
 function setTheme(t) {
-  document.body.setAttribute('data-theme', t==="default"?null:t);
+  if (t === 'default') {
+    document.body.removeAttribute('data-theme');
+  } else {
+    document.body.setAttribute('data-theme', t);
+  }
   curTheme = t;
   localStorage.setItem('themePppoppi', t);
   renderThemeBtnGroup();
@@ -534,9 +539,6 @@ let dashboardData = [];
 let tmplArchiv = [];
 let notesData = '';
 const WEIGHT_KEY = 'genreWeights_vGRIDSB';
-let genres = [];
-let dashboardData = [];
-let tmplArchiv = [];
 let genreWeights = {};
 let searchTerm = '';
 /* Logging und Selfcheck */

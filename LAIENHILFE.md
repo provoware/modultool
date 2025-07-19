@@ -237,6 +237,28 @@ Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler ge
    Das Kommando `echo` (Text ausgeben) schreibt eine Zeile in `test.html`.
 3. Öffne `test.html` im Browser, z. B. mit einem Doppelklick im Dateimanager.
    Nach Eingabe des Namens siehst du die Begrüßung als Text auf der Seite.
+
+## Code aufräumen
+
+1. **Skripte formatieren (Prettier = automatischer Formatierer)**
+   ```bash
+   npx prettier --write .
+   ```
+   *(Ordnet Einrückungen und Leerzeichen.)*
+
+2. **JavaScript prüfen (ESLint = Fehler- und Stilprüfung)**
+   ```bash
+   npx eslint .
+   ```
+   *(Findet Tippfehler und falsche Muster.)*
+
+3. **HTML säubern (DOMPurify = Sanitizer)**
+   ```bash
+   npm install dompurify
+   ```
+   *(Entfernt gefährliche Inhalte bei Importen.)*
+
+Diese Befehle halten deine Module sauber und sicher.
 ## Geplante Erweiterungen
 
 Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sind:
@@ -967,3 +989,30 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   git commit -m "Neue Version und Changelog"
   ```
   *(Erhöht die Versionsnummer und ergänzt die Datei `CHANGELOG.md`.)*
+
+## Neue Laien-Tipps
+
+- **Lokalen Server starten (http-server = kleiner Webserver)**
+  ```bash
+  npx http-server
+  ```
+  *(Zeigt die Dateien im Browser unter `http://localhost:8080` an.)*
+
+- **Pakete prüfen und aktualisieren (npm = Paketmanager)**
+  ```bash
+  npm outdated
+  npm update
+  ```
+  *(`npm outdated` listet veraltete Pakete auf, `npm update` bringt sie auf den neuesten Stand.)*
+
+- **CSS automatisch anpassen (Autoprefixer = ergänzt Browser-Vorsilben)**
+  ```bash
+  npx postcss modules/*.css --use autoprefixer -d modules
+  ```
+  *(Erzeugt neue CSS-Dateien mit zusätzlichen Präfixen für ältere Browser.)*
+
+- **Seite mit Lighthouse prüfen (Lighthouse = Analysewerkzeug)**
+  ```bash
+  npx lighthouse http://localhost:8080/index-MODULTOOL.html
+  ```
+  *(Liefert Berichte zu Performance und Barrierefreiheit.)*

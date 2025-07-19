@@ -52,31 +52,26 @@ function render(){
     btn.className='tmpl-btn';
     btn.textContent=t.title;
     btn.title='Text kopieren';
-    btn.onclick=()=>{navigator.clipboard.writeText(t.text);};
-    const rm=document.createElement('button');
-    rm.className='remove-btn';
-    rm.textContent='✖';
-    rm.title='Textbaustein löschen';
-    rm.onclick=()=>{arr.splice(i,1);saveTemplates(arr);render();};
-    btn.onclick=()=>{
+    btn.addEventListener('click',()=>{
       navigator.clipboard.writeText(t.text).then(()=>{
         btn.classList.add('copied');
         setTimeout(()=>btn.classList.remove('copied'),800);
         addDashboard('Snippet: '+t.title);
         showStatus(statusEl,'Kopiert: '+t.title);
       });
-    };
+    });
     const rm=document.createElement('button');
     rm.className='remove-btn';
     rm.textContent='✖';
-    rm.onclick=()=>{
+    rm.title='Textbaustein löschen';
+    rm.addEventListener('click',()=>{
       arr.splice(i,1);
       saveTemplates(arr);
       render();
       showStatus(statusEl,'Gelöscht: '+t.title);
-    };
+    });
     const wrapper=document.createElement('div');
-    wrapper.appendChild(btn);wrapper.appendChild(rm);
+    wrapper.append(btn, rm);
     listDiv.appendChild(wrapper);
   });
 }

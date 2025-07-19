@@ -223,6 +223,10 @@
 - [ ] Vor dem Release bash tools/selfcheck.sh ausfuehren und Releasenotizen im README ergaenzen
 - [x] panel01 bereinigt (doppelte Elemente entfernt)
 - [x] Startskript um Selbstheilung & Exitstatus-Prüfung erweitert
+- [x] Doppelte Variablen wie "let genres" entfernen
+- [ ] Einfache Archiv-Buttons einrichten
+- [x] fehlenden Button "importInsertBtn" ergänzen
+- [x] Theme umschalten ohne "null"-Attribut
 
 - [ ] Doppelte Variablen wie "let genres" entfernen
 - [ ] Einfache Archiv-Buttons einrichten
@@ -257,3 +261,22 @@
 - [ ] Skripte aus index-MODULTOOL.html in `app.js` auslagern und mit `<script type="module" defer src="app.js"></script>` einbinden
 - [ ] Zentrale Einstellungen in `config.js` speichern (z.B. Limits, Theme-Liste). Befehl: `nano config.js`
 - [ ] Eine `manifest.json` für die PWA anlegen. Befehl: `npx workbox-cli generateSW`
+- [ ] Einheitlichen Funktionsstil nutzen (Pfeilfunktion = ()=>{} oder function). Automatisch anpassen: `npx eslint . --fix`
+- [ ] Farbwerte vereinheitlichen und Design-Token nutzen. Datei öffnen mit `nano modules/common.css`
+- [ ] Panel-Kopfzeilen einheitlich benennen. Fundstellen anzeigen mit `grep -n head modules/*.html`
+- [ ] Logging zusammenführen (debugLogArr und dashLogArr). Fundstellen suchen: `grep -n dashLogArr -r`
+- [ ] role="region" immer mit aria-labelledby verknüpfen. Beispiel: `<div role="region" aria-labelledby="panel1-head">`
+- [ ] Verschachtelte Buttons vermeiden. Kontrollieren: `grep -n "<button" -r modules`
+- [ ] Kontrast im hellen Theme optimieren. Farbe in `modules/common.css` anpassen (`nano modules/common.css`)
+- [ ] Fokus-Ring-Farbe an Rahmen angleichen. Variable `--focus-ring` in `modules/common.css` definieren
+
+- [ ] Node-Version anzeigen. Befehl: `node --version` (Node.js = JavaScript-Laufzeitumgebung).
+- [ ] Pakete automatisch auf Sicherheitslücken prüfen. Befehl: `npm audit fix` (Security-Check = bekannte Schwachstellen schließen).
+- [ ] CSS mit Stylelint prüfen. Befehl: `npx stylelint "**/*.css"` (Stylelint = CSS-Stilprüfer).
+- [ ] Bilder verkleinern mit Imagemin. Befehl: `npx imagemin src/img/* --out-dir=dist/img` (Bildkomprimierung = kleinere Dateigröße).
+- [ ] Git-Tag für Release setzen. Befehl: `git tag -a v1.0 -m 'Version 1.0' && git push --tags` (Tag = Versionsmarkierung im Repository).
+- [ ] Pakete auf Aktualität prüfen. Befehl: `npm outdated` (outdated = veraltete Pakete anzeigen).
+- [ ] Alle Pakete aktualisieren. Befehl: `npm update` (update = auf den neuesten Stand bringen).
+- [ ] CSS automatisch mit Autoprefixer erweitern. Befehl: `npx postcss modules/*.css --use autoprefixer -d modules` (Autoprefixer = Browser-Präfixe ergänzen).
+- [ ] Web-App mit Lighthouse testen. Befehl: `npx lighthouse http://localhost:8000/index-MODULTOOL.html` (Lighthouse = Analyse für Performance und Barrierefreiheit).
+- [ ] Lokalen Server ohne Python starten. Befehl: `npx http-server` (http-server = einfacher Entwicklungsserver).
