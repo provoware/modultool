@@ -62,7 +62,7 @@
 - [ ] Schreibschutz-Option pro Panel
 - [ ] Fehler-Erkennung mit Auto-Korrektur-Vorschlägen
 - [ ] Dateileichen-Erkennung und Entrümplungsmodus
-- [ ] Inhalte per Doppelklick in Zwischenablage kopieren
+ - [x] Inhalte per Doppelklick in Zwischenablage kopieren
 - [ ] Globaler Suchfilter für alle Module und Inhalte
 - [ ] Todo-Listen-Modul integrieren
 - [ ] Songtext-Editor mit Titelfeld und Notiz speichern
@@ -247,7 +247,7 @@
 - [ ] Einheitlichen Funktionsstil nutzen (Pfeilfunktion = ()=>{} oder function). Automatisch anpassen: `npx eslint . --fix`
 - [ ] Farbwerte vereinheitlichen und Design-Token nutzen. Datei öffnen mit `nano modules/common.css`
 - [ ] Panel-Kopfzeilen einheitlich benennen. Fundstellen anzeigen mit `grep -n head modules/*.html`
-- [ ] Logging zusammenführen (debugLogArr und dashLogArr). Fundstellen suchen: `grep -n dashLogArr -r`
+ - [x] Logging zusammenführen (debugLogArr und dashLogArr). Fundstellen suchen: `grep -n dashLogArr -r`
 - [ ] Verschachtelte Buttons vermeiden. Kontrollieren: `grep -n "<button" -r modules`
 - [ ] Kontrast im hellen Theme optimieren. Farbe in `modules/common.css` anpassen (`nano modules/common.css`)
 - [ ] Fokus-Ring-Farbe an Rahmen angleichen. Variable `--focus-ring` in `modules/common.css` definieren

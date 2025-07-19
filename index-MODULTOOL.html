@@ -490,7 +490,7 @@ function switchFokus(mode) {
     const target = document.getElementById('panel' + mode);
     if (target && target.style.display === 'none') {
       fokusSelect.value = '0';
-      logDbg('Panel im Fokus ausgeblendet.');
+      addLog('Panel im Fokus ausgeblendet.');
       return;
     }
   }
@@ -577,36 +577,30 @@ let genreWeights = {};
 let searchTerm = '';
 let searchTimer;
 /* Logging und Selfcheck */
-let debugLogArr = [];
-let dashLogArr = [];
+let logArr = [];
 function addDashboardEntry(text) {
   dashboardData.unshift({ value: text, time: new Date().toLocaleString() });
   dashboardData = dashboardData.slice(0,10);
   localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
   renderDashboard();
 }
-function logDbg(msg, type='info') {
-  debugLogArr.unshift({
-    time: new Date().toLocaleTimeString(),
-    type, msg
-  });
-  if(debugLogArr.length>64) debugLogArr.pop();
+function addLog(msg, type='info') {
+  logArr.unshift({time:new Date().toLocaleTimeString(), type, msg});
+  if(logArr.length>64) logArr.pop();
   renderLog();
-  dashLogArr.unshift({time:new Date().toLocaleTimeString(), msg});
-  if(dashLogArr.length>10) dashLogArr.pop();
   renderDashLog();
 }
-function logErr(msg) { logDbg(msg, 'err'); }
-function renderLog() {
+function logErr(msg){ addLog(msg, 'err'); }
+function renderLog(){
   const out = document.getElementById('debugLog');
-  out.innerHTML = debugLogArr.map(e=>`<div class="debug-log debug-${e.type}">[${e.time}] ${e.msg}</div>`).join('');
+  if(out) out.innerHTML = logArr.map(e=>`<div class="debug-log debug-${e.type}">[${e.time}] ${e.msg}</div>`).join('');
   document.getElementById('selfcheckStatus').innerHTML = selfcheckResult();
 }
 function renderDashLog(){
   const out = document.getElementById('dashLog');
-  if(out) out.innerHTML = dashLogArr.map(e=>`<li><span class="dashboard-timestamp">${e.time}</span> ${e.msg}</li>`).join('');
+  if(out) out.innerHTML = logArr.slice(0,10).map(e=>`<li><span class="dashboard-timestamp">${e.time}</span> ${e.msg}</li>`).join('');
 }
-function clearLog() { debugLogArr=[]; renderLog(); }
+function clearLog(){ logArr=[]; renderLog(); renderDashLog(); }
 function selfcheckResult() {
   let ok = true, res = [];
   try {
@@ -634,7 +628,7 @@ document.getElementById('importModuleFile').addEventListener('change', function(
     document.getElementById('importPreview').textContent = importModuleContent.substring(0,800)+(importModuleContent.length>800?' …':'');
     document.getElementById('importStatus').textContent = 'Datei geladen: '+file.name;
     document.getElementById('importInsertBtn').style.display='inline-block';
-    logDbg('Modul-Datei geladen: '+file.name);
+    addLog('Modul-Datei geladen: '+file.name);
   };
   reader.onerror = function() {
     document.getElementById('importStatus').textContent = 'Fehler beim Lesen der Datei!';
@@ -663,7 +657,7 @@ function insertImportedPanel(){
   document.getElementById('importInsertBtn').style.display='none';
   document.getElementById('importPreview').style.display='none';
   document.getElementById('importStatus').textContent='Panel eingefügt: '+pid;
-  logDbg('Importiertes Panel angelegt: '+pid);
+  addLog('Importiertes Panel angelegt: '+pid);
 }
 /* Genre/Archiv/Random */
 function renderList() {
@@ -711,7 +705,7 @@ function renderList() {
     const rm = document.createElement('button');
     rm.className = 'remove-btn';
     rm.innerText = '✖';
-    rm.onclick = () => { genres.splice(idx,1); sortAndUpdate(); logDbg('Genre gelöscht.'); };
+    rm.onclick = () => { genres.splice(idx,1); sortAndUpdate(); addLog('Genre gelöscht.'); };
     li.appendChild(rm);
     list.appendChild(li);
   });
@@ -746,14 +740,14 @@ function sortAndUpdate() {
   localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
   renderList();
   renderWeightList();
-  logDbg('Archiv aktualisiert.');
+  addLog('Archiv aktualisiert.');
 }
 function addGenre(str) {
   str.split(',').map(s=>s.trim()).filter(s=>s.length>0).forEach(s => {
     if(!genres.includes(s)) genres.push(s);
   });
   sortAndUpdate();
-  logDbg('Genre(s) hinzugefügt.');
+  addLog('Genre(s) hinzugefügt.');
 }
 document.getElementById('genreForm').onsubmit = (e) => {
   e.preventDefault();
@@ -777,7 +771,7 @@ function pickRandomN(n) {
   statusMsg("Zufallsausgabe kopiert.",1);
   flash(document.getElementById('randResult'));
   addDashboardEntry(result);
-  logDbg('Zufallsausgabe erzeugt und kopiert.');
+  addLog('Zufallsausgabe erzeugt und kopiert.');
 }
 function loadWeights(){
   try { genreWeights = JSON.parse(localStorage.getItem(WEIGHT_KEY)) || {}; }
@@ -818,17 +812,17 @@ function pickWeightedRandom(){
   dashboardData = dashboardData.slice(0,10);
   localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
   renderDashboard();
-  logDbg('Gewichteten Zufall erzeugt und kopiert.');
+  addLog('Gewichteten Zufall erzeugt und kopiert.');
 }
 function saveArchive() {
   localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
   statusMsg("Archiv gespeichert!",1);
   addDashboardEntry('Archiv gespeichert');
-  logDbg('Archiv gespeichert.');
+  addLog('Archiv gespeichert.');
 }
 function loadArchive() {
   const data = localStorage.getItem(LOCAL_KEY);
-  if(data) { genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); addDashboardEntry('Archiv geladen'); logDbg('Archiv geladen.'); }
+  if(data) { genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); addDashboardEntry('Archiv geladen'); addLog('Archiv geladen.'); }
 }
 function copyDash(txt, btn) {
   try { navigator.clipboard.writeText(txt); }
@@ -841,7 +835,7 @@ function copyTmpl(txt, btn, title) {
   catch(e){ logErr('Clipboard-Fehler: '+e); flash(btn,'flash-error'); return; }
   tmplStatusMsg('Template kopiert: '+title,1);
   flash(btn);
-  logDbg('Template kopiert: '+title);
+  addLog('Template kopiert: '+title);
 }
 function resetArchive() {
   if(confirm('Archiv wirklich löschen?')) {
@@ -849,7 +843,7 @@ function resetArchive() {
     genres = [];
     renderList();
     statusMsg('Archiv geleert!',1);
-    logDbg('Archiv geleert.');
+    addLog('Archiv geleert.');
   }
 }
 /* Dashboard */
@@ -868,11 +862,11 @@ document.getElementById('clearDashboardBtn').onclick = function() {
     dashboardData = [];
     localStorage.removeItem(DASHBOARD_KEY);
     renderDashboard();
-    dashLogArr = [];
+    logArr = [];
     renderDashLog();
     statusMsg("Dashboard geleert.",1);
     addDashboardEntry('Dashboard geleert');
-    logDbg('Dashboard gelöscht.');
+    addLog('Dashboard gelöscht.');
   }
 };
 /* Templates */
@@ -889,14 +883,14 @@ function renderTmplList() {
       catch(e){logErr('Clipboard-Fehler: '+e);}
       tmplStatusMsg("Template kopiert: "+t.title,1);
       addDashboardEntry('Template kopiert: '+t.title);
-      logDbg('Template kopiert: '+t.title);
+      addLog('Template kopiert: '+t.title);
     };
     btn.tabIndex = 0;
     const rem = document.createElement('button');
     rem.className = 'tmpl-remove';
     rem.innerText = '✖';
     rem.title = 'Template löschen';
-    rem.onclick = (e)=>{e.stopPropagation();tmplArchiv.splice(i,1);saveTmpl();renderTmplList();addDashboardEntry('Template gelöscht');logDbg('Template gelöscht.');};
+    rem.onclick = (e)=>{e.stopPropagation();tmplArchiv.splice(i,1);saveTmpl();renderTmplList();addDashboardEntry('Template gelöscht');addLog('Template gelöscht.');};
     btn.appendChild(rem);
     el.appendChild(btn);
   });
@@ -924,7 +918,7 @@ document.getElementById('tmplForm').onsubmit = function(e) {
   document.getElementById('tmplText').value = '';
   tmplStatusMsg("Template hinzugefügt!",1);
   addDashboardEntry("Template hinzugefügt: "+title);
-  logDbg('Template hinzugefügt: '+title);
+  addLog('Template hinzugefügt: '+title);
 };
 /* Suche im Archiv */
 document.getElementById('searchInput').oninput = function() {
@@ -987,7 +981,7 @@ function resetAll() {
     renderLog();
     statusMsg("Alles gelöscht!",1); tmplStatusMsg("Alles gelöscht!",1);
     addDashboardEntry("Alles gelöscht");
-    logDbg('Alles gelöscht.');
+    addLog('Alles gelöscht.');
   }
 }
 
@@ -995,7 +989,7 @@ function resetAll() {
 function saveNotes(){
   notesData = document.getElementById('notesArea').value;
   localStorage.setItem(NOTES_KEY, notesData);
-  logDbg('Notizen gespeichert.');
+  addLog('Notizen gespeichert.');
 }
 function loadNotes(){
   const d = localStorage.getItem(NOTES_KEY);
@@ -1009,7 +1003,7 @@ function clearNotes(){
     notesData='';
     document.getElementById('notesArea').value='';
     localStorage.removeItem(NOTES_KEY);
-    logDbg('Notizen gelöscht.');
+    addLog('Notizen gelöscht.');
   }
 }
 /* Sidebar-Resize (optional) */

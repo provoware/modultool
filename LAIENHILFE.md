@@ -277,6 +277,16 @@ Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sin
 - Entrümplungsmodus zum Aufräumen
 - Kopieren per Doppelklick
 - globaler Suchfilter
+
+## Texte per Doppelklick kopieren
+1. Starte einen kleinen Server:
+```bash
+python3 -m http.server
+```
+2. Rufe im Browser `http://localhost:8000/modules/doubleclick_copy.html` auf.
+3. Doppelklicke auf den Text. "Kopiert!" erscheint kurz.
+*Clipboard = Zwischenablage für kopierte Texte.*
+
 - Todo-Listen-Modul
 - Songtext-Editor mit Titelfeld, Notizen und Text
 - Dialog-Schreiber für eigene Charaktere
