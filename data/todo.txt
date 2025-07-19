@@ -39,7 +39,7 @@
 - [ ] Automatische Validierung jedes Moduls vor Aktivierung
 - [x] Farbkontrast-Optimierung nach WCAG umsetzen
 - [ ] Fokusmodus: 1 Modul fullscreen, andere minimiert
-- [ ] Tooltip-Akademie beim ersten Start anzeigen
+ - [x] Tooltip-Akademie beim ersten Start anzeigen
 - [ ] Modul-Querverlinkung zwischen Panels ermöglichen
 - [x] Direkt-Export aus Modulen (TXT, JSON) umgesetzt
 - [ ] ZIP-Import und automatische Modul-Verteilung

@@ -104,6 +104,11 @@
       "id": "favstart",
       "title": "Favoriten-Start",
       "file": "modules/favorites_start_screen.html"
+    },
+    {
+      "id": "tooltip",
+      "title": "Tooltip Akademie",
+      "file": "modules/tooltip_academy.html"
     }
   ]
 }

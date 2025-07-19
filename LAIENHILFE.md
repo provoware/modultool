@@ -1785,3 +1785,22 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
   .app-frame { overflow-y: auto; }
   ```
   *(So scrollt nur der Hauptbereich und nicht die ganze Seite.)*
+
+
+## Tooltip-Akademie aktivieren
+
+Dieses kleine Modul zeigt dir kurze Hinweise direkt im Tool.
+Die Tipps erscheinen nur beim ersten Aufruf.
+
+1. Starte das Tool wie gewohnt:
+   ```bash
+   bash tools/start_tool.sh
+   ```
+2. Öffne im Menü das Modul **Tooltip Akademie**.
+3. Ein Fenster mit Hinweisen klappt auf. Schließe es mit dem Knopf "Alles klar".
+4. Willst du die Tipps später erneut sehen, lösche das Merkzeichen (LocalStorage):
+   ```js
+   localStorage.removeItem('tooltipAcademyShown')
+   ```
+   *(LocalStorage = Speicher im Browser für Einstellungen.)*
+
