@@ -1963,3 +1963,17 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   ```
   *(Prüft alle Module mit dem Programm "axe-core" und erstellt einen Bericht im Ordner `logs/a11y`.)*
 
+## Weiterführende Laienvorschläge (Zusatz 4)
+
+- **Installationspakete bauen (.deb & AppImage = Installationsdateien)**
+  ```bash
+  bash tools/build_packages.sh
+  ```
+  *(Erzeugt im Verzeichnis `build/` eine .deb-Datei und ein AppImage. Vorher müssen `dpkg-deb` und `appimagetool` installiert sein. Unter Ubuntu erledigt das `sudo apt-get install dpkg-dev appimagetool`.)*
+
+- **Fertiges Paket installieren (dpkg = Debian-Paketmanager)**
+  ```bash
+  sudo dpkg -i modultool_1.0.0.deb
+  ```
+  *(Richtet das Programm systemweit ein. Das AppImage kannst du einfach doppelklicken.)*
+

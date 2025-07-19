@@ -8,7 +8,7 @@ APPDIR="build/appimage/Modultool.AppDir"
 
 # Verzeichnisse vorbereiten
 rm -rf build
-mkdir -p "$DEB_DIR/DEBIAN" "$APPDIR"
+mkdir -p "$DEB_DIR/DEBIAN" "$DEB_DIR/usr/share/modultool" "$APPDIR/usr/share/modultool"
 
 cat > "$DEB_DIR/DEBIAN/control" <<EOC
 Package: modultool
