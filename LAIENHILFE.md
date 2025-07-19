@@ -237,6 +237,28 @@ Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler ge
    Das Kommando `echo` (Text ausgeben) schreibt eine Zeile in `test.html`.
 3. Öffne `test.html` im Browser, z. B. mit einem Doppelklick im Dateimanager.
    Nach Eingabe des Namens siehst du die Begrüßung als Text auf der Seite.
+
+## Code aufräumen
+
+1. **Skripte formatieren (Prettier = automatischer Formatierer)**
+   ```bash
+   npx prettier --write .
+   ```
+   *(Ordnet Einrückungen und Leerzeichen.)*
+
+2. **JavaScript prüfen (ESLint = Fehler- und Stilprüfung)**
+   ```bash
+   npx eslint .
+   ```
+   *(Findet Tippfehler und falsche Muster.)*
+
+3. **HTML säubern (DOMPurify = Sanitizer)**
+   ```bash
+   npm install dompurify
+   ```
+   *(Entfernt gefährliche Inhalte bei Importen.)*
+
+Diese Befehle halten deine Module sauber und sicher.
 ## Geplante Erweiterungen
 
 Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sind:
@@ -967,3 +989,88 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   git commit -m "Neue Version und Changelog"
   ```
   *(Erhöht die Versionsnummer und ergänzt die Datei `CHANGELOG.md`.)*
+
+## Neue Laien-Tipps
+
+- **Lokalen Server starten (http-server = kleiner Webserver)**
+  ```bash
+  npx http-server
+  ```
+  *(Zeigt die Dateien im Browser unter `http://localhost:8080` an.)*
+
+- **Pakete prüfen und aktualisieren (npm = Paketmanager)**
+  ```bash
+  npm outdated
+  npm update
+  ```
+  *(`npm outdated` listet veraltete Pakete auf, `npm update` bringt sie auf den neuesten Stand.)*
+
+- **CSS automatisch anpassen (Autoprefixer = ergänzt Browser-Vorsilben)**
+  ```bash
+  npx postcss modules/*.css --use autoprefixer -d modules
+  ```
+  *(Erzeugt neue CSS-Dateien mit zusätzlichen Präfixen für ältere Browser.)*
+
+- **Seite mit Lighthouse prüfen (Lighthouse = Analysewerkzeug)**
+  ```bash
+  npx lighthouse http://localhost:8080/index-MODULTOOL.html
+  ```
+  *(Liefert Berichte zu Performance und Barrierefreiheit.)*
+
+- **Node-Version anzeigen (Node.js = JavaScript-Laufzeitumgebung)**
+  ```bash
+  node --version
+  ```
+  *(Zeigt, welche Node-Version installiert ist.)*
+
+- **Sicherheitsprüfung der Pakete (npm audit fix = bekannte Lücken schließen)**
+  ```bash
+  npm audit fix
+  ```
+  *(Aktualisiert automatisch fehlerhafte Abhängigkeiten.)*
+
+- **CSS prüfen (Stylelint = Stilkontrolle)**
+  ```bash
+  npx stylelint "**/*.css"
+  ```
+  *(Findet Probleme im Aussehen der Stylesheets.)*
+
+- **Bilder verkleinern (Imagemin = Bildkomprimierung)**
+  ```bash
+  npx imagemin src/img/* --out-dir=dist/img
+  ```
+  *(Erzeugt kleinere Dateien für schnellere Ladezeiten.)*
+
+- **Version im Git markieren (Tag = Versionsmarkierung)**
+  ```bash
+  git tag -a v1.0 -m 'Version 1.0' && git push --tags
+  ```
+  *(Setzt eine feste Versionsnummer im Repository.)*
+
+- **package.json anlegen (npm init = Projekt starten)**
+  ```bash
+  npm init -y
+  ```
+  *(Erstellt eine Grundeinstellung für dein Projekt. npm merkt sich dort alle Pakete.)*
+
+- **Debounce-Funktion installieren (kurze Wartezeit einbauen)**
+  ```bash
+  npm install lodash.debounce
+  ```
+  *(`lodash.debounce` verzögert eine Funktion, bis kurz Ruhe ist. Praktisch für Suchfelder.)*
+
+- **Layout automatisch anpassen (CSS Grid = flexible Anordnung)**
+  ```css
+  /* Datei index-MODULTOOL.html */
+  .grid-main {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: minmax(160px, auto);
+  }
+  ```
+  *(Die Module sortieren sich selbst. Bei kleinen Fenstern rutschen sie einfach untereinander.)*
+
+- **Versionsnummer im Browser speichern (localStorage = dauerhafter Speicher im Browser)**
+  ```js
+  localStorage.setItem('DATA_VERSION', '1');
+  ```
+  *(Merkt sich die Daten-Version "1". So kannst du später prüfen, ob gespeicherte Informationen erneuert werden müssen.)*
