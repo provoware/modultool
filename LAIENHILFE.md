@@ -294,7 +294,6 @@ Diese Befehle halten deine Module sauber und sicher.
 ## Geplante Erweiterungen
 
 Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sind:
-- Erinnerung an ungespeicherte Änderungen beim Beenden
 - persönlicher Startbildschirm mit Favoriten ("Dashboard")
 - Auto-Backup alle 5 Minuten und Undo-Verlauf (Rückgängig machen)
 - automatische Modul-Prüfung vor der Aktivierung
@@ -563,6 +562,12 @@ Dadurch bleibt `platzhalter.txt` aktuell.
 1. Starte `modules/panel03.html` im Browser.
 2. Oben findest du ein Auswahlfeld (Dropdown) mit allen Modulen.
 3. Modul wählen und auf **Öffnen** klicken. Das Modul erscheint in einem neuen Tab (Registerkarte).
+
+## Warnung bei ungespeicherten Änderungen
+
+1. Öffne `modules/unsaved_changes_warning.html` im Browser.
+2. Schreibe etwas in das Textfeld.
+3. Wenn du die Seite verlässt, erscheint eine Nachfrage. So gehen keine Eingaben verloren.
 
 ## Prüf-Funktionen nutzen
 
