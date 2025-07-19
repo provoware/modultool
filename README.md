@@ -15,7 +15,7 @@ Entwickelt für kreative Subkulturen, Performerinnen, Künstlerinnen und Content
 - [Neues Modul anlegen](#neues-modul-anlegen)
 - [Pakete erstellen (.deb & AppImage)](#-pakete-erstellen-deb--appimage)
 - [Hilfe](#hilfe)
-Zum Starten: `bash tools/start_tool.sh` – überprüft neue Module, versucht fehlende Programme automatisch zu installieren und öffnet das Tool.
+Zum Starten: `npm start` oder `bash tools/start_tool.sh` – beide Varianten prüfen neue Module, versuchen fehlende Programme automatisch zu installieren und öffnen das Tool.
 
 Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Checker und synchronisiert deine Aufgabenlisten.
 - [Lokaler Testserver](#-lokaler-testserver)
@@ -122,7 +122,7 @@ Voraussetzung sind die Programme `dpkg-deb` und `appimagetool`. Falls sie fehlen
 1. `git clone <REPO>` (Repository, Sammlung der Dateien)
 2. `cd modultool`
 3. `bash tools/selfcheck.sh`
-4. `bash tools/start_tool.sh`
+4. `npm start`  # startet das Tool
 5. Browser öffnet sich automatisch
 
 ## 🌐 Lokaler Testserver
@@ -135,6 +135,7 @@ python3 -m http.server
 Öffne danach `http://localhost:8000` im Browser. So lassen sich alle Module testen, ohne Dateien doppelt anzuklicken.
 ## ♻ Optimierungsideen
 - Nutze `npm run selfcheck` (führt das Prüfskript aus).
+- Aktualisiere die Modulversionen mit `npm run sync`.
 - Sichere Zwischenstände mit `git stash` (temporärer Speicher).
 - Erstelle neue Module mit `node tools/create_module.js modulID "Titel"`.
 

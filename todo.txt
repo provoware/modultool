@@ -200,3 +200,7 @@
 - [x] Theme-Farben zentral in modules/common.css definieren (Theme = Farbpalette).
 - [ ] Schaltflaechen-Stil zentral in modules/common.css definieren
 - [x] Story-Sampler-Modul ergänzt
+- [x] Startskript über npm start verfügbar
+- [x] Abschnitt "Updates und Versionen" in LAIENHILFE ergänzt
+- [x] README mit Hinweisen auf npm start und npm run sync
+- [x] Modulversionen mit npm run sync aktualisiert

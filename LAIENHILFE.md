@@ -1432,3 +1432,22 @@ python3 -m http.server
   1. Drücke `Strg+Shift+I` im Browser, um die Entwicklerwerkzeuge zu öffnen.
   2. Klicke auf das Handy-Icon (Device Toolbar).
   3. Ändere die Breite und beobachte das Layout.
+
+## Updates und Versionen
+
+Um das Tool aktuell zu halten, gibt es zwei einfache Befehle:
+
+```bash
+npm start
+```
+
+*Startet den lokalen Server über das Skript `start_tool.sh`.*
+
+```bash
+npm run sync
+```
+
+*Aktualisiert die Liste der Modul-Versionen über `lib/update_manager.js`.*
+
+Nach dem Aktualisieren kannst du `npm update` ausführen, um alle Pakete auf den
+neuesten Stand zu bringen.
