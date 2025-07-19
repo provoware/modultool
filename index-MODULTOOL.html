@@ -418,8 +418,8 @@
         <button id="importInsertBtn" onclick="insertImportedPanel()" style="display:none;">Einfügen</button>
         <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
       </section>
-      <section class="mod-panel" id="panel7" tabindex="0">
-        <h2>Notizen</h2>
+      <section class="mod-panel" id="panel7" tabindex="0" role="region" aria-labelledby="panel7-head">
+        <h2 id="panel7-head">Notizen</h2>
         <textarea id="notesArea" rows="6" placeholder="Schreibe deine Notizen..."></textarea>
         <div style="margin-top:.5em;display:flex;gap:.5em;">
           <button onclick="saveNotes()">Speichern</button>
@@ -575,6 +575,7 @@ let notesData = '';
 const WEIGHT_KEY = 'genreWeights_vGRIDSB';
 let genreWeights = {};
 let searchTerm = '';
+let searchTimer;
 /* Logging und Selfcheck */
 let debugLogArr = [];
 let dashLogArr = [];
@@ -927,9 +928,13 @@ document.getElementById('tmplForm').onsubmit = function(e) {
 };
 /* Suche im Archiv */
 document.getElementById('searchInput').oninput = function() {
-  searchTerm = this.value;
-  document.getElementById('clearSearch').style.display = searchTerm ? '' : 'none';
-  renderList();
+  const val = this.value;
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchTerm = val;
+    document.getElementById('clearSearch').style.display = searchTerm ? '' : 'none';
+    renderList();
+  }, 200);
 };
 document.getElementById('clearSearch').onclick = function() {
   searchTerm = '';

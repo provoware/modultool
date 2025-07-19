@@ -1,5 +1,6 @@
 node_modules/
 logs/
+!logs/completed.log
 data/*.log
 *.tmp
 data/todo_backup_*.txt

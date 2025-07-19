@@ -981,6 +981,16 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   ```
   *(Erzeugt einen Bericht über mögliche Zugänglichkeits-Probleme.)*
 
+- **Panels eindeutig zuordnen (aria-labelledby = Verknüpfung von Überschrift)**
+  Stelle sicher, dass jedes Panel mit `role="region"` ein passendes `aria-labelledby` besitzt:
+  ```html
+  <section role="region" aria-labelledby="panel7-head">
+    <h2 id="panel7-head">Notizen</h2>
+    ...
+  </section>
+  ```
+  *(Hilft Bildschirmlesern, den Bereich richtig zu benennen.)*
+
 - **Version erhöhen und Changelog (Änderungsliste) erstellen**
   ```bash
   npm version patch
@@ -1058,6 +1068,21 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   npm install lodash.debounce
   ```
   *(`lodash.debounce` verzögert eine Funktion, bis kurz Ruhe ist. Praktisch für Suchfelder.)*
+
+- **Suche wartet kurz bevor sie filtert (Debounce = Verzögerung)**
+  ```js
+  // Datei index-MODULTOOL.html
+  let searchTimer;
+  document.getElementById('searchInput').oninput = function() {
+    const val = this.value;
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      searchTerm = val;
+      renderList();
+    }, 200);
+  };
+  ```
+  *(So wird die Liste erst nach 0,2 Sekunden aktualisiert. Tippfehler landen nicht sofort im Ergebnis.)*
 
 - **Layout automatisch anpassen (CSS Grid = flexible Anordnung)**
   ```css

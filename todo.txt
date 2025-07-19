@@ -40,7 +40,6 @@
 - [x] Neues Modul panel11 "FAQ" einbinden
 - [ ] Zufallsmodi mit Profilgewichtung implementieren
 - [ ] Logging ins Dashboard einbauen
-- [ ] Clipboard-Funktion mit Feedback-Farben
 - [ ] CSS responsiv machen, Test mit Axe/WAVE
 - [ ] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [ ] Dokumentation aktualisieren (README, AGENTS)
@@ -224,7 +223,6 @@
 - [ ] JavaScript-Code pr\u00fcfen mit ESLint (Linting = Fehler- und Stilpr\u00fcfung). Befehl: `npx eslint .`
 - [x] Import-Dateien checken: nur JSON und unter 1 MB (Security = Schutz vor großen oder fremden Dateien). Beispiel im Code: `if(file.size>1000000||!file.name.endsWith('.json')) return alert('Datei zu groß oder kein JSON');`
 - [x] Versionsnummer in localStorage speichern (Versionierung = Daten einfach aktualisieren). Befehl: `localStorage.setItem('DATA_VERSION','1')`
-- [ ] Suche entprellen (Debounce = kurze Wartezeit vor dem Suchlauf). Befehl: `npm install lodash.debounce`
 - [ ] Dynamische Elemente mit eindeutigen IDs versehen (ID = unverwechselbare Kennung). Beispiel: `elem.id='panel-'+index`
 - [ ] Service Worker einrichten für Offline-Betrieb (PWA = Webapp zum Installieren). Befehl: `npx workbox-cli wizard`
 
@@ -250,7 +248,6 @@
 - [ ] Farbwerte vereinheitlichen und Design-Token nutzen. Datei öffnen mit `nano modules/common.css`
 - [ ] Panel-Kopfzeilen einheitlich benennen. Fundstellen anzeigen mit `grep -n head modules/*.html`
 - [ ] Logging zusammenführen (debugLogArr und dashLogArr). Fundstellen suchen: `grep -n dashLogArr -r`
-- [ ] role="region" immer mit aria-labelledby verknüpfen. Beispiel: `<div role="region" aria-labelledby="panel1-head">`
 - [ ] Verschachtelte Buttons vermeiden. Kontrollieren: `grep -n "<button" -r modules`
 - [ ] Kontrast im hellen Theme optimieren. Farbe in `modules/common.css` anpassen (`nano modules/common.css`)
 - [ ] Fokus-Ring-Farbe an Rahmen angleichen. Variable `--focus-ring` in `modules/common.css` definieren
