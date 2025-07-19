@@ -126,7 +126,7 @@ Voraussetzung sind die Programme `dpkg-deb` und `appimagetool`. Falls sie fehlen
 2. `cd modultool`
 3. `bash tools/selfcheck.sh`
 4. `npm start`  # startet das Tool
-5. Browser öffnet sich automatisch
+5. Browser öffnet sich automatisch. Ein Willkommensfenster erscheint und schließt sich nach 20 Sekunden. Mit **Esc** oder dem kleinen **X** oben rechts kannst du es sofort schließen.
 
 ## 🌐 Lokaler Testserver
 Um die HTML-Dateien bequem auszuprobieren, kannst du einen kleinen Webserver starten.

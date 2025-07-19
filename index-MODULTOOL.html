@@ -274,6 +274,7 @@
     .flash-error {background:var(--remove) !important; transition:background .3s;}
     .intro-overlay {position:fixed;inset:0;background:rgba(0,0,0,.85);color:var(--text);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;text-align:center;padding:1em;}
     .intro-overlay button{margin-top:1em;padding:.6em 1.2em;border:none;border-radius:.4em;background:var(--button);color:var(--text);font-size:1.1em;cursor:pointer;}
+    .intro-overlay .intro-close{position:absolute;top:.5em;right:.5em;background:none;font-size:1.4em;border:none;color:var(--text);cursor:pointer;}
     @media (max-width: 1100px) {
       .mod-panel {max-height:none;}
     }
@@ -302,8 +303,9 @@
 <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.0.3/dist/purify.min.js"></script>
 </head>
 <body>
-<div id="introOverlay" class="intro-overlay">
-  <h2>Willkommen im Modultool!</h2>
+<div id="introOverlay" class="intro-overlay" role="dialog" aria-labelledby="introTitle">
+  <button class="intro-close" aria-label="Fenster schließen" onclick="hideIntro()">×</button>
+  <h2 id="introTitle">Willkommen im Modultool!</h2>
   <p>Der lokale Server läuft. Diese Seite wurde automatisch geöffnet.</p>
   <p>Klicke auf "Los geht's", um die Oberfläche zu nutzen.</p>
   <button title="Willkommensfenster schließen" onclick="hideIntro()">Los geht's</button>
@@ -1203,6 +1205,7 @@ async function loadRegisteredPanels(){
 loadRegisteredPanels();
 // Intro-Overlay nach 20 Sekunden automatisch ausblenden
 setTimeout(hideIntro, 20000);
+document.addEventListener('keyup', e => { if(e.key === 'Escape') hideIntro(); });
 function hideIntro(){
   const el = document.getElementById('introOverlay');
   if(el) el.style.display='none';

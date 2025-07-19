@@ -42,7 +42,7 @@ bash tools/start_tool.sh
 
 Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und öffnet die Seite automatisch im Browser.
 
-Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Sekunden automatisch oder per Klick auf 'Los geht's'.
+Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Sekunden automatisch oder per Klick auf "Los geht's". Neu: Oben rechts gibt es ein kleines "X". Ein Druck auf **Esc** oder ein Klick auf dieses X blendet das Fenster ebenfalls aus.
 1. Wechsel im Terminal in den Projektordner.
 2. Starte einen kleinen Webserver mit `python3 -m http.server`. (Damit werden die Dateien lokal bereitgestellt.)
 3. Öffne dann `http://localhost:8000/index-MODULTOOL.html` im Browser (Programm zum Surfen im Internet).
@@ -1552,3 +1552,20 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
 2. Auf der GitHub-Seite siehst du unter **Actions** den Ablauf `Lint and Test`.
    Er ruft `npm run lint`, `npm test` und `bash tools/selfcheck.sh` auf.
 3. Bei Erfolg steht ein grünes Häkchen neben dem Commit. Fehler kannst du dort nachlesen.
+
+## Weitere Laienvorschläge
+
+- **Startfenster schließen**
+  Drücke die Taste **Esc** oder klicke oben rechts auf **X**, wenn das Willkommensfenster erscheint.
+
+- **Backup der Daten (zip = komprimierte Datei)**
+  ```bash
+  zip -r backup_$(date +%Y-%m-%d).zip data/ modules/ panels/
+  ```
+  *(Erzeugt eine Sicherungsdatei mit Datum im Namen.)*
+
+- **Aufgabenliste anzeigen**
+  ```bash
+  cat todo.txt
+  ```
+  *(Zeigt alle offenen Punkte an.)*
