@@ -50,7 +50,7 @@
 - [ ] Dialog-Schreiber mit Charakterverwaltung bauen
 - [ ] Info-Manager für eigene Befehle anlegen
 - [x] Zitaten-Modul mit Notizfeld umsetzen
-- [ ] Interaktiven Modulbaukasten erstellen
+- [x] Interaktiven Modulbaukasten erstellen
 - [x] Anleitung zum Selbstcheck im README ergänzt
 - [x] modules.json erstellt (enthält angemeldete Panels)
 - [x] README um Hinweis zu modules.json ergänzt

@@ -325,6 +325,15 @@ python3 -m http.server
 - Info-Manager zum Sammeln von Befehlen
 - Zitaten-Modul mit Autor- und Zitatfeld
 - Interaktiver Modulbaukasten
+### Modulbaukasten nutzen
+1. Starte einen lokalen Server, zum Beispiel:
+```bash
+python3 -m http.server
+```
+2. Rufe `http://localhost:8000/modules/module_builder.html` im Browser auf.
+3. Gib eine **Modul-ID** und einen **Titel** ein.
+4. Klicke auf **HTML anzeigen**. Kopiere den Code in eine neue Datei im Ordner `modules`.
+
 ## Mit der Tastatur arbeiten
 
 1. Du kannst alle Module auch ohne Maus bedienen.
