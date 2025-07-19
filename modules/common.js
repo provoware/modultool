@@ -14,3 +14,25 @@ export function addDashboard(value, key = 'dashboardLog') {
     console.warn('Dashboard-Log konnte nicht gespeichert werden', e);
   }
 }
+
+// Daten als JSON im LocalStorage sichern
+export function saveJSON(key, data) {
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+    return true;
+  } catch (e) {
+    console.warn('Speichern fehlgeschlagen', e);
+    return false;
+  }
+}
+
+// Daten aus dem LocalStorage laden
+export function loadJSON(key, fallback = null) {
+  try {
+    const text = localStorage.getItem(key);
+    return text ? JSON.parse(text) : fallback;
+  } catch (e) {
+    console.warn('Laden fehlgeschlagen', e);
+    return fallback;
+  }
+}

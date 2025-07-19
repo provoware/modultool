@@ -1,5 +1,5 @@
 # Liste mit offenen Aufgaben
-- [ ] plugin.json pro Pluginverzeichnis anlegen
+- [x] plugin.json pro Pluginverzeichnis anlegen
 - [x] lib/update_manager.js erstellen
 - [ ] Unit- und Integrationstests einrichten
 - [ ] GitHub Actions für Linting und Testing hinzufügen
@@ -63,7 +63,8 @@
 
 - [ ] Letzter Selfcheck vor dem Release
 - [ ] README um Releasenotizen ergaenzen
-- [ ] finale Platzhalter-Datei erstellen
+- [x] finale Platzhalter-Datei erstellen
+- [x] Platzhalter-Beispiel erweitert
 - [ ] Weitere Module über das Script erstellen und testen
 - [ ] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/selfcheck.sh`)
 - [ ] DEB- und AppImage-Paket bauen
@@ -77,7 +78,7 @@
 - [ ] Modul-Übersicht per Skript in module_übersicht.txt aktualisieren
 - [ ] Release vorbereiten: Selfcheck, README final prüfen, Release-Tag erstellen
 - [ ] Autoupdate-Skripte entfernt, Infos manuell pflegen
-- [ ] plugin.json pro Pluginverzeichnis anlegen (Manifest mit Name und Version)
+- [x] plugin.json pro Pluginverzeichnis anlegen (Manifest mit Name und Version)
 - [x] zentrale Update-Bibliothek in lib/ erstellen (update_manager.js)
 - [ ] Unit- und Integrationstests einrichten
 - [ ] GitHub Actions für Linting und Testing hinzufügen
@@ -205,3 +206,6 @@
 - [x] Abschnitt "Updates und Versionen" in LAIENHILFE ergänzt
 - [x] README mit Hinweisen auf npm start und npm run sync
 - [x] Modulversionen mit npm run sync aktualisiert
+- [x] Weiterfuehrende Laienvorschlaege ergaenzt
+- [ ] Offene Punkte aus AGENTS-RELEASE-CHECK.md bearbeiten
+- [x] Release-Checkliste in LAIENHILFE ergänzt
