@@ -50,9 +50,9 @@
 - [ ] Info-Manager für eigene Befehle anlegen
 - [ ] Zitaten-Modul mit Notizfeld umsetzen
 - [ ] Interaktiven Modulbaukasten erstellen
-- Anleitung zum Selbstcheck im README ergänzt
-- modules.json erstellt (enthält angemeldete Panels)
-- README um Hinweis zu modules.json ergänzt
+- [x] Anleitung zum Selbstcheck im README ergänzt
+- [x] modules.json erstellt (enthält angemeldete Panels)
+- [x] README um Hinweis zu modules.json ergänzt
 - Nach jeder Änderung: `bash tools/selfcheck.sh` ausführen (Selbsttest)
 - MIT-Lizenz hinzugefuegt (LICENSE-Datei, Verweis in README)
 - AGENTS.md Codeblock geschlossen (triple backticks).
@@ -139,7 +139,15 @@
 - [ ] Gewichtete Zufallsauswahl vor dem Anzeigen laden. Befehl: `window.addEventListener("DOMContentLoaded", initWeights);`
 - [x] fetch("modules.json") mit Fehlermeldung absichern. Beispiel:
   ```js
-  fetch("modules.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); });
+  async function loadRegisteredPanels(){
+    const res = await fetch('modules.json');
+    if(!res.ok){
+      if(res.status === 404) throw new Error('Modulliste nicht gefunden (404)');
+      throw new Error('HTTP '+res.status);
+    }
+    const cfg = await res.json();
+    cfg.modules.forEach(m => loadPanel(m.id));
+  }
   ```
 - [ ] Logeinträge im localStorage speichern (Ringpuffer = nur die letzten 50). Befehl: `localStorage.setItem("logs", JSON.stringify(logs.slice(-50)))`
 - [ ] Selfcheck-Fehler direkt mit Lösung verlinken. Befehl: `node tools/map_errors.js`

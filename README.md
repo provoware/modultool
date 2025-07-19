@@ -141,6 +141,18 @@ python3 -m http.server
 - Über das Dropdown **Fokus-Modus** blendest du alle anderen Panels aus und siehst ein Modul bildschirmfüllend.
 - Halte **Strg** gedrückt und rolle mit dem Mausrad, um hinein- oder herauszuzoomen (Browser-Zoom). Mit **Strg+0** stellst du die Normalgröße wieder her.
 - Das Tool passt sich nach dem Zoomen automatisch an (Auto-Scale). Kein Neuladen nötig.
+## ❓ Fehlerbehebung modules.json
+Wenn die Meldung *"Modulliste nicht gefunden (404)"* erscheint, kontrolliere im Terminal:
+```bash
+ls -l modules.json
+```
+Fehlt die Datei, lege sie neu an und trage deine Module ein.
+
+Bei *"modules.json defekt"* öffne die Datei und prüfe die Klammern:
+```bash
+nano modules.json
+```
+Speichere mit **Strg+O**, beende mit **Strg+X** und lade die Seite neu.
 
 ## Hilfe
 
