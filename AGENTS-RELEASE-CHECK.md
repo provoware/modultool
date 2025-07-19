@@ -7,7 +7,7 @@ Diese Liste sammelt offene Aufgaben für den finalen Release. Pro Iteration soll
 - [x] plugin.json pro Pluginordner anlegen
 - [x] lib/update_manager.js erstellen
 - [x] config_schema.json einführen
-- [ ] Unit- und Integrationstests einrichten
+- [x] Unit- und Integrationstests einrichten
 - [ ] GitHub Actions für Linting und Testing aktivieren
 - [ ] ZIP-Backup-Modul fertigstellen
 - [ ] Undo/Redo-Funktion implementieren

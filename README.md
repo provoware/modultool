@@ -138,6 +138,7 @@ python3 -m http.server
 Öffne danach `http://localhost:8000` im Browser. So lassen sich alle Module testen, ohne Dateien doppelt anzuklicken.
 ## ♻ Optimierungsideen
 - Nutze `npm run selfcheck` (führt das Prüfskript aus).
+- Starte die neuen Unit-Tests mit `npm test`.
 - Aktualisiere die Modulversionen mit `npm run sync`.
 - Sichere Zwischenstände mit `git stash` (temporärer Speicher).
 - Erstelle neue Module mit `node tools/create_module.js modulID "Titel"`.

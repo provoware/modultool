@@ -1,7 +1,7 @@
 # Liste mit offenen Aufgaben
 - [x] plugin.json pro Pluginverzeichnis anlegen
 - [x] lib/update_manager.js erstellen
-- [ ] Unit- und Integrationstests einrichten
+- [x] Unit- und Integrationstests einrichten
 - [ ] GitHub Actions für Linting und Testing hinzufügen
 - [ ] ZIP-Backup-Modul fertigstellen
 - [ ] Undo/Redo-Funktion implementieren
@@ -81,7 +81,7 @@
 - [ ] Autoupdate-Skripte entfernt, Infos manuell pflegen
 - [x] plugin.json pro Pluginverzeichnis anlegen (Manifest mit Name und Version)
 - [x] zentrale Update-Bibliothek in lib/ erstellen (update_manager.js)
-- [ ] Unit- und Integrationstests einrichten
+- [x] Unit- und Integrationstests einrichten
 - [ ] GitHub Actions für Linting und Testing hinzufügen
 - [ ] Schritt-für-Schritt-Assistenten für Modul-Erstellung planen
 - [ ] Barrierefreiheit automatisch prüfen (axe-core)

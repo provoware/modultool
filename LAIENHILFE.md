@@ -796,6 +796,13 @@ In dieser Datei beschreibst du, welche Einstellungen erlaubt sind.
 bash tools/selfcheck.sh
 ```
 Der Selfcheck ruft HTML-, JSON- und Shell-Pr\u00fcfungen auf.
+### 7.1 Unit-Tests ausführen
+Für eigene Tests wird das Paket *Mocha* (Test-Framework) genutzt.
+```bash
+npm test
+```
+*(Startet alle Dateien im Ordner `test/` mit der Endung `.test.js`.)*
+
 ### 8. \u00c4nderungen hochladen
 ```bash
 git add .
@@ -1012,6 +1019,11 @@ Falls Node (Laufzeit für JavaScript) installiert ist, reicht ein kurzer Befehl:
 npm run selfcheck
 ```
 Damit rufst du `tools/selfcheck.sh` auf und prüfst das Projekt automatisch.
+```
+npm test
+```
+*(Führt die Unit-Tests aus.)*
+
 
 ## Gemeinsame CSS-Datei
 Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral anpassen.
@@ -1046,7 +1058,7 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   *(Startet den Selfcheck jeden Montag um 7 Uhr automatisch.)*
 ## Kurze Release-Checkliste
 Folgende Aufgaben sind noch offen:
-- [ ] Unit- und Integrationstests einrichten
+- [x] Unit- und Integrationstests einrichten
 - [ ] GitHub Actions für Linting und Tests
 - [ ] ZIP-Backup-Modul fertigstellen
 - [ ] Undo/Redo-Funktion
