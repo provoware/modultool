@@ -18,6 +18,7 @@ export function begruessung() {
 # Mit saveJSON() und loadJSON() aus common.js lassen sich Daten einfach sichern.
 # Beispiel: Speichere die aktuelle Zeit in "exampleData" und lade sie wieder.
 import { saveJSON, loadJSON, deleteJSON } from './common.js';
+import { saveJSON, loadJSON } from './common.js';
 
 export function demoSpeichern() {
   const obj = { time: new Date().toISOString() };
