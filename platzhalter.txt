@@ -34,7 +34,7 @@
 - [x] Dokumentation aktualisieren (README, AGENTS)
 - [x] Fehlende Dateien und Ordner mit Platzhaltern anlegen
 - [x] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
-- [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
+- [x] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
 - [x] Bugfix: Startbildschirm schließt per X-Button
 - [ ] Automatische Validierung jedes Moduls vor Aktivierung
 - [x] Farbkontrast-Optimierung nach WCAG umsetzen
@@ -218,3 +218,17 @@
 - [x] Willkommensfenster per X oder Esc schließen
 - [x] Startskript installiert fehlende Node-Pakete automatisch
 - [x] Globale Standards dokumentiert
+- [ ] 3-Spalten-Grid mit `clamp()` umsetzen
+- [ ] Fokusmodus per Body-Klasse aktivieren
+- [ ] Feste Höhen in Panels entfernen
+- [ ] Fluides Schriftbild mit `clamp()` für Textgrößen
+- [ ] Sticky-Header und Scroll nur bei Bedarf
+- [ ] Einheitliche Button-Klasse in common.css
+- [ ] Statusmeldungen vom Layout trennen (Toast-Layer)
+- [ ] Scrollposition beim Panelwechsel merken
+- [ ] Module vor dem Import mit DOMPurify reinigen
+- [ ] Platzhaltertexte bei leeren Listen anzeigen
+- [ ] `max-height:470px` im Layout entfernen
+- [ ] Sidebars mit `clamp()` breiter machen
+- [ ] Fokusmodus-Panel immer 100% Höhe
+- [ ] Reservefläche für Statusmeldungen einplanen

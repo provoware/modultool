@@ -1645,3 +1645,44 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
   node -e "localStorage.clear()"
   ```
   *(Entfernt gespeicherte Favoriten und andere Einstellungen.)*
+
+## Weitere Laienvorschläge zu Layout und Geschwindigkeit
+
+- **Dreispaltiges Raster verwenden (Grid = Raster)**
+  ```css
+  grid-template-columns: repeat(3, minmax(clamp(12rem, 30vw, 20rem), 1fr));
+  ```
+  *("clamp" begrenzt eine Größe nach unten und oben. So bleiben die Spalten flexibel.)*
+
+- **Fokusmodus einschalten**
+  Füge dem `<body>` die Klasse `focus` hinzu. Ein gewähltes Panel füllt dann den ganzen Bildschirm.
+
+- **Keine festen Höhen**
+  Schreibe `height: auto;` in deine CSS-Regeln. Die Felder wachsen dann automatisch.
+
+- **Schriftgrößen flüssig skalieren (Typografie = Schriftbild)**
+  ```css
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  ```
+  *(Passt die Schrift an kleine und große Bildschirme an.)*
+
+- **Nur wo nötig scrollen**
+  Setze `overflow: auto;` für Listen und `position: sticky;` für Kopfzeilen. So bleibt der Rest stabil.
+
+- **Einheitliche Button-Klasse**
+  Vergib allen Knöpfen `class="btn"`. In `modules/common.css` legst du Farbe und Größe fest.
+
+- **Statusmeldungen separat anzeigen (Toast-Layer)**
+  Halte einen kleinen Bereich frei und blende dort Hinweise kurz ein.
+
+- **Scrollposition merken**
+  Speichere vor dem Panelwechsel `window.scrollY` und stelle ihn danach wieder her.
+
+- **HTML vor dem Einfügen reinigen (Sanitizing = säubern)**
+  ```js
+  const sauber = DOMPurify.sanitize(htmlText);
+  element.innerHTML = sauber;
+  ```
+
+- **Platzhaltertexte nutzen**
+  Zeige bei leeren Listen einen Hinweis wie "Noch nichts gespeichert" an.
