@@ -1614,3 +1614,14 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
   npm test
   ```
   *(Stellt sicher, dass alles funktioniert.)*
+- **Favoriten-Startseite öffnen**
+  ```bash
+  xdg-open modules/favorites_start_screen.html
+  ```
+  *(Zeigt deine markierten Lieblings-Module im Browser an. "xdg-open" öffnet eine Datei mit dem Standardprogramm.)*
+
+- **Favoriten zurücksetzen (localStorage = Speicher im Browser)**
+  ```bash
+  node -e "localStorage.clear()"
+  ```
+  *(Entfernt gespeicherte Favoriten und andere Einstellungen.)*

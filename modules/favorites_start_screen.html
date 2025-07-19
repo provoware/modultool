@@ -1,2 +1,53 @@
 <!DOCTYPE html>
-<div>Placeholder for favorites_start_screen.html</div>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Favoriten-Start</title>
+  <style>
+    #favStart{display:grid;gap:0.5rem;max-width:340px;margin:auto;font-family:var(--font-family,sans-serif);}
+    button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+    .fav-list{list-style:none;padding:0;margin:0;}
+    .fav-list li{margin:.3rem 0;}
+  </style>
+</head>
+<body>
+<div id="favStart">
+  <h2>Favoriten</h2>
+  <ul id="favList" class="fav-list"></ul>
+</div>
+<script type="module">
+import { loadJSON } from './common.js';
+const FAV_KEY='modFavorites_v1';
+const list=document.getElementById('favList');
+async function loadModules(){
+  try{
+    const res=await fetch('modules.json');
+    if(!res.ok) throw new Error(res.status);
+    const data=await res.json();
+    return data.modules||[];
+  }catch(e){
+    console.warn('Modules konnten nicht geladen werden',e);
+    return [];
+  }
+}
+function render(mods,favs){
+  list.innerHTML='';
+  favs.forEach(id=>{
+    const mod=mods.find(m=>m.id===id);
+    if(!mod) return;
+    const li=document.createElement('li');
+    const btn=document.createElement('button');
+    btn.textContent=mod.title;
+    btn.addEventListener('click',()=>window.open(mod.file,'_blank'));
+    li.appendChild(btn);
+    list.appendChild(li);
+  });
+}
+(async()=>{
+  const mods=await loadModules();
+  const favs=loadJSON(FAV_KEY,[]);
+  render(mods,favs);
+})();
+</script>
+</body>
+</html>

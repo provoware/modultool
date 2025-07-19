@@ -99,6 +99,11 @@
       "id": "zipbackup",
       "title": "ZIP-Backup",
       "file": "modules/zip_backup.html"
+    },
+    {
+      "id": "favstart",
+      "title": "Favoriten-Start",
+      "file": "modules/favorites_start_screen.html"
     }
   ]
 }
