@@ -2062,3 +2062,30 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   tail -f logs/error.log
   ```
   *(Damit siehst du sofort neue Fehlermeldungen. Beende mit Strg+C.)*
+
+## Weitere Laienvorschläge (Zusatz 7)
+
+- **Ordnerstruktur erstellen (mkdir = Ordner anlegen)**
+  ```bash
+  mkdir -p gui core assets backups
+  ```
+  *(Legt alle Grundordner an. Kleinbuchstaben und keine Leerzeichen.)*
+
+- **Modulgerüst kopieren (create_module = Modulvorlage)**
+  ```bash
+  node tools/create_module.js beispiel "Mein erstes Modul"
+  ```
+  *(Erzeugt HTML-Vorlage und plugin.json automatisch.)*
+
+- **Neues Grundgerüst laden (module_template.js)**
+  ```javascript
+  import ModuleTemplate from './gui/module_template.js';
+  ```
+  *(Diese Klasse kannst du für eigene Module ableiten.)*
+
+- **Dashboard anzeigen (Browser = Anzeigeprogramm)**
+  ```bash
+  bash tools/start_tool.sh --no-browser
+  xdg-open http://localhost:8000/index-MODULTOOL.html
+  ```
+  *(Startet den Server und öffnet das Dashboard im Browser.)*

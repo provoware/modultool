@@ -295,3 +295,9 @@
 - [ ] Shortcut-Übersicht per F10 anzeigen
 - [ ] Zurück-Button nach Modul-Maximierung
 - [ ] Fehlerprotokoll live im Footer darstellen
+# Weitere Laienvorschläge (Zusatz 7)
+- [ ] Grundordner gui/core/assets/backups erstellen
+- [ ] Modultemplate als Klasse speichern
+- [ ] Einfaches Dashboard-Skript anlegen
+- [ ] README mit neuer Struktur aktualisieren
+
