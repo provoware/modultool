@@ -1406,6 +1406,17 @@ python3 -m http.server
 1. Öffne `http://localhost:8000/modules/quote_manager.html`.
 2. Klicke auf **Exportieren**. Du bekommst die Datei `quotes.json`.
 
+### Eigene Texte exportieren
+```bash
+python3 -m http.server
+```
+*(Server starten)*
+1. Rufe `http://localhost:8000/modules/direct_exporter.html` auf.
+2. Schreibe deinen Text in das Feld.
+3. Dateinamen eingeben und auf **Als Text speichern** klicken.
+4. Für eine JSON-Datei wähle **Als JSON speichern**.
+5. Die Datei landet im Download-Ordner.
+
 
 ## Weiterführende Laienvorschläge zur Oberfläche
 

@@ -45,6 +45,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 - **Panel12: Wiki** – Wissenseinträge speichern
 - **Panel13: Blog-Editor** – Blogartikel verfassen
 - **Panel14: Fehler & Hilfe** – Fehlermeldungen anzeigen
+- **Direkt-Export** – Text oder JSON direkt herunterladen
 ---
 
 ## 🧠 Features
@@ -58,6 +59,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 - Automatisches Update via `bash tools/autoupdate.sh`
 - Zentrales Konfigurationsschema (`config_schema.json`)
 - Warnung vor ungespeicherten Änderungen beim Verlassen
+- Direkt-Export-Modul für Text und JSON
 
 - Beispielmodule: Story-Sampler, Info-Manager, Modul-Baukasten
 
@@ -67,7 +69,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 - Modul-Prüfung vor Aktivierung
 - Farbkontrast-Optimierung nach WCAG
 - Fokusmodus und Tooltip-Akademie
-- Querverlinkung und Direkt-Export
+- Querverlinkung zwischen Panels
 - ZIP-Import mit Verteilung
 - Schreibschutz pro Panel
 - Fehler-Erkennung mit Korrektur
