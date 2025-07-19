@@ -1278,7 +1278,7 @@ setTimeout(hideIntro, 20000);
 document.addEventListener('keyup', e => { if(e.key === 'Escape') hideIntro(); });
 function hideIntro(){
   const el = document.getElementById('introOverlay');
-  if(el) el.style.display='none';
+  if(el) el.remove();
 }
 function openHelp(){
   window.open('LAIENHILFE.md','_blank');

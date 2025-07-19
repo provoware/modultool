@@ -1599,3 +1599,15 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
   bash tools/manage_projects.sh delete Test # löscht "Test"
   ```
   *(Mit dem Skript kannst du Projekte erstellen, auswählen, löschen und das aktuelle anzeigen.)*
+
+- **Favoriten-Startseite öffnen**
+  ```bash
+  xdg-open modules/favorites_start_screen.html
+  ```
+  *(Zeigt deine markierten Lieblings-Module im Browser an. "xdg-open" öffnet eine Datei mit dem Standardprogramm.)*
+
+- **Favoriten zurücksetzen (localStorage = Speicher im Browser)**
+  ```bash
+  node -e "localStorage.clear()"
+  ```
+  *(Entfernt gespeicherte Favoriten und andere Einstellungen.)*
