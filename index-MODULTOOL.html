@@ -178,12 +178,14 @@
     .main-content { grid-column:3; width:100%; height:100%; display:flex; justify-content:center; align-items:stretch; transition: width .17s;}
     .grid-main {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-auto-rows: minmax(160px, auto);
+      grid-auto-flow: row dense;
       gap: 1.15rem;
-      max-width: 1380px; min-height:70vh; margin: 22px auto 24px auto;
+      max-width: 1380px;
       width: 97vw;
-      transition: grid-template-columns .25s, grid-template-rows .25s;
+      margin: 22px auto 24px auto;
+      min-height: 70vh;
     }
     .mod-panel {
       background: var(--area); border-radius: 1.55rem; box-shadow: 0 4px 18px var(--shadow);
@@ -264,19 +266,16 @@
     .intro-overlay {position:fixed;inset:0;background:rgba(0,0,0,.85);color:var(--text);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;text-align:center;padding:1em;}
     .intro-overlay button{margin-top:1em;padding:.6em 1.2em;border:none;border-radius:.4em;background:var(--button);color:var(--text);font-size:1.1em;cursor:pointer;}
     @media (max-width: 1100px) {
-      .grid-main { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, minmax(150px, 1fr)); }
       .mod-panel {max-height:none;}
     }
     @media (max-width: 780px) {
       .app-frame {grid-template-columns: 1fr var(--dragbar-width) 100vw var(--dragbar-width) 1fr;}
-      .grid-main { grid-template-columns: 1fr; grid-template-rows: repeat(9, minmax(100px, 1fr)); }
       .sidebar {width:96vw;min-width:90vw;max-width:99vw;}
     }
     @media (max-width: 480px) {
       header {font-size:1.2em;}
       .sidebar {width:98vw;min-width:98vw;max-width:98vw;}
       .app-frame {grid-template-columns:1fr;}
-      .grid-main {grid-template-rows: repeat(9, minmax(120px,1fr));}
       header.top-header {flex-direction:column;gap:.3em;}
       #copySelBtn {margin-left:0;margin-top:.3em;}
     }

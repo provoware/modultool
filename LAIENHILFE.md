@@ -1058,3 +1058,13 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   npm install lodash.debounce
   ```
   *(`lodash.debounce` verzögert eine Funktion, bis kurz Ruhe ist. Praktisch für Suchfelder.)*
+
+- **Layout automatisch anpassen (CSS Grid = flexible Anordnung)**
+  ```css
+  /* Datei index-MODULTOOL.html */
+  .grid-main {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: minmax(160px, auto);
+  }
+  ```
+  *(Die Module sortieren sich selbst. Bei kleinen Fenstern rutschen sie einfach untereinander.)*
