@@ -19,7 +19,7 @@
   <input id="modId" type="text" placeholder="z.B. panel15" />
   <label for="modTitle">Titel:</label>
   <input id="modTitle" type="text" placeholder="Mein Modul" />
-  <button id="createBtn">Vorlage erzeugen</button>
+  <button class="btn" id="createBtn" aria-label="Vorlage erzeugen">Vorlage erzeugen</button>
   <textarea id="result" aria-label="HTML-Vorlage"></textarea>
 </div>
 <script type="module">
@@ -48,7 +48,7 @@ document.getElementById('createBtn').addEventListener('click',()=>{
   <input id="id-input" aria-label="Modul-ID">
   <label for="title-input">Titel:</label>
   <input id="title-input" aria-label="Modul-Titel">
-  <button id="create-btn">HTML anzeigen</button>
+  <button class="btn" id="create-btn" aria-label="HTML anzeigen">HTML anzeigen</button>
   <textarea id="output" aria-label="Modul-Code"></textarea>
 </div>
 <script type="module">

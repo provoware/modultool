@@ -203,10 +203,10 @@
 
 - [ ] Kontrastwerte nach WCAG pruefen (Kontrast = Unterschied zwischen Vorder- und Hintergrund). Befehl: `npx lighthouse http://localhost:8000/index-MODULTOOL.html`
 - [x] Einheitliche Schriftgroesse per CSS-Variable `--base-font` in index-MODULTOOL.html setzen (base-font = Grundschrift).
-- [ ] Buttons und Links mit `aria-label` ergaenzen (ARIA = zusaetzliche Bildschirmleser-Beschreibung).
+- [x] Buttons und Links mit `aria-label` ergaenzen (ARIA = zusaetzliche Bildschirmleser-Beschreibung).
 - [x] Grid-Layout mit `grid-template-columns: repeat(auto-fit, minmax(320px,1fr))` in modules/common.css erweitern (Grid = Raster zur Anordnung).
 - [x] Theme-Farben zentral in modules/common.css definieren (Theme = Farbpalette).
-- [ ] Schaltflaechen-Stil zentral in modules/common.css definieren
+- [x] Schaltflaechen-Stil zentral in modules/common.css definieren
 - [x] Story-Sampler-Modul ergänzt
 - [x] Startskript über npm start verfügbar
 - [x] Abschnitt "Updates und Versionen" in LAIENHILFE ergänzt
