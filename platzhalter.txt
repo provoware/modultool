@@ -184,3 +184,4 @@
 - [ ] Web-App mit Lighthouse testen. Befehl: `npx lighthouse http://localhost:8000/index-MODULTOOL.html` (Lighthouse = Analyse für Performance und Barrierefreiheit).
 - [ ] Lokalen Server ohne Python starten. Befehl: `npx http-server` (http-server = einfacher Entwicklungsserver).
 - [x] Grid automatisch anpassen (auto-fit = Module passen sich der Fensterbreite an). CSS-Beispiel: `grid-template-columns: repeat(auto-fit, minmax(280px,1fr));`
+- [ ] Textdateien bereinigen (Whitespace & Newline)
