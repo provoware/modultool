@@ -243,3 +243,4 @@
 - [ ] Breakpoints feinjustieren und Wide Mode testen
 - [x] Scroll-Cache nutzen und Re-Render minimieren
 - [ ] CSS in Module aufteilen
+- [ ] Layout-Analyse und Sidebars optimieren
