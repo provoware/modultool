@@ -49,7 +49,7 @@
 - [ ] Songtext-Editor mit Titelfeld und Notiz speichern
 - [ ] Dialog-Schreiber mit Charakterverwaltung bauen
 - [ ] Info-Manager für eigene Befehle anlegen
-- [ ] Zitaten-Modul mit Notizfeld umsetzen
+- [x] Zitaten-Modul mit Notizfeld umsetzen
 - [ ] Interaktiven Modulbaukasten erstellen
 - [x] Anleitung zum Selbstcheck im README ergänzt
 - [x] modules.json erstellt (enthält angemeldete Panels)

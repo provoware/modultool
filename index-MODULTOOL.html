@@ -1077,6 +1077,8 @@ document.getElementById('clearSearch').onclick = function() {
 function toggleModPanel(idx) {
   const cb = document.getElementById('mod'+idx+'box');
   document.getElementById('panel'+idx).style.display = cb.checked ? '' : 'none';
+  renderFocusSelect();
+  updateFocusButtons();
 }
 function toggleModuleList(){
   const wrap=document.getElementById('moduleListWrap');

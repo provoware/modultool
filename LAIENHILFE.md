@@ -1360,3 +1360,15 @@ npm update        # aktualisiert diese Pakete automatisch
   python3 -m http.server
   ```
   *(Startet einen kleinen Server. Rufe `http://localhost:8000/modules/todo_list.html` auf und verwalte deine Aufgaben.)*
+
+## Zitate sammeln
+1. Starte einen lokalen Server:
+```bash
+python3 -m http.server
+```
+*(stellt die Dateien im Browser bereit)*
+2. Öffne `http://localhost:8000/modules/quote_manager.html`.
+3. Trage Autor, Zitat und optional eine Notiz ein.
+4. Mit **Hinzufügen** landet der Eintrag im localStorage (Browser-Speicher).
+5. Über **Kopieren** steht der Text in der Zwischenablage (Clipboard). **Löschen** entfernt ihn wieder.
+
