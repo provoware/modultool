@@ -2,7 +2,7 @@
 - [x] plugin.json pro Pluginverzeichnis anlegen
 - [x] lib/update_manager.js erstellen
 - [x] Unit- und Integrationstests einrichten
-- [ ] GitHub Actions für Linting und Testing hinzufügen
+- [x] GitHub Actions für Linting und Testing hinzufügen
 - [ ] ZIP-Backup-Modul fertigstellen
 - [ ] Undo/Redo-Funktion implementieren
 - [ ] Filter- und Favoriten-Funktion ergänzen
@@ -82,12 +82,12 @@
 - [x] plugin.json pro Pluginverzeichnis anlegen (Manifest mit Name und Version)
 - [x] zentrale Update-Bibliothek in lib/ erstellen (update_manager.js)
 - [x] Unit- und Integrationstests einrichten
-- [ ] GitHub Actions für Linting und Testing hinzufügen
+- [x] GitHub Actions für Linting und Testing hinzufügen
 - [ ] Schritt-für-Schritt-Assistenten für Modul-Erstellung planen
 - [ ] Barrierefreiheit automatisch prüfen (axe-core)
 
 - [ ] Unnötige Platzhalter-Dateien entfernen
-- [ ] GitHub-Workflow test.yml für automatische Prüfungen
+- [x] GitHub-Workflow test.yml für automatische Prüfungen
 
 
 - [ ] Startskript prüft Updates vor dem Start

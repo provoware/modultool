@@ -139,6 +139,7 @@ python3 -m http.server
 ## ♻ Optimierungsideen
 - Nutze `npm run selfcheck` (führt das Prüfskript aus).
 - Starte die neuen Unit-Tests mit `npm test`.
+- Bei jedem `git push` laufen GitHub Actions (automatische Abläufe) und prüfen den Code mit `npm run lint` und `npm test`.
 - Aktualisiere die Modulversionen mit `npm run sync`.
 - Sichere Zwischenstände mit `git stash` (temporärer Speicher).
 - Erstelle neue Module mit `node tools/create_module.js modulID "Titel"`.

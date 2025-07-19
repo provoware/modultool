@@ -1059,7 +1059,7 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
 ## Kurze Release-Checkliste
 Folgende Aufgaben sind noch offen:
 - [x] Unit- und Integrationstests einrichten
-- [ ] GitHub Actions für Linting und Tests
+- [x] GitHub Actions für Linting und Tests
 - [ ] ZIP-Backup-Modul fertigstellen
 - [ ] Undo/Redo-Funktion
 - [ ] Filter und Favoriten
@@ -1538,4 +1538,17 @@ neuesten Stand zu bringen.
   nano modules/.placeholder
   ```
   *(Am Ende findest du die Funktion `demoSpeichern`. Sie zeigt, wie `saveJSON` und `loadJSON` (Daten sichern und laden) funktionieren.)*
-  Dort gibt es jetzt auch `demoLoeschen`. Diese Funktion nutzt `deleteJSON` und entfernt den gespeicherten Eintrag wieder.
+Dort gibt es jetzt auch `demoLoeschen`. Diese Funktion nutzt `deleteJSON` und entfernt den gespeicherten Eintrag wieder.
+
+## GitHub Actions nutzen
+GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach jedem Hochladen (*Push*).
+
+1. Änderungen sichern und hochladen:
+   ```bash
+   git add .
+   git commit -m "Änderungen gespeichert"
+   git push
+   ```
+2. Auf der GitHub-Seite siehst du unter **Actions** den Ablauf `Lint and Test`.
+   Er ruft `npm run lint`, `npm test` und `bash tools/selfcheck.sh` auf.
+3. Bei Erfolg steht ein grünes Häkchen neben dem Commit. Fehler kannst du dort nachlesen.
