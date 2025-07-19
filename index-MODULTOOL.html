@@ -108,6 +108,96 @@
       --focus-ring: var(--field-border);
       --field-error: #d45e91;
     }
+    [data-theme="trash"] {
+      --bg: #1b1b1b;
+      --area: #2c2c2c;
+      --header: #3d3d3d;
+      --footer: #3d3d3d;
+      --text: #f8f8f8;
+      --text-light: #ccc;
+      --text-alt: #fba55d;
+      --sidebar-bg: #282828f0;
+      --sidebar-txt: #f8f8f8;
+      --sidebar-accent: #e61c5d;
+      --sidebar-divider: #444;
+      --genre-bg: #363636;
+      --input: #3a3a3a;
+      --button: #e61c5d;
+      --button-hover: #b80e4c;
+      --edit: #f0c808;
+      --edit-hover: #e8b200;
+      --remove: #c01c1c;
+      --remove-hover: #9a1010;
+      --help: #252525;
+      --dashboard: #333;
+      --dashboard-light: #444;
+      --tmpl-btn-bg: #5a1a3c;
+      --tmpl-btn-bg-hover: #9a104d;
+      --highlight: #ff2c79;
+      --field-border: #e61c5d;
+      --focus-ring: var(--field-border);
+      --field-error: #ff4c6e;
+    }
+    [data-theme="contrast"] {
+      --bg: #000;
+      --area: #000;
+      --header: #222;
+      --footer: #222;
+      --text: #fff;
+      --text-light: #fff;
+      --text-alt: #ff0;
+      --sidebar-bg: #000;
+      --sidebar-txt: #fff;
+      --sidebar-accent: #0f0;
+      --sidebar-divider: #555;
+      --genre-bg: #111;
+      --input: #222;
+      --button: #ff0;
+      --button-hover: #ffa500;
+      --edit: #0ff;
+      --edit-hover: #0af;
+      --remove: #f00;
+      --remove-hover: #c00;
+      --help: #333;
+      --dashboard: #111;
+      --dashboard-light: #222;
+      --tmpl-btn-bg: #330;
+      --tmpl-btn-bg-hover: #550;
+      --highlight: #f00;
+      --field-border: #0f0;
+      --focus-ring: var(--field-border);
+      --field-error: #f00;
+    }
+    [data-theme="minimal"] {
+      --bg: #ffffff;
+      --area: #f5f5f5;
+      --header: #ffffff;
+      --footer: #ffffff;
+      --text: #000000;
+      --text-light: #444444;
+      --text-alt: #006600;
+      --sidebar-bg: #eeeeee;
+      --sidebar-txt: #111111;
+      --sidebar-accent: #666666;
+      --sidebar-divider: #cccccc;
+      --genre-bg: #f5f5f5;
+      --input: #ffffff;
+      --button: #aaaaaa;
+      --button-hover: #888888;
+      --edit: #0066cc;
+      --edit-hover: #005499;
+      --remove: #cc3333;
+      --remove-hover: #991111;
+      --help: #dddddd;
+      --dashboard: #eeeeee;
+      --dashboard-light: #f5f5f5;
+      --tmpl-btn-bg: #dddddd;
+      --tmpl-btn-bg-hover: #cccccc;
+      --highlight: #0066cc;
+      --field-border: #aaaaaa;
+      --focus-ring: var(--field-border);
+      --field-error: #cc3333;
+    }
 
     html, body {
       min-height: 100vh; width: 100vw; background: var(--bg); color: var(--text); margin:0; padding:0;
@@ -569,7 +659,10 @@ function switchFokus(mode) {
 const themes = [
   {name:'Dunkel', key:'default'},
   {name:'Hell', key:'light'},
-  {name:'Blau', key:'blue'}
+  {name:'Blau', key:'blue'},
+  {name:'Trash', key:'trash'},
+  {name:'Kontrast', key:'contrast'},
+  {name:'Minimal', key:'minimal'}
 ];
 let curTheme = localStorage.getItem('themePppoppi')||'default';
 function renderThemeBtnGroup() {

@@ -1829,5 +1829,21 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   ```bash
   npm update
   ```
-  *(Lädt aktuelle Versionen aller Abhängigkeiten.)*
+*(Lädt aktuelle Versionen aller Abhängigkeiten.)*
+
+- **Feedback senden (R\u00fcckmeldung)**
+  ```bash
+  # Modul "Nutzer-Feedback" öffnen und Text eingeben
+  # "Senden" klicken, um zu speichern
+  # Mit "Exportieren" lädst du feedback.json herunter
+  ```
+  *(Feedback = Rückmeldung an die Entwickler. Die Einträge bleiben lokal im Browser.)*
+
+- **Anderes Farbschema wählen (Theme)**
+  ```bash
+  # Modul "Theme-Switcher" öffnen
+  # Trash, Kontrast oder Minimal auswählen
+  # Auf "Übernehmen" klicken
+  ```
+  *(Theme = Farb- und Stileinstellung. Die Auswahl wird gespeichert.)*
 

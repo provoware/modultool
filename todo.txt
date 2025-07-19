@@ -242,3 +242,5 @@
 - [ ] Breakpoints feinjustieren und Wide Mode testen
 - [x] Scroll-Cache nutzen und Re-Render minimieren
 - [ ] CSS in Module aufteilen
+- [x] User-Feedback-Panel integrieren
+- [x] Themes Trash/Contrast/Minimal ergänzen
