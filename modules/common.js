@@ -36,3 +36,14 @@ export function loadJSON(key, fallback = null) {
     return fallback;
   }
 }
+
+// Daten aus dem LocalStorage entfernen
+export function deleteJSON(key) {
+  try {
+    localStorage.removeItem(key);
+    return true;
+  } catch (e) {
+    console.warn('Löschen fehlgeschlagen', e);
+    return false;
+  }
+}

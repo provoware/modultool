@@ -1200,6 +1200,13 @@ Folgende Aufgaben sind noch offen:
   ```
   *(Merkt sich die Daten-Version "1". So kannst du später prüfen, ob gespeicherte Informationen erneuert werden müssen.)*
 
+- **Gespeicherte Daten wieder löschen (deleteJSON = Eintrag entfernen)**
+  ```js
+  import { deleteJSON } from './modules/common.js';
+  deleteJSON('exampleData');
+  ```
+  *(`deleteJSON` löscht den Schlüssel `exampleData` aus dem Browser-Speicher.)*
+
 - **Modulliste einklappen (Dropdown = ausklappbares Menü)**
   Klicke links auf **"Module ein/aus"**. Die Liste mit Häkchen erscheint oder verschwindet.
   So bleibt in der Seitenleiste mehr Platz.
@@ -1519,3 +1526,4 @@ neuesten Stand zu bringen.
   nano modules/.placeholder
   ```
   *(Am Ende findest du die Funktion `demoSpeichern`. Sie zeigt, wie `saveJSON` und `loadJSON` (Daten sichern und laden) funktionieren.)*
+  Dort gibt es jetzt auch `demoLoeschen`. Diese Funktion nutzt `deleteJSON` und entfernt den gespeicherten Eintrag wieder.
