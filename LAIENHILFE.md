@@ -1963,3 +1963,19 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   ```
   *(Prüft alle Module mit dem Programm "axe-core" und erstellt einen Bericht im Ordner `logs/a11y`.)*
 
+## Weiterführende Laienvorschläge zur ablenkungsfreien Oberfläche
+
+- **Ablenkungsfreien Modus aktivieren (F11 = Vollbild)**
+  Drücke die Taste `F11`. Damit blendest du die Menüleisten aus.
+  Ein weiterer Druck holt sie zurück.
+
+- **Schnelle Hilfe einblenden (F1 = Hilfe)**
+  ```bash
+  F1
+  ```
+  *(Öffnet ein kleines Fenster mit Erklärungen zum aktuellen Feld.)*
+
+- **Statuszeile nutzen (Status = kurzer Hinweis)**
+  Oben erscheint eine farbige Zeile nach dem Speichern oder bei Fehlern.
+  Grün bedeutet Erfolg, Rot zeigt ein Problem an.
+
