@@ -1,2 +1,60 @@
 <!DOCTYPE html>
-<div>Placeholder for contrast_optimizer.html</div>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Kontrast-Optimierer</title>
+<style>
+  #contrastOpt{display:grid;gap:.5rem;max-width:340px;margin:auto;font-family:var(--font-family,sans-serif);}
+  label{display:flex;flex-direction:column;}
+  input[type="color"]{width:100%;height:2rem;border:none;}
+  #sampleText{padding:1rem;border-radius:var(--btn-radius,.5rem);}
+  #result{font-weight:bold;min-height:1.2em;}
+  button{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,.5rem);line-height:1.4;}
+  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+</style>
+</head>
+<body>
+<div id="contrastOpt">
+  <h2>Kontrast-Optimierer</h2>
+  <label>Vordergrundfarbe
+    <input id="fgColor" type="color" value="#000000">
+  </label>
+  <label>Hintergrundfarbe
+    <input id="bgColor" type="color" value="#ffffff">
+  </label>
+  <button id="checkBtn">Kontrast prüfen</button>
+  <div id="sampleText">Beispieltext</div>
+  <div id="result" role="status" aria-live="polite"></div>
+</div>
+<script type="module">
+import { showStatus } from './common.js';
+const fg=document.getElementById('fgColor');
+const bg=document.getElementById('bgColor');
+const checkBtn=document.getElementById('checkBtn');
+const sample=document.getElementById('sampleText');
+const result=document.getElementById('result');
+function luminance(r,g,b){
+  const a=[r,g,b].map(v=>{v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4);});
+  return a[0]*0.2126+a[1]*0.7152+a[2]*0.0722;
+}
+function contrast(hex1,hex2){
+  const c1=hex1.match(/\w{2}/g).map(h=>parseInt(h,16));
+  const c2=hex2.match(/\w{2}/g).map(h=>parseInt(h,16));
+  const l1=luminance(c1[0],c1[1],c1[2]);
+  const l2=luminance(c2[0],c2[1],c2[2]);
+  return (Math.max(l1,l2)+0.05)/(Math.min(l1,l2)+0.05);
+}
+function updateSample(){
+  sample.style.color=fg.value;
+  sample.style.backgroundColor=bg.value;
+}
+checkBtn.addEventListener('click',()=>{
+  updateSample();
+  const ratio=contrast(fg.value,bg.value);
+  const ok=ratio>=4.5?'✅ ausreichend':'❌ zu gering';
+  showStatus(result,'Kontrast: '+ratio.toFixed(2)+' – '+ok);
+});
+updateSample();
+</script>
+</body>
+</html>
