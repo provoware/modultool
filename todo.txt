@@ -213,8 +213,32 @@
 - [x] README mit Hinweisen auf npm start und npm run sync
 - [x] Modulversionen mit npm run sync aktualisiert
 - [x] Weiterfuehrende Laienvorschlaege ergaenzt
+- [x] Weitere Laienvorschläge (Fortsetzung) ergänzt
+- [x] Hinweis auf todo.txt-Synchronisation aufgenommen
 - [ ] Offene Punkte aus AGENTS-RELEASE-CHECK.md bearbeiten
 - [x] Release-Checkliste in LAIENHILFE ergänzt
 - [x] Willkommensfenster per X oder Esc schließen
 - [x] Startskript installiert fehlende Node-Pakete automatisch
 - [x] Globale Standards dokumentiert
+- [x] 3-Spalten-Grid mit `clamp()` umsetzen
+- [x] Fokusmodus per Body-Klasse aktivieren
+- [ ] Feste Höhen in Panels entfernen
+- [ ] Fluides Schriftbild mit `clamp()` für Textgrößen
+- [x] Sticky-Header und Scroll nur bei Bedarf
+- [x] Einheitliche Button-Klasse in common.css
+- [x] Statusmeldungen vom Layout trennen (Toast-Layer)
+- [x] Scrollposition beim Panelwechsel merken
+- [ ] Module vor dem Import mit DOMPurify reinigen
+- [x] Platzhaltertexte bei leeren Listen anzeigen
+- [x] `max-height:470px` im Layout entfernen
+- [x] Sidebars mit `clamp()` breiter machen
+- [x] Fokusmodus-Panel immer 100% Höhe
+- [x] Reservefläche für Statusmeldungen einplanen
+- [x] Grid-Abstände fluid anpassen
+- [x] Globale Overflow-Kontrolle einrichten
+- [ ] Panelwechsel ohne kompletten Re-Render
+- [ ] Farbpalette reduzieren und klare Zustände
+- [ ] Fokusmarkierung klar darstellen
+- [ ] Breakpoints feinjustieren und Wide Mode testen
+- [x] Scroll-Cache nutzen und Re-Render minimieren
+- [ ] CSS in Module aufteilen

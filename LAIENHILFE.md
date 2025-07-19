@@ -1645,3 +1645,143 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
   node -e "localStorage.clear()"
   ```
   *(Entfernt gespeicherte Favoriten und andere Einstellungen.)*
+
+## Weitere Laienvorschläge zu Layout und Geschwindigkeit
+
+- **Dreispaltiges Raster verwenden (Grid = Raster)**
+  ```css
+  grid-template-columns: repeat(3, minmax(clamp(12rem, 30vw, 20rem), 1fr));
+  ```
+  *("clamp" begrenzt eine Größe nach unten und oben. So bleiben die Spalten flexibel.)*
+
+- **Fokusmodus einschalten**
+  Füge dem `<body>` die Klasse `focus` hinzu. Ein gewähltes Panel füllt dann den ganzen Bildschirm.
+
+- **Keine festen Höhen**
+  Schreibe `height: auto;` in deine CSS-Regeln. Die Felder wachsen dann automatisch.
+
+- **Schriftgrößen flüssig skalieren (Typografie = Schriftbild)**
+  ```css
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  ```
+  *(Passt die Schrift an kleine und große Bildschirme an.)*
+
+- **Nur wo nötig scrollen**
+  Setze `overflow: auto;` für Listen und `position: sticky;` für Kopfzeilen. So bleibt der Rest stabil.
+
+- **Einheitliche Button-Klasse**
+  Vergib allen Knöpfen `class="btn"`. In `modules/common.css` legst du Farbe und Größe fest.
+
+- **Statusmeldungen separat anzeigen (Toast-Layer)**
+  Halte einen kleinen Bereich frei und blende dort Hinweise kurz ein.
+
+- **Scrollposition merken**
+  Speichere vor dem Panelwechsel `window.scrollY` und stelle ihn danach wieder her.
+
+- **HTML vor dem Einfügen reinigen (Sanitizing = säubern)**
+  ```js
+  const sauber = DOMPurify.sanitize(htmlText);
+  element.innerHTML = sauber;
+  ```
+
+- **Platzhaltertexte nutzen**
+  Zeige bei leeren Listen einen Hinweis wie "Noch nichts gespeichert" an.
+
+- **Grid-Abstände flexibel halten**
+  ```css
+  gap: clamp(0.5rem, 2vw, 1rem);
+  ```
+  *("gap" bestimmt den Abstand im Raster. "clamp" begrenzt Werte nach oben und unten.)*
+
+- **Overflow global kontrollieren**
+  Setze `overflow: hidden;` im `<body>`. Einzelne Listen erhalten `overflow: auto;`.
+
+- **Re-Render vermeiden (DOM diff = Vergleich im Dokument)**
+  Blende Panels per `style.display='none'` aus, statt sie neu zu laden.
+
+- **Farbpalette reduzieren**
+  Nutze wenige Basisfarben in `modules/common.css`, wichtige Elemente heben sich so besser ab.
+
+- **Fokus sichtbar machen**
+  ```css
+  .btn:focus { outline: 2px solid var(--focus-ring); }
+  ```
+  *("outline" zeigt den Fokus-Ring, `--focus-ring` ist eine CSS-Variable.)*
+
+- **Breakpoints fein abstimmen (Media Query = Bedingung für Bildschirmbreite)**
+  ```css
+  @media (min-width: 1600px) { body.wide { font-size: 1.1rem; } }
+  ```
+  *(Ab 1600 Pixel Breite gilt der "Wide"-Modus.)*
+
+- **Scroll-Cache nutzen**
+  ```js
+  const pos = window.scrollY;
+  showPanel(id);
+  window.scrollTo(0, pos);
+  ```
+  *(Speichert die Position und stellt sie nach dem Wechsel wieder her.)*
+
+- **CSS modularisieren**
+  Lege pro Panel eine eigene `.css`-Datei an und binde sie mit `<link rel="stylesheet" href="modules/panel.css">` ein.
+
+## Weiterführende Laienvorschläge (Fortsetzung)
+
+- **CSS automatisch ergänzen (Autoprefixer = Browser-Vorsilben)**
+  ```bash
+  npx postcss modules/*.css --use autoprefixer -d modules
+  ```
+  *(Setzt fehlende Präfixe für verschiedene Browser ein.)*
+
+- **Bilder verkleinern (Imagemin = Bildkomprimierung)**
+  ```bash
+  npx imagemin src/img/* --out-dir=dist/img
+  ```
+  *(Macht Grafiken kleiner, damit die Seite schneller lädt.)*
+
+- **HTML formatieren (Prettier = Formatier-Werkzeug)**
+  ```bash
+  npx prettier --write modules/*.html
+  ```
+  *(Rückt den Code ordentlich ein.)*
+
+- **JavaScript prüfen (ESLint = Fehler- und Stilprüfung)**
+  ```bash
+  npx eslint modules/*.js
+  ```
+  *(Zeigt typische Tippfehler im Skript an.)*
+
+- **todo.txt sortieren und abgleichen**
+  ```bash
+  sort -u todo.txt -o todo.txt
+  bash tools/sync_todo.sh
+  ```
+*(Entfernt doppelte Einträge und kopiert die Liste in `data/todo.txt` sowie `platzhalter.txt`.)*
+
+## Layout anpassen
+
+- **Button-Klasse vereinheitlichen**
+  ```bash
+  grep -n '<button' index-MODULTOOL.html
+  ```
+  *(Listet alle Knöpfe auf. Füge überall `class="btn"` hinzu, damit sie gleich aussehen.)*
+
+- **Leere Listen markieren**
+  ```js
+  const ph = document.getElementById('archiveEmpty');
+  ph.style.display = state.genres.length ? 'none' : 'block';
+  ```
+  *(Zeigt einen kurzen Hinweis, wenn keine Einträge vorhanden sind.)*
+
+- **Panels mit klebender Überschrift**
+  ```css
+  .mod-panel h2 { position: sticky; top: 0; background: var(--area); }
+  ```
+  *(Die Überschrift bleibt beim Scrollen oben kleben.)*
+
+- **Überlauf steuern**
+  ```css
+  body { overflow: hidden; }
+  .app-frame { overflow-y: auto; }
+  ```
+  *(So scrollt nur der Hauptbereich und nicht die ganze Seite.)*
