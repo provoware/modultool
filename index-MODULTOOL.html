@@ -263,6 +263,9 @@
     .weight-row{display:flex;align-items:center;gap:.6em;}
     .weight-row span{flex:1;word-break:break-all;}
     .weight-row input{width:60px;}
+    .profile-actions{display:flex;flex-wrap:wrap;gap:.5em;margin:.5em 0;}
+    .profile-actions input,.profile-actions select{flex:1 1 130px;min-width:120px;}
+    .profile-actions button{padding:.3em .9em;}
     .small { font-size: .93rem; color: var(--text-light);}
     .status-msg {padding:.19em 1em; margin:.2em 0 .4em 0; border-radius:.7em; font-weight:600;}
     .status-ok {background:#198d54b8; color:#f7fff9;}
@@ -368,12 +371,18 @@
             <input id="genreInput" type="text" placeholder="Genre(s) durch Komma getrennt…" title="Mehrere Genres mit Komma trennen" autofocus required />
             <button type="submit">➕</button>
           </div>
-          <div class="input-help">Beispiel: <code>Techno, Funk, Minimal</code> (Komma-getrennt, max. 24 Genres)</div>
+          <div class="input-help">Beispiel: <code>Techno, Funk, Minimal</code> (beliebig viele Genres möglich)</div>
         </form>
         <div class="archive-actions">
           <button onclick="saveArchive()">💾 Speichern</button>
           <button onclick="loadArchive()">📂 Laden</button>
           <button onclick="resetArchive()" style="background:var(--remove);">🗑️ Löschen</button>
+        </div>
+        <div class="profile-actions">
+          <input id="profileName" type="text" placeholder="Profilname" title="Neues Profil anlegen" />
+          <button id="saveProfileBtn" type="button">Profil speichern</button>
+          <select id="profileSelect" title="Profil wählen"></select>
+          <button id="deleteProfileBtn" type="button" style="background:var(--remove);">Profil löschen</button>
         </div>
         <div class="rand-actions">
           <button class="rand-btn" onclick="pickRandomN(3)" aria-label="Zufall 3 Genres">🎲 3</button>
@@ -576,6 +585,10 @@ window.onload = function() {
   renderTmplList();
   loadNotes();
   renderLog();
+  loadProfiles();
+  document.getElementById('saveProfileBtn').onclick = saveCurrentProfile;
+  document.getElementById('profileSelect').onchange = e=>loadSelectedProfile(e.target.value);
+  document.getElementById('deleteProfileBtn').onclick = deleteProfile;
   for(let i=4;i<=11;i++) toggleModPanel(i);
   setTimeout(()=>{addFocusButtons();updateFocusButtons();},300);
 };
@@ -586,17 +599,85 @@ const TMPL_KEY = 'tmplArchiv_vGRIDSB';
 const NOTES_KEY = 'notes_vGRIDSB';
 const LOG_KEY = 'logArchiv_vGRIDSB';
 const WEIGHT_KEY = 'genreWeights_vGRIDSB';
+const PROFILES_KEY = 'genreProfiles_vGRIDSB';
+const PROFILE_LAST_KEY = 'lastGenreProfile_vGRIDSB';
 const state = {
   genres: [],
   dashboardData: [],
   tmplArchiv: [],
   notesData: '',
   genreWeights: {},
-  searchTerm: ''
+  searchTerm: '',
+  genreProfiles: {},
+  currentProfile: ''
 };
 let searchTimer;
 let genreWeights = {};
 let searchTerm = '';
+function loadProfiles(){
+  try{ state.genreProfiles = JSON.parse(localStorage.getItem(PROFILES_KEY)) || {}; }
+  catch(e){ state.genreProfiles = {}; logErr('Profile-Laden: '+e); }
+  if(Object.keys(state.genreProfiles).length===0){
+    state.genreProfiles = {Hart:[], Schnell:[], Chill:[]};
+    saveProfiles();
+  }
+  state.currentProfile = localStorage.getItem(PROFILE_LAST_KEY) || '';
+  renderProfileSelect();
+  if(state.currentProfile && state.genreProfiles[state.currentProfile]){
+    state.genres = [...state.genreProfiles[state.currentProfile]];
+    sortAndUpdate();
+  }
+}
+function saveProfiles(){
+  localStorage.setItem(PROFILES_KEY, JSON.stringify(state.genreProfiles));
+  localStorage.setItem(PROFILE_LAST_KEY, state.currentProfile);
+}
+function renderProfileSelect(){
+  const sel=document.getElementById('profileSelect');
+  if(!sel) return;
+  sel.innerHTML='';
+  const placeholder=document.createElement('option');
+  placeholder.textContent='Profil wählen';
+  placeholder.disabled=true;
+  if(!state.currentProfile) placeholder.selected=true;
+  sel.appendChild(placeholder);
+  Object.keys(state.genreProfiles).forEach(n=>{
+    const opt=document.createElement('option');
+    opt.value=n; opt.textContent=n;
+    if(n===state.currentProfile) opt.selected=true;
+    sel.appendChild(opt);
+  });
+}
+function saveCurrentProfile(){
+  const name=document.getElementById('profileName').value.trim();
+  if(!name){statusMsg('Profilname fehlt!',0);return;}
+  state.genreProfiles[name]=[...state.genres];
+  state.currentProfile=name;
+  saveProfiles();
+  renderProfileSelect();
+  statusMsg('Profil gespeichert: '+name,1);
+}
+function loadSelectedProfile(name){
+  if(!state.genreProfiles[name]) return;
+  state.currentProfile=name;
+  state.genres=[...state.genreProfiles[name]];
+  sortAndUpdate();
+  saveProfiles();
+  renderProfileSelect();
+  statusMsg('Profil geladen: '+name,1);
+}
+function deleteProfile(){
+  const name=document.getElementById('profileSelect').value;
+  if(!name) return;
+  if(confirm('Profil '+name+' löschen?')){
+    delete state.genreProfiles[name];
+    if(state.currentProfile===name){state.currentProfile='';state.genres=[];}
+    saveProfiles();
+    renderProfileSelect();
+    sortAndUpdate();
+    statusMsg('Profil gelöscht: '+name,1);
+  }
+}
 /* Logging und Selfcheck */
 let logArr = [];
 function loadLogs(){
@@ -1083,15 +1164,23 @@ function loadPanel(id, cb){
     .then(html=>{document.getElementById(id).innerHTML = html; if(cb) cb();})
     .catch(e=>logErr('Panel-Load '+id+': '+e));
 }
-function loadRegisteredPanels(){
-  fetch('modules.json')
-    .then(r=>{if(!r.ok) throw new Error(r.status); return r.json();})
-    .then(cfg=>{
-      cfg.modules.forEach(m=>{
-        if(m.id==='panel8') loadPanel(m.id, renderWeightList); else loadPanel(m.id);
-      });
-    })
-    .catch(e=>logErr('Module-Liste: '+e));
+async function loadRegisteredPanels(){
+  try {
+    const res = await fetch('modules.json');
+    if(!res.ok){
+      if(res.status===404) throw new Error('Modulliste nicht gefunden (404) – ggf. deploy vergessen.');
+      throw new Error('HTTP '+res.status);
+    }
+    let cfg;
+    try { cfg = await res.json(); }
+    catch(err){ throw new Error('modules.json defekt: '+err.message); }
+    cfg.modules.forEach(m=>{
+      if(m.id==='panel8') loadPanel(m.id, renderWeightList); else loadPanel(m.id);
+    });
+  } catch(e){
+    logErr('Module-Liste: '+e.message);
+    alert(e.message);
+  }
 }
 loadRegisteredPanels();
 // Intro-Overlay nach 20 Sekunden automatisch ausblenden

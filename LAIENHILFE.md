@@ -404,14 +404,17 @@ sudo npm install -g htmlhint
 - Der **Speichern**-Knopf leuchtet kurz grün auf. Das ist ein optisches Feedback (Rückmeldung), dass alles geklappt hat.
 ## Genre-Profile verwenden
 
-1. Öffne `panel02.html` im Ordner `modules`.
-2. Gib einen Profilnamen ein und ergänze deine Genres.
-3. Wähle bei Bedarf eine **Gewichtung** (Zahl bestimmt, wie oft das Profil gezogen wird).
-4. Mit **Profil speichern** legst du die Liste an.
-5. Über **Zufall** erhältst du eines der Genres aus dem gewählten Profil.
-6. Mit **Gewichteter Zufall** wird ein Profil nach Gewicht gewählt und daraus ein Genre angezeigt.
+1. Starte das Tool mit:
+   ```bash
+   bash tools/start_tool.sh
+   ```
+2. Im Panel **Genres + Zufall** gibst du deine Genres ein (Komma-getrennt).
+3. Darunter steht das Feld **Profilname**. Trage dort z. B. `Hart`, `Schnell` oder `Chill` ein.
+4. Klicke auf **Profil speichern**. Das Profil erscheint in der Auswahl.
+5. Wähle ein Profil aus, um es zu laden. Über **Profil löschen** entfernst du es wieder.
+6. Die 🎲-Buttons ziehen zufällig Genres aus dem geladenen Profil.
 
-Die gespeicherten Module findest du gesammelt in `modules.json`.
+*(Profil = Sammlung deiner Genre-Listen, im Browser gespeichert.)*
 
 ## Persona-Switcher nutzen
 
@@ -761,7 +764,7 @@ Hier speicherst du zentrale Einstellungen, die das Tool beim Start pr\u00fcft.
 nano config_schema.json
 ```
 In dieser Datei beschreibst du, welche Einstellungen erlaubt sind.
-*(Schema = Vorlage f\u00fcr eine Datenstruktur in JSON).* 
+*(Schema = Vorlage f\u00fcr eine Datenstruktur in JSON).*
 ### 7. Tests und CI
 ```bash
 bash tools/selfcheck.sh
@@ -867,6 +870,14 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   nano modules/panel02.html
   ```
   *(Öffnet das Modul im Editor. "nano" ist ein einfacher Texteditor im Terminal.)*
+
+- **Layout & Zoom steuern**
+  ```bash
+  F11             # Vollbildmodus
+  Strg+Mausrad    # Zoom
+  Strg+0          # Normalgröße
+  ```
+  *(Im Fokus-Modus füllt ein gewähltes Panel den ganzen Bildschirm.)*
 
 
 ## Todo-Liste immer aktualisieren
@@ -1150,15 +1161,27 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   Jedes Modul hat jetzt einen kleinen *Fokus*-Knopf. Ein Klick blendet nur dieses Panel ein.
   Im Fokus siehst du oben im Panel den Knopf **Zurück**, der wieder die normale Übersicht zeigt.
 
+
 - **Dateien sicher laden (fetch = Dateien abrufen)**
   ```js
-  fetch('modules.json').then(r => {
-    if (!r.ok) throw new Error(r.status); // r.ok prüft auf Erfolg
-    return r.json();
-  });
+  async function loadRegisteredPanels(){
+    const res = await fetch('modules.json');
+    if(!res.ok){
+      if(res.status === 404) throw new Error('Modulliste nicht gefunden (404)');
+      throw new Error('HTTP ' + res.status);
+    }
+    const cfg = await res.json(); // prüft auf gültiges JSON
+    cfg.modules.forEach(m => loadPanel(m.id));
+  }
   ```
-  *(Wirft eine Fehlermeldung, wenn die Datei nicht geladen werden konnte.)*
+  *(Bricht mit einer klaren Meldung ab, wenn die Datei fehlt oder fehlerhaft ist.)*
 
+- **modules.json reparieren**
+  ```bash
+  ls -l modules.json   # Prüfen, ob die Datei existiert
+  nano modules.json    # Inhalt öffnen und Klammern prüfen
+  ```
+  *(Nach dem Speichern Seite neu laden, um die Module zu laden.)*
 - **Automatisches Backup im Browser (setInterval = Zeitsteuerung)**
   ```js
   setInterval(() => {
@@ -1287,3 +1310,23 @@ npm update        # aktualisiert diese Pakete automatisch
   ```
   *(So haben alle Kopien der Aufgabenliste den gleichen Stand.)*
 
+## Weiterf\u00fchrende Tipps
+
+- **Dateien aufr\u00e4umen (Whitespace entfernen)**
+  ```bash
+  find . -name '*.txt' -o -name '*.md' | xargs sed -i 's/[ \t]*$//'
+  ```
+  *(Whitespace = \u00fcberfl\u00fcssige Leerzeichen am Zeilenende. Der Befehl entfernt sie aus allen Text- und Markdown-Dateien.)*
+
+- **Zeilenenden vereinheitlichen (newline = Zeilenumbruch)**
+  ```bash
+  for f in $(find . -name '*.txt' -o -name '*.md'); do tail -c1 "$f" | od -An -t x1 | grep -q '0a' || echo >> "$f"; done
+  ```
+  *(Sorgt daf\u00fcr, dass jede Datei mit einem Zeilenumbruch endet.)*
+
+- **Aufgabenliste erweitern**
+  ```bash
+  echo '- [ ] Textdateien bereinigen (Whitespace, Newline)' >> todo.txt
+  bash tools/sync_todo.sh
+  ```
+  *(Der erste Befehl erg\u00e4nzt einen neuen Punkt in deiner Aufgabenliste. Der zweite Befehl synchronisiert die anderen Listen.)*
