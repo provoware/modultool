@@ -45,6 +45,18 @@ Oder ohne Browserstart:
 bash tools/start_tool.sh --no-browser
 ```
 
+Einen anderen Port wählst du mit `-p`:
+```bash
+bash tools/start_tool.sh -p 9000
+```
+(Port = Anschlussnummer für den Server)
+
+Ob der Standardport frei ist, prüfst du so:
+```bash
+lsof -i :8000
+```
+Zeigt der Befehl einen Prozess an, ist der Port belegt und das Skript nimmt automatisch den nächsten freien.
+
 Damit startet ein Server (kleines Programm zur Bereitstellung der Dateien) und öffnet die Seite automatisch im Browser.
 
 Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Sekunden automatisch oder per Klick auf "Los geht's". Neu: Oben rechts gibt es ein kleines "X". Ein Druck auf **Esc** oder ein Klick auf dieses X blendet das Fenster ebenfalls aus.
