@@ -214,6 +214,7 @@
 - [x] Modulversionen mit npm run sync aktualisiert
 - [x] Weiterfuehrende Laienvorschlaege ergaenzt
 - [x] Weitere Laienvorschläge (Fortsetzung) ergänzt
+- [x] Weitere Laienvorschläge (Zusatz 3) ergänzt
 - [x] Hinweis auf todo.txt-Synchronisation aufgenommen
 - [ ] Offene Punkte aus AGENTS-RELEASE-CHECK.md bearbeiten
 - [x] Release-Checkliste in LAIENHILFE ergänzt
@@ -253,3 +254,4 @@
 - [ ] Exceptions abfangen und Hinweise anzeigen
 - [ ] Scroll- und Zoom-Steuerung an Mausfokus koppeln
 - [ ] Leere Flächen sinnvoll nutzen (Vorschau oder Hinweis)
+- [ ] Layout-Analyse und Sidebars optimieren
