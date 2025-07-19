@@ -17,6 +17,7 @@
     fetch("../error_informationen.txt")
       .then(r => r.text())
       .then(t => { document.getElementById("errorInfo").textContent = t || "Keine Fehlerhinweise vorhanden."; });
+  </script>
   <button id="saveErrorsBtn">Fehler speichern</button>
   <button id="clearErrorsBtn">Fehler löschen</button>
   <script type="module">

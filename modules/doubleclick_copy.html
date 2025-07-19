@@ -1,2 +1,33 @@
 <!DOCTYPE html>
-<div>Placeholder for doubleclick_copy.html</div>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Doppelklick-Kopierer</title>
+<style>
+#dc-container{max-width:340px;margin:auto;font-family:var(--font-family,sans-serif);}
+#copy-area{border:1px solid #999;border-radius:4px;padding:0.5rem;cursor:pointer;}
+#copy-status{margin-top:0.5rem;color:#15853b;font-weight:bold;min-height:1em;}
+</style>
+</head>
+<body>
+<div id="dc-container">
+  <h2>Doppelklick kopiert Text</h2>
+  <p id="copy-area" tabindex="0">Diesen Beispieltext per Doppelklick kopieren.</p>
+  <div id="copy-status" role="status" aria-live="polite"></div>
+</div>
+<script type="module">
+const area=document.getElementById('copy-area');
+const status=document.getElementById('copy-status');
+area.addEventListener('dblclick',()=>{
+  const text=area.textContent.trim();
+  navigator.clipboard.writeText(text).then(()=>{
+    status.textContent='Kopiert!';
+    setTimeout(()=>status.textContent='',1000);
+  }).catch(e=>{
+    status.textContent='Kopieren fehlgeschlagen';
+    console.warn(e);
+  });
+});
+</script>
+</body>
+</html>

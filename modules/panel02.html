@@ -57,6 +57,7 @@ function saveTemplates(arr){
 function render(){
   listEl.innerHTML='';
   const arr=loadTemplates();
+  const frag=document.createDocumentFragment();
   arr.forEach((t,i)=>{
     const li=document.createElement('li');
     const span=document.createElement('span');
@@ -77,10 +78,16 @@ function render(){
     const delBtn=document.createElement('button');
     delBtn.textContent='Löschen';
     delBtn.title='Vorlage entfernen';
-    delBtn.addEventListener('click',()=>{const list=loadTemplates();list.splice(i,1);saveTemplates(list);render();});
+    delBtn.addEventListener('click',()=>{
+      const list=loadTemplates();
+      list.splice(i,1);
+      saveTemplates(list);
+      render();
+    });
     li.append(span,copyBtn,editBtn,delBtn);
-    listEl.append(li);
+    frag.append(li);
   });
+  listEl.append(frag);
 }
 
 addBtn.addEventListener('click',()=>{

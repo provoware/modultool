@@ -40,9 +40,9 @@
       --accent-hover: #15986b;
       --tmpl-btn-bg: #28322e;
       --tmpl-btn-bg-hover: #338a5d;
-      --focus-ring: #29d3a6;
       --highlight: #46c1f6;
       --field-border: #2ccfa0;
+      --focus-ring: var(--field-border);
       --field-error: #c53c3c;
       --base-font: 16px;
       --font-family: 'Segoe UI', Arial, sans-serif;
@@ -73,9 +73,9 @@
       --dashboard-light: #f3f9fb;
       --tmpl-btn-bg: #cfe2c4;
       --tmpl-btn-bg-hover: #b0dab9;
-      --focus-ring: #26c38e;
       --highlight: #0096db;
       --field-border: #1fb897;
+      --focus-ring: var(--field-border);
       --field-error: #c53c3c;
     }
     [data-theme="blue"] {
@@ -103,9 +103,9 @@
       --dashboard-light: #2d4a7a;
       --tmpl-btn-bg: #235677;
       --tmpl-btn-bg-hover: #1ca0da;
-      --focus-ring: #36ecf1;
       --highlight: #17e9e0;
       --field-border: #25daf7;
+      --focus-ring: var(--field-border);
       --field-error: #d45e91;
     }
 
@@ -140,10 +140,12 @@
     }
     .fokus-btn:focus { box-shadow: 0 0 0 3px var(--focus-ring); }
     .fokus-btn[aria-pressed="true"] { background: var(--button); color: #fff; }
+    .panel-focus-btn{align-self:flex-end;background:var(--highlight);color:#fff;border:none;padding:.32em .8em;border-radius:.8em;cursor:pointer;margin-bottom:.5em;}
+    .mod-panel.fokus .panel-focus-btn{display:block;width:100%;margin-bottom:1em;font-size:1.05em;}
     footer { font-size:1.03rem; padding:.95rem 0; background: var(--footer); color: var(--text-alt); box-shadow:0 -2px 10px var(--shadow);}
     .app-frame {
       display: grid;
-      grid-template-columns: minmax(0,auto) var(--dragbar-width) 1fr var(--dragbar-width) minmax(0,auto);
+      grid-template-columns: minmax(var(--sidebar-min), 20vw) var(--dragbar-width) 1fr var(--dragbar-width) minmax(var(--sidebar-min), 21vw);
       grid-template-rows: 1fr;
       width: 100vw; min-height: 77vh; max-width: 99vw; box-sizing:border-box;
     }
@@ -155,8 +157,8 @@
       width: 100%; height: 100%; box-sizing: border-box;
       overflow-x: hidden; overflow-y: auto; z-index:2;
     }
-    .sidebar.left { grid-column:1; width: var(--sidebar-width-left);}
-    .sidebar.right { grid-column:5; width: var(--sidebar-width-right);}
+    .sidebar.left { grid-column:1; width:min(max(20vw, var(--sidebar-min)), var(--sidebar-max));}
+    .sidebar.right { grid-column:5; width:min(max(21vw, var(--sidebar-min)), var(--sidebar-max));}
     .sidebar-header {font-size:1.12em; font-weight:600; margin-bottom:1em; color:var(--sidebar-accent);}
     .sidebar-divider {border-bottom:1px solid var(--sidebar-divider); margin:.9em 0;}
     .sidebar-list {margin:0; padding:0 0 0 .3em; list-style:none;}
@@ -164,6 +166,10 @@
     .sidebar-checkbox {width:1.13em; height:1.13em; accent-color:var(--sidebar-accent);}
     .sidebar-footer {margin-top:auto; color:var(--sidebar-accent); font-size:.93em;}
     .sidebar-h2 {font-size:1.13em; font-weight:500; margin:.35em 0 .63em 0;}
+    .module-toggle-btn{background:var(--sidebar-accent);color:#fff;border:none;padding:.4em .9em;border-radius:.8em;margin-bottom:.6em;cursor:pointer;}
+    .sidebar-toggle{background:var(--button);color:var(--text);border:none;padding:.4em .7em;border-radius:.6em;cursor:pointer;display:none;}
+    #moduleListWrap{margin-bottom:.6em;}
+    #moduleListWrap.hidden{display:none;}
     .sidebar-btns button {margin:.17em .22em .22em 0; padding:.64em 1.25em; background:var(--sidebar-accent); color:#fff; border:none; border-radius:1.2em; cursor:pointer;}
     .sidebar-btns button.active {background:var(--area); color:var(--sidebar-txt);}
     .dragbar { grid-row: 1; width: var(--dragbar-width); background: transparent; cursor: ew-resize; z-index:10; position: relative;}
@@ -269,6 +275,16 @@
       .mod-panel {max-height:none;}
     }
     @media (max-width: 780px) {
+      .app-frame {grid-template-columns:1fr;}
+      .dragbar{display:none;}
+      .sidebar {position:fixed;top:0;bottom:0;width:85vw;max-width:360px;height:100vh;transform:translateX(-110%);transition:transform .3s;}
+      .sidebar.left{left:0;}
+      .sidebar.right{right:0;transform:translateX(110%);}
+      .sidebar.show{transform:translateX(0);}
+      .sidebar-toggle{display:inline-block;}
+    }
+    @media (max-width: 480px) {
+      header {font-size:1.2em;}
       .app-frame {grid-template-columns: 1fr var(--dragbar-width) 100vw var(--dragbar-width) 1fr;}
       .sidebar {width:96vw;min-width:90vw;max-width:99vw;}
     }
@@ -279,7 +295,8 @@
       header.top-header {flex-direction:column;gap:.3em;}
       #copySelBtn {margin-left:0;margin-top:.3em;}
     }
-  </style>
+</style>
+<script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.0.3/dist/purify.min.js"></script>
 </head>
 <body>
 <div id="introOverlay" class="intro-overlay">
@@ -291,10 +308,14 @@
 <header class="top-header" role="banner">
   GridTool Pro – Fokusumschaltung &bull; &copy; Pppoppi
   <button id="copySelBtn" class="copy-btn" title="Markierten Text kopieren" aria-label="Text kopieren">⧉ Kopieren</button>
+  <button id="toggleLeft" class="sidebar-toggle" aria-label="Menü umschalten">☰</button>
+  <button id="toggleRight" class="sidebar-toggle" aria-label="Optionen umschalten">⚙</button>
 </header>
 <div class="app-frame">
   <aside class="sidebar left" id="sidebarLeft" role="navigation" aria-label="Module und Infos">
     <div class="sidebar-header">Module & Infos</div>
+    <button id="moduleToggleBtn" class="module-toggle-btn" onclick="toggleModuleList()">Module ein/aus</button>
+    <div id="moduleListWrap">
     <div class="sidebar-h2" title="Module hier ein- oder ausschalten">Module verwalten</div>
     <ul class="sidebar-list">
       <li><input class="sidebar-checkbox" type="checkbox" checked disabled> Genres + Zufall</li>
@@ -309,6 +330,7 @@
       <li><input class="sidebar-checkbox" type="checkbox" id="mod10box" checked onchange="toggleModPanel(10)"> Modul 10</li>
       <li><input class="sidebar-checkbox" type="checkbox" id="mod11box" checked onchange="toggleModPanel(11)"> Modul 11</li>
     </ul>
+    </div>
     <div class="sidebar-divider"></div>
     <div class="sidebar-h2" title="Versionshinweise und Links">Infos</div>
     <div style="font-size:.98em;">
@@ -352,8 +374,6 @@
           <button onclick="saveArchive()">💾 Speichern</button>
           <button onclick="loadArchive()">📂 Laden</button>
           <button onclick="resetArchive()" style="background:var(--remove);">🗑️ Löschen</button>
-          <button onclick="saveArchive()" title="Archiv lokal speichern">💾 Speichern</button>
-          <button onclick="loadArchive()" title="Gespeichertes Archiv laden">📂 Laden</button>
         </div>
         <div class="rand-actions">
           <button class="rand-btn" onclick="pickRandomN(3)" aria-label="Zufall 3 Genres">🎲 3</button>
@@ -379,6 +399,7 @@
       </section>
       <section class="mod-panel" id="panel3" tabindex="0" role="region" aria-labelledby="panel3-head"><h2 id="panel3-head">Dashboard (letzte 10 Ausgaben)</h2>
         <ul id="dashboardList" class="dashboard-list"></ul>
+        <ul id="dashLog" class="dashboard-list" aria-label="Systemprotokoll"></ul>
         <button id="clearDashboardBtn" class="dashboard-copy" aria-label="Dashboard leeren" style="background:var(--remove);margin-top:.5em;">Alle löschen</button>
         <div class="input-help">Tipp: Für alle Zufallsausgaben – kopieren per Klick!</div>
       </section>
@@ -412,8 +433,8 @@
         <button id="importInsertBtn" onclick="insertImportedPanel()" style="display:none;">Einfügen</button>
         <div class="input-help">Du kannst HTML- oder JS-Moduldateien importieren. Beispiel: <code>custom_module.js</code> oder <code>toolpanel.html</code>. Fehler werden hier angezeigt.</div>
       </section>
-      <section class="mod-panel" id="panel7" tabindex="0">
-        <h2>Notizen</h2>
+      <section class="mod-panel" id="panel7" tabindex="0" role="region" aria-labelledby="panel7-head">
+        <h2 id="panel7-head">Notizen</h2>
         <textarea id="notesArea" rows="6" placeholder="Schreibe deine Notizen..."></textarea>
         <div style="margin-top:.5em;display:flex;gap:.5em;">
           <button onclick="saveNotes()">Speichern</button>
@@ -455,17 +476,36 @@
 </footer>
 <script>
 /* ====== Fokusmodus: Umschalten zwischen 3x3 und 1x1 ====== */
+const DATA_VERSION = '1';
+localStorage.setItem('DATA_VERSION', DATA_VERSION);
 const gridMain = document.getElementById('gridMain');
 const fokusSelect = document.getElementById('fokusSelect');
 const fokusResetBtn = document.getElementById('fokusResetBtn');
 let fokusMode = 0;
 fokusSelect.onchange = function() { switchFokus(Number(fokusSelect.value)); };
+function updateFocusButtons(){
+  document.querySelectorAll('.panel-focus-btn').forEach((btn,idx)=>{
+    const mode=idx+1;
+    if(fokusMode===0){
+      btn.textContent='Fokus';
+      btn.onclick=()=>switchFokus(mode);
+      btn.style.display='';
+    }else if(fokusMode===mode){
+      btn.textContent='Zurück';
+      btn.onclick=()=>switchFokus(0);
+      btn.style.display='';
+    }else{
+      btn.style.display='none';
+    }
+  });
+}
 function switchFokus(mode) {
   fokusMode = mode;
   if (mode !== 0) {
     const target = document.getElementById('panel' + mode);
     if (target && target.style.display === 'none') {
       fokusSelect.value = '0';
+      addLog('Panel im Fokus ausgeblendet.');
       logDbg('Panel im Fokus ausgeblendet.');
       return;
     }
@@ -490,6 +530,7 @@ function switchFokus(mode) {
     const pf = document.getElementById('panel' + mode);
     if (pf) pf.focus();
   }
+  updateFocusButtons();
 }
 /* ====== Farbschema & Initialisierung ====== */
 const themes = [
@@ -519,16 +560,16 @@ window.onload = function() {
   switchFokus(0);
   try {
     let data = localStorage.getItem(LOCAL_KEY);
-    genres = data ? JSON.parse(data) : [];
+    state.genres = data ? JSON.parse(data) : [];
     let dash = localStorage.getItem(DASHBOARD_KEY);
-    dashboardData = dash ? JSON.parse(dash) : [];
+    state.dashboardData = dash ? JSON.parse(dash) : [];
     let tdata = localStorage.getItem(TMPL_KEY);
-    tmplArchiv = tdata ? JSON.parse(tdata) : [];
-    loadWeights();
+    state.tmplArchiv = tdata ? JSON.parse(tdata) : [];
   } catch(e) {
-    genres = []; dashboardData = []; tmplArchiv = [];
+    state.genres = []; state.dashboardData = []; state.tmplArchiv = [];
     logErr('Fehler beim Laden aus localStorage: '+e);
   }
+  loadLogs();
   renderList();
   renderDashboard();
   renderDashLog();
@@ -536,56 +577,75 @@ window.onload = function() {
   loadNotes();
   renderLog();
   for(let i=4;i<=11;i++) toggleModPanel(i);
+  setTimeout(()=>{addFocusButtons();updateFocusButtons();},300);
 };
 /* ======= App-Logik, Panels, Logging, Dashboard usw. ======= */
 const LOCAL_KEY = 'genreArchiv_vGRIDSB';
 const DASHBOARD_KEY = 'genreDashboard_vGRIDSB';
 const TMPL_KEY = 'tmplArchiv_vGRIDSB';
 const NOTES_KEY = 'notes_vGRIDSB';
-let genres = [];
-let dashboardData = [];
-let tmplArchiv = [];
-let notesData = '';
+const LOG_KEY = 'logArchiv_vGRIDSB';
 const WEIGHT_KEY = 'genreWeights_vGRIDSB';
+const state = {
+  genres: [],
+  dashboardData: [],
+  tmplArchiv: [],
+  notesData: '',
+  genreWeights: {},
+  searchTerm: ''
+};
+let searchTimer;
 let genreWeights = {};
 let searchTerm = '';
 /* Logging und Selfcheck */
-let debugLogArr = [];
-let dashLogArr = [];
+let logArr = [];
+function loadLogs(){
+  try{
+    const d=localStorage.getItem(LOG_KEY);
+    logArr=d?JSON.parse(d):[];
+  }catch(e){
+    logArr=[];
+  }
+}
 function addDashboardEntry(text) {
-  dashboardData.unshift({ value: text, time: new Date().toLocaleString() });
-  dashboardData = dashboardData.slice(0,10);
-  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
+  state.dashboardData.unshift({ value: text, time: new Date().toLocaleString() });
+  state.dashboardData = state.dashboardData.slice(0,10);
+  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(state.dashboardData));
   renderDashboard();
 }
-function logDbg(msg, type='info') {
-  debugLogArr.unshift({
-    time: new Date().toLocaleTimeString(),
-    type, msg
-  });
-  if(debugLogArr.length>64) debugLogArr.pop();
+function addLog(msg, type='info') {
+  logArr.unshift({time:new Date().toLocaleTimeString(), type, msg});
+  if(logArr.length>64) logArr.pop();
+  localStorage.setItem(LOG_KEY, JSON.stringify(logArr));
   renderLog();
-  dashLogArr.unshift({time:new Date().toLocaleTimeString(), msg});
-  if(dashLogArr.length>10) dashLogArr.pop();
   renderDashLog();
 }
-function logErr(msg) { logDbg(msg, 'err'); }
-function renderLog() {
+function logErr(msg){ addLog(msg, 'err'); }
+function renderLog(){
   const out = document.getElementById('debugLog');
-  out.innerHTML = debugLogArr.map(e=>`<div class="debug-log debug-${e.type}">[${e.time}] ${e.msg}</div>`).join('');
+  if(out) out.innerHTML = logArr.map(e=>`<div class="debug-log debug-${e.type}">[${e.time}] ${e.msg}</div>`).join('');
   document.getElementById('selfcheckStatus').innerHTML = selfcheckResult();
 }
 function renderDashLog(){
   const out = document.getElementById('dashLog');
-  if(out) out.innerHTML = dashLogArr.map(e=>`<li><span class="dashboard-timestamp">${e.time}</span> ${e.msg}</li>`).join('');
+  if(out){
+    out.innerHTML = logArr.slice(0,10).map(e=>`<li><span class="dashboard-timestamp">${e.time}</span> ${e.msg}</li>`).join('');
+    out.style.display = logArr.length ? 'block' : 'none';
+  }
 }
-function clearLog() { debugLogArr=[]; renderLog(); }
+function clearLog(){
+  logArr=[];
+  localStorage.removeItem(LOG_KEY);
+  renderLog();
+  renderDashLog();
+}
 function selfcheckResult() {
   let ok = true, res = [];
   try {
-    if(!Array.isArray(genres)) {ok=false; res.push('Genre-Archiv beschädigt');}
-    if(!Array.isArray(dashboardData)) {ok=false; res.push('Dashboard beschädigt');}
-    if(!Array.isArray(tmplArchiv)) {ok=false; res.push('Templates beschädigt');}
+    if(!Array.isArray(state.genres)) {ok=false; res.push('Genre-Archiv beschädigt');}
+    if(!Array.isArray(state.dashboardData)) {ok=false; res.push('Dashboard beschädigt');}
+    if(!Array.isArray(state.tmplArchiv)) {ok=false; res.push('Templates beschädigt');}
+    if(!Array.isArray(logArr)) {ok=false; res.push('Logs beschädigt');}
     if(document.querySelectorAll('.mod-panel').length!==11) {ok=false; res.push('Panel-Anzahl inkonsistent');}
   } catch(e){ok=false;res.push('Selfcheck-Fehler: '+e);}
   return ok?'<span style="color:#7bd375;">OK</span>':('<span style="color:#eb8a7a;">'+res.join('; ')+'</span>');
@@ -607,7 +667,7 @@ document.getElementById('importModuleFile').addEventListener('change', function(
     document.getElementById('importPreview').textContent = importModuleContent.substring(0,800)+(importModuleContent.length>800?' …':'');
     document.getElementById('importStatus').textContent = 'Datei geladen: '+file.name;
     document.getElementById('importInsertBtn').style.display='inline-block';
-    logDbg('Modul-Datei geladen: '+file.name);
+    addLog('Modul-Datei geladen: '+file.name);
   };
   reader.onerror = function() {
     document.getElementById('importStatus').textContent = 'Fehler beim Lesen der Datei!';
@@ -631,19 +691,19 @@ function insertImportedPanel(){
   section.tabIndex=0;
   section.setAttribute('role','region');
   section.setAttribute('aria-labelledby',pid+'-label');
-  section.innerHTML=importModuleContent;
+  section.innerHTML=DOMPurify.sanitize(importModuleContent);
   container.appendChild(section);
   document.getElementById('importInsertBtn').style.display='none';
   document.getElementById('importPreview').style.display='none';
   document.getElementById('importStatus').textContent='Panel eingefügt: '+pid;
-  logDbg('Importiertes Panel angelegt: '+pid);
+  addLog('Importiertes Panel angelegt: '+pid);
 }
 /* Genre/Archiv/Random */
 function renderList() {
   const list = document.getElementById('genreList');
   list.innerHTML = '';
-  let filter = searchTerm.trim().toLowerCase();
-  genres.forEach((g, idx) => {
+  let filter = state.searchTerm.trim().toLowerCase();
+  state.genres.forEach((g, idx) => {
     let value = typeof g === 'object' ? g.value : g;
     if(filter && !value.toLowerCase().includes(filter)) return;
     const li = document.createElement('li');
@@ -684,13 +744,13 @@ function renderList() {
     const rm = document.createElement('button');
     rm.className = 'remove-btn';
     rm.innerText = '✖';
-    rm.onclick = () => { genres.splice(idx,1); sortAndUpdate(); logDbg('Genre gelöscht.'); };
+    rm.onclick = () => { state.genres.splice(idx,1); sortAndUpdate(); addLog('Genre gelöscht.'); };
     li.appendChild(rm);
     list.appendChild(li);
   });
 }
 function startEdit(idx) {
-  genres = genres.map((g, i) => i===idx ? {value: typeof g==='object'?g.value:g, _edit:true} : (typeof g==='object'?g.value:g));
+  state.genres = state.genres.map((g, i) => i===idx ? {value: typeof g==='object'?g.value:g, _edit:true} : (typeof g==='object'?g.value:g));
   renderList();
   setTimeout(() => {
     const input = document.querySelector('input.genre-edit');
@@ -699,34 +759,34 @@ function startEdit(idx) {
 }
 function finishEdit(idx, newVal) {
   newVal = newVal.trim();
-  if(newVal && !genres.includes(newVal)) {
-    genres[idx] = newVal;
+  if(newVal && !state.genres.includes(newVal)) {
+    state.genres[idx] = newVal;
   } else if (!newVal) {
-    genres.splice(idx,1);
-  } else if (genres.includes(newVal) && genres[idx] !== newVal) {
-    genres.splice(idx,1);
+    state.genres.splice(idx,1);
+  } else if (state.genres.includes(newVal) && state.genres[idx] !== newVal) {
+    state.genres.splice(idx,1);
   }
   sortAndUpdate();
 }
 function cancelEdit(idx) {
-  if(typeof genres[idx] === 'object' && genres[idx]._edit) {
-    genres[idx] = genres[idx].value;
+  if(typeof state.genres[idx] === 'object' && state.genres[idx]._edit) {
+    state.genres[idx] = state.genres[idx].value;
     sortAndUpdate();
   }
 }
 function sortAndUpdate() {
-  genres = [...new Set(genres.map(x => (typeof x==='object'?x.value:x).trim()).filter(x=>x.length>0))].sort((a,b)=>a.localeCompare(b, 'de'));
-  localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
+  state.genres = [...new Set(state.genres.map(x => (typeof x==='object'?x.value:x).trim()).filter(x=>x.length>0))].sort((a,b)=>a.localeCompare(b, 'de'));
+  localStorage.setItem(LOCAL_KEY, JSON.stringify(state.genres));
   renderList();
   renderWeightList();
-  logDbg('Archiv aktualisiert.');
+  addLog('Archiv aktualisiert.');
 }
 function addGenre(str) {
   str.split(',').map(s=>s.trim()).filter(s=>s.length>0).forEach(s => {
-    if(!genres.includes(s)) genres.push(s);
+    if(!state.genres.includes(s)) state.genres.push(s);
   });
   sortAndUpdate();
-  logDbg('Genre(s) hinzugefügt.');
+  addLog('Genre(s) hinzugefügt.');
 }
 document.getElementById('genreForm').onsubmit = (e) => {
   e.preventDefault();
@@ -736,8 +796,8 @@ document.getElementById('genreForm').onsubmit = (e) => {
   input.focus();
 };
 function pickRandomN(n) {
-  if(genres.length===0) {statusMsg("Kein Genre vorhanden!",0);logErr('Zufallsgenerator ohne Genres!');return;}
-  let pool = [...genres], picked=[];
+  if(state.genres.length===0) {statusMsg("Kein Genre vorhanden!",0);logErr('Zufallsgenerator ohne Genres!');return;}
+  let pool = [...state.genres], picked=[];
   while(pool.length && picked.length<n){
     const idx = Math.floor(Math.random()*pool.length);
     picked.push(pool.splice(idx,1)[0]);
@@ -750,20 +810,21 @@ function pickRandomN(n) {
   statusMsg("Zufallsausgabe kopiert.",1);
   flash(document.getElementById('randResult'));
   addDashboardEntry(result);
-  logDbg('Zufallsausgabe erzeugt und kopiert.');
+  addLog('Zufallsausgabe erzeugt und kopiert.');
 }
 function loadWeights(){
-  try { genreWeights = JSON.parse(localStorage.getItem(WEIGHT_KEY)) || {}; }
-  catch(e){ genreWeights = {}; logErr('Gewicht-Laden: '+e); }
+  try { state.genreWeights = JSON.parse(localStorage.getItem(WEIGHT_KEY)) || {}; }
+  catch(e){ state.genreWeights = {}; logErr('Gewicht-Laden: '+e); }
 }
+document.addEventListener('DOMContentLoaded', loadWeights);
 function saveWeights(){
-  localStorage.setItem(WEIGHT_KEY, JSON.stringify(genreWeights));
+  localStorage.setItem(WEIGHT_KEY, JSON.stringify(state.genreWeights));
 }
 function renderWeightList(){
   const box = document.getElementById('weightList');
   if(!box) return;
   box.innerHTML = '';
-  genres.forEach(g => {
+  state.genres.forEach(g => {
     const row = document.createElement('div');
     row.className = 'weight-row';
     const sp = document.createElement('span');
@@ -771,15 +832,15 @@ function renderWeightList(){
     const inp = document.createElement('input');
     inp.type='number';
     inp.min='1';
-    inp.value = genreWeights[g] || 1;
-    inp.onchange = () => { genreWeights[g]=Math.max(1,Number(inp.value)||1); saveWeights(); };
+    inp.value = state.genreWeights[g] || 1;
+    inp.onchange = () => { state.genreWeights[g]=Math.max(1,Number(inp.value)||1); saveWeights(); };
     row.appendChild(sp); row.appendChild(inp);
     box.appendChild(row);
   });
 }
 function pickWeightedRandom(){
   const pool=[];
-  genres.forEach(g=>{ const w=Number(genreWeights[g]||1); for(let i=0;i<w;i++) pool.push(g); });
+  state.genres.forEach(g=>{ const w=Number(state.genreWeights[g]||1); for(let i=0;i<w;i++) pool.push(g); });
   if(pool.length===0){ statusMsg('Kein Genre vorhanden!',0); logErr('Gewichteter Zufall ohne Genres!'); return; }
   const pick = pool[Math.floor(Math.random()*pool.length)];
   const out = document.getElementById('weightResult');
@@ -787,21 +848,21 @@ function pickWeightedRandom(){
   out.innerHTML = `<b>Gewichteter Zufall:</b> ${pick}`;
   try { navigator.clipboard.writeText(pick); } catch(e){ logErr('Clipboard-Fehler: '+e); }
   statusMsg('Gewichteten Zufall kopiert.',1); flash(out);
-  dashboardData.unshift({value: pick, time: new Date().toLocaleString()});
-  dashboardData = dashboardData.slice(0,10);
-  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(dashboardData));
+  state.dashboardData.unshift({value: pick, time: new Date().toLocaleString()});
+  state.dashboardData = state.dashboardData.slice(0,10);
+  localStorage.setItem(DASHBOARD_KEY, JSON.stringify(state.dashboardData));
   renderDashboard();
-  logDbg('Gewichteten Zufall erzeugt und kopiert.');
+  addLog('Gewichteten Zufall erzeugt und kopiert.');
 }
 function saveArchive() {
-  localStorage.setItem(LOCAL_KEY, JSON.stringify(genres));
+  localStorage.setItem(LOCAL_KEY, JSON.stringify(state.genres));
   statusMsg("Archiv gespeichert!",1);
   addDashboardEntry('Archiv gespeichert');
-  logDbg('Archiv gespeichert.');
+  addLog('Archiv gespeichert.');
 }
 function loadArchive() {
   const data = localStorage.getItem(LOCAL_KEY);
-  if(data) { genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); addDashboardEntry('Archiv geladen'); logDbg('Archiv geladen.'); }
+  if(data) { state.genres = JSON.parse(data); sortAndUpdate(); statusMsg("Archiv geladen!",1); addDashboardEntry('Archiv geladen'); addLog('Archiv geladen.'); }
 }
 function copyDash(txt, btn) {
   try { navigator.clipboard.writeText(txt); }
@@ -814,22 +875,22 @@ function copyTmpl(txt, btn, title) {
   catch(e){ logErr('Clipboard-Fehler: '+e); flash(btn,'flash-error'); return; }
   tmplStatusMsg('Template kopiert: '+title,1);
   flash(btn);
-  logDbg('Template kopiert: '+title);
+  addLog('Template kopiert: '+title);
 }
 function resetArchive() {
   if(confirm('Archiv wirklich löschen?')) {
     localStorage.removeItem(LOCAL_KEY);
-    genres = [];
+    state.genres = [];
     renderList();
     statusMsg('Archiv geleert!',1);
-    logDbg('Archiv geleert.');
+    addLog('Archiv geleert.');
   }
 }
 /* Dashboard */
 function renderDashboard() {
   const el = document.getElementById('dashboardList');
   el.innerHTML = '';
-  dashboardData.forEach(item => {
+  state.dashboardData.forEach(item => {
     const li = document.createElement('li');
     li.innerHTML = `<span class="dashboard-timestamp">${item.time}</span> <span>${item.value}</span>
       <button class="dashboard-copy" title="Kopieren" onclick="copyDash('${item.value.replace(/'/g,"\\'")}', this)">⧉</button>`;
@@ -838,21 +899,21 @@ function renderDashboard() {
 }
 document.getElementById('clearDashboardBtn').onclick = function() {
   if(confirm('Alle Dashboard-Einträge wirklich löschen?')) {
-    dashboardData = [];
+    state.dashboardData = [];
     localStorage.removeItem(DASHBOARD_KEY);
     renderDashboard();
-    dashLogArr = [];
+    logArr = [];
     renderDashLog();
     statusMsg("Dashboard geleert.",1);
     addDashboardEntry('Dashboard geleert');
-    logDbg('Dashboard gelöscht.');
+    addLog('Dashboard gelöscht.');
   }
 };
 /* Templates */
 function renderTmplList() {
   const el = document.getElementById('tmplBtnList');
   el.innerHTML = '';
-  tmplArchiv.forEach((t,i)=>{
+  state.tmplArchiv.forEach((t,i)=>{
     const btn = document.createElement('button');
     btn.className = 'tmpl-btn';
     btn.innerText = t.title;
@@ -862,20 +923,20 @@ function renderTmplList() {
       catch(e){logErr('Clipboard-Fehler: '+e);}
       tmplStatusMsg("Template kopiert: "+t.title,1);
       addDashboardEntry('Template kopiert: '+t.title);
-      logDbg('Template kopiert: '+t.title);
+      addLog('Template kopiert: '+t.title);
     };
     btn.tabIndex = 0;
     const rem = document.createElement('button');
     rem.className = 'tmpl-remove';
     rem.innerText = '✖';
     rem.title = 'Template löschen';
-    rem.onclick = (e)=>{e.stopPropagation();tmplArchiv.splice(i,1);saveTmpl();renderTmplList();addDashboardEntry('Template gelöscht');logDbg('Template gelöscht.');};
+    rem.onclick = (e)=>{e.stopPropagation();state.tmplArchiv.splice(i,1);saveTmpl();renderTmplList();addDashboardEntry('Template gelöscht');addLog('Template gelöscht.');};
     btn.appendChild(rem);
     el.appendChild(btn);
   });
 }
 function saveTmpl() {
-  localStorage.setItem(TMPL_KEY, JSON.stringify(tmplArchiv));
+  localStorage.setItem(TMPL_KEY, JSON.stringify(state.tmplArchiv));
 }
 function tmplStatusMsg(txt, ok=1) {
   let el = document.getElementById('tmplStatus');
@@ -889,24 +950,28 @@ document.getElementById('tmplForm').onsubmit = function(e) {
   let title = document.getElementById('tmplTitle').value.trim();
   let text = document.getElementById('tmplText').value.trim();
   if(!title || !text) { tmplStatusMsg("Bitte Titel & Text angeben.",0); logErr('Template: Leere Felder'); return; }
-  tmplArchiv.unshift({title, text});
-  if(tmplArchiv.length>24) tmplArchiv=tmplArchiv.slice(0,24);
+  state.tmplArchiv.unshift({title, text});
+  if(state.tmplArchiv.length>24) state.tmplArchiv=state.tmplArchiv.slice(0,24);
   saveTmpl();
   renderTmplList();
   document.getElementById('tmplTitle').value = '';
   document.getElementById('tmplText').value = '';
   tmplStatusMsg("Template hinzugefügt!",1);
   addDashboardEntry("Template hinzugefügt: "+title);
-  logDbg('Template hinzugefügt: '+title);
+  addLog('Template hinzugefügt: '+title);
 };
 /* Suche im Archiv */
 document.getElementById('searchInput').oninput = function() {
-  searchTerm = this.value;
-  document.getElementById('clearSearch').style.display = searchTerm ? '' : 'none';
-  renderList();
+  const val = this.value;
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    state.searchTerm = val;
+    document.getElementById('clearSearch').style.display = state.searchTerm ? '' : 'none';
+    renderList();
+  }, 200);
 };
 document.getElementById('clearSearch').onclick = function() {
-  searchTerm = '';
+  state.searchTerm = '';
   document.getElementById('searchInput').value = '';
   this.style.display = 'none';
   renderList();
@@ -915,6 +980,20 @@ document.getElementById('clearSearch').onclick = function() {
 function toggleModPanel(idx) {
   const cb = document.getElementById('mod'+idx+'box');
   document.getElementById('panel'+idx).style.display = cb.checked ? '' : 'none';
+}
+function toggleModuleList(){
+  const wrap=document.getElementById('moduleListWrap');
+  wrap.style.display = wrap.style.display==='none' ? '' : 'none';
+}
+function addFocusButtons(){
+  document.querySelectorAll('#gridMain .mod-panel').forEach((p,i)=>{
+    const b=document.createElement('button');
+    b.className='panel-focus-btn';
+    b.type='button';
+    b.textContent='Fokus';
+    b.onclick=()=>switchFokus(i+1);
+    p.insertBefore(b,p.firstChild);
+  });
 }
 /* Meldungen & Reset */
 function statusMsg(txt, ok=1) {
@@ -935,36 +1014,36 @@ function resetAll() {
     localStorage.removeItem(DASHBOARD_KEY);
     localStorage.removeItem(TMPL_KEY);
     localStorage.removeItem(NOTES_KEY);
-    genres = []; dashboardData = []; tmplArchiv = [];
-    notesData = '';
+    state.genres = []; state.dashboardData = []; state.tmplArchiv = [];
+    state.notesData = '';
     renderList(); renderDashboard(); renderTmplList();
     if(document.getElementById('notesArea')) document.getElementById('notesArea').value='';
     renderLog();
     statusMsg("Alles gelöscht!",1); tmplStatusMsg("Alles gelöscht!",1);
     addDashboardEntry("Alles gelöscht");
-    logDbg('Alles gelöscht.');
+    addLog('Alles gelöscht.');
   }
 }
 
 /* Notizen-Panel */
 function saveNotes(){
-  notesData = document.getElementById('notesArea').value;
-  localStorage.setItem(NOTES_KEY, notesData);
-  logDbg('Notizen gespeichert.');
+  state.notesData = document.getElementById('notesArea').value;
+  localStorage.setItem(NOTES_KEY, state.notesData);
+  addLog('Notizen gespeichert.');
 }
 function loadNotes(){
   const d = localStorage.getItem(NOTES_KEY);
   if(d){
-    notesData = d;
-    document.getElementById('notesArea').value = notesData;
+    state.notesData = d;
+    document.getElementById('notesArea').value = state.notesData;
   }
 }
 function clearNotes(){
   if(confirm('Alle Notizen löschen?')){
-    notesData='';
+    state.notesData='';
     document.getElementById('notesArea').value='';
     localStorage.removeItem(NOTES_KEY);
-    logDbg('Notizen gelöscht.');
+    addLog('Notizen gelöscht.');
   }
 }
 /* Sidebar-Resize (optional) */
@@ -1006,7 +1085,7 @@ function loadPanel(id, cb){
 }
 function loadRegisteredPanels(){
   fetch('modules.json')
-    .then(r=>r.json())
+    .then(r=>{if(!r.ok) throw new Error(r.status); return r.json();})
     .then(cfg=>{
       cfg.modules.forEach(m=>{
         if(m.id==='panel8') loadPanel(m.id, renderWeightList); else loadPanel(m.id);
@@ -1034,6 +1113,12 @@ document.getElementById('copySelBtn').onclick = function(){
   setTimeout(()=>{ b.style.background = old; }, 350);
   statusMsg('Text kopiert.',1);
   addDashboardEntry('Manuell kopiert');
+};
+document.getElementById('toggleLeft').onclick = function(){
+  document.getElementById('sidebarLeft').classList.toggle('show');
+};
+document.getElementById('toggleRight').onclick = function(){
+  document.getElementById('sidebarRight').classList.toggle('show');
 };
 </script>
 </body>

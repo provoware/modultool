@@ -1,2 +1,67 @@
 <!DOCTYPE html>
-<div>Placeholder for auto_backup.html</div>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Auto Backup</title>
+<style>
+  #autoBackup{display:grid;gap:.5rem;max-width:340px;margin:auto;font-family:var(--font-family,sans-serif);}
+  button{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,.5rem);line-height:1.4;cursor:pointer;}
+  button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+  #status{min-height:1.2em;}
+</style>
+</head>
+<body>
+<div id="autoBackup">
+  <h2>Auto-Backup</h2>
+  <button id="startBackupBtn">Backup starten</button>
+  <button id="stopBackupBtn">Backup stoppen</button>
+  <button id="restoreBackupBtn">Backup laden</button>
+  <div id="status" role="status" aria-live="polite"></div>
+</div>
+<script type="module">
+import {showStatus} from './common.js';
+const startBtn=document.getElementById('startBackupBtn');
+const stopBtn=document.getElementById('stopBackupBtn');
+const restoreBtn=document.getElementById('restoreBackupBtn');
+const status=document.getElementById('status');
+const KEY='autoBackupData';
+let timer=null;
+function saveBackup(){
+  try{
+    const data={
+      genres:localStorage.getItem('genreArchiv_vGRIDSB'),
+      templates:localStorage.getItem('tmplArchiv_vGRIDSB'),
+      notes:localStorage.getItem('notes_vGRIDSB')
+    };
+    localStorage.setItem(KEY,JSON.stringify(data));
+    showStatus(status,'Backup gespeichert');
+  }catch(e){
+    showStatus(status,'Backup fehlgeschlagen');
+  }
+}
+function restoreBackup(){
+  try{
+    const data=JSON.parse(localStorage.getItem(KEY)||'{}');
+    if(data.genres) localStorage.setItem('genreArchiv_vGRIDSB',data.genres);
+    if(data.templates) localStorage.setItem('tmplArchiv_vGRIDSB',data.templates);
+    if(data.notes) localStorage.setItem('notes_vGRIDSB',data.notes);
+    showStatus(status,'Backup geladen');
+  }catch(e){
+    showStatus(status,'Backup laden fehlgeschlagen');
+  }
+}
+function startAuto(){
+  if(timer) clearInterval(timer);
+  timer=setInterval(saveBackup,300000);
+  saveBackup();
+  showStatus(status,'Auto-Backup läuft');
+}
+function stopAuto(){
+  if(timer){clearInterval(timer);timer=null;showStatus(status,'Auto-Backup gestoppt');}
+}
+startBtn.addEventListener('click',startAuto);
+stopBtn.addEventListener('click',stopAuto);
+restoreBtn.addEventListener('click',restoreBackup);
+</script>
+</body>
+</html>

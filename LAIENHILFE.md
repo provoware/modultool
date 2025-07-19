@@ -167,6 +167,26 @@ ls logs
 
 Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler geben k\u00f6nnen.
 
+## Logs dauerhaft speichern
+
+- **Logdaten einsehen (localStorage = Browser-Speicher)**
+  ```js
+  JSON.parse(localStorage.getItem('logArchiv_vGRIDSB') || '[]')
+  ```
+  *(Zeigt eine Liste aller gespeicherten Einträge.)*
+
+- **Alle Logdaten löschen**
+  ```js
+  localStorage.removeItem('logArchiv_vGRIDSB')
+  ```
+  *(Leert den gespeicherten Verlauf.)*
+
+- **Log manuell speichern**
+  ```js
+  localStorage.setItem('logArchiv_vGRIDSB', JSON.stringify([{time:'12:00', msg:'Beispiel'}]))
+  ```
+  *(Schreibt eigenen Inhalt in den Logspeicher.)*
+
 
 ## Hilfreiche Zusatzbefehle
 
@@ -258,6 +278,18 @@ Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler ge
    ```
    *(Entfernt gefährliche Inhalte bei Importen.)*
 
+4. **Eingebundene Module säubern (sanitize = reinigen)**
+   ```html
+   <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.0.3/dist/purify.min.js"></script>
+   ```
+   *(Bindet DOMPurify ein. Die Funktion `sanitize()` filtert kritische Tags.)*
+
+   ```js
+   const sauber = DOMPurify.sanitize(importText);
+   element.innerHTML = sauber;
+   ```
+   *(So landet nur geprüfter Inhalt im Modul.)*
+
 Diese Befehle halten deine Module sauber und sicher.
 ## Geplante Erweiterungen
 
@@ -277,6 +309,16 @@ Einige Funktionen sind noch in Arbeit. Die wichtigsten Punkte aus `todo.txt` sin
 - Entrümplungsmodus zum Aufräumen
 - Kopieren per Doppelklick
 - globaler Suchfilter
+
+## Texte per Doppelklick kopieren
+1. Starte einen kleinen Server:
+```bash
+python3 -m http.server
+```
+2. Rufe im Browser `http://localhost:8000/modules/doubleclick_copy.html` auf.
+3. Doppelklicke auf den Text. "Kopiert!" erscheint kurz.
+*Clipboard = Zwischenablage für kopierte Texte.*
+
 - Todo-Listen-Modul
 - Songtext-Editor mit Titelfeld, Notizen und Text
 - Dialog-Schreiber für eigene Charaktere
@@ -981,6 +1023,16 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   ```
   *(Erzeugt einen Bericht über mögliche Zugänglichkeits-Probleme.)*
 
+- **Panels eindeutig zuordnen (aria-labelledby = Verknüpfung von Überschrift)**
+  Stelle sicher, dass jedes Panel mit `role="region"` ein passendes `aria-labelledby` besitzt:
+  ```html
+  <section role="region" aria-labelledby="panel7-head">
+    <h2 id="panel7-head">Notizen</h2>
+    ...
+  </section>
+  ```
+  *(Hilft Bildschirmlesern, den Bereich richtig zu benennen.)*
+
 - **Version erhöhen und Changelog (Änderungsliste) erstellen**
   ```bash
   npm version patch
@@ -1059,6 +1111,21 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   ```
   *(`lodash.debounce` verzögert eine Funktion, bis kurz Ruhe ist. Praktisch für Suchfelder.)*
 
+- **Suche wartet kurz bevor sie filtert (Debounce = Verzögerung)**
+  ```js
+  // Datei index-MODULTOOL.html
+  let searchTimer;
+  document.getElementById('searchInput').oninput = function() {
+    const val = this.value;
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      searchTerm = val;
+      renderList();
+    }, 200);
+  };
+  ```
+  *(So wird die Liste erst nach 0,2 Sekunden aktualisiert. Tippfehler landen nicht sofort im Ergebnis.)*
+
 - **Layout automatisch anpassen (CSS Grid = flexible Anordnung)**
   ```css
   /* Datei index-MODULTOOL.html */
@@ -1068,3 +1135,127 @@ Alle Module nutzen nun `modules/common.css`. Hier kannst du das Aussehen zentral
   }
   ```
   *(Die Module sortieren sich selbst. Bei kleinen Fenstern rutschen sie einfach untereinander.)*
+
+- **Versionsnummer im Browser speichern (localStorage = dauerhafter Speicher im Browser)**
+  ```js
+  localStorage.setItem('DATA_VERSION', '1');
+  ```
+  *(Merkt sich die Daten-Version "1". So kannst du später prüfen, ob gespeicherte Informationen erneuert werden müssen.)*
+
+- **Modulliste einklappen (Dropdown = ausklappbares Menü)**
+  Klicke links auf **"Module ein/aus"**. Die Liste mit Häkchen erscheint oder verschwindet.
+  So bleibt in der Seitenleiste mehr Platz.
+
+- **Fokusmodus direkt im Panel wechseln**
+  Jedes Modul hat jetzt einen kleinen *Fokus*-Knopf. Ein Klick blendet nur dieses Panel ein.
+  Im Fokus siehst du oben im Panel den Knopf **Zurück**, der wieder die normale Übersicht zeigt.
+
+- **Dateien sicher laden (fetch = Dateien abrufen)**
+  ```js
+  fetch('modules.json').then(r => {
+    if (!r.ok) throw new Error(r.status); // r.ok prüft auf Erfolg
+    return r.json();
+  });
+  ```
+  *(Wirft eine Fehlermeldung, wenn die Datei nicht geladen werden konnte.)*
+
+- **Automatisches Backup im Browser (setInterval = Zeitsteuerung)**
+  ```js
+  setInterval(() => {
+    const data = { notes: localStorage.getItem('notes_vGRIDSB') };
+    localStorage.setItem('autoBackupData', JSON.stringify(data));
+  }, 300000);
+  ```
+  *(Speichert deine Notizen alle fünf Minuten in `localStorage`.)*
+
+- **Logs begrenzt speichern (Ringpuffer = nur die letzten 50 Einträge)**
+  ```js
+  const arr = JSON.parse(localStorage.getItem('logs') || '[]');
+  arr.push({time: Date.now(), msg: 'Aktion'});
+  localStorage.setItem('logs', JSON.stringify(arr.slice(-50)));
+  ```
+  *(So bleibt der Verlauf klein und ältere Einträge werden automatisch entfernt.)*
+
+- **Listen schneller zeichnen (DocumentFragment = Sammelbehälter im Speicher)**
+  ```js
+  const frag = document.createDocumentFragment();
+  items.forEach(i => frag.appendChild(i));
+  list.replaceChildren(frag);
+  ```
+  *(Erst alle Elemente sammeln, dann in einem Rutsch einfügen. Das spart Zeit.)*
+
+- **Gemeinsames Zustandsobjekt nutzen (state = Sammelstelle für Daten)**
+  ```js
+  const state = {
+    genres: [],
+    dashboardData: [],
+    tmplArchiv: []
+  };
+  // Zugriff: state.genres.push('Rock');
+  ```
+  *(Statt viele einzelne Variablen zu pflegen, liegt alles an einer Stelle. Das
+  vermeidet doppelte Deklarationen.)*
+
+- **Einstellungen zentral speichern (config.js = Sammelstelle fuer Optionen)**
+  ```js
+  // Datei config.js
+  export const LIMITS = { importSize: 1_000_000 };
+  export const THEMES = ['default', 'dark', 'blue'];
+  ```
+  *(Hier landen alle wichtigen Werte. Andere Dateien importieren diese Optionen.)*
+
+- **Skripte auslagern (app.js = Hauptdatei)**
+  1. Erstelle `app.js` und kopiere den JavaScript-Code aus `index-MODULTOOL.html` hinein.
+  2. Binde es im HTML ein:
+  ```html
+  <script type="module" defer src="app.js"></script>
+  ```
+  *(So bleibt die HTML-Datei uebersichtlich und der Code laesst sich besser warten.)*
+
+- **Installierbare Web-App (PWA = Progressive Web App)**
+  ```bash
+  npx workbox-cli wizard
+  ```
+  *(Erstellt eine `manifest.json` und einen Service Worker. Damit kann die Seite offline funktionieren.)*
+
+- **Service Worker registrieren (Hintergrundhelfer)**
+  ```js
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+  ```
+*(Dieses kleine Skript laedt `sw.js` und ermoeglicht Offline-Zugriff.)*
+
+## Neue Tipps zur mobilen Ansicht
+
+- **Seitenleisten einblenden**
+  - Klicke auf den Menü-Button `☰` oder das Zahnrad `⚙`. Damit schiebst du die linke bzw. rechte Seitenleiste ein oder aus.
+  - Auf kleinen Bildschirmen (unter 780 px Breite) erscheinen die Seitenleisten als Schublade.
+
+- **Logbuch im Dashboard**
+  - Im Panel "Dashboard" siehst du jetzt ein zweites Feld mit den letzten Systemmeldungen.
+  - Jeder Eintrag zeigt Uhrzeit und Text. Bei Problemen kannst du hier nachschauen.
+
+## Praktische Befehle (Kurzfassung)
+
+```bash
+git status        # zeigt geänderte Dateien ("Status")
+git add datei     # fügt eine Datei zum nächsten "Commit" hinzu
+git commit -m "Nachricht"  # sichert die Änderungen dauerhaft
+npm outdated      # listet veraltete Pakete im Projekt
+npm update        # aktualisiert diese Pakete automatisch
+```
+
+*(Die Befehle können einfach kopiert und im Terminal ausgeführt werden.)*
+
+- **Todo-Dateien synchronisieren (sync_todo.sh = Kopierhilfe)**
+  ```bash
+  bash tools/sync_todo.sh
+  ```
+  *(Kopiert `todo.txt` zu `data/todo.txt` und `platzhalter.txt`. So bleiben alle Listen gleich.)*
+
+- **Gewichte früh laden (DOMContentLoaded = HTML fertig geladen)**
+  ```js
+  document.addEventListener('DOMContentLoaded', loadWeights);
+  ```
+  *(Lädt die Gewichtungen sofort, bevor du die Zufallsfunktion nutzt.)*
