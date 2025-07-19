@@ -18,8 +18,8 @@
       .then(r => r.text())
       .then(t => { document.getElementById("errorInfo").textContent = t || "Keine Fehlerhinweise vorhanden."; });
   </script>
-  <button id="saveErrorsBtn">Fehler speichern</button>
-  <button id="clearErrorsBtn">Fehler löschen</button>
+  <button class="btn" id="saveErrorsBtn" aria-label="Fehler speichern">Fehler speichern</button>
+  <button class="btn" id="clearErrorsBtn" aria-label="Fehler löschen">Fehler löschen</button>
   <script type="module">
     import { handleError } from '../validation.js';
     const info=document.getElementById('errorInfo');

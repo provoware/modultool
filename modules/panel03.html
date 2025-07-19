@@ -18,15 +18,15 @@
   <div>
   <label for="moduleSelect">Modul öffnen:</label>
   <select id="moduleSelect" title="Modul aus der Liste wählen"></select>
-  <button id="openModuleBtn" title="Gewähltes Modul im neuen Tab anzeigen">Öffnen</button>
+  <button class="btn" id="openModuleBtn" title="Gewähltes Modul im neuen Tab anzeigen" aria-label="Öffnen">Öffnen</button>
   <div class="input-help">Wähle ein Modul und klicke auf Öffnen. Es erscheint in einem neuen Tab.</div>
   </div>
   <h3>Nächste Termine</h3>
   <ul id="next-list"></ul>
   <div id="current-time" role="status" aria-live="polite"></div>
   <ul id="log-list" aria-label="Verlauf"></ul>
-  <button id="clear-btn" title="Verlauf komplett leeren">Alles löschen</button>
-  <button id="export-btn" title="Verlauf als Textdatei speichern">Exportieren</button>
+  <button class="btn" id="clear-btn" title="Verlauf komplett leeren" aria-label="Alles löschen">Alles löschen</button>
+  <button class="btn" id="export-btn" title="Verlauf als Textdatei speichern" aria-label="Exportieren">Exportieren</button>
 </div>
 <script type="module">
 const STORAGE_KEY='dashboardLog';

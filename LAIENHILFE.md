@@ -1804,3 +1804,30 @@ Die Tipps erscheinen nur beim ersten Aufruf.
    ```
    *(LocalStorage = Speicher im Browser für Einstellungen.)*
 
+
+## Weitere Laienvorschläge (Zusatz 2)
+
+- **Tool automatisch prüfen (Linting = Codekontrolle)**
+  ```bash
+  npm run lint
+  ```
+  *(Sucht nach typischen Programmierfehlern.)*
+
+- **Lokalen Testserver starten (Server = stellt Dateien bereit)**
+  ```bash
+  npx http-server
+  ```
+  *(Zeigt die Seite unter http://localhost:8080.)*
+
+- **Fehlerprotokoll ansehen (Logfile = Liste der Meldungen)**
+  ```bash
+  cat logs/error.log
+  ```
+  *(Zeigt gespeicherte Fehlermeldungen.)*
+
+- **Pakete aktualisieren (Update = auf den neuesten Stand bringen)**
+  ```bash
+  npm update
+  ```
+  *(Lädt aktuelle Versionen aller Abhängigkeiten.)*
+
