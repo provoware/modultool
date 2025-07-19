@@ -1259,3 +1259,31 @@ npm update        # aktualisiert diese Pakete automatisch
   document.addEventListener('DOMContentLoaded', loadWeights);
   ```
   *(Lädt die Gewichtungen sofort, bevor du die Zufallsfunktion nutzt.)*
+
+## Weiterf\u00fchrende Laienvorschl\u00e4ge (Zusatz)
+
+- **Letzten Commit anzeigen (log)**
+  ```bash
+  git log -1
+  ```
+  *(log = Liste der vorherigen Versionen im Repository.)*
+
+- **Code-Stil automatisch pr\u00fcfen (lint)**
+  ```bash
+  npm run lint
+  ```
+  *(lint = Stilpr\u00fcfung, findet typische Fehler.)*
+
+- **Lokalen Testserver starten (serve)**
+  ```bash
+  npx serve
+  ```
+  *(serve = kleines Programm, das Dateien im Browser bereitstellt.)*
+
+- **todo.txt synchron halten**
+  ```bash
+  cp todo.txt platzhalter.txt
+  cp todo.txt data/todo.txt
+  ```
+  *(So haben alle Kopien der Aufgabenliste den gleichen Stand.)*
+
