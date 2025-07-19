@@ -284,7 +284,8 @@
       header.top-header {flex-direction:column;gap:.3em;}
       #copySelBtn {margin-left:0;margin-top:.3em;}
     }
-  </style>
+</style>
+<script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.0.3/dist/purify.min.js"></script>
 </head>
 <body>
 <div id="introOverlay" class="intro-overlay">
@@ -669,7 +670,7 @@ function insertImportedPanel(){
   section.tabIndex=0;
   section.setAttribute('role','region');
   section.setAttribute('aria-labelledby',pid+'-label');
-  section.innerHTML=importModuleContent;
+  section.innerHTML=DOMPurify.sanitize(importModuleContent);
   container.appendChild(section);
   document.getElementById('importInsertBtn').style.display='none';
   document.getElementById('importPreview').style.display='none';

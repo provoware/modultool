@@ -278,6 +278,18 @@ Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler ge
    ```
    *(Entfernt gefährliche Inhalte bei Importen.)*
 
+4. **Eingebundene Module säubern (sanitize = reinigen)**
+   ```html
+   <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.0.3/dist/purify.min.js"></script>
+   ```
+   *(Bindet DOMPurify ein. Die Funktion `sanitize()` filtert kritische Tags.)*
+
+   ```js
+   const sauber = DOMPurify.sanitize(importText);
+   element.innerHTML = sauber;
+   ```
+   *(So landet nur geprüfter Inhalt im Modul.)*
+
 Diese Befehle halten deine Module sauber und sicher.
 ## Geplante Erweiterungen
 
