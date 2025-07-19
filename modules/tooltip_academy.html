@@ -1,2 +1,42 @@
 <!DOCTYPE html>
-<div>Placeholder for tooltip_academy.html</div>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Tooltip-Akademie</title>
+<style>
+  #ttOverlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:1000;}
+  #ttBox{background:#fff;padding:1rem;border-radius:.5rem;max-width:400px;font-family:var(--font-family,sans-serif);}
+  #ttBox h2{margin-top:0;font-size:1.2rem;}
+  #ttBox button{margin-top:.5rem;font-size:1rem;}
+</style>
+</head>
+<body>
+<div id="ttOverlay" role="dialog" aria-modal="true">
+  <div id="ttBox">
+    <h2>Willkommen!</h2>
+    <p>Hier ein paar Tipps zum schnellen Einstieg:</p>
+    <ul>
+      <li><b>Fokusmodus</b> mit der Auswahl oberhalb der Panels aktivieren.</li>
+      <li><b>Strg+S</b> speichert deine Eingaben (Shortcut = Tastenkürzel).</li>
+      <li>Mit <b>git status</b> siehst du geänderte Dateien.</li>
+    </ul>
+    <button id="ttClose">Alles klar</button>
+  </div>
+</div>
+<script type="module">
+const SHOW_KEY='tooltipAcademyShown';
+const overlay=document.getElementById('ttOverlay');
+const closeBtn=document.getElementById('ttClose');
+function maybeShow(){
+  if(localStorage.getItem(SHOW_KEY)!=='yes'){
+    overlay.style.display='flex';
+  }
+}
+closeBtn.onclick=()=>{
+  overlay.style.display='none';
+  localStorage.setItem(SHOW_KEY,'yes');
+};
+maybeShow();
+</script>
+</body>
+</html>
