@@ -188,3 +188,6 @@
 - [ ] Textdateien bereinigen (Whitespace & Newline)
 - [ ] Code-Stil prüfen (Linting = automatischer Stilcheck). Befehl: `npm run lint`
 - [ ] Eingaben prüfen (Validation = Datenkontrolle). Befehl: `node validation.js`
+- [ ] Fokus-Dropdown dynamisch generieren
+- [ ] Fokusmodus an Panel-Anzahl anpassen
+- [ ] Fokus-Menü in Header integrieren
