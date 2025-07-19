@@ -1392,3 +1392,20 @@ python3 -m http.server
 1. Öffne `http://localhost:8000/modules/quote_manager.html`.
 2. Klicke auf **Exportieren**. Du bekommst die Datei `quotes.json`.
 
+
+## Weiterführende Laienvorschläge zur Oberfläche
+
+- **Schaltflächen-Stile anpassen (CSS = Gestaltungssprache)**
+  ```bash
+  nano modules/common.css
+  ```
+  *(Datei öffnen und die Werte von `--button` und `--button-hover` ändern. Mit `Strg+O` speichern und `Strg+X` beenden.)*
+
+- **Änderungen sofort ansehen**
+  ```bash
+  python3 -m http.server
+  ```
+  *(Startet einen kleinen Server. Danach `http://localhost:8000/index-MODULTOOL.html` im Browser laden.)*
+
+- **Einheitliche Knöpfe nutzen (class = Klasse)**
+  Füge jedem `<button>` das Attribut `class="btn"` hinzu. So greifen die zentralen Regeln aus `modules/common.css`.

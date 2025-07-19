@@ -1,11 +1,57 @@
 /* Gemeinsame Stilregeln fuer alle Module */
 :root {
   --focus-ring: #29d3a6;
+  --btn-radius: 0.5rem;
+  --base-font: 16px;
+  --area: #eef4f8;
+  --input: #ffffff;
+  --button: #27c57d;
+  --button-hover: #0b9564;
 }
+
 .mod-panel {
   padding: 1rem;
   border-radius: 1rem;
+  background: var(--area, #f0f4f8);
+  font-family: var(--font-family, sans-serif);
 }
+
 .mod-panel h2 {
   margin-top: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font-size: var(--base-font, 1rem);
+  border-radius: var(--btn-radius, 0.5rem);
+  line-height: 1.4;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--focus-ring, #29d3a6);
+  outline-offset: 2px;
+}
+
+button,
+.btn {
+  background: var(--button);
+  color: var(--text, #000);
+  border: none;
+  padding: 0.4em 0.9em;
+  border-radius: var(--btn-radius, 0.5rem);
+  cursor: pointer;
+  transition: background .2s;
+}
+
+button:hover,
+button:focus,
+.btn:hover,
+.btn:focus-visible {
+  background: var(--button-hover);
+  color: #fff;
 }
