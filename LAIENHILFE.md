@@ -2036,3 +2036,29 @@ Die Tipps erscheinen nur beim ersten Aufruf.
 
 - **Große Aktionsflächen**  
   Knöpfe und Eingabefelder mindestens 40 px hoch und breit machen. So triffst du sie auch mit dem Finger.
+
+## Weitere Laienvorschläge (Zusatz 6)
+
+- **Offline-Hilfeseite erstellen (PDF = druckbares Dokument)**
+  ```bash
+  wkhtmltopdf LAIENHILFE.md hilfe.pdf
+  ```
+  *(Dieses Kommando erzeugt aus der Hilfedatei eine PDF-Datei für die Nutzung ohne Internet.)*
+
+- **Tastenkombinationen anzeigen (Shortcut-Übersicht)**
+  ```bash
+  F10
+  ```
+  *(F10 öffnet ein Fenster mit allen wichtigen Tasten. ESC schließt es wieder.)*
+
+- **Zurück nach Modul-Maximierung (ESC = abbrechen)**
+  ```bash
+  ESC
+  ```
+  *(Drücke ESC, um vom Vollbild eines Moduls wieder zur Übersicht zu gelangen.)*
+
+- **Fehlerprotokoll live verfolgen (tail = Dateiende verfolgen)**
+  ```bash
+  tail -f logs/error.log
+  ```
+  *(Damit siehst du sofort neue Fehlermeldungen. Beende mit Strg+C.)*
