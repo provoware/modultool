@@ -301,3 +301,8 @@
 - [ ] Einfaches Dashboard-Skript anlegen
 - [ ] README mit neuer Struktur aktualisieren
 
+# Weitere Laienvorschläge (Zusatz 8)
+- [ ] Module automatisch aus modules.json laden
+- [ ] module_loader.js in eigenen Projekten nutzen
+- [ ] show_usage.js im README dokumentieren
+

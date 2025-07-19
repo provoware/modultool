@@ -2089,3 +2089,23 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   xdg-open http://localhost:8000/index-MODULTOOL.html
   ```
   *(Startet den Server und öffnet das Dashboard im Browser.)*
+
+## Weitere Laienvorschläge (Zusatz 8)
+
+- **Module automatisch laden (module_loader = Modul-Lademechanismus)**
+  ```javascript
+  import { loadModuleList } from './core/module_loader.js';
+  ```
+  *(Liest `modules.json` und gibt eine Liste aller Module zurück.)*
+
+- **Module-Liste aktualisieren (update_manager = Versionsverwaltung)**
+  ```bash
+  node lib/update_manager.js sync
+  ```
+  *(Prüft `module_versions.json` und fügt fehlende Einträge hinzu.)*
+
+- **Nutzungshäufigkeit anzeigen**
+  ```bash
+  node tools/show_usage.js
+  ```
+  *(Zeigt ein Balkendiagramm der verwendeten Module.)*

@@ -7,7 +7,11 @@ export class App {
     this.modules.push(mod);
   }
 
-  init() {
-    this.modules.forEach(m => m.init && m.init());
+  async init() {
+    for (const m of this.modules) {
+      if (m.init) {
+        await m.init();
+      }
+    }
   }
 }

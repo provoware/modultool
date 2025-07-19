@@ -1,13 +1,24 @@
 import ModuleBase from '../core/module_base.js';
 
 export default class ModuleTemplate extends ModuleBase {
-  constructor(id, title) {
+  constructor(id, title, file) {
     super(id, title);
+    this.file = file;
+    this.content = '';
+  }
+
+  async load() {
+    try {
+      const resp = await fetch(this.file);
+      this.content = await resp.text();
+    } catch (e) {
+      this.content = `<p>Fehler beim Laden: ${this.file}</p>`;
+    }
   }
 
   render() {
     const div = document.createElement('div');
-    div.textContent = this.title;
+    div.innerHTML = this.content || this.title;
     return div;
   }
 }
