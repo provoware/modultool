@@ -69,6 +69,16 @@
       "id": "panel14",
       "title": "Fehler & Hilfe",
       "file": "modules/panel14.html"
+    },
+    {
+      "id": "quotes",
+      "title": "Zitatverwaltung",
+      "file": "modules/quote_manager.html"
+    },
+    {
+      "id": "todo",
+      "title": "Todo-Liste",
+      "file": "modules/todo_list.html"
     }
   ]
 }

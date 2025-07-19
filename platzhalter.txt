@@ -45,11 +45,11 @@
 - [ ] Fehler-Erkennung mit Auto-Korrektur-Vorschlägen
 - [ ] Dateileichen-Erkennung und Entrümplungsmodus
 - [ ] Globaler Suchfilter für alle Module und Inhalte
-- [ ] Todo-Listen-Modul integrieren
+- [x] Todo-Listen-Modul integrieren
 - [ ] Songtext-Editor mit Titelfeld und Notiz speichern
 - [ ] Dialog-Schreiber mit Charakterverwaltung bauen
 - [ ] Info-Manager für eigene Befehle anlegen
-- [ ] Zitaten-Modul mit Notizfeld umsetzen
+- [x] Zitaten-Modul mit Notizfeld umsetzen
 - [ ] Interaktiven Modulbaukasten erstellen
 - [x] Anleitung zum Selbstcheck im README ergänzt
 - [x] modules.json erstellt (enthält angemeldete Panels)
@@ -120,9 +120,9 @@
 
 - [ ] Doppelte Variablen wie "let genres" entfernen
 - [ ] Einfache Archiv-Buttons einrichten
-- [ ] fehlenden Button "importInsertBtn" ergänzen
-- [ ] Theme umschalten ohne "null"-Attribut
-- [ ] Fokus nur auf sichtbare Panels zulassen
+- [x] fehlenden Button "importInsertBtn" ergänzen
+- [x] Theme umschalten ohne "null"-Attribut
+- [x] Fokus nur auf sichtbare Panels zulassen
 - [ ] Logging vereinheitlichen
 - [ ] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`
 - [ ] Code-Formatierung mit Prettier (Formatierer = ordnet Einr\u00fcckungen und Leerzeichen). Befehl: `npx prettier --write .`
@@ -188,6 +188,10 @@
 - [ ] Textdateien bereinigen (Whitespace & Newline)
 - [ ] Code-Stil prüfen (Linting = automatischer Stilcheck). Befehl: `npm run lint`
 - [ ] Eingaben prüfen (Validation = Datenkontrolle). Befehl: `node validation.js`
+- [x] Fokus-Dropdown dynamisch generieren
+- [x] Fokusmodus an Panel-Anzahl anpassen
+- [x] Fokus-Menü in Header integrieren
+- [x] Export-Funktion für Zitate und Todo-Liste
 
 - [ ] Kontrastwerte nach WCAG pruefen (Kontrast = Unterschied zwischen Vorder- und Hintergrund). Befehl: `npx lighthouse http://localhost:8000/index-MODULTOOL.html`
 - [ ] Einheitliche Schriftgroesse per CSS-Variable `--base-font` in index-MODULTOOL.html setzen (base-font = Grundschrift).

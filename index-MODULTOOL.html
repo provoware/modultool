@@ -491,6 +491,20 @@ const gridMain = document.getElementById('gridMain');
 const fokusSelect = document.getElementById('fokusSelect');
 const fokusResetBtn = document.getElementById('fokusResetBtn');
 let fokusMode = 0;
+function renderFocusSelect(){
+  const sel=document.getElementById("fokusSelect");
+  if(!sel) return;
+  sel.innerHTML='<option value="0">3x3-Grid (Standard)</option>';
+  document.querySelectorAll("#gridMain .mod-panel").forEach((p,i)=>{
+    const h=p.querySelector("h2");
+    const title=h?h.textContent:`Panel ${i+1}`;
+    const opt=document.createElement("option");
+    opt.value=String(i+1);
+    opt.textContent=`Panel ${i+1}: ${title}`;
+    sel.appendChild(opt);
+  });
+}
+
 fokusSelect.onchange = function() { switchFokus(Number(fokusSelect.value)); };
 function updateFocusButtons(){
   document.querySelectorAll('.panel-focus-btn').forEach((btn,idx)=>{
@@ -519,19 +533,20 @@ function switchFokus(mode) {
       return;
     }
   }
-  for (let i = 1; i <= 11; ++i) {
-    const panel = document.getElementById('panel' + i);
+  document.querySelectorAll("#gridMain .mod-panel").forEach((panel,i)=>{
     if (mode === 0) {
-      const box=document.getElementById('mod'+i+'box');
-      panel.style.display = box && !box.checked ? 'none' : '';
-      panel.classList.remove('fokus');
-      panel.setAttribute('aria-hidden',panel.style.display==='none'?'true':'false');
+      const box=document.getElementById("mod"+(i+1)+"box");
+      panel.style.display = box && !box.checked ? "none" : "";
+      panel.classList.remove("fokus");
+      panel.setAttribute("aria-hidden",panel.style.display==="none"?"true":"false");
     } else {
-      const on = (i === mode);
-      panel.style.display = on ? '' : 'none';
-      panel.classList.toggle('fokus', on);
-      panel.setAttribute('aria-hidden', on ? 'false' : 'true');
+      const on = (i === mode-1);
+      panel.style.display = on ? "" : "none";
+      panel.classList.toggle("fokus", on);
+      panel.setAttribute("aria-hidden", on ? "false" : "true");
     }
+  });
+
   }
   fokusResetBtn.style.display = (mode !== 0) ? '' : 'none';
   fokusSelect.value = String(mode);
@@ -590,6 +605,7 @@ window.onload = function() {
   document.getElementById('profileSelect').onchange = e=>loadSelectedProfile(e.target.value);
   document.getElementById('deleteProfileBtn').onclick = deleteProfile;
   for(let i=4;i<=11;i++) toggleModPanel(i);
+  renderFocusSelect();
   setTimeout(()=>{addFocusButtons();updateFocusButtons();},300);
 };
 /* ======= App-Logik, Panels, Logging, Dashboard usw. ======= */
@@ -1061,6 +1077,8 @@ document.getElementById('clearSearch').onclick = function() {
 function toggleModPanel(idx) {
   const cb = document.getElementById('mod'+idx+'box');
   document.getElementById('panel'+idx).style.display = cb.checked ? '' : 'none';
+  renderFocusSelect();
+  updateFocusButtons();
 }
 function toggleModuleList(){
   const wrap=document.getElementById('moduleListWrap');
