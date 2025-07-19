@@ -214,6 +214,7 @@
 - [x] Modulversionen mit npm run sync aktualisiert
 - [x] Weiterfuehrende Laienvorschlaege ergaenzt
 - [x] Weitere Laienvorschläge (Fortsetzung) ergänzt
+- [x] Weitere Laienvorschläge (Zusatz 3) ergänzt
 - [x] Hinweis auf todo.txt-Synchronisation aufgenommen
 - [ ] Offene Punkte aus AGENTS-RELEASE-CHECK.md bearbeiten
 - [x] Release-Checkliste in LAIENHILFE ergänzt
@@ -244,3 +245,25 @@
 - [ ] CSS in Module aufteilen
 - [x] User-Feedback-Panel integrieren
 - [x] Themes Trash/Contrast/Minimal ergänzen
+- [ ] Layout auf QSplitter und QGridLayout umstellen
+- [ ] Zentrale Sidebar mit Panel-Management
+- [ ] Panels als Klassen kapseln
+- [ ] Vollständige Tab- und Screenreader-Navigation
+- [ ] Sprechende Labels und Tooltips ergänzen
+- [ ] Globale Fehlerbehandlung mit Nutzerfeedback
+- [ ] Undo/Redo, Papierkorb und automatische Backups
+- [ ] Einheitliches Trash-Design
+- [ ] Geführtes Onboarding und Hilfe-Panel
+- [ ] Laienfreundliche Hinweise beim Speichern und Löschen
+- [ ] Hauptlayout auf QSplitter/GridLayout umstellen
+- [ ] Sidebar-Logik vereinheitlichen, aktive Panels hervorheben
+- [ ] Panels dynamisch anpassbar und einrollbar machen
+- [ ] Alle Bedienelemente barrierefrei gestalten (Tab-Reihenfolge, Namen, Tooltips)
+- [ ] Kontraste und Schriftgrößen überprüfen (Trash-Look vermeiden)
+- [ ] Hilfetexte überall sichtbar platzieren
+- [ ] Feedback nach Aktionen anzeigen (Speichern, Löschen, Fehler)
+- [ ] Undo/Redo in allen Editoren integrieren
+- [ ] Exceptions abfangen und Hinweise anzeigen
+- [ ] Scroll- und Zoom-Steuerung an Mausfokus koppeln
+- [ ] Leere Flächen sinnvoll nutzen (Vorschau oder Hinweis)
+- [ ] Layout-Analyse und Sidebars optimieren
