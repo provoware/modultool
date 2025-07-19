@@ -276,3 +276,6 @@
 - [ ] Ablenkungsfreier Modus per F11 (Menüs ausblenden)
 - [ ] Kontext-Hilfe per F1 für jedes Eingabefeld
 - [ ] Farbige Statuszeile für Speichern- und Fehlermeldungen
+- [ ] Offline-Hilfeseite als PDF zum Herunterladen
+- [ ] Tastenkombinationen im UI einblenden (Shortcut-Hilfe)
+- [ ] Zurück-Button nach Modul-Maximierung einbauen
