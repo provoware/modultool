@@ -285,6 +285,13 @@
     }
     @media (max-width: 480px) {
       header {font-size:1.2em;}
+      .app-frame {grid-template-columns: 1fr var(--dragbar-width) 100vw var(--dragbar-width) 1fr;}
+      .sidebar {width:96vw;min-width:90vw;max-width:99vw;}
+    }
+    @media (max-width: 480px) {
+      header {font-size:1.2em;}
+      .sidebar {width:98vw;min-width:98vw;max-width:98vw;}
+      .app-frame {grid-template-columns:1fr;}
       header.top-header {flex-direction:column;gap:.3em;}
       #copySelBtn {margin-left:0;margin-top:.3em;}
     }
@@ -499,6 +506,7 @@ function switchFokus(mode) {
     if (target && target.style.display === 'none') {
       fokusSelect.value = '0';
       addLog('Panel im Fokus ausgeblendet.');
+      logDbg('Panel im Fokus ausgeblendet.');
       return;
     }
   }
@@ -587,6 +595,8 @@ const state = {
   searchTerm: ''
 };
 let searchTimer;
+let genreWeights = {};
+let searchTerm = '';
 /* Logging und Selfcheck */
 let logArr = [];
 function loadLogs(){
