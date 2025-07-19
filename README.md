@@ -137,6 +137,11 @@ python3 -m http.server
 - Sichere Zwischenstände mit `git stash` (temporärer Speicher).
 - Erstelle neue Module mit `node tools/create_module.js modulID "Titel"`.
 
+## 🖥 Layout & Zoom
+- Über das Dropdown **Fokus-Modus** blendest du alle anderen Panels aus und siehst ein Modul bildschirmfüllend.
+- Halte **Strg** gedrückt und rolle mit dem Mausrad, um hinein- oder herauszuzoomen (Browser-Zoom). Mit **Strg+0** stellst du die Normalgröße wieder her.
+- Das Tool passt sich nach dem Zoomen automatisch an (Auto-Scale). Kein Neuladen nötig.
+
 ## Hilfe
 
 Ausführliche Tipps findest du in der Datei [LAIENHILFE.md](LAIENHILFE.md). Dort stehen alle Schritte in einfacher Sprache mit Beispielen.

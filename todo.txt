@@ -137,7 +137,7 @@
 - [x] Genre-Eingaben strikt auf 24 Zeichen begrenzen. Beispiel: `if(input.value.length > 24) return alert("Max 24 Zeichen");`
 - [ ] Genre-Eingaben strikt auf 24 Zeichen begrenzen. Beispiel: `if(input.value.length > 24) return alert("Max 24 Zeichen");`
 - [ ] Gewichtete Zufallsauswahl vor dem Anzeigen laden. Befehl: `window.addEventListener("DOMContentLoaded", initWeights);`
-- [ ] fetch("modules.json") mit Fehlermeldung absichern. Beispiel:
+- [x] fetch("modules.json") mit Fehlermeldung absichern. Beispiel:
   ```js
   fetch("modules.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); });
   ```

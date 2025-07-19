@@ -1083,15 +1083,23 @@ function loadPanel(id, cb){
     .then(html=>{document.getElementById(id).innerHTML = html; if(cb) cb();})
     .catch(e=>logErr('Panel-Load '+id+': '+e));
 }
-function loadRegisteredPanels(){
-  fetch('modules.json')
-    .then(r=>{if(!r.ok) throw new Error(r.status); return r.json();})
-    .then(cfg=>{
-      cfg.modules.forEach(m=>{
-        if(m.id==='panel8') loadPanel(m.id, renderWeightList); else loadPanel(m.id);
-      });
-    })
-    .catch(e=>logErr('Module-Liste: '+e));
+async function loadRegisteredPanels(){
+  try {
+    const res = await fetch('modules.json');
+    if(!res.ok){
+      if(res.status===404) throw new Error('Modulliste nicht gefunden (404) – ggf. deploy vergessen.');
+      throw new Error('HTTP '+res.status);
+    }
+    let cfg;
+    try { cfg = await res.json(); }
+    catch(err){ throw new Error('modules.json defekt: '+err.message); }
+    cfg.modules.forEach(m=>{
+      if(m.id==='panel8') loadPanel(m.id, renderWeightList); else loadPanel(m.id);
+    });
+  } catch(e){
+    logErr('Module-Liste: '+e.message);
+    alert(e.message);
+  }
 }
 loadRegisteredPanels();
 // Intro-Overlay nach 20 Sekunden automatisch ausblenden

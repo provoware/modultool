@@ -868,6 +868,14 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   ```
   *(Öffnet das Modul im Editor. "nano" ist ein einfacher Texteditor im Terminal.)*
 
+- **Layout & Zoom steuern**
+  ```bash
+  F11             # Vollbildmodus
+  Strg+Mausrad    # Zoom
+  Strg+0          # Normalgröße
+  ```
+  *(Im Fokus-Modus füllt ein gewähltes Panel den ganzen Bildschirm.)*
+
 
 ## Todo-Liste immer aktualisieren
 
