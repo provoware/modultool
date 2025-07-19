@@ -7,6 +7,9 @@
   #builder{display:grid;gap:.5rem;max-width:340px;margin:auto;font-family:var(--font-family,sans-serif);}
   textarea{font-family:monospace;min-height:6em;}
   button:focus-visible{outline:2px solid var(--focus-ring,#005fcc);outline-offset:2px;}
+  #builder{display:grid;gap:0.5rem;max-width:360px;margin:auto;font-family:var(--font-family,sans-serif);}
+  input,button,textarea{font-size:var(--base-font,1rem);border-radius:var(--btn-radius,0.5rem);line-height:1.4;}
+  textarea{height:200px;}
 </style>
 </head>
 <body>
@@ -40,6 +43,23 @@ document.getElementById('createBtn').addEventListener('click',()=>{
 </div>
 </body>
 </html>`;
+  <h2>Modul erstellen</h2>
+  <label for="id-input">Modul-ID:</label>
+  <input id="id-input" aria-label="Modul-ID">
+  <label for="title-input">Titel:</label>
+  <input id="title-input" aria-label="Modul-Titel">
+  <button id="create-btn">HTML anzeigen</button>
+  <textarea id="output" aria-label="Modul-Code"></textarea>
+</div>
+<script type="module">
+const idInput=document.getElementById('id-input');
+const titleInput=document.getElementById('title-input');
+const out=document.getElementById('output');
+document.getElementById('create-btn').addEventListener('click',()=>{
+  const id=idInput.value.trim();
+  const title=titleInput.value.trim()||'Neues Modul';
+  if(!id){out.value='Bitte ID angeben';return;}
+  out.value=`<!DOCTYPE html>\n<html lang="de">\n<head>\n<meta charset="UTF-8">\n<title>${title}</title>\n</head>\n<body>\n<div id="${id}">\n  <h2>${title}</h2>\n</div>\n<script type="module">\n// eigenes Skript hier\n</script>\n</body>\n</html>`;
 });
 </script>
 </body>
