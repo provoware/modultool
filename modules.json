@@ -84,6 +84,11 @@
       "id": "unsaved",
       "title": "Warnung vor ungespeicherten Änderungen",
       "file": "modules/unsaved_changes_warning.html"
+    },
+    {
+      "id": "contrast",
+      "title": "Kontrast-Optimierer",
+      "file": "modules/contrast_optimizer.html"
     }
   ]
 }

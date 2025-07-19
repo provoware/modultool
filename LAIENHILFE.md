@@ -1423,3 +1423,8 @@ python3 -m http.server
 
 - **Einheitliche Knöpfe nutzen (class = Klasse)**
   Füge jedem `<button>` das Attribut `class="btn"` hinzu. So greifen die zentralen Regeln aus `modules/common.css`.
+
+- **Farbkontrast testen (Kontrast = Unterschied von Vorder- und Hintergrund)**
+  1. `bash tools/start_tool.sh` – startet Server und Browser.
+  2. `http://localhost:8000/modules/contrast_optimizer.html` öffnen.
+  3. Farben wählen und auf **Kontrast prüfen** klicken. Ab 4.5 gilt der Text als gut lesbar.
