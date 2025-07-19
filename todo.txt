@@ -173,7 +173,7 @@
 - [ ] Kontrast im hellen Theme optimieren. Farbe in `modules/common.css` anpassen (`nano modules/common.css`)
 - [ ] Fokus-Ring-Farbe an Rahmen angleichen. Variable `--focus-ring` in `modules/common.css` definieren
 
-- [ ] Node-Version anzeigen. Befehl: `node --version` (Node.js = JavaScript-Laufzeitumgebung).
+ - [x] Node-Version anzeigen. Befehl: `node --version` (Node.js = JavaScript-Laufzeitumgebung).
 - [ ] Pakete automatisch auf Sicherheitslücken prüfen. Befehl: `npm audit fix` (Security-Check = bekannte Schwachstellen schließen).
 - [ ] CSS mit Stylelint prüfen. Befehl: `npx stylelint "**/*.css"` (Stylelint = CSS-Stilprüfer).
 - [ ] Bilder verkleinern mit Imagemin. Befehl: `npx imagemin src/img/* --out-dir=dist/img` (Bildkomprimierung = kleinere Dateigröße).
