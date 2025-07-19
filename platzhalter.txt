@@ -14,6 +14,16 @@
 - [ ] Accessibility-Audit der Panels durchführen und Code aufräumen
 - [ ] Automatische Versionierung und Changelog-Workflow einrichten
 - [ ] JavaScript-Tools auf TypeScript umstellen (Schema-Validierung)
+- [ ] Eingaben prüfen (Input-Sanitierung) für IDs und Pfade
+- [ ] Alle Konfigs mit Schema validieren (JSON Schema/Zod)
+- [ ] Eigene Fehlerklassen definieren
+- [ ] Zentralen Error-Handler einrichten
+- [ ] Fehlermeldungen nutzerfreundlich formulieren
+- [ ] Automatischen Rollback bei Abbruch einbauen
+- [ ] Wiederholen-Funktion nach Fehler anbieten
+- [ ] Logging mit Zeitstempel im UI anzeigen
+- [ ] Log-Download-Button einfügen
+- [ ] Standard-Vorlagen und Beispiel-Module bereitstellen
 # Liste mit sich aus Entwicklung ergebenden weiteren noch zu erfüllenden Aufgaben
 - [ ] Zufallsmodi mit Profilgewichtung implementieren
 - [x] Logging ins Dashboard einbauen
@@ -165,3 +175,4 @@
 - [ ] Web-App mit Lighthouse testen. Befehl: `npx lighthouse http://localhost:8000/index-MODULTOOL.html` (Lighthouse = Analyse für Performance und Barrierefreiheit).
 - [ ] Lokalen Server ohne Python starten. Befehl: `npx http-server` (http-server = einfacher Entwicklungsserver).
 - [x] Grid automatisch anpassen (auto-fit = Module passen sich der Fensterbreite an). CSS-Beispiel: `grid-template-columns: repeat(auto-fit, minmax(280px,1fr));`
+- [ ] Textdateien bereinigen (Whitespace & Newline)

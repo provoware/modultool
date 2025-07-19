@@ -761,7 +761,7 @@ Hier speicherst du zentrale Einstellungen, die das Tool beim Start pr\u00fcft.
 nano config_schema.json
 ```
 In dieser Datei beschreibst du, welche Einstellungen erlaubt sind.
-*(Schema = Vorlage f\u00fcr eine Datenstruktur in JSON).* 
+*(Schema = Vorlage f\u00fcr eine Datenstruktur in JSON).*
 ### 7. Tests und CI
 ```bash
 bash tools/selfcheck.sh
@@ -1259,3 +1259,24 @@ npm update        # aktualisiert diese Pakete automatisch
   document.addEventListener('DOMContentLoaded', loadWeights);
   ```
   *(Lädt die Gewichtungen sofort, bevor du die Zufallsfunktion nutzt.)*
+
+## Weiterf\u00fchrende Tipps
+
+- **Dateien aufr\u00e4umen (Whitespace entfernen)**
+  ```bash
+  find . -name '*.txt' -o -name '*.md' | xargs sed -i 's/[ \t]*$//'
+  ```
+  *(Whitespace = \u00fcberfl\u00fcssige Leerzeichen am Zeilenende. Der Befehl entfernt sie aus allen Text- und Markdown-Dateien.)*
+
+- **Zeilenenden vereinheitlichen (newline = Zeilenumbruch)**
+  ```bash
+  for f in $(find . -name '*.txt' -o -name '*.md'); do tail -c1 "$f" | od -An -t x1 | grep -q '0a' || echo >> "$f"; done
+  ```
+  *(Sorgt daf\u00fcr, dass jede Datei mit einem Zeilenumbruch endet.)*
+
+- **Aufgabenliste erweitern**
+  ```bash
+  echo '- [ ] Textdateien bereinigen (Whitespace, Newline)' >> todo.txt
+  bash tools/sync_todo.sh
+  ```
+  *(Der erste Befehl erg\u00e4nzt einen neuen Punkt in deiner Aufgabenliste. Der zweite Befehl synchronisiert die anderen Listen.)*
