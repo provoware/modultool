@@ -1619,3 +1619,29 @@ GitHub Actions sind automatische Abläufe auf GitHub. Sie prüfen den Code nach 
   bash tools/manage_projects.sh delete Test # löscht "Test"
   ```
   *(Mit dem Skript kannst du Projekte erstellen, auswählen, löschen und das aktuelle anzeigen.)*
+
+## Globale Standards (Kurzfassung)
+
+- **Dateien ordentlich halten** (Struktur)
+  Siehe `GLOBALE_STANDARDS.md` fuer die komplette Liste.
+- **Neues Modul anlegen**
+  ```bash
+  node tools/create_module.js
+  ```
+  *(Legt automatisch einen Ordner und Basisdateien an.)*
+- **Tests ausfuehren**
+  ```bash
+  npm test
+  ```
+  *(Stellt sicher, dass alles funktioniert.)*
+- **Favoriten-Startseite öffnen**
+  ```bash
+  xdg-open modules/favorites_start_screen.html
+  ```
+  *(Zeigt deine markierten Lieblings-Module im Browser an. "xdg-open" öffnet eine Datei mit dem Standardprogramm.)*
+
+- **Favoriten zurücksetzen (localStorage = Speicher im Browser)**
+  ```bash
+  node -e "localStorage.clear()"
+  ```
+  *(Entfernt gespeicherte Favoriten und andere Einstellungen.)*

@@ -34,7 +34,7 @@
 - [x] Dokumentation aktualisieren (README, AGENTS)
 - [x] Fehlende Dateien und Ordner mit Platzhaltern anlegen
 - [x] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
-- [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
+- [x] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
 - [x] Bugfix: Startbildschirm schließt per X-Button
 - [ ] Automatische Validierung jedes Moduls vor Aktivierung
 - [x] Farbkontrast-Optimierung nach WCAG umsetzen
@@ -217,3 +217,4 @@
 - [x] Release-Checkliste in LAIENHILFE ergänzt
 - [x] Willkommensfenster per X oder Esc schließen
 - [x] Startskript installiert fehlende Node-Pakete automatisch
+- [x] Globale Standards dokumentiert
