@@ -1,4 +1,7 @@
 /* Gemeinsame Stilregeln fuer alle Module */
+:root {
+  --focus-ring: #29d3a6;
+}
 .mod-panel {
   padding: 1rem;
   border-radius: 1rem;

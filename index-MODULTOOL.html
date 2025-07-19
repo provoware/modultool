@@ -40,9 +40,9 @@
       --accent-hover: #15986b;
       --tmpl-btn-bg: #28322e;
       --tmpl-btn-bg-hover: #338a5d;
-      --focus-ring: #29d3a6;
       --highlight: #46c1f6;
       --field-border: #2ccfa0;
+      --focus-ring: var(--field-border);
       --field-error: #c53c3c;
       --base-font: 16px;
       --font-family: 'Segoe UI', Arial, sans-serif;
@@ -73,9 +73,9 @@
       --dashboard-light: #f3f9fb;
       --tmpl-btn-bg: #cfe2c4;
       --tmpl-btn-bg-hover: #b0dab9;
-      --focus-ring: #26c38e;
       --highlight: #0096db;
       --field-border: #1fb897;
+      --focus-ring: var(--field-border);
       --field-error: #c53c3c;
     }
     [data-theme="blue"] {
@@ -103,9 +103,9 @@
       --dashboard-light: #2d4a7a;
       --tmpl-btn-bg: #235677;
       --tmpl-btn-bg-hover: #1ca0da;
-      --focus-ring: #36ecf1;
       --highlight: #17e9e0;
       --field-border: #25daf7;
+      --focus-ring: var(--field-border);
       --field-error: #d45e91;
     }
 
@@ -557,7 +557,6 @@ window.onload = function() {
     state.dashboardData = dash ? JSON.parse(dash) : [];
     let tdata = localStorage.getItem(TMPL_KEY);
     state.tmplArchiv = tdata ? JSON.parse(tdata) : [];
-    loadWeights();
   } catch(e) {
     state.genres = []; state.dashboardData = []; state.tmplArchiv = [];
     logErr('Fehler beim Laden aus localStorage: '+e);
@@ -807,6 +806,7 @@ function loadWeights(){
   try { state.genreWeights = JSON.parse(localStorage.getItem(WEIGHT_KEY)) || {}; }
   catch(e){ state.genreWeights = {}; logErr('Gewicht-Laden: '+e); }
 }
+document.addEventListener('DOMContentLoaded', loadWeights);
 function saveWeights(){
   localStorage.setItem(WEIGHT_KEY, JSON.stringify(state.genreWeights));
 }

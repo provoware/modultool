@@ -18,7 +18,7 @@
 - [ ] Zufallsmodi mit Profilgewichtung implementieren
 - [x] Logging ins Dashboard einbauen
 - [x] CSS responsiv machen, Test mit Axe/WAVE
-- [ ] Platzhalter-Datei automatisch mit todo.txt aktualisieren
+- [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [ ] Dokumentation aktualisieren (README, AGENTS)
 - [ ] Fehlende Dateien und Ordner mit Platzhaltern anlegen
 - [ ] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
@@ -80,7 +80,7 @@
 - [ ] Startskript prüft Updates vor dem Start
 - [ ] Startskript prüft Updates vor dem Start
 - [ ] README mit Inhaltsverzeichnis und Hilfe-Link ergänzen
-- [ ] selfcheck.sh synchronisiert todo-Dateien nach Lauf
+- [x] selfcheck.sh synchronisiert todo-Dateien nach Lauf
 
 - [ ] Fehler-Tipps direkt im Tool anzeigen (Tooltip = kurzer Hinweis).
 - [ ] Fehler-Logdatei automatisch pflegen (logs/error.log).
@@ -94,7 +94,7 @@
 - [ ] Service Worker einrichten für Offline-Betrieb (PWA = Webapp zum Installieren). Befehl: `npx workbox-cli wizard`
 
 - [x] Redundante Arrays wie "genres" und "dashboardData" in einem einzigen Objekt `state` sammeln. Befehl: `grep -n "genres" -r`
-- [ ] Gewichtete Zufallsauswahl vor dem Anzeigen laden. Befehl: `window.addEventListener("DOMContentLoaded", initWeights);`
+- [x] Gewichtete Zufallsauswahl vor dem Anzeigen laden. Befehl: `window.addEventListener("DOMContentLoaded", initWeights);`
   ```js
   fetch("modules.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); });
   ```
@@ -112,7 +112,7 @@
 - [ ] Panel-Kopfzeilen einheitlich benennen. Fundstellen anzeigen mit `grep -n head modules/*.html`
 - [ ] Verschachtelte Buttons vermeiden. Kontrollieren: `grep -n "<button" -r modules`
 - [ ] Kontrast im hellen Theme optimieren. Farbe in `modules/common.css` anpassen (`nano modules/common.css`)
-- [ ] Fokus-Ring-Farbe an Rahmen angleichen. Variable `--focus-ring` in `modules/common.css` definieren
+- [x] Fokus-Ring-Farbe an Rahmen angleichen. Variable `--focus-ring` in `modules/common.css` definieren
 
 - [ ] Node-Version anzeigen. Befehl: `node --version` (Node.js = JavaScript-Laufzeitumgebung).
 - [ ] Pakete automatisch auf Sicherheitslücken prüfen. Befehl: `npm audit fix` (Security-Check = bekannte Schwachstellen schließen).

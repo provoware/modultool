@@ -1247,3 +1247,15 @@ npm update        # aktualisiert diese Pakete automatisch
 ```
 
 *(Die Befehle können einfach kopiert und im Terminal ausgeführt werden.)*
+
+- **Todo-Dateien synchronisieren (sync_todo.sh = Kopierhilfe)**
+  ```bash
+  bash tools/sync_todo.sh
+  ```
+  *(Kopiert `todo.txt` zu `data/todo.txt` und `platzhalter.txt`. So bleiben alle Listen gleich.)*
+
+- **Gewichte früh laden (DOMContentLoaded = HTML fertig geladen)**
+  ```js
+  document.addEventListener('DOMContentLoaded', loadWeights);
+  ```
+  *(Lädt die Gewichtungen sofort, bevor du die Zufallsfunktion nutzt.)*
