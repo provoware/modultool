@@ -271,3 +271,8 @@
 - [ ] Scroll- und Zoom-Steuerung an Mausfokus koppeln
 - [ ] Leere Flächen sinnvoll nutzen (Vorschau oder Hinweis)
 - [ ] Layout-Analyse und Sidebars optimieren
+
+# Neue Vorschläge für ablenkungsfreie Oberfläche
+- [ ] Ablenkungsfreier Modus per F11 (Menüs ausblenden)
+- [ ] Kontext-Hilfe per F1 für jedes Eingabefeld
+- [ ] Farbige Statuszeile für Speichern- und Fehlermeldungen

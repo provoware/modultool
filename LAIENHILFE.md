@@ -1976,4 +1976,19 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   sudo dpkg -i modultool_1.0.0.deb
   ```
   *(Richtet das Programm systemweit ein. Das AppImage kannst du einfach doppelklicken.)*
+## Weiterführende Laienvorschläge zur ablenkungsfreien Oberfläche
+
+- **Ablenkungsfreien Modus aktivieren (F11 = Vollbild)**
+  Drücke die Taste `F11`. Damit blendest du die Menüleisten aus.
+  Ein weiterer Druck holt sie zurück.
+
+- **Schnelle Hilfe einblenden (F1 = Hilfe)**
+  ```bash
+  F1
+  ```
+  *(Öffnet ein kleines Fenster mit Erklärungen zum aktuellen Feld.)*
+
+- **Statuszeile nutzen (Status = kurzer Hinweis)**
+  Oben erscheint eine farbige Zeile nach dem Speichern oder bei Fehlern.
+  Grün bedeutet Erfolg, Rot zeigt ein Problem an.
 
