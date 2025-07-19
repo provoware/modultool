@@ -404,14 +404,17 @@ sudo npm install -g htmlhint
 - Der **Speichern**-Knopf leuchtet kurz grün auf. Das ist ein optisches Feedback (Rückmeldung), dass alles geklappt hat.
 ## Genre-Profile verwenden
 
-1. Öffne `panel02.html` im Ordner `modules`.
-2. Gib einen Profilnamen ein und ergänze deine Genres.
-3. Wähle bei Bedarf eine **Gewichtung** (Zahl bestimmt, wie oft das Profil gezogen wird).
-4. Mit **Profil speichern** legst du die Liste an.
-5. Über **Zufall** erhältst du eines der Genres aus dem gewählten Profil.
-6. Mit **Gewichteter Zufall** wird ein Profil nach Gewicht gewählt und daraus ein Genre angezeigt.
+1. Starte das Tool mit:
+   ```bash
+   bash tools/start_tool.sh
+   ```
+2. Im Panel **Genres + Zufall** gibst du deine Genres ein (Komma-getrennt).
+3. Darunter steht das Feld **Profilname**. Trage dort z. B. `Hart`, `Schnell` oder `Chill` ein.
+4. Klicke auf **Profil speichern**. Das Profil erscheint in der Auswahl.
+5. Wähle ein Profil aus, um es zu laden. Über **Profil löschen** entfernst du es wieder.
+6. Die 🎲-Buttons ziehen zufällig Genres aus dem geladenen Profil.
 
-Die gespeicherten Module findest du gesammelt in `modules.json`.
+*(Profil = Sammlung deiner Genre-Listen, im Browser gespeichert.)*
 
 ## Persona-Switcher nutzen
 
