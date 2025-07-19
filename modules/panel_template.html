@@ -9,9 +9,15 @@
 </style>
 </head>
 <body>
-<div id="{{ID}}">
+<div id="{{ID}}" class="mod-panel">
   <h2>{{TITLE}}</h2>
+  <div id="status" role="status" aria-live="polite"></div>
   <!-- Hier kommt dein Inhalt hin -->
 </div>
+<script type="module">
+import { showStatus, handleError } from './common.js';
+window.showStatus = showStatus;
+window.handleError = handleError;
+</script>
 </body>
 </html>

@@ -1954,3 +1954,12 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   ```
   *(Zeigt, welche Dateien geändert wurden und noch gespeichert werden müssen.)*
 
+
+## Neuer Barrierefreiheits-Report
+
+- **Automatische Zugänglichkeitsprüfung (Accessibility = Barrierefreiheit)**
+  ```bash
+  bash tools/a11y_report.sh
+  ```
+  *(Prüft alle Module mit dem Programm "axe-core" und erstellt einen Bericht im Ordner `logs/a11y`.)*
+
