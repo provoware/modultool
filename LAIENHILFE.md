@@ -1474,3 +1474,30 @@ npm run sync
 
 Nach dem Aktualisieren kannst du `npm update` ausführen, um alle Pakete auf den
 neuesten Stand zu bringen.
+
+## Weiterfuehrende Laienvorschlaege (Ergaenzung)
+
+- **Aenderungshistorie ansehen (History = Verlauf)**
+  ```bash
+  git log --oneline
+  ```
+  *(Zeigt knapp an, was zuletzt gespeichert wurde.)*
+
+- **todo.txt abgleichen (sync = abgleichen)**
+  ```bash
+  nano todo.txt
+  bash tools/sync_todo.sh
+  ```
+  *("sync_todo.sh" kopiert die Datei in "data/todo.txt" und "platzhalter.txt".)*
+
+- **plugin.json pruefen (Manifest = Datenblatt)**
+  ```bash
+  cat plugins/modulID/plugin.json
+  ```
+  *(Zeigt ID, Name und Version des Moduls.)*
+
+- **Versionen anzeigen (module_versions.json)**
+  ```bash
+  cat module_versions.json
+  ```
+  *(Listet die gespeicherten Modulversionen auf.)*
