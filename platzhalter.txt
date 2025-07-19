@@ -10,7 +10,7 @@
 - [x] Projektordner verwalten (tools/manage_projects.sh)
 - [x] Wöchentlichen Selfcheck automatisieren (Cronjob)
 - [ ] Release vorbereiten: Selfcheck, README prüfen, Release-Tag erstellen
-- [ ] DEB- und AppImage-Paket bauen
+- [x] DEB- und AppImage-Paket bauen
 - [ ] CI/CD-Pipeline einrichten (Lint → Test → Build → Release)
 - [ ] Accessibility-Audit der Panels durchführen und Code aufräumen
 - [ ] Automatische Versionierung und Changelog-Workflow einrichten
@@ -71,7 +71,7 @@
 - [x] deleteJSON-Funktion ergänzt
 - [ ] Weitere Module über das Script erstellen und testen
 - [x] Wöchentlichen Selfcheck automatisieren (Cronjob: `crontab -e` -> `0 7 * * 1 bash /pfad/zu/tools/weekly_selfcheck.sh`)
-- [ ] DEB- und AppImage-Paket bauen
+- [x] DEB- und AppImage-Paket bauen
 - [ ] Datei-Übersicht per Skript pflegen
 - [x] ZIP-Backup-Modul entwickeln (Panel07)
 - [ ] Undo-/Redo-Funktion einbauen (Panel08)
@@ -218,6 +218,7 @@
 - [x] Weiterfuehrende Laienvorschlaege ergaenzt
 - [x] Weitere Laienvorschläge (Fortsetzung) ergänzt
 - [x] Weitere Laienvorschläge (Zusatz 3) ergänzt
+- [x] Weitere Laienvorschläge (Zusatz 4) ergänzt
 - [x] Hinweis auf todo.txt-Synchronisation aufgenommen
 - [ ] Offene Punkte aus AGENTS-RELEASE-CHECK.md bearbeiten
 - [x] Release-Checkliste in LAIENHILFE ergänzt
@@ -275,3 +276,33 @@
 - [ ] Ablenkungsfreier Modus per F11 (Menüs ausblenden)
 - [ ] Kontext-Hilfe per F1 für jedes Eingabefeld
 - [ ] Farbige Statuszeile für Speichern- und Fehlermeldungen
+- [ ] Offline-Hilfeseite als PDF zum Herunterladen
+- [ ] Tastenkombinationen im UI einblenden (Shortcut-Hilfe)
+- [ ] Zurück-Button nach Modul-Maximierung einbauen
+
+# Weitere Laienvorschläge (Zusatz 5)
+- [ ] Live-Schnellsuche in der Sidebar
+- [ ] Balkendiagramm über meistgenutzte Module
+- [ ] Kurze Hilfetexte direkt neben Modulen
+- [ ] Papierkorb- und Backup-Shortcuts anzeigen
+- [ ] Ausklappbare Loganzeige im Fußbereich
+- [ ] Theme per Klick wechseln
+- [ ] Tooltip-Texte an allen Buttons
+- [ ] Große Aktionsflächen für Touch
+
+# Weitere Laienvorschläge (Zusatz 6)
+- [ ] Offline-Hilfeseite als PDF erzeugen
+- [ ] Shortcut-Übersicht per F10 anzeigen
+- [ ] Zurück-Button nach Modul-Maximierung
+- [ ] Fehlerprotokoll live im Footer darstellen
+# Weitere Laienvorschläge (Zusatz 7)
+- [ ] Grundordner gui/core/assets/backups erstellen
+- [ ] Modultemplate als Klasse speichern
+- [ ] Einfaches Dashboard-Skript anlegen
+- [ ] README mit neuer Struktur aktualisieren
+
+# Weitere Laienvorschläge (Zusatz 8)
+- [ ] Module automatisch aus modules.json laden
+- [ ] module_loader.js in eigenen Projekten nutzen
+- [ ] show_usage.js im README dokumentieren
+
