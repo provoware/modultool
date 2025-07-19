@@ -205,3 +205,4 @@
 - [x] Abschnitt "Updates und Versionen" in LAIENHILFE ergänzt
 - [x] README mit Hinweisen auf npm start und npm run sync
 - [x] Modulversionen mit npm run sync aktualisiert
+- [ ] Offene Punkte aus AGENTS-RELEASE-CHECK.md bearbeiten
