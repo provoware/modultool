@@ -167,6 +167,26 @@ ls logs
 
 Dort findest du zuk\u00fcnftig Protokolle (Logs), die dir Hinweise auf Fehler geben k\u00f6nnen.
 
+## Logs dauerhaft speichern
+
+- **Logdaten einsehen (localStorage = Browser-Speicher)**
+  ```js
+  JSON.parse(localStorage.getItem('logArchiv_vGRIDSB') || '[]')
+  ```
+  *(Zeigt eine Liste aller gespeicherten Einträge.)*
+
+- **Alle Logdaten löschen**
+  ```js
+  localStorage.removeItem('logArchiv_vGRIDSB')
+  ```
+  *(Leert den gespeicherten Verlauf.)*
+
+- **Log manuell speichern**
+  ```js
+  localStorage.setItem('logArchiv_vGRIDSB', JSON.stringify([{time:'12:00', msg:'Beispiel'}]))
+  ```
+  *(Schreibt eigenen Inhalt in den Logspeicher.)*
+
 
 ## Hilfreiche Zusatzbefehle
 

@@ -554,6 +554,7 @@ window.onload = function() {
     genres = []; dashboardData = []; tmplArchiv = [];
     logErr('Fehler beim Laden aus localStorage: '+e);
   }
+  loadLogs();
   renderList();
   renderDashboard();
   renderDashLog();
@@ -568,6 +569,7 @@ const LOCAL_KEY = 'genreArchiv_vGRIDSB';
 const DASHBOARD_KEY = 'genreDashboard_vGRIDSB';
 const TMPL_KEY = 'tmplArchiv_vGRIDSB';
 const NOTES_KEY = 'notes_vGRIDSB';
+const LOG_KEY = 'logArchiv_vGRIDSB';
 let genres = [];
 let dashboardData = [];
 let tmplArchiv = [];
@@ -578,6 +580,14 @@ let searchTerm = '';
 let searchTimer;
 /* Logging und Selfcheck */
 let logArr = [];
+function loadLogs(){
+  try{
+    const d=localStorage.getItem(LOG_KEY);
+    logArr=d?JSON.parse(d):[];
+  }catch(e){
+    logArr=[];
+  }
+}
 function addDashboardEntry(text) {
   dashboardData.unshift({ value: text, time: new Date().toLocaleString() });
   dashboardData = dashboardData.slice(0,10);
@@ -587,6 +597,7 @@ function addDashboardEntry(text) {
 function addLog(msg, type='info') {
   logArr.unshift({time:new Date().toLocaleTimeString(), type, msg});
   if(logArr.length>64) logArr.pop();
+  localStorage.setItem(LOG_KEY, JSON.stringify(logArr));
   renderLog();
   renderDashLog();
 }
@@ -600,13 +611,19 @@ function renderDashLog(){
   const out = document.getElementById('dashLog');
   if(out) out.innerHTML = logArr.slice(0,10).map(e=>`<li><span class="dashboard-timestamp">${e.time}</span> ${e.msg}</li>`).join('');
 }
-function clearLog(){ logArr=[]; renderLog(); renderDashLog(); }
+function clearLog(){
+  logArr=[];
+  localStorage.removeItem(LOG_KEY);
+  renderLog();
+  renderDashLog();
+}
 function selfcheckResult() {
   let ok = true, res = [];
   try {
     if(!Array.isArray(genres)) {ok=false; res.push('Genre-Archiv beschädigt');}
     if(!Array.isArray(dashboardData)) {ok=false; res.push('Dashboard beschädigt');}
     if(!Array.isArray(tmplArchiv)) {ok=false; res.push('Templates beschädigt');}
+    if(!Array.isArray(logArr)) {ok=false; res.push('Logs beschädigt');}
     if(document.querySelectorAll('.mod-panel').length!==11) {ok=false; res.push('Panel-Anzahl inkonsistent');}
   } catch(e){ok=false;res.push('Selfcheck-Fehler: '+e);}
   return ok?'<span style="color:#7bd375;">OK</span>':('<span style="color:#eb8a7a;">'+res.join('; ')+'</span>');
