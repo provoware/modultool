@@ -6,7 +6,8 @@
 - [x] ZIP-Backup-Modul fertigstellen
 - [x] Undo/Redo-Funktion implementieren
 - [x] Filter- und Favoriten-Funktion ergänzen
-- [ ] Scrollsync und Projektordner verwalten
+- [x] Scrollsync zuschaltbar
+- [ ] Projektordner verwalten
 - [x] Wöchentlichen Selfcheck automatisieren (Cronjob)
 - [ ] Release vorbereiten: Selfcheck, README prüfen, Release-Tag erstellen
 - [ ] DEB- und AppImage-Paket bauen
@@ -74,8 +75,9 @@
 - [ ] Undo-/Redo-Funktion einbauen (Panel08)
 - [ ] Undo/Redo-Funktion einbauen
 - [x] ZIP-Backup vorbereiten
-- [ ] Filter/Favoriten integrieren
-- [ ] Scrollsync und Projektordner verwalten
+ - [ ] Filter/Favoriten integrieren
+ - [x] Scrollsync zuschaltbar
+ - [ ] Projektordner verwalten
 - [ ] Modul-Übersicht per Skript in module_übersicht.txt aktualisieren
 - [ ] Release vorbereiten: Selfcheck, README final prüfen, Release-Tag erstellen
 - [ ] Autoupdate-Skripte entfernt, Infos manuell pflegen
@@ -98,7 +100,7 @@
 - [ ] Fehler-Tipps direkt im Tool anzeigen (Tooltip = kurzer Hinweis).
 - [ ] Fehler-Logdatei automatisch pflegen (logs/error.log).
 - [ ] Fehlerhinweise in error_informationen.txt ergänzen
-- [ ] Release-Endspurt: Offene Punkte laut README (Undo/Redo, ZIP-Backup, Filter/Favoriten, Scrollsync/Projektordner)
+ - [ ] Release-Endspurt: Offene Punkte laut README (Undo/Redo, ZIP-Backup, Filter/Favoriten, Projektordner)
 - [ ] Vor dem Release bash tools/selfcheck.sh ausfuehren und Releasenotizen im README ergaenzen
 - [ ] Einfache Archiv-Buttons einrichten
 - [x] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`

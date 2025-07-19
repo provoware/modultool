@@ -12,7 +12,8 @@ Diese Liste sammelt offene Aufgaben für den finalen Release. Pro Iteration soll
 - [x] ZIP-Backup-Modul fertigstellen
 - [x] Undo/Redo-Funktion implementieren
 - [x] Filter- und Favoriten-Funktion ergänzen
-- [ ] Scrollsync und Projektordner-Steuerung
+- [x] Scrollsync zuschaltbar
+- [ ] Projektordner-Steuerung
 - [x] Wöchentlichen Selfcheck per Cronjob ausführen
 - [x] Release vorbereiten (Selfcheck, README prüfen, Tag setzen)
 - [ ] DEB- und AppImage-Pakete bauen

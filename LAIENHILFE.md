@@ -533,7 +533,7 @@ sudo npm install -g htmlhint
 
 ## Offene Punkte bis zum Release
 
-- Scrollsync und Projektordner auswählen
+- Projektordner auswählen
 ## Fehlende Module
 
 Keine
@@ -556,9 +556,12 @@ Keine
    Änderungen speichern (**Strg+O**) und schließen (**Strg+X**). Danach:
    ```bash
   # Platzhalter manuell aktualisieren
-  cp todo.txt platzhalter.txt
+ cp todo.txt platzhalter.txt
   ```
 Dadurch bleibt `platzhalter.txt` aktuell.
+4. Scrollsync nutzen:
+   Klicke rechts auf **Scrollsync: an/aus**. Damit
+   rollen alle Panels gleichzeitig.
 
 ## Kalender-Module nutzen
 
@@ -1067,7 +1070,8 @@ Folgende Aufgaben sind noch offen:
 - [x] ZIP-Backup-Modul fertigstellen
 - [x] Undo/Redo-Funktion
 - [x] Filter und Favoriten
-- [ ] Scrollsync und Projektordner
+- [x] Scrollsync zuschaltbar
+- [ ] Projektordner verwalten
 - [ ] Vor dem Release `bash tools/selfcheck.sh` ausführen
 - [ ] Mit `git tag -a v1.0 -m "Release 1.0"` markieren und `git push --tags`
 - [ ] Pakete bauen mit `bash tools/build_packages.sh`

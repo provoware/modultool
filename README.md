@@ -53,6 +53,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 - Drag & Drop für Medien, Module, Templates
 - Undo-/Redo-System, ZIP-Export, Selfcheck (Fehlerprüfung via `bash tools/selfcheck.sh`)
 - Filter für Module und Favoritenliste im Menü
+- Scrollsync zwischen den Panels (gemeinsame Scroll-Position)
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel
 - Gut sichtbarer Tastaturfokus zur einfachen Navigation
 - Projektordner-Management + Fehlerkorrektur
@@ -95,7 +96,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 
 ## 🗒 Offene Punkte für das Release
 
-- Scrollsync und Projektordner-Verwaltung
+- Projektordner-Verwaltung
 
 ## 🔀 Branches zusammenführen
 Einfache Anleitung findest du in **LAIENHILFE.md** unter dem Abschnitt "Branches zusammenführen".
@@ -125,6 +126,7 @@ Voraussetzung sind die Programme `dpkg-deb` und `appimagetool`. Falls sie fehlen
 4. `npm start`  # startet das Tool
 5. Browser öffnet sich automatisch. Ein Willkommensfenster erscheint und schließt sich nach 20 Sekunden. Mit **Esc** oder dem kleinen **X** oben rechts kannst du es sofort schließen.
 6. Im Modul "Genre-Liste" findest du nun **Undo** und **Redo**. Damit machst du Eingaben rückgängig oder stellst sie wieder her.
+7. Rechts in der Leiste kannst du **Scrollsync** ein- oder ausschalten. Dann scrollen alle Panels gemeinsam.
 
 ## 🌐 Lokaler Testserver
 Um die HTML-Dateien bequem auszuprobieren, kannst du einen kleinen Webserver starten.
