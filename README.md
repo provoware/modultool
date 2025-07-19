@@ -110,6 +110,7 @@ Führe das Skript aus, um eine Vorlage zu kopieren:
 node tools/create_module.js panel10 "Mein Modul"
 ```
 Das Skript ergänzt **modules.json** (Modul-Liste) automatisch, sofern die Datei gültiges JSON enthält.
+Seit Version 1.0 wird dabei auch `plugins/panel10/plugin.json` erzeugt. Diese Datei enthält ID, Name und Version des Moduls.
 ## 📦 Pakete erstellen (.deb & AppImage)
 
 Mit dem Skript `tools/build_packages.sh` kannst du ein Debian-Paket (.deb) und ein AppImage erzeugen.

@@ -1,5 +1,5 @@
 # Liste mit offenen Aufgaben
-- [ ] plugin.json pro Pluginverzeichnis anlegen
+- [x] plugin.json pro Pluginverzeichnis anlegen
 - [x] lib/update_manager.js erstellen
 - [ ] Unit- und Integrationstests einrichten
 - [ ] GitHub Actions für Linting und Testing hinzufügen
@@ -77,7 +77,7 @@
 - [ ] Modul-Übersicht per Skript in module_übersicht.txt aktualisieren
 - [ ] Release vorbereiten: Selfcheck, README final prüfen, Release-Tag erstellen
 - [ ] Autoupdate-Skripte entfernt, Infos manuell pflegen
-- [ ] plugin.json pro Pluginverzeichnis anlegen (Manifest mit Name und Version)
+- [x] plugin.json pro Pluginverzeichnis anlegen (Manifest mit Name und Version)
 - [x] zentrale Update-Bibliothek in lib/ erstellen (update_manager.js)
 - [ ] Unit- und Integrationstests einrichten
 - [ ] GitHub Actions für Linting und Testing hinzufügen

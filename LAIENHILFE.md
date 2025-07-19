@@ -766,6 +766,12 @@ nano plugins/mein_plugin/plugin.json
 ```
 In dieser Datei tr\u00e4gst du Name und Version ein. `JSON` ist ein einfaches Textformat.
 
+Seit Version 1.0 legt das Skript `create_module.js` diese Datei automatisch an:
+```bash
+node tools/create_module.js modulID "Mein Modul"
+```
+Danach liegt `plugins/modulID/plugin.json` mit allen Angaben (ID, Name, Version) bereit.
+
 ### 4. Gemeinsame Bibliothek nutzen
 Lege den Ordner `lib/` an und erstelle dort eine Datei f\u00fcr die Update-Logik:
 ```bash
