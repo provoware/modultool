@@ -54,6 +54,18 @@ check_cmd() {
   fi
 }
 
+# Node-Pakete installieren, wenn node_modules fehlt
+check_node_modules() {
+  if [ ! -d node_modules ]; then
+    echo "📦 Installiere Node-Pakete..."
+    if command -v npm >/dev/null 2>&1; then
+      npm install
+    else
+      echo "⚠️ npm nicht gefunden. Bitte manuell installieren."
+    fi
+  fi
+}
+
 ensure_free_port() {
   check_cmd lsof
   while lsof -i ":$PORT" >/dev/null 2>&1; do
@@ -76,6 +88,7 @@ start_server() {
 }
 
 check_cmd python3
+check_node_modules
 echo "🌐 Starte lokalen Server ..."
 if ! start_server; then
   echo "Versuche erneuten Start..."

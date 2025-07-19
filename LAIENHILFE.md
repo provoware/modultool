@@ -68,8 +68,9 @@ Beim Laden erscheint ein kurzes Willkommensfenster. Es schließt sich nach 20 Se
 ### Wenn der Start hakt
 1. Rufe `bash tools/start_tool.sh` erneut auf.
 2. Das Skript erkennt fehlende Programme wie `python3` und versucht sie bei Bedarf zu installieren (`sudo apt-get install python3`).
-3. Bei Problemen hilft ein Blick in `/tmp/modultool_server.log` (Textdatei mit Fehlermeldungen).
-4. Oder starte den Selfcheck:
+3. Fehlen Node-Pakete, lädt das Skript sie automatisch mit `npm install` nach.
+4. Bei Problemen hilft ein Blick in `/tmp/modultool_server.log` (Textdatei mit Fehlermeldungen).
+5. Oder starte den Selfcheck:
    ```bash
    bash tools/selfcheck.sh
    ```
