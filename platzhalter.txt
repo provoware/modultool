@@ -32,7 +32,7 @@
 - [x] Platzhalter-Datei automatisch mit todo.txt aktualisieren
 - [x] Dokumentation aktualisieren (README, AGENTS)
 - [ ] Fehlende Dateien und Ordner mit Platzhaltern anlegen
-- [ ] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
+- [x] Erinnerung an ungespeicherte Änderungen beim Beenden integrieren
 - [ ] Persönlichen Startbildschirm mit Favoriten-Modulen erstellen
 - [ ] Automatische Validierung jedes Moduls vor Aktivierung
 - [ ] Farbkontrast-Optimierung nach WCAG umsetzen

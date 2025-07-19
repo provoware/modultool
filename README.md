@@ -57,10 +57,10 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 - Neues Modul per Skript erstellen (`node tools/create_module.js modulID "Titel"`)
 - Automatisches Update via `bash tools/autoupdate.sh`
 - Zentrales Konfigurationsschema (`config_schema.json`)
+- Warnung vor ungespeicherten Änderungen beim Verlassen
 
 
 ### Geplante Erweiterungen
-- Erinnerung an ungespeicherte Änderungen
 - Favoriten-Startbildschirm
 - Auto-Backup und Undo-Verlauf
 - Modul-Prüfung vor Aktivierung
