@@ -1831,6 +1831,87 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   ```
   *(Lädt aktuelle Versionen aller Abhängigkeiten.)*
 
+
+## Weiterführende Laienvorschläge zum Panel-System
+
+- **Flexibles Hauptfenster mit QSplitter (geteilte Ansicht)**
+  ```bash
+  pip install PyQt5
+  ```
+  *("pip" ist der Paketmanager für Python. "PyQt5" stellt Bausteine für grafische
+  Oberflächen bereit.)*
+  Beispielcode zum Start:
+  ```python
+  from PyQt5.QtWidgets import QSplitter, QWidget
+  splitter = QSplitter()
+  left = QWidget()
+  right = QWidget()
+  splitter.addWidget(left)
+  splitter.addWidget(right)
+  ```
+  *(QSplitter teilt den Bereich und lässt ihn per Maus verschieben.)*
+
+- **Raster anlegen mit QGridLayout (Raster-Layout)**
+  ```python
+  from PyQt5.QtWidgets import QGridLayout
+  grid = QGridLayout()
+  grid.addWidget(myPanel, 0, 0)
+  grid.addWidget(otherPanel, 0, 1)
+  parent.setLayout(grid)
+  ```
+  *(Ordnet Elemente zeilen- und spaltenweise an.)*
+
+- **Zentrale Seitenleiste und Panel-Verwaltung**
+  ```python
+  from PyQt5.QtWidgets import QListWidget
+  sidebar = QListWidget()
+  sidebar.currentRowChanged.connect(show_panel)
+  ```
+  *(Die Liste wählt das gewünschte Panel an.)*
+
+- **Alle Buttons mit Tooltip (Kurzinfo)**
+  ```python
+  from PyQt5.QtWidgets import QPushButton
+  btn = QPushButton("Speichern")
+  btn.setToolTip("Änderungen sichern")
+  ```
+  *(Tooltip = kurzer Hinweis beim Überfahren mit der Maus.)*
+
+- **Globale Fehlerbehandlung**
+  ```python
+  from PyQt5.QtWidgets import QMessageBox
+  try:
+      speichern()
+  except Exception as e:
+      QMessageBox.warning(window, "Fehler", str(e))
+  ```
+  *(Fehler abfangen und dem Nutzer in einem Fenster zeigen.)*
+
+- **Undo/Redo und Papierkorb**
+  ```python
+  from PyQt5.QtWidgets import QUndoStack
+  undo_stack = QUndoStack()
+  undo_stack.undo()
+  undo_stack.redo()
+  ```
+  *(QUndoStack merkt sich Schritte zum Zurücknehmen und Wiederholen.)*
+  ```bash
+  zip -r backup.zip .
+  ```
+  *(Sichert alle Dateien in einer ZIP-Datei.)*
+
+- **Geführtes Onboarding und Hilfe-Fenster**
+  ```python
+  helpBtn.clicked.connect(show_help)
+  ```
+  *(Ein Klick öffnet ein Fenster mit einfachen Erklärungen.)*
+
+- **Laienfreundliche Hinweise beim Speichern oder Löschen**
+  Zeige klare Meldungen wie "Text gespeichert" oder "Eintrag im Papierkorb".
+  ```python
+  statusLabel.setText("Text gespeichert")
+  ```
+  *(Kurze Rückmeldung hilft beim Verständnis.)*
 ## Weitere Laienvorschläge (Zusatz 3)
 
 - **Veraltete Pakete aufspüren (outdated = veraltet)**
