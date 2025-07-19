@@ -36,11 +36,16 @@ const output=document.getElementById('random-output');
 const log=document.getElementById('log');
 const statusEl=document.getElementById('status');
 const STORAGE_KEY='genres';
+function hasTooLong(arr){
+  return arr.some(g=>g.length>24);
+}
 function getList(){
   return input.value.split(',').map(s=>s.trim()).filter(Boolean);
 }
 function saveList(){
-  const list=[...new Set(getList())].sort((a,b)=>a.localeCompare(b));
+  const raw=getList();
+  if(hasTooLong(raw)){showStatus(statusEl,'Max 24 Zeichen pro Genre');return [];} 
+  const list=[...new Set(raw)].sort((a,b)=>a.localeCompare(b));
   try{
     localStorage.setItem(STORAGE_KEY,JSON.stringify(list));
     input.value=list.join(', ');
@@ -69,6 +74,7 @@ saveBtn.addEventListener('click',()=>{
 });
 randomBtn.addEventListener('click',()=>{
   const list=getList();
+  if(hasTooLong(list)){showStatus(statusEl,'Max 24 Zeichen pro Genre');return;}
   if(list.length===0){showStatus(statusEl,'Liste ist leer');return;}
   const choice=list[Math.floor(Math.random()*list.length)];
   output.textContent=choice;

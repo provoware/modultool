@@ -213,3 +213,56 @@
 - [ ] Vor dem Release bash tools/selfcheck.sh ausfuehren und Releasenotizen im README ergaenzen
 - [x] panel01 bereinigt (doppelte Elemente entfernt)
 - [x] Startskript um Selbstheilung & Exitstatus-Prüfung erweitert
+- [x] Doppelte Variablen wie "let genres" entfernen
+- [ ] Einfache Archiv-Buttons einrichten
+- [x] fehlenden Button "importInsertBtn" ergänzen
+- [x] Theme umschalten ohne "null"-Attribut
+- [x] Fokus nur auf sichtbare Panels zulassen
+- [ ] Logging vereinheitlichen
+- [ ] DOMPurify einsetzen, um HTML zu s\u00e4ubern (Sanitizing = gef\u00e4hrliche Inhalte entfernen). Befehl: `npm install dompurify`
+- [ ] Code-Formatierung mit Prettier (Formatierer = ordnet Einr\u00fcckungen und Leerzeichen). Befehl: `npx prettier --write .`
+- [ ] JavaScript-Code pr\u00fcfen mit ESLint (Linting = Fehler- und Stilpr\u00fcfung). Befehl: `npx eslint .`
+- [x] Import-Dateien checken: nur JSON und unter 1 MB (Security = Schutz vor großen oder fremden Dateien). Beispiel im Code: `if(file.size>1000000||!file.name.endsWith('.json')) return alert('Datei zu groß oder kein JSON');`
+- [ ] Versionsnummer in localStorage speichern (Versionierung = Daten einfach aktualisieren). Befehl: `localStorage.setItem('DATA_VERSION','1')`
+- [ ] Suche entprellen (Debounce = kurze Wartezeit vor dem Suchlauf). Befehl: `npm install lodash.debounce`
+- [ ] Dynamische Elemente mit eindeutigen IDs versehen (ID = unverwechselbare Kennung). Beispiel: `elem.id='panel-'+index`
+- [ ] Service Worker einrichten für Offline-Betrieb (PWA = Webapp zum Installieren). Befehl: `npx workbox-cli wizard`
+
+- [ ] Redundante Arrays wie "genres" und "dashboardData" in einem einzigen Objekt `state` sammeln. Befehl: `grep -n "genres" -r`
+- [x] Genre-Eingaben strikt auf 24 Zeichen begrenzen. Beispiel: `if(input.value.length > 24) return alert("Max 24 Zeichen");`
+- [ ] Gewichtete Zufallsauswahl vor dem Anzeigen laden. Befehl: `window.addEventListener("DOMContentLoaded", initWeights);`
+- [ ] fetch("modules.json") mit Fehlermeldung absichern. Beispiel:
+  ```js
+  fetch("modules.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); });
+  ```
+- [ ] Logeinträge im localStorage speichern (Ringpuffer = nur die letzten 50). Befehl: `localStorage.setItem("logs", JSON.stringify(logs.slice(-50)))`
+- [ ] Selfcheck-Fehler direkt mit Lösung verlinken. Befehl: `node tools/map_errors.js`
+- [ ] Listen per DocumentFragment erneuern (schnelleres Rendering). Befehl:
+  ```js
+  const frag=document.createDocumentFragment();
+  items.forEach(i=>frag.appendChild(i));
+  list.replaceChildren(frag);
+  ```
+- [ ] Skripte aus index-MODULTOOL.html in `app.js` auslagern und mit `<script type="module" defer src="app.js"></script>` einbinden
+- [ ] Zentrale Einstellungen in `config.js` speichern (z.B. Limits, Theme-Liste). Befehl: `nano config.js`
+- [ ] Eine `manifest.json` für die PWA anlegen. Befehl: `npx workbox-cli generateSW`
+- [ ] Einheitlichen Funktionsstil nutzen (Pfeilfunktion = ()=>{} oder function). Automatisch anpassen: `npx eslint . --fix`
+- [ ] Farbwerte vereinheitlichen und Design-Token nutzen. Datei öffnen mit `nano modules/common.css`
+- [ ] Panel-Kopfzeilen einheitlich benennen. Fundstellen anzeigen mit `grep -n head modules/*.html`
+- [ ] Logging zusammenführen (debugLogArr und dashLogArr). Fundstellen suchen: `grep -n dashLogArr -r`
+- [ ] role="region" immer mit aria-labelledby verknüpfen. Beispiel: `<div role="region" aria-labelledby="panel1-head">`
+- [ ] Verschachtelte Buttons vermeiden. Kontrollieren: `grep -n "<button" -r modules`
+- [ ] Kontrast im hellen Theme optimieren. Farbe in `modules/common.css` anpassen (`nano modules/common.css`)
+- [ ] Fokus-Ring-Farbe an Rahmen angleichen. Variable `--focus-ring` in `modules/common.css` definieren
+
+- [ ] Node-Version anzeigen. Befehl: `node --version` (Node.js = JavaScript-Laufzeitumgebung).
+- [ ] Pakete automatisch auf Sicherheitslücken prüfen. Befehl: `npm audit fix` (Security-Check = bekannte Schwachstellen schließen).
+- [ ] CSS mit Stylelint prüfen. Befehl: `npx stylelint "**/*.css"` (Stylelint = CSS-Stilprüfer).
+- [ ] Bilder verkleinern mit Imagemin. Befehl: `npx imagemin src/img/* --out-dir=dist/img` (Bildkomprimierung = kleinere Dateigröße).
+- [ ] Git-Tag für Release setzen. Befehl: `git tag -a v1.0 -m 'Version 1.0' && git push --tags` (Tag = Versionsmarkierung im Repository).
+- [ ] Pakete auf Aktualität prüfen. Befehl: `npm outdated` (outdated = veraltete Pakete anzeigen).
+- [ ] Alle Pakete aktualisieren. Befehl: `npm update` (update = auf den neuesten Stand bringen).
+- [ ] CSS automatisch mit Autoprefixer erweitern. Befehl: `npx postcss modules/*.css --use autoprefixer -d modules` (Autoprefixer = Browser-Präfixe ergänzen).
+- [ ] Web-App mit Lighthouse testen. Befehl: `npx lighthouse http://localhost:8000/index-MODULTOOL.html` (Lighthouse = Analyse für Performance und Barrierefreiheit).
+- [ ] Lokalen Server ohne Python starten. Befehl: `npx http-server` (http-server = einfacher Entwicklungsserver).
+- [x] Grid automatisch anpassen (auto-fit = Module passen sich der Fensterbreite an). CSS-Beispiel: `grid-template-columns: repeat(auto-fit, minmax(280px,1fr));`
