@@ -1992,3 +1992,47 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   Oben erscheint eine farbige Zeile nach dem Speichern oder bei Fehlern.
   Grün bedeutet Erfolg, Rot zeigt ein Problem an.
 
+## Weitere Laienvorschläge (Zusatz 5)
+
+- **Live-Suche für Module**  
+  Gib im Suchfeld links ein Wort ein. Die Liste passt sich direkt an.
+
+- **Modulstatistik anzeigen (Balkendiagramm)**  
+  ```bash
+  node tools/show_usage.js
+  ```
+  *(Dieses Skript erstellt ein kleines Balkendiagramm über die meistgenutzten Module.)*
+
+- **Kurze Hilfe direkt am Modul (Overlay = eingeblendetes Fenster)**  
+  ```js
+  showHint('So löst du das Problem...');
+  ```
+  *(Zeigt einen Hinweis genau dort, wo du gerade arbeitest.)*
+
+- **Papierkorb- und Backup-Ordner schnell öffnen**  
+  ```bash
+  xdg-open trash/    # Papierkorb
+  xdg-open backups/  # Sicherungen
+  ```
+  *(Ein Klick startet den Dateimanager im richtigen Ordner.)*
+
+- **Protokoll unten einblenden (Log = Aufzeichnung)**  
+  ```bash
+  tail -f logs/app.log
+  ```
+  *(Du siehst sofort, was zuletzt passiert ist. Beende mit Strg+C.)*
+
+- **Theme wechseln (Kontrast = Farbunterschied)**  
+  ```bash
+  F2
+  ```
+  *(Mit F2 schaltest du zwischen hell und dunkel um.)*
+
+- **Tooltips an jedem Button**  
+  ```html
+  <button title="Speichern">💾</button>
+  ```
+  *(Der Text im `title` erscheint beim Überfahren mit der Maus.)*
+
+- **Große Aktionsflächen**  
+  Knöpfe und Eingabefelder mindestens 40 px hoch und breit machen. So triffst du sie auch mit dem Finger.

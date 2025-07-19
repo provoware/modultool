@@ -279,3 +279,13 @@
 - [ ] Offline-Hilfeseite als PDF zum Herunterladen
 - [ ] Tastenkombinationen im UI einblenden (Shortcut-Hilfe)
 - [ ] Zurück-Button nach Modul-Maximierung einbauen
+
+# Weitere Laienvorschläge (Zusatz 5)
+- [ ] Live-Schnellsuche in der Sidebar
+- [ ] Balkendiagramm über meistgenutzte Module
+- [ ] Kurze Hilfetexte direkt neben Modulen
+- [ ] Papierkorb- und Backup-Shortcuts anzeigen
+- [ ] Ausklappbare Loganzeige im Fußbereich
+- [ ] Theme per Klick wechseln
+- [ ] Tooltip-Texte an allen Buttons
+- [ ] Große Aktionsflächen für Touch
