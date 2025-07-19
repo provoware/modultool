@@ -188,3 +188,9 @@
 - [ ] Textdateien bereinigen (Whitespace & Newline)
 - [ ] Code-Stil prüfen (Linting = automatischer Stilcheck). Befehl: `npm run lint`
 - [ ] Eingaben prüfen (Validation = Datenkontrolle). Befehl: `node validation.js`
+
+- [ ] Kontrastwerte nach WCAG pruefen (Kontrast = Unterschied zwischen Vorder- und Hintergrund). Befehl: `npx lighthouse http://localhost:8000/index-MODULTOOL.html`
+- [ ] Einheitliche Schriftgroesse per CSS-Variable `--base-font` in index-MODULTOOL.html setzen (base-font = Grundschrift).
+- [ ] Buttons und Links mit `aria-label` ergaenzen (ARIA = zusaetzliche Bildschirmleser-Beschreibung).
+- [ ] Grid-Layout mit `grid-template-columns: repeat(auto-fit, minmax(320px,1fr))` in modules/common.css erweitern (Grid = Raster zur Anordnung).
+- [ ] Theme-Farben zentral in modules/common.css definieren (Theme = Farbpalette).
