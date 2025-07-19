@@ -878,9 +878,18 @@ Mit der Zeit sammeln sich leere Dateien oder doppelte Einträge an. So bringst d
   Strg+0          # Normalgröße
   ```
   *(Im Fokus-Modus füllt ein gewähltes Panel den ganzen Bildschirm.)*
+  
+- **Seitenleisten ein- und ausblenden**
+  Links bleibt die Modul-Liste immer sichtbar. Rechts kannst du das Menü mit dem ⚙-Knopf umschalten. So bleibt der Platz optimal genutzt.
 
 
 ## Todo-Liste immer aktualisieren
+Nach jeder Änderung solltest du die Aufgabenliste kurz öffnen und dann die Listen angleichen.
+```bash
+nano todo.txt    # Einträge anpassen
+bash tools/sync_todo.sh
+```
+*(`sync_todo.sh` kopiert die Liste in die Dateien `data/todo.txt` und `platzhalter.txt`.)*
 
 ## Nutzerfreundlichkeit weiter verbessern
 
