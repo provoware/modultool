@@ -52,6 +52,7 @@ Der Selfcheck (`bash tools/selfcheck.sh`) fungiert als einfacher HTML-Fehler-Che
 
 - Drag & Drop für Medien, Module, Templates
 - Undo-/Redo-System, ZIP-Export, Selfcheck (Fehlerprüfung via `bash tools/selfcheck.sh`)
+- Barrierefreiheits-Report mit `bash tools/a11y_report.sh`
 - Filter für Module und Favoritenliste im Menü
 - Scrollsync zwischen den Panels (gemeinsame Scroll-Position)
 - Live-Vorschau, große Bedienelemente, Einstellungs-Panel

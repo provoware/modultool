@@ -1831,3 +1831,12 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   ```
   *(Lädt aktuelle Versionen aller Abhängigkeiten.)*
 
+
+## Neuer Barrierefreiheits-Report
+
+- **Automatische Zugänglichkeitsprüfung (Accessibility = Barrierefreiheit)**
+  ```bash
+  bash tools/a11y_report.sh
+  ```
+  *(Prüft alle Module mit dem Programm "axe-core" und erstellt einen Bericht im Ordner `logs/a11y`.)*
+

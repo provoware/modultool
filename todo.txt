@@ -60,6 +60,7 @@
 - MIT-Lizenz hinzugefuegt (LICENSE-Datei, Verweis in README)
 - AGENTS.md Codeblock geschlossen (triple backticks).
 - [ ] Templates-Modul (Panel02) erstellen
+- [x] Modul-Template vereinheitlichen (gemeinsames API und Fehleranzeige)
 - [ ] Undo/Redo-System einbauen
 - [x] ZIP-Backup-Funktion ergänzen
 
@@ -87,7 +88,9 @@
 - [x] Unit- und Integrationstests einrichten
 - [x] GitHub Actions für Linting und Testing hinzufügen
 - [ ] Schritt-für-Schritt-Assistenten für Modul-Erstellung planen
-- [ ] Barrierefreiheit automatisch prüfen (axe-core)
+- [x] Barrierefreiheit automatisch prüfen (axe-core)
+- [x] Barrierefreiheits-Report-Tool (a11y_report.sh) erstellen
+- [ ] Barrierefreiheits-Report regelmäßig per Cronjob ausführen
 
 - [ ] Unnötige Platzhalter-Dateien entfernen
 - [x] GitHub-Workflow test.yml für automatische Prüfungen
