@@ -2109,3 +2109,44 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   node tools/show_usage.js
   ```
   *(Zeigt ein Balkendiagramm der verwendeten Module.)*
+
+## Weitere Laienvorschläge (Zusatz 9)
+
+- **Fehlerprotokoll anzeigen (error.log = Fehlerliste)**
+  ```bash
+  less logs/error.log
+  ```
+  *(Zeigt die letzte Fehlermeldung Zeile für Zeile.)*
+
+- **Modul deaktivieren (module_toggle = Modulumschaltung)**
+  ```bash
+  node tools/module_toggle.js modulname off
+  ```
+  *(Schaltet ein Modul aus, ohne es zu löschen.)*
+
+- **Backup anlegen (backup_script = Sicherungsskript)**
+  ```bash
+  bash tools/create_backup.sh
+  ```
+  *(Speichert alle wichtigen Dateien im Ordner `backups/`.)*
+
+## Weitere Laienvorschl\u00e4ge (Zusatz 10)
+
+- **Sicherheitspr\u00fcfung starten (security_check = Paketkontrolle)**
+  ```bash
+  bash tools/security_check.sh
+  ```
+  *(Pr\u00fcft die installierten Pakete auf bekannte L\u00fccken.)*
+
+- **TypeScript kompilieren (build = erstellen)**
+  ```bash
+  npm run build
+  ```
+  *(Wandelt .ts-Dateien in JavaScript um.)*
+
+- **Dokumentation lesen (less = Textbetrachter)**
+  ```bash
+  less DOKUMENTATION.md
+  ```
+  *(Zeigt die komplette Anleitung seitenweise an.)*
+
