@@ -2129,3 +2129,24 @@ Die Tipps erscheinen nur beim ersten Aufruf.
   bash tools/create_backup.sh
   ```
   *(Speichert alle wichtigen Dateien im Ordner `backups/`.)*
+
+## Weitere Laienvorschl\u00e4ge (Zusatz 10)
+
+- **Sicherheitspr\u00fcfung starten (security_check = Paketkontrolle)**
+  ```bash
+  bash tools/security_check.sh
+  ```
+  *(Pr\u00fcft die installierten Pakete auf bekannte L\u00fccken.)*
+
+- **TypeScript kompilieren (build = erstellen)**
+  ```bash
+  npm run build
+  ```
+  *(Wandelt .ts-Dateien in JavaScript um.)*
+
+- **Dokumentation lesen (less = Textbetrachter)**
+  ```bash
+  less DOKUMENTATION.md
+  ```
+  *(Zeigt die komplette Anleitung seitenweise an.)*
+

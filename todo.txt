@@ -311,3 +311,9 @@
 - [ ] Module gezielt deaktivieren
 - [ ] Backup-Skript ausführen
 
+
+# Weitere Laienvorschl\u00e4ge (Zusatz 10)
+- [ ] Sicherheitspr\u00fcfung ausf\u00fchren
+- [ ] TypeScript kompilieren
+- [ ] Dokumentation lesen
+
