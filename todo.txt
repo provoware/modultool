@@ -306,3 +306,8 @@
 - [ ] module_loader.js in eigenen Projekten nutzen
 - [ ] show_usage.js im README dokumentieren
 
+# Weitere Laienvorschläge (Zusatz 9)
+- [ ] Fehlerprotokoll anzeigen
+- [ ] Module gezielt deaktivieren
+- [ ] Backup-Skript ausführen
+
